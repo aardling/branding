@@ -17,8 +17,20 @@ Expert, plain, unhurried. Our readers are tech leaders in finance, logistics, go
 media and biotech. They are technically literate and they are busy, and much of what we write
 gets forwarded to someone who controls a budget. Write so that both can read it.
 
-**British spelling.** Modelling, organisation, analyse, recognise, prioritise, licence as a
-noun. Never modeling, never organizations.
+**British English.** Not just the spelling — modelling, organisation, analyse, recognise,
+prioritise, licence as a noun, never modeling and never organizations — but the vocabulary
+that goes with it.
+
+Proper nouns split two ways.
+
+**Places take their English name, where one exists.** Antwerp, not Antwerpen. Brussels, not
+Brussel or Bruxelles. The Hague, Cologne, Munich, Lisbon. Most places have no English name at
+all, and those are left exactly as they are: Hoorn, Lille, Tabakvest. The test is whether an
+English name is already in use — not whether one could be made up. Never invent one.
+
+**Companies and people keep their own spelling.** Never anglicised, never stripped of accents.
+Société Générale, not Societe Generale. Aardling is a Dutch word and stays one. A person's name
+is spelt the way they spell it.
 
 **Say what the work is.** We run workshops, model domains, review architectures, teach courses,
 and sit with teams for weeks. Every one of those is a concrete thing that happened on a date.
@@ -62,6 +74,15 @@ Active voice. Short sentences. A verb where a nominalisation tempts.
 > No: Comprehensive delivery of transformational value is provided across the engagement.
 >
 > Yes: We work with your team for three days and leave you with a model you can use.
+
+## Boilerplate
+
+One approved tagline. Use it verbatim, or do not use one:
+
+> Software strategy, architecture, and domain modelling in complex environments.
+
+It carries a serial comma. That is the approved wording and it is not corrected to house
+style, here or anywhere it is reproduced.
 
 ## Notes on the source
 
