@@ -26,7 +26,7 @@ Each brand directory:
 
 ```
 <brand>/
-├── package.json              @aardling/<brand>
+├── package.json              @aardling/brand-<brand>
 ├── README.md
 ├── tokens/
 │   ├── tokens.json           design tokens as data
@@ -71,25 +71,25 @@ the token in the environment or in CI secrets, never in the file.
 Then install as normal:
 
 ```sh
-npm install @aardling/dddeu
+npm install @aardling/brand-dddeu
 ```
 
 ```css
-@import "@aardling/dddeu/tokens/tokens.css";
-@import "@aardling/dddeu/assets/fonts/fonts.css";
+@import "@aardling/brand-dddeu/tokens/tokens.css";
+@import "@aardling/brand-dddeu/assets/fonts/fonts.css";
 ```
 
 ```js
-import tokens from "@aardling/dddeu/tokens/tokens.json" with { type: "json" };
+import tokens from "@aardling/brand-dddeu/tokens/tokens.json" with { type: "json" };
 ```
 
-Assets are plain files under `@aardling/dddeu/assets/…`.
+Assets are plain files under `@aardling/brand-dddeu/assets/…`.
 
 To give agents in the consuming project the brand skill, symlink or copy it into that
 project's skills directory:
 
 ```sh
-ln -s ../../node_modules/@aardling/dddeu/skills/dddeu-brand .claude/skills/dddeu-brand
+ln -s ../../node_modules/@aardling/brand-dddeu/skills/dddeu-brand .claude/skills/dddeu-brand
 ```
 
 ## Working in this repository
@@ -102,7 +102,7 @@ Publishing a brand needs a token with the `write:packages` scope in `GITHUB_TOKE
 repository `.npmrc` already points the scope at GitHub Packages.
 
 ```sh
-npm publish -w @aardling/dddeu
+npm publish -w @aardling/brand-dddeu
 ```
 
 Before adding or changing anything in a brand, read `CLAUDE.md` and use the

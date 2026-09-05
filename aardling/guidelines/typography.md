@@ -14,7 +14,7 @@ sparingly: typically one short title on a page, at 24px or larger.
 Both faces are in `assets/fonts/` as `woff2`, self-hosted. Import them:
 
 ```css
-@import "@aardling/aardling/assets/fonts/fonts.css";
+@import "@aardling/brand-aardling/assets/fonts/fonts.css";
 ```
 
 Never a `<link>` or `@import` to Google Fonts, Fontshare or any other third-party host.

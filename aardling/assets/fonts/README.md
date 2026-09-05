@@ -3,8 +3,8 @@
 Aardling's two faces, self-hosted. Import `fonts.css` alongside the tokens:
 
 ```css
-@import "@aardling/aardling/assets/fonts/fonts.css";
-@import "@aardling/aardling/tokens/tokens.css";
+@import "@aardling/brand-aardling/assets/fonts/fonts.css";
+@import "@aardling/brand-aardling/tokens/tokens.css";
 ```
 
 Never load either face from Google Fonts, Fontshare, or any other third-party host. The

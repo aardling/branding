@@ -32,7 +32,7 @@ anything under a brand directory.
 
 ```
 <brand>/
-  package.json              @aardling/<brand>
+  package.json              @aardling/brand-<brand>
   README.md
   tokens/tokens.json        tokens as data
   tokens/tokens.css         the same tokens as CSS custom properties

@@ -1,4 +1,4 @@
-# @aardling/aardling
+# @aardling/brand-aardling
 
 Brand guidelines, design tokens and assets for the **Aardling** brand.
 
@@ -28,16 +28,16 @@ the token in the environment or in CI secrets, never in the file.
 Then:
 
 ```sh
-npm install @aardling/aardling
+npm install @aardling/brand-aardling
 ```
 
 ```css
-@import "@aardling/aardling/assets/fonts/fonts.css";
-@import "@aardling/aardling/tokens/tokens.css";
+@import "@aardling/brand-aardling/assets/fonts/fonts.css";
+@import "@aardling/brand-aardling/tokens/tokens.css";
 ```
 
 ```js
-import tokens from "@aardling/aardling/tokens/tokens.json" with { type: "json" };
+import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "json" };
 ```
 
 ## Layout
@@ -89,7 +89,7 @@ mark may be knocked out of one. Nothing else goes on top of them: see `guideline
 Copy or symlink the skill into a consuming project:
 
 ```sh
-ln -s ../../node_modules/@aardling/aardling/skills/aardling-brand .claude/skills/aardling-brand
+ln -s ../../node_modules/@aardling/brand-aardling/skills/aardling-brand .claude/skills/aardling-brand
 ```
 
 ## Rules

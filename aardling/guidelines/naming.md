@@ -15,7 +15,7 @@ mixed-case paths break on case-sensitive filesystems. The spelling rule governs 
 reader sees set as text; it does not govern identifiers.
 
 ```
-@aardling/aardling   aardling/   aardling-brand   --colour-*   aardling.eu   contact@aardling.eu
+@aardling/brand-aardling   aardling/   aardling-brand   --colour-*   aardling.eu   contact@aardling.eu
 ```
 
 **The logotype is drawn, not spelled.** The mark sets AARDLING in capitals with the double-A

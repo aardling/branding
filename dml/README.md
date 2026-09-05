@@ -1,4 +1,4 @@
-# @aardling/dml
+# @aardling/brand-dml
 
 Brand guidelines, design tokens and assets for the **dml** brand.
 
@@ -30,7 +30,7 @@ the token in the environment or in CI secrets, never in the file.
 Then:
 
 ```sh
-npm install @aardling/dml
+npm install @aardling/brand-dml
 ```
 
 ## Layout
@@ -51,7 +51,7 @@ npm install @aardling/dml
 Copy or symlink the skill into a consuming project:
 
 ```sh
-ln -s ../../node_modules/@aardling/dml/skills/dml-brand .claude/skills/dml-brand
+ln -s ../../node_modules/@aardling/brand-dml/skills/dml-brand .claude/skills/dml-brand
 ```
 
 ## Rules

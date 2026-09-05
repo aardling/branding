@@ -1,4 +1,4 @@
-# @aardling/dddeu
+# @aardling/brand-dddeu
 
 Brand guidelines, design tokens and assets for the **dddeu** brand.
 
@@ -30,7 +30,7 @@ the token in the environment or in CI secrets, never in the file.
 Then:
 
 ```sh
-npm install @aardling/dddeu
+npm install @aardling/brand-dddeu
 ```
 
 ## Layout
@@ -51,7 +51,7 @@ npm install @aardling/dddeu
 Copy or symlink the skill into a consuming project:
 
 ```sh
-ln -s ../../node_modules/@aardling/dddeu/skills/dddeu-brand .claude/skills/dddeu-brand
+ln -s ../../node_modules/@aardling/brand-dddeu/skills/dddeu-brand .claude/skills/dddeu-brand
 ```
 
 ## Rules

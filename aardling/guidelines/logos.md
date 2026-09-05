@@ -17,7 +17,7 @@ The masters are the source of truth. The lockups are generated from them and are
 by hand:
 
 ```sh
-npm run build:lockups --workspace @aardling/aardling
+npm run build:lockups --workspace @aardling/brand-aardling
 ```
 
 `scripts/build-lockups.mjs` reads the two masters and the gradients and writes all 22 files.

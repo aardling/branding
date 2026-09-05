@@ -1,4 +1,4 @@
-# @aardling/ncrafts
+# @aardling/brand-ncrafts
 
 Brand guidelines, design tokens and assets for the **ncrafts** brand.
 
@@ -30,7 +30,7 @@ the token in the environment or in CI secrets, never in the file.
 Then:
 
 ```sh
-npm install @aardling/ncrafts
+npm install @aardling/brand-ncrafts
 ```
 
 ## Layout
@@ -51,7 +51,7 @@ npm install @aardling/ncrafts
 Copy or symlink the skill into a consuming project:
 
 ```sh
-ln -s ../../node_modules/@aardling/ncrafts/skills/ncrafts-brand .claude/skills/ncrafts-brand
+ln -s ../../node_modules/@aardling/brand-ncrafts/skills/ncrafts-brand .claude/skills/ncrafts-brand
 ```
 
 ## Rules

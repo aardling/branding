@@ -13,7 +13,7 @@ another brand.
 The brand name is **Aardling** — capital A, the rest lower case, one word, everywhere a
 reader sees it set as text. Never `aardling`, `AARDLING` or `AardLing` in prose.
 
-Two carve-outs: machine identifiers stay lower case (`@aardling/aardling`, `aardling.eu`,
+Two carve-outs: machine identifiers stay lower case (`@aardling/brand-aardling`, `aardling.eu`,
 `--colour-*`), and the logotype is drawn in capitals, which is lettering rather than a
 spelling.
 

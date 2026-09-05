@@ -1,4 +1,4 @@
-# @aardling/dddacademy
+# @aardling/brand-dddacademy
 
 Brand guidelines, design tokens and assets for the **dddacademy** brand.
 
@@ -30,7 +30,7 @@ the token in the environment or in CI secrets, never in the file.
 Then:
 
 ```sh
-npm install @aardling/dddacademy
+npm install @aardling/brand-dddacademy
 ```
 
 ## Layout
@@ -51,7 +51,7 @@ npm install @aardling/dddacademy
 Copy or symlink the skill into a consuming project:
 
 ```sh
-ln -s ../../node_modules/@aardling/dddacademy/skills/dddacademy-brand .claude/skills/dddacademy-brand
+ln -s ../../node_modules/@aardling/brand-dddacademy/skills/dddacademy-brand .claude/skills/dddacademy-brand
 ```
 
 ## Rules
