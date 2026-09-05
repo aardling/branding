@@ -38,8 +38,11 @@ fails contrast as body text and is never a background.
 
 ## Typography
 
-`--font-display` (Voyage) for titles and big text; `--font-body` (General Sans) for
-everything else. General Sans is a variable font covering 200–700 in upright and italic; Voyage is Regular only.
+`--font-body` (General Sans) sets nearly everything, most headings included. `--font-display`
+(Voyage) is used sparingly: typically one short title per page, normally the h1, never below
+24px — it is not legible at small sizes. h2, h3, card titles, pull quotes and labels are
+General Sans. General Sans is a variable font covering 200–700 in upright and italic; Voyage
+is Regular only.
 
 Headings take `--font-weight-heading` (500). Body copy is 400, emphasis is 600.
 

@@ -1,7 +1,8 @@
 # Typography
 
-Two faces. **Voyage** sets titles and big text. **General Sans** sets everything else — body
-copy, buttons, subtitles, navigation, captions.
+Two faces, used in very unequal measure. **General Sans** sets nearly everything — body copy,
+most headings, buttons, subtitles, navigation, captions. **Voyage** is the display face, spent
+sparingly: typically one short title on a page, at 24px or larger.
 
 | Role | Token | Family |
 | --- | --- | --- |
@@ -70,12 +71,21 @@ is wanted, it needs adding deliberately.
 
 ## Which face, where
 
-Voyage takes h1, h2 and h3 where they are a title in their own right: page heroes,
-call-to-action headings, card titles, pull quotes. It does not take a heading that is really a
-label — a form section, a table caption, a sidebar header. Those are General Sans.
+Voyage is used sparingly — typically once on a page, on one short title. Normally that is the
+h1: the page hero, or the one heading a reader is meant to carry away. A second Voyage setting
+on the same page is an exception and needs a reason.
 
-Voyage below about 24px loses its detail and reads as a generic serif. If a title needs to be
-smaller than that, use General Sans instead of shrinking Voyage.
+Everything else is General Sans, including headings that look like they want the display face:
+h2 and h3, card titles, call-to-action headings, pull quotes, form section labels, table
+captions, sidebar headers. A page set almost entirely in General Sans is the normal case, not
+a compromise.
+
+Keep the Voyage title short — one line, a handful of words. The face has one weight, no italic
+and no variable axis. It holds a phrase; it does not hold a paragraph.
+
+Voyage below about 24px loses its detail and reads as a generic serif, so it never sets
+anything small. If a title needs to be smaller than that, it is not the Voyage title on that
+page — use General Sans.
 
 ## Letter-spacing
 
