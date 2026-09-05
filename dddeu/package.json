@@ -1,0 +1,13 @@
+{
+  "name": "@aardling/dddeu",
+  "version": "0.0.0",
+  "description": "Brand guidelines, tokens and assets for the dddeu brand.",
+  "license": "UNLICENSED",
+  "files": [
+    "assets",
+    "tokens",
+    "guidelines",
+    "skills",
+    "README.md"
+  ]
+}

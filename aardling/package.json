@@ -1,0 +1,13 @@
+{
+  "name": "@aardling/aardling",
+  "version": "0.0.0",
+  "description": "Brand guidelines, tokens and assets for the aardling brand.",
+  "license": "UNLICENSED",
+  "files": [
+    "assets",
+    "tokens",
+    "guidelines",
+    "skills",
+    "README.md"
+  ]
+}

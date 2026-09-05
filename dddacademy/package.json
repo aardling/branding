@@ -1,0 +1,13 @@
+{
+  "name": "@aardling/dddacademy",
+  "version": "0.0.0",
+  "description": "Brand guidelines, tokens and assets for the dddacademy brand.",
+  "license": "UNLICENSED",
+  "files": [
+    "assets",
+    "tokens",
+    "guidelines",
+    "skills",
+    "README.md"
+  ]
+}
