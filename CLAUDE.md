@@ -10,6 +10,15 @@ ncrafts, dddacademy**. Each brand is an independently publishable npm package un
 in a brand may reference, import from, or copy out of another brand. There is deliberately
 no shared/common package — duplication between brands is correct, coupling is not.
 
+This rule governs **brand content** — colour, typography, logos, icons, images, tokens,
+guidelines, voice, and the brand's own skill. It does not govern repository plumbing that
+happens to live inside brand directories: install instructions, workspace and packaging
+config, licence headers, CI. A change to how the packages are consumed touches all five
+READMEs at once by its nature, and splitting it into five commits would make it harder to
+review, not safer. Infrastructure changes go in one commit and say so in the message. If a
+change is doing both at once, split it: the brand half obeys rule 1, the plumbing half
+does not have to.
+
 **2. Visualise and confirm before any brand addition or change.** Never write into a brand
 directory before the user has seen the change rendered (an Artifact for anything visual, a
 tree diff for structure) and explicitly approved it. Propose in one turn, write in the next.
