@@ -93,8 +93,6 @@ A **typography** change is only finished when:
 2. `assets/fonts/fonts.css` declares them with `@font-face` and relative local URLs. No
    `<link>` or `@import` to a third-party font host, anywhere.
 3. `tokens.json` and `tokens.css` name the families and their fallback stacks.
-4. The font's licence permits redistribution in a published npm package, and its licence
-   text sits beside the files.
 
 A **layout** change is only finished when:
 

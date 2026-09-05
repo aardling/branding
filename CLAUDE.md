@@ -96,10 +96,6 @@ files with relative URLs so they resolve from `node_modules`. `tokens.json` and
 `tokens.css` name the families and their fallback stacks; `@font-face` is not a token and
 does not belong there.
 
-A font is only added if its licence permits redistribution inside a published npm package —
-these brands ship as packages, so every install redistributes the files. The licence text
-ships beside the font files.
-
 ## Layout
 
 **Spacing is specified, never implied.** Each brand carries a spacing scale as `--space-*`
