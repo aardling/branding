@@ -1,3 +1,103 @@
-/* aardling design tokens. Keep in sync with tokens/tokens.json. */
+/* Aardling design tokens. Keep in sync with tokens/tokens.json. */
 :root {
+  /* Colour — brand. Approved combinations are in guidelines/colour.md. */
+  --colour-night-blue: #181C2F;
+  --colour-snow-white: #F6F6F6;
+  --colour-white: #FFFFFF;
+  --colour-violet: #B9BBF4;
+  --colour-lime-green: #C5EEB3;
+  --colour-ocean-blue: #4B7BC3;
+  --colour-yellow: #F8E181;
+  --colour-pink: #F3B0B0;
+
+  /* Colour — functional. Not brand colours; they do a specific job. */
+  --colour-hover-green: #98DE7E;
+  --colour-muted-grey: #6B6B6B;
+  --colour-hairline-grey: #D7D7D7;
+  --colour-error-red: #CF1322;
+
+  /* Typography. @font-face lives in assets/fonts/fonts.css, not here. */
+  --font-display: Voyage, Georgia, "Times New Roman", serif;
+  --font-body: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-heading: 500;
+
+  --font-size-h1: 55px;
+  --font-size-h2: 45px;
+  --font-size-h3: 35px;
+  --font-size-h4: 30px;
+  --font-size-h5: 25px;
+  --font-size-h6: 22px;
+  --font-size-body: 18px;
+  --font-size-small: 14px;
+
+  --line-height-display: 1.2;
+  --line-height-h6: 1.3;
+  --line-height-body: 1.5;
+
+  /* Spacing. Which step is used for what: guidelines/layout.md. */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-6: 48px;
+  --space-8: 64px;
+  --space-10: 80px;
+  --space-12: 96px;
+  --space-18: 144px;
+
+  --radius-sm: 8px;
+  --radius-md: 24px;
+  --radius-pill: 60px;
+
+  --container-sm: 516px;
+  --container-md: 696px;
+  --container-lg: 936px;
+  --container-xl: 1116px;
+  --container-xxl: 1312px;
+  --container-xxxl: 1504px;
+  --container-mega: 1696px;
+}
+
+/* Below 960px every heading step is 0.8 of its base size. */
+@media (max-width: 959.98px) {
+  :root {
+    --font-size-h1: 44px;
+    --font-size-h2: 36px;
+    --font-size-h3: 28px;
+    --font-size-h4: 24px;
+    --font-size-h5: 20px;
+    --font-size-h6: 18px;
+  }
+}
+
+@media (min-width: 1728px) {
+  :root {
+    --font-size-h1: 61px;
+    --font-size-h2: 50px;
+    --font-size-h3: 39px;
+    --font-size-h4: 33px;
+    --font-size-h5: 28px;
+    --font-size-h6: 24px;
+    --font-size-body: 20px;
+    --font-size-small: 15px;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --font-size-h1: 66px;
+    --font-size-h2: 54px;
+    --font-size-h3: 42px;
+    --font-size-h4: 36px;
+    --font-size-h5: 30px;
+    --font-size-h6: 26px;
+    --font-size-body: 22px;
+    --font-size-small: 17px;
+  }
 }

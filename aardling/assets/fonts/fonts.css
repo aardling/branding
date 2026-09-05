@@ -1,0 +1,27 @@
+/* Aardling webfonts. Self-hosted; never load these from a third-party host.
+   Relative URLs so they resolve from node_modules.
+   Families and fallback stacks are tokens — see tokens/tokens.css. */
+
+@font-face {
+  font-family: "General Sans";
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("./general-sans-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "General Sans";
+  font-style: italic;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("./general-sans-variable-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Voyage";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("./voyage-regular.woff2") format("woff2");
+}
