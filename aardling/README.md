@@ -7,7 +7,7 @@ Brand guidelines, design tokens and assets for the **Aardling** brand.
 These packages are published to **GitHub Packages**, not the public npm
 registry. That needs two things in the consuming project.
 
-**1. Point the `@aardling` scope at GitHub and supply a token.** In that project's `.npmrc`:
+**1. Point the** **`@aardling`** **scope at GitHub and supply a token.** In that project's `.npmrc`:explain how
 
 ```
 @aardling:registry=https://npm.pkg.github.com
@@ -42,24 +42,48 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 
 ## Layout
 
-| Path | Contents |
-| --- | --- |
-| `tokens/tokens.json` | Design tokens as data: colour, typography, spacing, radii, breakpoints. |
-| `tokens/tokens.css` | The same tokens as CSS custom properties, with the responsive type scale. |
-| `guidelines/colour.md` | The palette, the accepted foreground/background pairs, and what each is for. |
-| `guidelines/typography.md` | The two faces, the scale, weights, and the font licence position. |
-| `guidelines/layout.md` | Spacing scale in use, radii, and the protected terms. |
-| `guidelines/imagery.md` | The gradients and illustrations, and what may sit on them. |
-| `guidelines/logos.md` | Masters and lockups, clear space, which pairs carry a mark, minimum sizes. |
-| `guidelines/naming.md` | How the brand name and the company names are written. |
-| `guidelines/voice.md` | Register, person, and do/don't examples. |
-| `assets/logos/` | The logotype and the icon logo, both SVG, both `currentColor`. |
-| `assets/logos/lockups/` | 22 flattened mark-on-ground files, generated from the two masters. |
-| `assets/icons/` | The 18-mark icon set, SVG, `currentColor`. |
-| `assets/favicons/` | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
-| `assets/fonts/` | Variable General Sans and Voyage as `woff2`, plus `fonts.css`. |
-| `assets/images/` | Three SVG gradients, and three illustrations as WebP with PNG beside. |
-| `skills/aardling-brand/` | Claude Code skill teaching agents to apply this brand. |
+| Path                       | Contents                                                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `tokens/tokens.json`       | Design tokens as data: colour, typography, spacing, radii, breakpoints.                                            |
+| `tokens/tokens.css`        | The same tokens as CSS custom properties, with the responsive type scale.                                          |
+| `guidelines/colour.md`     | The palette, the accepted foreground/background pairs, and what each is for.                                       |
+| `guidelines/typography.md` | The two faces, the scale, weights, and the font licence position.                                                  |
+| `guidelines/layout.md`     | Spacing scale in use, radii, and the protected terms.                                                              |
+| `guidelines/imagery.md`    | The gradients and illustrations, and what may sit on them.                                                         |
+| `guidelines/logos.md`      | Masters and lockups, clear space, which pairs carry a mark, minimum sizes.                                         |
+| `guidelines/naming.md`     | How the brand name and the company names are written.                                                              |
+| `guidelines/voice.md`      | Register, person, and do/don't examples.                                                                           |
+| `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
+| `assets/logos/lockups/`    | 22 flattened mark-on-ground files, generated from the two masters.                                                 |
+| `assets/icons/`            | The 18-mark icon set, SVG, `currentColor`.                                                                         |
+| `assets/favicons/`         | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
+| `assets/fonts/`            | Variable General Sans and Voyage as `woff2`, plus `fonts.css`.                                                     |
+| `assets/images/`           | Three SVG gradients, and three illustrations as WebP with PNG beside.                                              |
+| `skills/aardling-brand/`   | Claude Code skill teaching agents to apply this brand.                                                             |
+| `aardling-brand-guide-v*.pdf` | The whole brand as a printable A4 document, generated from everything above.                                    |
+
+## The brand guide
+
+`aardling-brand-guide-v0.6.0.pdf` is 25 A4 pages carrying the palette, the type scale, the
+marks, the imagery rules, the spacing ladder and the voice — set in the brand, with the fonts
+and artwork embedded. The version in the filename is the package version, and it appears on
+the cover, in every page footer and on the last page.
+
+It is generated, not maintained by hand:
+
+```sh
+npm run build:guide --workspace @aardling/brand-aardling
+```
+
+`scripts/build-brand-guide.mjs` fills `scripts/brand-guide.html` — the prose and the layout —
+with the version from `package.json` and every asset inlined as a data URI, then prints it
+with headless Chrome. Chrome's path comes from `CHROME` if set, and defaults to the macOS
+location. Unlike `build:lockups`, a rerun is not byte-identical: Chrome stamps a creation
+time into the PDF.
+
+**When a guideline changes, rebuild the guide.** The template quotes the guidelines rather
+than importing them, so the two can drift; the files under `guidelines/` are the source of
+truth and the PDF is a view of them.
 
 ## Marks
 

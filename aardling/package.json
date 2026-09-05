@@ -1,6 +1,6 @@
 {
   "name": "@aardling/brand-aardling",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Brand guidelines, tokens and assets for the Aardling brand.",
   "license": "UNLICENSED",
   "repository": {
@@ -17,9 +17,11 @@
     "guidelines",
     "skills",
     "scripts",
-    "README.md"
+    "README.md",
+    "aardling-brand-guide-*.pdf"
   ],
   "scripts": {
-    "build:lockups": "node scripts/build-lockups.mjs"
+    "build:lockups": "node scripts/build-lockups.mjs",
+    "build:guide": "node scripts/build-brand-guide.mjs"
   }
 }

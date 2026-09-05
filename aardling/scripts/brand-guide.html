@@ -1,0 +1,1558 @@
+<title>Aardling Brand Guide</title>
+
+<style>
+/* ---------------------------------------------------------------------------
+   Tokens, verbatim from tokens/tokens.css. The guide is set in its own brand.
+   --------------------------------------------------------------------------- */
+{{TEXT:tokens/tokens.css}}
+
+/* Fonts, inlined so the printed file carries no external dependency. */
+@font-face {
+  font-family: "General Sans";
+  font-style: normal;
+  font-weight: 200 700;
+  src: url("{{DATA:assets/fonts/general-sans-variable.woff2}}") format("woff2");
+}
+@font-face {
+  font-family: "General Sans";
+  font-style: italic;
+  font-weight: 200 700;
+  src: url("{{DATA:assets/fonts/general-sans-variable-italic.woff2}}") format("woff2");
+}
+@font-face {
+  font-family: "Voyage";
+  font-style: normal;
+  font-weight: 400;
+  src: url("{{DATA:assets/fonts/voyage-regular.woff2}}") format("woff2");
+}
+
+/* A4 at 96dpi is 794px wide, so tokens.css's below-960px heading step is the one
+   that applies. Pinned here rather than left to the media query, so the on-screen
+   preview and the printed page agree whatever the window is. */
+:root {
+  --font-size-h1: 44px;
+  --font-size-h2: 36px;
+  --font-size-h3: 28px;
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-h6: 18px;
+  --font-size-body: 18px;
+  --font-size-small: 14px;
+}
+
+/* --- Sheet ---------------------------------------------------------------- */
+
+@page { size: A4; margin: 0; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--colour-night-blue);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--colour-night-blue);
+  hyphens: none;
+  counter-reset: folio;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet { display: flex; flex-direction: column; align-items: center; }
+
+@media screen {
+  .sheet { padding: var(--space-6) var(--space-3); gap: var(--space-4); }
+  .page { box-shadow: 0 2px 24px rgba(0, 0, 0, 0.35); }
+}
+
+@media print {
+  body { background: var(--colour-snow-white); }
+}
+
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  padding: var(--space-10) var(--space-12) var(--space-6);
+  background: var(--colour-snow-white);
+  color: var(--colour-night-blue);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  break-after: page;
+  break-inside: avoid;
+  counter-increment: folio;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+.page:last-child { break-after: auto; }
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--colour-hairline-grey);
+}
+
+.page-body {
+  flex: 1;
+  min-height: 0;
+  padding-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.page-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--colour-hairline-grey);
+  font-size: var(--font-size-small);
+  color: var(--colour-muted-grey);
+}
+.folio::after { content: counter(folio); }
+
+/* --- Type ----------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-display);
+  text-wrap: balance;
+}
+p, ul, ol { margin: 0; text-wrap: pretty; }
+ul, ol { padding-left: 1.15em; }
+li + li { margin-top: var(--space-1); }
+strong { font-weight: var(--font-weight-semibold); }
+
+/* Voyage: one short title per page, never below 24px. See guidelines/typography.md. */
+.title {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-h2);
+  line-height: 1.1;
+}
+
+.eyebrow {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--colour-muted-grey);
+}
+/* Machine identifiers keep their own case, so a path never takes the uppercase
+   label treatment. naming.md. */
+.eyebrow-path { text-transform: none; letter-spacing: 0.02em; }
+
+.lede {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-light);
+  line-height: 1.4;
+}
+
+.subhead {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-heading);
+  text-wrap: balance;
+}
+
+.small { font-size: var(--font-size-small); line-height: 1.5; }
+.meta { font-size: var(--font-size-small); color: var(--colour-muted-grey); line-height: 1.5; }
+/* Token names and machine identifiers. General Sans at 500 — the brand has two
+   faces and a monospace is not one of them. */
+.token { font-weight: var(--font-weight-medium); white-space: nowrap; }
+.nowrap { white-space: nowrap; }
+
+.stack-tight { display: flex; flex-direction: column; gap: var(--space-2); }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.cols-top { align-items: start; }
+.beside { display: grid; grid-template-columns: 180px 1fr; gap: var(--space-3); align-items: center; }
+.beside img { display: block; width: 100%; border-radius: var(--radius-md); }
+/* 180px logotype: its 106-unit clear space is 30.6px, inside the card's 32px padding
+   and under the 48px gap to the text beside it. */
+.beside-mark { display: grid; grid-template-columns: 180px 1fr; gap: var(--space-6); align-items: center; }
+.beside-mark svg { display: block; width: 100%; height: auto; }
+
+.rule { border: 0; border-top: 1px solid var(--colour-hairline-grey); margin: 0; }
+.gap-top { margin-top: var(--space-2); }
+
+/* --- Tables --------------------------------------------------------------- */
+
+table { width: 100%; border-collapse: collapse; font-size: var(--font-size-small); }
+th {
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  padding: 0 var(--space-2) var(--space-1) 0;
+  border-bottom: 1px solid var(--colour-hairline-grey);
+}
+td {
+  padding: var(--space-1) var(--space-2) var(--space-1) 0;
+  border-bottom: 1px solid var(--colour-hairline-grey);
+  vertical-align: top;
+  line-height: 1.4;
+}
+tr:last-child td { border-bottom: 0; }
+.num { font-variant-numeric: tabular-nums; text-align: right; padding-right: var(--space-3); }
+
+/* --- Cards ---------------------------------------------------------------- */
+
+.card {
+  background: var(--colour-white);
+  border-radius: var(--radius-md);
+  /* --space-4 is the spec for padding inside a card. */
+  padding: var(--space-4);
+}
+.card-pink { background: var(--colour-pink); }
+.card-violet { background: var(--colour-violet); }
+.card-night { background: var(--colour-night-blue); color: var(--colour-snow-white); }
+.card .eyebrow + * { margin-top: var(--space-2); }
+.card-pink .eyebrow, .card-night .eyebrow { color: inherit; }
+
+/* --- Colour swatches ------------------------------------------------------ */
+
+.swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+.swatch { display: flex; flex-direction: column; gap: 2px; }
+.swatch .chip {
+  height: 52px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--colour-hairline-grey);
+  margin-bottom: var(--space-1);
+}
+.swatch .name { font-size: var(--font-size-small); font-weight: var(--font-weight-medium); }
+.swatch .hex { font-size: var(--font-size-small); color: var(--colour-muted-grey); font-variant-numeric: tabular-nums; }
+.swatch .job { font-size: var(--font-size-small); color: var(--colour-muted-grey); line-height: 1.35; }
+
+.pair-sample {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+}
+.pair-large { width: 52px; height: 32px; font-size: 24px; }
+.pair-rule { display: block; width: 52px; height: 3px; margin: 10px 0; border-radius: 2px; }
+
+/* --- Marks ---------------------------------------------------------------- */
+
+.mark-chips { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.mark-chip {
+  /* Padding is the mark's clear space: 106 units of 623, at a 170px logotype. */
+  padding: 28.9px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mark-chip svg { width: 170px; }
+.mark-chip-label { font-size: var(--font-size-small); color: var(--colour-muted-grey); margin-top: 2px; line-height: 1.35; }
+
+.clearspace {
+  background: var(--colour-white);
+  border: 1px solid var(--colour-hairline-grey);
+  border-radius: var(--radius-sm);
+  /* 106 units of 623, at a 360px logotype. */
+  padding: 61.2px;
+  display: inline-block;
+}
+.clearspace .inner { outline: 1px dashed var(--colour-hairline-grey); }
+.clearspace svg { width: 360px; }
+
+.size-floor { display: flex; align-items: flex-end; gap: var(--space-8); }
+.size-floor svg { width: 100%; }
+
+/* The masters carry a viewBox and no width/height, so every place one is inlined
+   states its own width and lets the height follow. */
+.cover-mark svg, .mark-chip svg, .clearspace svg, .demo-mark svg, .size-floor svg {
+  height: auto;
+  display: block;
+}
+
+/* --- Imagery -------------------------------------------------------------- */
+
+.band { border-radius: var(--radius-md); overflow: hidden; }
+.band img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.gradient-row { display: grid; grid-template-columns: 190px 1fr; gap: var(--space-3); align-items: center; }
+.gradient-row .band { height: 116px; }
+
+.demo { position: relative; border-radius: var(--radius-md); overflow: hidden; }
+.demo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.demo-inner { position: relative; height: 100%; display: flex; align-items: center; }
+
+.demo-mark { height: 210px; justify-content: center; }
+.demo-mark svg { width: 380px; color: var(--colour-white); }
+
+.demo-heading {
+  position: relative;
+  width: 48%;
+  margin-left: var(--space-6);
+  /* --font-size-h3 at its base value, per guidelines/imagery.md. */
+  font-size: 35px;
+  font-weight: var(--font-weight-heading);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.illos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+.illos figure { margin: 0; }
+.illos img { display: block; width: 100%; border-radius: var(--radius-md); }
+figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey); margin-top: var(--space-1); }
+
+.favicons { display: flex; align-items: flex-start; gap: var(--space-3); }
+.favicon-ground {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+}
+.favicon-ground img { display: block; }
+
+/* --- Layout specimens ----------------------------------------------------- */
+
+.spacing-row { display: grid; grid-template-columns: 96px 52px 1fr; gap: var(--space-2); align-items: center; font-size: var(--font-size-small); }
+.bar { height: 12px; border-radius: 2px; background: var(--colour-night-blue); display: block; }
+
+.radii { display: flex; gap: var(--space-3); }
+.radius-demo {
+  width: 112px;
+  height: 56px;
+  background: var(--colour-white);
+  border: 1px solid var(--colour-hairline-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-small);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 44px;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  background: var(--colour-lime-green);
+  color: var(--colour-night-blue);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-body);
+  line-height: 1.2;
+}
+.btn-hover { background: var(--colour-hover-green); }
+
+.measure-col { width: 236px; }
+.measure-col .h { font-size: var(--font-size-h4); font-weight: var(--font-weight-heading); line-height: 1.2; }
+
+/* --- Type specimens ------------------------------------------------------- */
+
+.specimen-voyage { font-family: var(--font-display); font-weight: 400; font-size: 52px; line-height: 1; }
+.specimen-sans { font-size: 36px; font-weight: var(--font-weight-medium); line-height: 1.1; }
+
+.scale-row { display: grid; grid-template-columns: 104px 1fr; gap: var(--space-3); align-items: baseline; }
+.scale-list { display: flex; flex-direction: column; gap: var(--space-1); }
+.scale-row .label { font-size: var(--font-size-small); color: var(--colour-muted-grey); font-variant-numeric: tabular-nums; }
+.scale-row .sample { line-height: 1.1; font-weight: var(--font-weight-heading); }
+
+.weight-row { display: grid; grid-template-columns: 136px 1fr; gap: var(--space-3); align-items: baseline; }
+.weight-row .sample { font-size: var(--font-size-h5); }
+
+/* --- Cover ---------------------------------------------------------------- */
+
+.cover { padding: 0; }
+.cover-art { height: 148mm; position: relative; }
+.cover-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cover-mark { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; }
+.cover-mark svg { width: 420px; color: var(--colour-white); }
+.cover-text {
+  flex: 1;
+  padding: var(--space-10) var(--space-12) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.cover-title { font-family: var(--font-display); font-weight: 400; font-size: var(--font-size-h1); line-height: 1.05; }
+.cover-version { font-size: var(--font-size-h5); font-weight: var(--font-weight-medium); font-variant-numeric: tabular-nums; }
+.cover-tagline { font-size: var(--font-size-h6); font-weight: var(--font-weight-light); max-width: 34ch; }
+.cover-foot { margin-top: auto; font-size: var(--font-size-small); color: var(--colour-muted-grey); }
+
+/* --- Contents ------------------------------------------------------------- */
+
+.contents-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--colour-hairline-grey);
+}
+.contents-row .what { font-size: var(--font-size-h6); font-weight: var(--font-weight-medium); }
+.contents-row .where { font-variant-numeric: tabular-nums; color: var(--colour-muted-grey); font-size: var(--font-size-small); }
+
+/* --- Addresses ------------------------------------------------------------ */
+
+.addresses { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.address { background: var(--colour-white); border-radius: var(--radius-sm); padding: var(--space-3); font-size: var(--font-size-small); line-height: 1.45; }
+.address .who { font-weight: var(--font-weight-medium); }
+</style>
+
+<div class="sheet">
+
+<!-- ======================= 1. Cover ======================= -->
+<section class="page cover">
+  <div class="cover-art">
+    <img src="{{DATA:assets/images/gradient-meridian.svg}}" alt="">
+    <div class="cover-mark">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+  </div>
+  <div class="cover-text">
+    <h1 class="cover-title">Aardling brand guide</h1>
+    <p class="cover-version">Version {{VERSION}}</p>
+    <p class="cover-tagline">Software strategy, architecture, and domain modelling in complex environments.</p>
+    <p class="cover-foot">Generated from <span class="token">@aardling/brand-aardling</span> at version {{VERSION}}. The package is the source of truth; this document is a view of it.</p>
+  </div>
+</section>
+
+<!-- ======================= 2. How to use ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">How to use this guide</span>
+    <span class="eyebrow">v{{VERSION}}</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">What this is</h2>
+    <p class="lede">Everything <span class="nowrap">Aardling</span> puts in front of a reader is built from one package.
+      This document is that package, printed.</p>
+    <p>The rules here are not preferences. Each was decided against something measured — a
+      contrast ratio, a rendered mark at 16px, a heading at half a gradient's width. Where this
+      guide states a number, the number came from a test.</p>
+    <p>Follow it when you are asked to make an exception. The exceptions that exist are already
+      in here; the ones that are not in here are not exceptions.</p>
+
+    <hr class="rule gap-top">
+
+    <div>
+      <div class="contents-row"><span class="what">The name</span><span class="where">3</span></div>
+      <div class="contents-row"><span class="what">Colour</span><span class="where">5</span></div>
+      <div class="contents-row"><span class="what">Typography</span><span class="where">8</span></div>
+      <div class="contents-row"><span class="what">Logos</span><span class="where">12</span></div>
+      <div class="contents-row"><span class="what">Imagery</span><span class="where">15</span></div>
+      <div class="contents-row"><span class="what">Layout</span><span class="where">19</span></div>
+      <div class="contents-row"><span class="what">Voice</span><span class="where">22</span></div>
+      <div class="contents-row"><span class="what">Where things live</span><span class="where">25</span></div>
+    </div>
+
+    <p class="meta gap-top">Each section maps to a file in the package's <span class="token">guidelines/</span>
+      directory, named in the top right of every page. Where this printed guide condenses, that
+      file is the longer answer — and where the two disagree, the file wins.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 3. The name ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">The name</span>
+    <span class="eyebrow eyebrow-path">guidelines/naming.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Aardling</h2>
+    <p class="lede">Capital A, the rest lower case, one word. There is no second accepted form.</p>
+    <p>In headlines, in body copy, in navigation, in email, in decks, in social posts, and in a
+      sentence that begins with it. In prose, never <em>aardling</em>, never <em>AARDLING</em>,
+      never <em>AardLing</em>.</p>
+
+    <div class="cols gap-top">
+      <div class="card">
+        <p class="subhead">Machine identifiers stay lower case</p>
+        <p class="small gap-top">npm does not accept a capital in a scope, and mixed-case paths break
+          on case-sensitive filesystems. The spelling rule governs words a reader sees set as
+          text; it does not govern identifiers.</p>
+        <p class="small gap-top" style="font-weight: var(--font-weight-medium)">@aardling/brand-aardling &nbsp; aardling/ &nbsp; aardling-brand &nbsp; --colour-* &nbsp; aardling.eu</p>
+      </div>
+      <div class="card">
+        <p class="subhead">The logotype is drawn, not spelled</p>
+        <p class="small gap-top">The mark sets AARDLING in capitals with the double-A ligature. That
+          is lettering. It is not permission to set the name in capitals anywhere else — not in a
+          heading, not in a navigation item, not in a slide title.</p>
+      </div>
+    </div>
+
+    <div class="card gap-top">
+      <div class="beside-mark">
+        <div>{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <div>
+          <p class="subhead">The mark and the word are not the same thing</p>
+          <p class="small gap-top">The mark on the left is a drawing. The word beside it is text.
+            A slide that carries both carries <strong>AARDLING</strong> once, as artwork, and
+            <strong>Aardling</strong> everywhere the reader reads.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 4. Company names ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">The name</span>
+    <span class="eyebrow">Company names and addresses</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The brand name stands alone</h2>
+    <p class="small">Four legal entities exist. Use one only where the law or an accountant needs it:
+      an imprint, a contract, an invoice, terms and conditions, a privacy policy, a VAT line. An
+      entity name never appears in a headline, a deck, a byline or body copy.</p>
+
+    <div class="cols">
+      <div class="card">
+        <p class="eyebrow">Yes</p>
+        <p class="small">Aardling ran the modelling workshop.</p>
+      </div>
+      <div class="card card-pink">
+        <p class="eyebrow">No</p>
+        <p class="small">Aardling BV ran the modelling workshop.</p>
+      </div>
+    </div>
+
+    <p class="subhead gap-top">Registered addresses</p>
+    <p class="small">Canonical. Transcribe the street lines exactly. Place names take their English
+      form where one exists, which is why these read Antwerp and not Antwerpen; Hoorn and Lille
+      have none and are unchanged. <span class="nowrap">Aardling BV</span> and
+      <span class="nowrap">Aardling Belgium BV</span> share a building and differ only by bus number.</p>
+
+    <div class="addresses">
+      <div class="address"><span class="who">Aardling BV</span><br>Tabakvest 87 bus 4761<br>2000 Antwerp<br>Belgium</div>
+      <div class="address"><span class="who">Aardling Belgium BV</span><br>Tabakvest 87 bus 4762<br>2000 Antwerp<br>Belgium</div>
+      <div class="address"><span class="who">Aardling Netherlands BV</span><br>DTG Accountants<br>Postbus 2131<br>1620 EC Hoorn<br>Netherlands</div>
+      <div class="address"><span class="who">Aardling France SAS</span><br>10 Rue Michel Servet<br>59000 Lille<br>France</div>
+    </div>
+
+    <p class="meta">An address appears only where an entity name does. Registration and VAT numbers
+      are not carried in the package: take those from the register or from finance.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 5. Colour: the palette ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Colour</span>
+    <span class="eyebrow eyebrow-path">guidelines/colour.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Seven brand colours, four functional</h2>
+    <p class="small">The brand colours come from the original brand guide. The functional colours were
+      in the website's CSS without ever having been approved, and are kept because each does a job
+      the brand colours cannot.</p>
+
+    <p class="eyebrow">Brand</p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background: #181C2F"></div><span class="name">Night Blue</span><span class="hex">#181C2F</span></div>
+      <div class="swatch"><div class="chip" style="background: #F6F6F6"></div><span class="name">Snow White</span><span class="hex">#F6F6F6</span></div>
+      <div class="swatch"><div class="chip" style="background: #FFFFFF"></div><span class="name">White</span><span class="hex">#FFFFFF</span></div>
+      <div class="swatch"><div class="chip" style="background: #B9BBF4"></div><span class="name">Violet</span><span class="hex">#B9BBF4</span></div>
+      <div class="swatch"><div class="chip" style="background: #C5EEB3"></div><span class="name">Lime Green</span><span class="hex">#C5EEB3</span></div>
+      <div class="swatch"><div class="chip" style="background: #4B7BC3"></div><span class="name">Ocean Blue</span><span class="hex">#4B7BC3</span></div>
+      <div class="swatch"><div class="chip" style="background: #F8E181"></div><span class="name">Yellow</span><span class="hex">#F8E181</span></div>
+      <div class="swatch"><div class="chip" style="background: #F3B0B0"></div><span class="name">Pink</span><span class="hex">#F3B0B0</span></div>
+    </div>
+
+    <p class="meta">White is not in the original guide. It is listed because cards and panels sit on
+      it, and a ground that carries text has to be an approved half of a pair.</p>
+
+    <p class="eyebrow gap-top">Functional</p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background: #98DE7E"></div><span class="name">Hover Green</span><span class="hex">#98DE7E</span><span class="job">The hover and focus state of the primary button.</span></div>
+      <div class="swatch"><div class="chip" style="background: #6B6B6B"></div><span class="name">Muted Grey</span><span class="hex">#6B6B6B</span><span class="job">Secondary text: dates, captions, metadata.</span></div>
+      <div class="swatch"><div class="chip" style="background: #D7D7D7"></div><span class="name">Hairline Grey</span><span class="hex">#D7D7D7</span><span class="job">Hairline rules, and the border of an unchecked control.</span></div>
+      <div class="swatch"><div class="chip" style="background: #CF1322"></div><span class="name">Error Red</span><span class="hex">#CF1322</span><span class="job">Form error messages.</span></div>
+    </div>
+
+    <p class="meta gap-top">Muted Grey is set where it clears 4.5:1 on both White and Snow White; a
+      lighter grey does not, however good it looks. The original guide states CMYK values
+      alongside each colour, but they do not match a standard conversion from the same hex and
+      name no profile, so they are not reproduced — get CMYK from your printer against a named
+      profile.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 6. Colour: accepted combinations ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Colour</span>
+    <span class="eyebrow">Accepted combinations</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Colours are approved in pairs</h2>
+    <p class="small">A pair not in this table is not approved. Each sample is the pair itself.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 62px">Pair</th>
+          <th style="width: 214px">Foreground on background</th>
+          <th class="num" style="width: 52px">Ratio</th>
+          <th>Use for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="pair-sample" style="color:#181C2F;background:#F6F6F6">Aa</span></td><td>Night Blue on Snow White</td><td class="num">15.60</td><td>Page ground and all long-form reading.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#181C2F;background:#FFFFFF">Aa</span></td><td>Night Blue on White</td><td class="num">16.85</td><td>Cards and panels lifted off the ground.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#F6F6F6;background:#181C2F">Aa</span></td><td>Snow White on Night Blue</td><td class="num">15.60</td><td>Inverted sections, the footer, dark buttons.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#181C2F;background:#C5EEB3">Aa</span></td><td>Night Blue on Lime Green</td><td class="num">13.05</td><td>The primary button.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#181C2F;background:#98DE7E">Aa</span></td><td>Night Blue on Hover Green</td><td class="num">10.50</td><td>The primary button, hover and focus.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#181C2F;background:#F8E181">Aa</span></td><td>Night Blue on Yellow</td><td class="num">12.90</td><td>Section grounds and cards.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#181C2F;background:#F3B0B0">Aa</span></td><td>Night Blue on Pink</td><td class="num">9.35</td><td>Section grounds and cards.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#181C2F;background:#B9BBF4">Aa</span></td><td>Night Blue on Violet</td><td class="num">9.21</td><td>Section grounds and callouts.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#6B6B6B;background:#FFFFFF">Aa</span></td><td>Muted Grey on White</td><td class="num">5.33</td><td>Secondary text on a card.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#6B6B6B;background:#F6F6F6">Aa</span></td><td>Muted Grey on Snow White</td><td class="num">4.93</td><td>Secondary text on the page ground.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#CF1322;background:#FFFFFF">Aa</span></td><td>Error Red on White</td><td class="num">5.57</td><td>Form error messages on a card.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#CF1322;background:#F6F6F6">Aa</span></td><td>Error Red on Snow White</td><td class="num">5.16</td><td>Form error messages on the page ground.</td></tr>
+        <tr><td><span class="pair-sample pair-large" style="color:#4B7BC3;background:#FFFFFF">Aa</span></td><td>Ocean Blue on White</td><td class="num">4.27</td><td>Display text at 24px and above. Never body text.</td></tr>
+        <tr><td><span class="pair-sample pair-large" style="color:#4B7BC3;background:#F6F6F6">Aa</span></td><td>Ocean Blue on Snow White</td><td class="num">3.95</td><td>The same, on the page ground.</td></tr>
+        <tr><td><span class="pair-rule" style="background:#D7D7D7"></span></td><td>Hairline Grey on White</td><td class="num">1.44</td><td>Hairline rules only. Never text.</td></tr>
+        <tr><td><span class="pair-rule" style="background:#D7D7D7"></span></td><td>Hairline Grey on Snow White</td><td class="num">1.33</td><td>The same, on the page ground.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 7. Colour: not approved ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Colour</span>
+    <span class="eyebrow">What is not approved</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Four things the palette does not do</h2>
+
+    <div class="cols">
+      <div class="card card-pink">
+        <p class="subhead">Ocean Blue as body text</p>
+        <p class="small gap-top">4.27:1 on White, 3.95:1 on Snow White. It is a details colour: large
+          display text, icons and rules. The website uses it as the link hover colour at 18px,
+          which fails; links hover to Night Blue instead.</p>
+      </div>
+      <div class="card card-pink">
+        <p class="subhead">Ocean Blue as a background</p>
+        <p class="small gap-top">Night Blue on it is 3.95:1 and Snow White on it is 3.95:1. There is
+          no readable text colour for that ground, so it is never a ground.</p>
+      </div>
+      <div class="card card-pink">
+        <p class="subhead">The four pastels as text</p>
+        <p class="small gap-top">Violet, Lime Green, Yellow and Pink are grounds and details. Night
+          Blue is the only foreground approved on any of them.</p>
+      </div>
+      <div class="card card-pink">
+        <p class="subhead">Any pair not in the table</p>
+        <p class="small gap-top">Including pastel on pastel, and any of the greys on a pastel.</p>
+      </div>
+    </div>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">Not every approved pair carries a mark</p>
+    <p class="small">Nine of the sixteen pairs are also approved for the logotype and the icon logo.
+      A pair approved for secondary text, form errors or hairline rules is approved for that, and
+      a mark is none of those things. The nine are on page 14.</p>
+
+    <p class="meta gap-top">The original guide holds two colour tables that overlap and disagree.
+      Ocean Blue is tagged <em>Details</em> in one and <em>Backgrounds, Details</em> in the other;
+      the package resolves that as details only, on the contrast evidence. The guide also
+      instructs "Dark Mode: use Grey for titles &amp; body text" while defining no colour called
+      Grey. That instruction is not carried over.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 8. Typography: the faces ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Typography</span>
+    <span class="eyebrow eyebrow-path">guidelines/typography.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Two faces, used in very unequal measure</h2>
+
+    <div class="card">
+      <p class="eyebrow">Display</p>
+      <p class="specimen-voyage">Voyage</p>
+      <p class="meta gap-top"><span class="token">--font-display</span>: Voyage, Georgia, "Times New Roman", serif. Regular only — no italic, no
+        variable axis, one weight. Below about 24px it loses its detail and reads as a generic
+        serif, so it never sets anything small.</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Body</p>
+      <p class="specimen-sans">General Sans</p>
+      <p class="meta gap-top"><span class="token">--font-body</span>: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif. A
+        variable font: one file per style spanning weight 200 to 700, upright and italic.</p>
+    </div>
+
+    <p class="meta">Both faces ship in the package as woff2 and are self-hosted. Never a link or an
+      import to Google Fonts, Fontshare or any other third-party host: Aardling's typography does
+      not depend on a network it does not control.</p>
+
+    <div class="cols gap-top">
+      <div>
+        <p class="subhead">Letter-spacing</p>
+        <p class="small gap-top">None, at any size, in either face, with one exception: uppercase
+          labels take 0.12em to 0.14em, because capitals set at their default fit are too tight to
+          read. The eyebrow at the top of this page is one.</p>
+      </div>
+      <div>
+        <p class="subhead">Wrapping</p>
+        <p class="small gap-top">Headings, taglines, pull quotes, buttons and captions are balanced
+          across their lines rather than left with a single orphaned word. Body copy is set to
+          avoid orphans. Protected terms never break — see page 21.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 9. Typography: weights ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Typography</span>
+    <span class="eyebrow">Weights</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Six weights, upright and italic</h2>
+    <p class="small">General Sans covers 200 to 700 in one variable file per style, so every weight
+      below is available without loading a file per cut. Voyage is Regular only.</p>
+
+    <div class="stack-tight">
+      <div class="weight-row"><span class="small"><span class="token">200</span> Extralight</span><span class="sample" style="font-weight:200">Very large display settings only</span></div>
+      <div class="weight-row"><span class="small"><span class="token">300</span> Light</span><span class="sample" style="font-weight:300">Large introductory paragraphs</span></div>
+      <div class="weight-row"><span class="small"><span class="token">400</span> Regular</span><span class="sample" style="font-weight:400">Body copy, buttons, captions — the default</span></div>
+      <div class="weight-row"><span class="small"><span class="token">500</span> Medium</span><span class="sample" style="font-weight:500">Headings, everywhere</span></div>
+      <div class="weight-row"><span class="small"><span class="token">600</span> Semibold</span><span class="sample" style="font-weight:600">Emphasis in running text, table headers</span></div>
+      <div class="weight-row"><span class="small"><span class="token">700</span> Bold</span><span class="sample" style="font-weight:700">Rare — only where 600 fails to separate</span></div>
+    </div>
+
+    <p class="small gap-top">Headings are <strong>500</strong>. Use <span class="token">--font-weight-heading</span>
+      rather than the literal, so the decision lives in one place. The website's stylesheet has
+      asked for 500 since it was built and silently rendered 400, because only two cuts were
+      loaded; the Medium cut is in the package now and the original intent stands.</p>
+
+    <p class="subhead gap-top">Italics</p>
+    <div class="stack-tight">
+      <div class="weight-row"><span class="small"><span class="token">400</span> Regular italic</span><span class="sample" style="font-weight:400;font-style:italic">The title of a work</span></div>
+      <div class="weight-row"><span class="small"><span class="token">500</span> Medium italic</span><span class="sample" style="font-weight:500;font-style:italic">A term being introduced</span></div>
+      <div class="weight-row"><span class="small"><span class="token">600</span> Semibold italic</span><span class="sample" style="font-weight:600;font-style:italic">A genuine aside</span></div>
+    </div>
+
+    <p class="meta gap-top">Italics exist at every weight. Use them for what italics are for. Not for
+      emphasis; that is what 600 is for.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 10. Typography: the scale ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Typography</span>
+    <span class="eyebrow">The scale</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Eight steps</h2>
+    <p class="small">Base sizes, at 960px and above, shown at size. Every heading step drops to 0.8
+      below 960px, which is the step this page is set at: an A4 sheet at 96dpi is 794px wide.</p>
+
+    <div class="scale-list">
+      <div class="scale-row"><span class="label">h1 &nbsp; 55 / 1.2</span><span class="sample" style="font-size:55px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h2 &nbsp; 45 / 1.2</span><span class="sample" style="font-size:45px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h3 &nbsp; 35 / 1.2</span><span class="sample" style="font-size:35px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h4 &nbsp; 30 / 1.2</span><span class="sample" style="font-size:30px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h5 &nbsp; 25 / 1.2</span><span class="sample" style="font-size:25px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h6 &nbsp; 22 / 1.3</span><span class="sample" style="font-size:22px">Aardling</span></div>
+      <div class="scale-row"><span class="label">body &nbsp; 18 / 1.5</span><span class="sample" style="font-size:18px;font-weight:400">Aardling</span></div>
+      <div class="scale-row"><span class="label">small &nbsp; 14 / 1.5</span><span class="sample" style="font-size:14px;font-weight:400">Aardling</span></div>
+    </div>
+
+    <p class="subhead gap-top">The scale moves at three breakpoints</p>
+    <table>
+      <thead>
+        <tr><th>Step</th><th class="num">Below 960</th><th class="num">Base</th><th class="num">From 1728</th><th class="num">From 1920</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>h1</td><td class="num">44</td><td class="num">55</td><td class="num">61</td><td class="num">66</td></tr>
+        <tr><td>h2</td><td class="num">36</td><td class="num">45</td><td class="num">50</td><td class="num">54</td></tr>
+        <tr><td>h3</td><td class="num">28</td><td class="num">35</td><td class="num">39</td><td class="num">42</td></tr>
+        <tr><td>h4</td><td class="num">24</td><td class="num">30</td><td class="num">33</td><td class="num">36</td></tr>
+        <tr><td>h5</td><td class="num">20</td><td class="num">25</td><td class="num">28</td><td class="num">30</td></tr>
+        <tr><td>h6</td><td class="num">18</td><td class="num">22</td><td class="num">24</td><td class="num">26</td></tr>
+        <tr><td>body</td><td class="num">18</td><td class="num">18</td><td class="num">20</td><td class="num">22</td></tr>
+        <tr><td>small</td><td class="num">14</td><td class="num">14</td><td class="num">15</td><td class="num">17</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 11. Typography: which face where ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Typography</span>
+    <span class="eyebrow">Which face, where</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Voyage holds a phrase, not a paragraph</h2>
+
+    <p>Voyage is used sparingly — typically once on a page, on one short title. Normally that is
+      the h1: the page hero, or the one heading a reader is meant to carry away. A second Voyage
+      setting on the same page is an exception and needs a reason.</p>
+
+    <p>Everything else is General Sans, including headings that look like they want the display
+      face: h2 and h3, card titles, call-to-action headings, pull quotes, form section labels,
+      table captions, sidebar headers. A page set almost entirely in General Sans is the normal
+      case, not a compromise.</p>
+
+    <p>Keep the Voyage title short — one line, a handful of words. The face has one weight, no
+      italic and no variable axis. Below about 24px it never sets anything at all: if a title
+      needs to be smaller than that, it is not the Voyage title on that page.</p>
+
+    <div class="card card-violet gap-top">
+      <p class="subhead">Voyage never sets a heading on artwork</p>
+      <p class="small gap-top">A heading placed on a gradient is General Sans at the heading weight,
+        whatever its size. Voyage's hairlines and its thick-to-thin contrast are exactly what the
+        gradients' grain interferes with. It is the same interference that sets the marks'
+        minimum sizes on a gradient. See page 16.</p>
+    </div>
+
+    <p class="meta gap-top">Every Voyage setting in this document is a page title, one per page —
+      the single exception being the specimen on page 8, which is the face shown as itself. The
+      subheads, the tables and this paragraph are all General Sans.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 11. Logos: the marks ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Logos</span>
+    <span class="eyebrow eyebrow-path">guidelines/logos.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Two marks, one measure of air</h2>
+    <p class="small">The logotype is 623 × 131 units; the icon logo is 167 × 107. Both are transparent
+      and filled with <span class="token">currentColor</span> — set <span class="token">color</span> on the parent and the
+      mark follows. The icon logo is the double-A ligature cut from the logotype's own outline,
+      and it sits inside the logotype at 1:1.</p>
+
+    <p class="subhead">Clear space on all four sides is the height of the icon logo: 106 units</p>
+    <div class="clearspace">
+      <div class="inner">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+    </div>
+
+    <p class="small">That measure is not arbitrary and it is not two measures. The icon logo's ink is
+      106.25 units tall in both drawings, so one number serves both marks. On the logotype, 106
+      units is 81% of the mark's own height. That is deliberate: cramped is the failure that keeps
+      happening, and nobody has ever complained that an <span class="nowrap">Aardling</span> mark had too much room.</p>
+
+    <table>
+      <thead><tr><th>Mark</th><th>Mark size</th><th>Lockup canvas</th></tr></thead>
+      <tbody>
+        <tr><td>Logotype</td><td>623 × 131</td><td>835 × 343</td></tr>
+        <tr><td>Icon logo</td><td>167 × 107</td><td>379 × 379</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta">The icon canvas is squared so one file serves an avatar upload without
+      recropping. Squaring only adds air: the horizontal clear space is exactly 106, the vertical
+      136. Lockups — the mark, its ground and its clear space flattened into one fixed-size file —
+      are for the places that cannot supply a ground or set <span class="token">color</span>. They are generated
+      from the two masters and never edited by hand.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 12. Logos: minimum sizes ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Logos</span>
+    <span class="eyebrow">Minimum sizes</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The floors, shown at size</h2>
+
+    <div class="size-floor">
+      <div>
+        <div style="width: 96px">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="meta">Logotype: 96px mark, 129px lockup</p>
+      </div>
+      <div>
+        <div style="width: 16px">{{TEXT:assets/logos/aardling-icon.svg}}</div>
+        <p class="meta">Icon logo: 16px mark, 36px lockup</p>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>Mark</th><th>On a flat ground</th><th>On a gradient</th></tr></thead>
+      <tbody>
+        <tr><td>Logotype</td><td>96px mark, 129px lockup</td><td><strong>380px lockup</strong></td></tr>
+        <tr><td>Icon logo</td><td>16px mark, 36px lockup</td><td><strong>64px lockup</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p class="small">A gradient costs roughly three times the floor a flat ground does, and the reason
+      is the grain rather than the contrast. Below those widths, use a flat approved ground.</p>
+
+    <div class="card card-violet gap-top">
+      <p class="subhead">Ocean Blue needs more room than the rest</p>
+      <p class="small gap-top">The palette allows Ocean Blue for display text at 24px and above. The
+        logotype's cap height is 106 of its 131 units, so a 96px-wide logotype has a 16px cap —
+        under that threshold. The two rules would contradict each other if left alone.</p>
+      <p class="small gap-top"><strong>An Ocean Blue logotype is never narrower than 141px, a 189px
+        lockup.</strong> That is the width at which its cap height reaches 24px. It is not drawn on
+        the icon logo at all, which floors at 16px and never gets near.</p>
+      <p class="small gap-top">This is the one colourway whose minimum differs from the mark's own.
+        Ocean Blue is a details colour and the logotype is drawn in hairlines; 4.27:1 on White
+        behaves worse than the number suggests when the strokes are that thin.</p>
+    </div>
+
+    <p class="meta gap-top">The logotype is for big touchpoints — a site header, a slide, a social
+      post, anywhere the name should be read. The icon logo is for small ones — a favicon, an
+      avatar, a thumbnail — and for anywhere the logotype would be illegible.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 13. Logos: colourways ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Logos</span>
+    <span class="eyebrow">Which pairs carry a mark</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Nine colourways</h2>
+    <p class="small">Both marks take all nine, except the two Ocean Blue pairs, which are the logotype
+      only. Shown at 170px; each chip's padding is the mark's own clear space.</p>
+
+    <div class="mark-chips">
+      <div>
+        <div class="mark-chip" style="background:#F6F6F6;color:#181C2F">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Night Blue on Snow White</p>
+      </div>
+      <div>
+        <div class="mark-chip" style="background:#FFFFFF;color:#181C2F">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Night Blue on White</p>
+      </div>
+      <div>
+        <div class="mark-chip" style="background:#181C2F;color:#F6F6F6">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Snow White on Night Blue</p>
+      </div>
+      <div>
+        <div class="mark-chip" style="background:#C5EEB3;color:#181C2F">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Night Blue on Lime Green</p>
+      </div>
+      <div>
+        <div class="mark-chip" style="background:#F8E181;color:#181C2F">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Night Blue on Yellow</p>
+      </div>
+      <div>
+        <div class="mark-chip" style="background:#F3B0B0;color:#181C2F">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Night Blue on Pink</p>
+      </div>
+      <div>
+        <div class="mark-chip" style="background:#B9BBF4;color:#181C2F">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Night Blue on Violet</p>
+      </div>
+      <div>
+        <div class="mark-chip" style="background:#FFFFFF;color:#4B7BC3">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Ocean Blue on White — logotype only, never under 141px</p>
+      </div>
+      <div style="grid-column: span 2">
+        <div class="mark-chip" style="background:#F6F6F6;color:#4B7BC3">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+        <p class="mark-chip-label">Ocean Blue on Snow White — logotype only, never under 141px</p>
+      </div>
+    </div>
+
+    <p class="meta">The other seven approved pairs carry no mark. A greyed mark reads as disabled,
+      a red one as a failure, a Hairline Grey one is invisible at 1.44:1, and a mark has no hover
+      state.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 14. Imagery: gradients ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Imagery</span>
+    <span class="eyebrow eyebrow-path">guidelines/imagery.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Three gradients</h2>
+    <p class="small">SVG, a few kilobytes each, sharp at any size. Each is authored at 1600 × 1000 and
+      crops to fill any box without distorting: give it a container with a real aspect ratio and
+      let it crop.</p>
+
+    <div class="gradient-row">
+      <div class="band"><img src="{{DATA:assets/images/gradient-meridian.svg}}" alt="Meridian gradient"></div>
+      <div>
+        <p class="subhead">Meridian</p>
+        <p class="small">Night Blue to a lighter indigo, one Ocean Blue highlight and a faint Lime
+          Green. The quiet one: behind a slide of content, or a section band that must not compete.
+          <strong>It carries no grain</strong> — the noise was working against that job and costing
+          it contrast.</p>
+      </div>
+    </div>
+    <div class="gradient-row">
+      <div class="band"><img src="{{DATA:assets/images/gradient-bloom.svg}}" alt="Bloom gradient"></div>
+      <div>
+        <p class="subhead">Bloom</p>
+        <p class="small">Snow White into Violet, with Lime Green and Pink blooms. The light option,
+          and the only one that takes Night Blue text-adjacent panels well. Carries grain, drawn as
+          an SVG filter rather than a baked-in texture.</p>
+      </div>
+    </div>
+    <div class="gradient-row">
+      <div class="band"><img src="{{DATA:assets/images/gradient-harvest.svg}}" alt="Harvest gradient"></div>
+      <div>
+        <p class="subhead">Harvest</p>
+        <p class="small">Snow White into Yellow, with a second Yellow bloom low, Pink opposite, and a
+          Lime Green highlight. The warm option: social cards, event artwork, a title slide. Carries
+          grain.</p>
+      </div>
+    </div>
+
+    <div class="card card-violet gap-top">
+      <p class="small"><strong>Each one sits at one end of the luminance range, and stays there.</strong>
+        That is what lets a single knocked-out colour separate cleanly from the whole field rather
+        than only from part of it. A gradient whose ramp spans the range takes no mark at all: the
+        warm gradient that preceded Harvest ran from Pink to deep indigo and was withdrawn for
+        exactly that reason. A new colourway holds the same discipline or it does not ship.</p>
+    </div>
+
+    <p class="meta">They are <strong>artwork, not colour</strong>. Never sample a pixel out of one and
+      add it to the palette, and never recolour one ad hoc. If a new colourway is needed, it gets
+      drawn and added to the package.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 15. Imagery: on a gradient ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Imagery</span>
+    <span class="eyebrow">What may sit on a gradient</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">A mark, or one heading. Never both.</h2>
+
+    <div class="demo demo-mark">
+      <img src="{{DATA:assets/images/gradient-meridian.svg}}" alt="">
+      <div class="demo-inner demo-mark">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+    </div>
+    <p class="meta">Either mark, knocked out: White on Meridian, Night Blue on Bloom and Harvest.
+      Measured under each mark's own ink rather than against the field's average — White on
+      Meridian is 6.75:1 at worst, Night Blue on Bloom 9.42:1, on Harvest 12.02:1.</p>
+
+    <div class="demo" style="height: 190px">
+      <img src="{{DATA:assets/images/gradient-bloom.svg}}" alt="">
+      <div class="demo-inner">
+        <p class="demo-heading" style="color: var(--colour-night-blue)">We work with your team for three days.</p>
+      </div>
+    </div>
+    <p class="meta">Or one heading, in the same colour the knocked-out mark takes on that ground, so a
+      gradient never carries two lettering colours.</p>
+
+    <table>
+      <thead><tr><th style="width: 214px">Constraint</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>The body face, never Voyage.</td><td>Voyage's thick-to-thin contrast and hairline serifs lose to the grain.</td></tr>
+        <tr><td>35px or larger.</td><td>Comfortably past the large-text threshold, with margin for the grain.</td></tr>
+        <tr><td>At most half the width, set to one side.</td><td>The field's luminance changes across it. Full width, a heading on Meridian runs from 4.26:1 at one end to 16.68:1 at the other and visibly shifts weight along the line.</td></tr>
+        <tr><td>Two or three lines, balanced.</td><td>A heading is a phrase held inside one region of the artwork, not a line crossing it.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="small"><strong>Nothing else goes on top.</strong> No body copy, no captions, no labels, no
+      lists, no buttons — and no scrim or blur anywhere, on anything.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 16. Imagery: illustrations ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Imagery</span>
+    <span class="eyebrow">Illustrations</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Illustrations take no text at all</h2>
+    <p>Not a heading, not a caption. The licence on the previous page is for gradients only,
+      because a gradient is a controlled field with a measured luminance band and an illustration
+      is not. Text goes beside an illustration, or on a solid panel next to it.</p>
+
+    <div class="illos">
+      <figure>
+        <img src="{{DATA:assets/images/illustration-workshop.webp}}" alt="A workshop in progress">
+        <figcaption>A workshop in progress</figcaption>
+      </figure>
+      <figure>
+        <img src="{{DATA:assets/images/illustration-coaching.webp}}" alt="One-to-one coaching">
+        <figcaption>One-to-one coaching</figcaption>
+      </figure>
+      <figure>
+        <img src="{{DATA:assets/images/illustration-event.webp}}" alt="A conference or event">
+        <figcaption>A conference or event</figcaption>
+      </figure>
+    </div>
+
+    <p class="small">These are painterly and stay raster — the exception the SVG-by-default rule
+      exists for. The package ships them at 1600px as WebP with a PNG beside each.</p>
+
+    <div class="card">
+      <p class="eyebrow">Yes — text beside the image</p>
+      <div class="beside">
+        <img src="{{DATA:assets/images/illustration-coaching.webp}}" alt="One-to-one coaching">
+        <div>
+          <p class="subhead">One-to-one coaching</p>
+          <p class="small gap-top">The image keeps its own frame and the words keep theirs. Nothing
+            is set over the artwork, and nothing needs a scrim to stay readable. The alternatives,
+            in order of preference: text beside the image; text on a solid panel adjacent to it;
+            the image reduced to an accent.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="meta">The full-resolution masters — 5000 × 5000, plus CMYK TIFFs for print — are in the
+      <strong>Aardling — Brand</strong> shared Google Drive. The package carries the versions meant
+      for building things; Drive carries the originals.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 17. Imagery: the favicon ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Imagery</span>
+    <span class="eyebrow">The favicon</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The icon logo, knocked out of Bloom</h2>
+    <p class="small">Night Blue on a rounded tile cut from <span class="token">gradient-bloom.svg</span>.
+      <span class="token">favicon.svg</span> is the source; every raster is generated from it. Shown at
+      180, 32 and 16 pixels, on both grounds a tab strip offers.</p>
+
+    <div class="favicons">
+      <div class="favicon-ground" style="background: var(--colour-white)">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="180" height="180" alt="">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="32" height="32" alt="">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="16" height="16" alt="">
+      </div>
+      <div class="favicon-ground" style="background: var(--colour-night-blue)">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="32" height="32" alt="">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="16" height="16" alt="">
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th style="width: 120px">Decision</th><th style="width: 190px">Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Crop</td><td>The gradient's own centre square</td><td>No bespoke framing. A tighter crop raises contrast but lands in the Lime Green bloom, and the tile goes mint.</td></tr>
+        <tr><td>Corner radius</td><td>22% of the tile</td><td>The radius tokens are absolute and do not transfer to a drawing rendered from 16 to 512px. 22% is what iOS, Android and macOS use.</td></tr>
+        <tr><td>Mark size</td><td>82% of the tile width</td><td>At 74% the hairlines fall below one pixel at 16px and drop out.</td></tr>
+        <tr><td>Mark stroke</td><td>0.8 units, in the mark's own colour</td><td>Thickens the hairlines symmetrically without redrawing the letterform.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="small"><strong>The favicon drops Bloom's grain.</strong> Below about 64px the filter is
+      sampled far under its own frequency and lands as coloured blotch fighting the mark. That
+      licence is narrow: a generated derivative at fixed small sizes is not a reproduction of the
+      gradient, and Bloom and Harvest keep their grain wherever they are shown as themselves.</p>
+
+    <p class="meta">A favicon change ships the whole set: <span class="token">favicon.svg</span>,
+      <span class="token">favicon.ico</span> with 16 and 32 embedded, <span class="token">apple-touch-icon.png</span> at
+      180, <span class="token">icon-192.png</span> and <span class="token">icon-512.png</span>.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 18. Layout: spacing ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Layout</span>
+    <span class="eyebrow eyebrow-path">guidelines/layout.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Spacing is specified, never implied</h2>
+    <p class="small">The scale is 8px steps. Nine are published, every one has a job, and each is shown
+      here at size.</p>
+
+    <div class="stack-tight">
+      <div class="spacing-row"><span class="token">--space-1</span><span>8px</span><span class="bar" style="width:8px"></span></div>
+      <div class="spacing-row"><span class="token">--space-2</span><span>16px</span><span class="bar" style="width:16px"></span></div>
+      <div class="spacing-row"><span class="token">--space-3</span><span>24px</span><span class="bar" style="width:24px"></span></div>
+      <div class="spacing-row"><span class="token">--space-4</span><span>32px</span><span class="bar" style="width:32px"></span></div>
+      <div class="spacing-row"><span class="token">--space-6</span><span>48px</span><span class="bar" style="width:48px"></span></div>
+      <div class="spacing-row"><span class="token">--space-8</span><span>64px</span><span class="bar" style="width:64px"></span></div>
+      <div class="spacing-row"><span class="token">--space-10</span><span>80px</span><span class="bar" style="width:80px"></span></div>
+      <div class="spacing-row"><span class="token">--space-12</span><span>96px</span><span class="bar" style="width:96px"></span></div>
+      <div class="spacing-row"><span class="token">--space-18</span><span>144px</span><span class="bar" style="width:144px"></span></div>
+    </div>
+
+    <table>
+      <tbody>
+        <tr><td style="width: 96px"><span class="token">--space-1</span></td><td>Gap inside a control: between an icon and its label.</td></tr>
+        <tr><td><span class="token">--space-2</span></td><td>Gap between closely related things: a label and its field, items in a list.</td></tr>
+        <tr><td><span class="token">--space-3</span></td><td>Grid gutter up to 1400px. Paragraph rhythm in running prose.</td></tr>
+        <tr><td><span class="token">--space-4</span></td><td>Grid gutter above 1400px. Padding inside a card.</td></tr>
+        <tr><td><span class="token">--space-6</span></td><td>Vertical padding of a coloured section, below 720px.</td></tr>
+        <tr><td><span class="token">--space-8</span></td><td>Top and bottom of a hero, below 960px.</td></tr>
+        <tr><td><span class="token">--space-10</span></td><td>Vertical padding of a coloured section, from 720px.</td></tr>
+        <tr><td><span class="token">--space-12</span></td><td>Vertical padding of a coloured section, from 960px.</td></tr>
+        <tr><td><span class="token">--space-18</span></td><td>Top of a detail-page hero, from 960px.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta"><strong>Prefer the larger step when two look plausible.</strong> Lay sibling
+      groups out with flex or grid and <span class="token">gap</span> — not margins on children, and not
+      whitespace in the source.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 19. Layout: radii and controls ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Layout</span>
+    <span class="eyebrow">Radii, controls, containers</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Three radii, and no more</h2>
+
+    <div class="radii">
+      <div class="radius-demo" style="border-radius: var(--radius-sm)">8px</div>
+      <div class="radius-demo" style="border-radius: var(--radius-md)">24px</div>
+      <div class="radius-demo" style="border-radius: var(--radius-pill)">60px</div>
+    </div>
+    <p class="small"><span class="token">--radius-sm</span> for tooltips, tags and swatches;
+      <span class="token">--radius-md</span> for cards, panels and image containers; <span class="token">--radius-pill</span>
+      for buttons and pills.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">The button</p>
+    <div style="display: flex; gap: var(--space-3); align-items: center; margin-top: var(--space-2)">
+      <span class="btn">Get in touch</span>
+      <span class="btn btn-hover">Get in touch</span>
+    </div>
+    <p class="small"><span class="token">--space-1</span> gap, 12px vertical and 24px horizontal
+      padding, pill radius, never less than 44px high — a minimum for anything tappable, not a
+      target to design down to.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">Breakpoints and containers</p>
+    <table>
+      <thead><tr><th>Step</th><th class="num">Breakpoint</th><th class="num">Container</th></tr></thead>
+      <tbody>
+        <tr><td>sm</td><td class="num">540px</td><td class="num">516px</td></tr>
+        <tr><td>md</td><td class="num">720px</td><td class="num">696px</td></tr>
+        <tr><td>lg</td><td class="num">960px</td><td class="num">936px</td></tr>
+        <tr><td>xl</td><td class="num">1140px</td><td class="num">1116px</td></tr>
+        <tr><td>xxl</td><td class="num">1400px</td><td class="num">1312px</td></tr>
+        <tr><td>xxxl</td><td class="num">1728px</td><td class="num">1504px</td></tr>
+        <tr><td>mega</td><td class="num">1920px</td><td class="num">1696px</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta">Page side margins are 28px below 540px, and the container gutter above it.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 20. Layout: terms and images ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Layout</span>
+    <span class="eyebrow">Protected terms, and text on images</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">A protected term sits on one line</h2>
+    <p class="small">Every break opportunity inside it is suppressed, at spaces and at hyphens
+      alike. "<span class="nowrap">Domain-Driven Design</span>" is one concept and has to look like one.</p>
+
+    <div class="cols">
+      <div class="card card-pink">
+        <p class="eyebrow">No</p>
+        <div class="measure-col">
+          <p class="h">Scaling Domain-Driven Design to 800 engineers</p>
+        </div>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Yes</p>
+        <div class="measure-col">
+          <p class="h">Scaling <span class="nowrap">Domain-Driven Design</span> to 800 engineers</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="small"><span class="nowrap">Domain-Driven Design</span> &nbsp;·&nbsp;
+      <span class="nowrap">EventStorming</span> &nbsp;·&nbsp; <span class="nowrap">Event Sourcing</span> &nbsp;·&nbsp;
+      <span class="nowrap">Team Topologies</span> &nbsp;·&nbsp; <span class="nowrap">Data Mesh</span> &nbsp;·&nbsp;
+      <span class="nowrap">Aardling</span></p>
+
+    <p class="meta">In markup, wrap the whole term in a single span with
+      <span class="token">white-space: nowrap</span> — one span covers the spaces and the hyphens at once. In
+      plain text, use a non-breaking space between the words <em>and</em> a non-breaking hyphen,
+      but prefer the span wherever markup exists: U+2011 is missing from many fonts, Voyage
+      included. If a term does not fit the line, the line is wrong, not the term.</p>
+
+    <hr class="rule gap-top">
+
+    <div class="card card-pink">
+      <p class="subhead">Never text on top of an image</p>
+      <p class="small gap-top">Not over photographs, not over illustrations, and not with a scrim, a
+        blur or a gradient overlay to rescue it. The alternatives, in order of preference: text
+        beside the image; text on a solid panel adjacent to it; the image reduced to an accent.</p>
+      <p class="small gap-top">The current website breaks this — the default hero sets the h1 over a
+        cover photograph — and so do several mockups in the original brand guide. Those layouts are
+        wrong and change; the rule does not bend for them.</p>
+      <p class="small gap-top">The single exception is the gradient licence on page 16, and it is
+        narrow: a gradient is a measured field, an illustration is not.</p>
+    </div>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 21. Voice: who is speaking ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Voice</span>
+    <span class="eyebrow eyebrow-path">guidelines/voice.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">We, not I, and never an institution</h2>
+    <p><span class="nowrap">Aardling</span> is a group of consultants, and the writing says so. Not "I" —
+      that belongs to a personal blog. Not "Aardling provides", which turns a room full of people
+      into an institution issuing statements. Name the people where naming them helps: "Gien ran
+      the <span class="nowrap">EventStorming</span> session" beats "a consultant facilitated the session".</p>
+
+    <p class="subhead gap-top">Register</p>
+    <p class="small">Expert, plain, unhurried. Our readers are tech leaders in finance, logistics,
+      government, media and biotech. Much of what we write gets forwarded to someone who controls
+      a budget; write so that both can read it.</p>
+
+    <div class="cols cols-top gap-top">
+      <div class="card">
+        <p class="subhead">British English</p>
+        <p class="small gap-top">Not just the spelling — modelling, organisation, analyse, recognise,
+          prioritise, licence as a noun — but the vocabulary that goes with it.</p>
+      </div>
+      <div class="card">
+        <p class="subhead">Proper nouns split two ways</p>
+        <p class="small gap-top"><strong>Places take their English name, where one exists.</strong>
+          Antwerp, not Antwerpen. Brussels, The Hague, Cologne. Most places have no English name
+          and are left as they are: Hoorn, Lille. Never invent one.</p>
+        <p class="small gap-top"><strong>Companies and people keep their own spelling.</strong> Never
+          anglicised, never stripped of accents. Société Générale, not Societe Generale.</p>
+      </div>
+    </div>
+
+    <p class="meta gap-top"><strong>Say what the work is.</strong> We run workshops, model domains,
+      review architectures, teach courses, and sit with teams for weeks. Every one of those
+      happened on a date. Prefer it to the category it belongs to.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 22. Voice: terms and hype ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Voice</span>
+    <span class="eyebrow">Terms of art, and hype</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Our vocabulary, without assuming the reader shares it</h2>
+
+    <p class="small"><span class="nowrap">Domain-Driven Design</span>, <span class="nowrap">EventStorming</span>,
+      <span class="nowrap">Event Sourcing</span>, bounded contexts, <span class="nowrap">Team Topologies</span> — our
+      terms, used without apology. But the reader may not share our background, so a term earns
+      its place by being either explained in passing or unnecessary. Nothing that assumes the
+      reader was in the room.</p>
+
+    <div class="cols">
+      <div class="card">
+        <p class="eyebrow">Yes</p>
+        <p class="small">We mapped the bounded contexts — the boundaries inside which a model
+          holds — and found three places where two teams owned the same concept.</p>
+      </div>
+      <div class="card card-pink">
+        <p class="eyebrow">No</p>
+        <p class="small">We applied strategic DDD to surface context boundary misalignment.</p>
+      </div>
+    </div>
+
+    <p class="subhead gap-top">No hype</p>
+    <p class="small">Not exciting, not revolutionary, not game-changing, not a journey, not
+      future-proof. If a sentence would survive being pasted into any other consultancy's website,
+      it is not about us.</p>
+
+    <div class="cols">
+      <div class="card card-pink">
+        <p class="eyebrow">No</p>
+        <p class="small">In a world full of concrete, Aardling is the tree that grows with you.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Yes</p>
+        <p class="small">We help you make sense of complex environments. Through models, we guide
+          your software design strategy and untangle organisational constraints.</p>
+      </div>
+    </div>
+
+    <p class="meta gap-top">The original brand guide carries a manifesto and four values written in
+      a register this brand rejects. Their substance is kept; the register is not.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 23. Voice: sentences and boilerplate ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Voice</span>
+    <span class="eyebrow">Sentences, and the tagline</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Active, short, and backed</h2>
+
+    <p class="subhead">No unbacked claims</p>
+    <p class="small">No superlatives, no numbers without a source, no promises nobody has thought
+      through. "We trained about 800 engineers at Shopify" is a fact with a case study behind it.
+      "The go-to technology consultants" is not a fact at all.</p>
+
+    <p class="subhead gap-top">No filler</p>
+    <p class="small">If a sentence can be deleted and nothing is lost, delete it. No throat-clearing
+      before the point, no restating what was just said in different words.</p>
+
+    <p class="subhead gap-top">Sentences</p>
+    <p class="small">Active voice. Short sentences. A verb where a nominalisation tempts.</p>
+
+    <div class="cols">
+      <div class="card card-pink">
+        <p class="eyebrow">No</p>
+        <p class="small">Comprehensive delivery of transformational value is provided across the
+          engagement.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Yes</p>
+        <p class="small">We work with your team for three days and leave you with a model you can
+          use.</p>
+      </div>
+    </div>
+
+    <div class="card card-night gap-top">
+      <p class="eyebrow">The one approved tagline</p>
+      <p style="font-size: var(--font-size-h4); font-weight: var(--font-weight-heading); line-height: 1.2">Software strategy, architecture, and domain modelling in complex environments.</p>
+      <p class="small gap-top">Use it verbatim, or do not use one. It carries a serial comma. That is
+        the approved wording and it is not corrected to house style, here or anywhere it is
+        reproduced.</p>
+    </div>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 24. Where things live ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Where things live</span>
+    <span class="eyebrow">v{{VERSION}}</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The package is the source of truth</h2>
+    <p class="small">Generated from <span class="token">@aardling/brand-aardling</span> at version {{VERSION}}.
+      Where this printed page condenses, the file in the package is the longer answer.</p>
+
+    <table>
+      <thead><tr><th style="width: 208px">Path</th><th>Contents</th></tr></thead>
+      <tbody>
+        <tr><td><span class="token">tokens/</span></td><td>Design tokens as data, and the same tokens as CSS custom properties.</td></tr>
+        <tr><td><span class="token">guidelines/colour.md</span></td><td>The palette, the accepted pairs, and what each is for.</td></tr>
+        <tr><td><span class="token">guidelines/typography.md</span></td><td>The two faces, the scale, and the weights.</td></tr>
+        <tr><td><span class="token">guidelines/layout.md</span></td><td>Spacing, radii, and the protected terms.</td></tr>
+        <tr><td><span class="token">guidelines/imagery.md</span></td><td>Gradients and illustrations, and what may sit on them.</td></tr>
+        <tr><td><span class="token">guidelines/logos.md</span></td><td>Masters, lockups, clear space, minimum sizes.</td></tr>
+        <tr><td><span class="token">guidelines/naming.md</span></td><td>The brand name and the company names.</td></tr>
+        <tr><td><span class="token">guidelines/voice.md</span></td><td>Register, person, and do/don't examples.</td></tr>
+        <tr><td><span class="token">assets/logos/</span></td><td>The logotype and the icon logo, both SVG, both currentColor.</td></tr>
+        <tr><td><span class="token">assets/logos/lockups/</span></td><td>22 flattened mark-on-ground files, generated from the masters.</td></tr>
+        <tr><td><span class="token">assets/icons/</span></td><td>The 18-mark icon set, SVG, currentColor.</td></tr>
+        <tr><td><span class="token">assets/favicons/</span></td><td>The favicon source and its rasters.</td></tr>
+        <tr><td><span class="token">assets/fonts/</span></td><td>Both faces as woff2, plus the @font-face declarations.</td></tr>
+        <tr><td><span class="token">assets/images/</span></td><td>Three gradients, and three illustrations.</td></tr>
+        <tr><td><span class="token">skills/aardling-brand/</span></td><td>A skill teaching agents to apply this brand.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta gap-top"><span style="font-weight: var(--font-weight-medium); color: var(--colour-night-blue)">npm install @aardling/brand-aardling</span><br>
+      Published to GitHub Packages, not the public npm registry: the consuming project needs an
+      <span class="token">.npmrc</span> pointing the <span class="token">@aardling</span> scope at
+      <span class="token">npm.pkg.github.com</span>, and a token with <span class="token">read:packages</span>.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+</div>

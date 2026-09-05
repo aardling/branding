@@ -120,6 +120,17 @@ First person plural. Expert, plain, unhurried. British spelling: modelling, orga
 analyse. No hype, no unbacked claims, no filler. The reader is a busy technical leader whose
 CFO may read it next. Do/don't examples: `../../guidelines/voice.md`.
 
+## The printed guide
+
+`../../aardling-brand-guide-v*.pdf` is the whole brand as a 25-page A4 document, for handing
+to someone who does not have the package. It is generated from the guidelines and the assets,
+so it is a view and never the source: when the two disagree, the file under `guidelines/`
+wins. Rebuild it after any change to this brand:
+
+```sh
+npm run build:guide --workspace @aardling/brand-aardling
+```
+
 ## Changing this brand
 
 Use the repository's `brand-change` skill. One brand per change, and always visualise and get
