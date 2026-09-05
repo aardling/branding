@@ -86,9 +86,9 @@ icon library, and never use emoji as icons.
 
 ## Imagery
 
-Three SVG gradients in `../../assets/images/` — `gradient-dawn` (warm), `gradient-meridian`
-(quiet, for use behind content), `gradient-bloom` (light). Three painterly illustrations as
-WebP with a PNG beside each.
+Two SVG gradients in `../../assets/images/` — `gradient-meridian` (quiet, for use behind
+content) and `gradient-bloom` (light). There is no warm gradient. Three painterly
+illustrations as WebP with a PNG beside each.
 
 The gradients are artwork, not colour: never sample a pixel from one into the palette. The
 icon logo knocked out of a gradient is the social avatar, and it is the only thing that goes

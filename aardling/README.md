@@ -33,7 +33,7 @@ import tokens from "@aardling/aardling/tokens/tokens.json" with { type: "json" }
 | `assets/icons/` | The 18-mark icon set, SVG, `currentColor`. |
 | `assets/favicons/` | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
 | `assets/fonts/` | Variable General Sans and Voyage as `woff2`, plus `fonts.css`. |
-| `assets/images/` | Three SVG gradients, and three illustrations as WebP with PNG beside. |
+| `assets/images/` | Two SVG gradients, and three illustrations as WebP with PNG beside. |
 | `skills/aardling-brand/` | Claude Code skill teaching agents to apply this brand. |
 
 ## Marks
@@ -49,8 +49,7 @@ Both are drawn in capitals. That is lettering; the name is written **Aardling**.
 
 ## Imagery
 
-`assets/images/` carries three SVG gradients — `gradient-dawn`, `gradient-meridian`,
-`gradient-bloom` — a few kilobytes each, with their grain drawn as an SVG filter. The icon
+`assets/images/` carries two SVG gradients — `gradient-meridian` and `gradient-bloom` — a few kilobytes each, with their grain drawn as an SVG filter. The icon
 logo may be knocked out of one for a social avatar. Nothing else goes on top of them: see
 `guidelines/imagery.md`.
 

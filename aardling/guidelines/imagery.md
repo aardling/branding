@@ -4,14 +4,19 @@ Aardling has two kinds of picture, and they follow different rules.
 
 ## Gradients
 
-Three, in `assets/images/`. They are **SVG** — a few kilobytes each, sharp at any size, and
+Two, in `assets/images/`. They are **SVG** — a few kilobytes each, sharp at any size, and
 they carry their own grain through an SVG filter rather than a baked-in texture.
 
 | File | What it is | Use for |
 | --- | --- | --- |
-| `gradient-dawn.svg` | Pink through Ocean Blue into deep indigo, lit from the top right. | The warm option. Social cards, event artwork, a title slide. |
 | `gradient-meridian.svg` | Night Blue to a lighter indigo, one Ocean Blue highlight and a faint Lime Green. | The quiet one. Behind a slide of content, or a section band that must not compete. |
 | `gradient-bloom.svg` | Snow White into Violet, with Lime Green and Pink blooms. | The light option, and the only one that takes Night Blue text-adjacent panels well. |
+
+**There is no warm gradient.** Both of these are cool — Meridian runs Night Blue into
+indigo, Bloom runs Snow White into Violet. Bloom's Lime Green and Pink blooms keep it from
+reading icy, but its base is a cool ramp. Social cards and event artwork, which wanted a
+warm register, have no gradient assigned to them until one is drawn. Do not warm one of
+these two up to fill the gap — see the rule below.
 
 They are **artwork, not colour**. Do not sample a pixel out of one and add it to the palette;
 the palette is in `colour.md` and is defined in text. Do not recolour them ad hoc either — if
@@ -38,7 +43,7 @@ take them from there for anything printed.
 
 ## The one thing that may sit on a gradient
 
-The icon logo, knocked out. White on Dawn or Meridian, Night Blue on Bloom. That is the
+The icon logo, knocked out. White on Meridian, Night Blue on Bloom. That is the
 social avatar treatment, and it is the brand's own lettering rather than running text.
 
 **Nothing else goes on top.** No headlines over a gradient, no body copy over an
