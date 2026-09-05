@@ -46,6 +46,39 @@ illustration, no captions over either, and no scrim or blur to make it work. The
 `layout.md` and imagery does not get an exception from it. Text goes beside the image, or on
 a solid panel next to it.
 
+## The favicon
+
+The favicon is the icon logo knocked out at small size: the mark in Night Blue on a rounded
+tile cut from `gradient-bloom.svg`. `assets/favicons/favicon.svg` is the source; every raster in
+`assets/favicons/` is generated from it.
+
+Four things are fixed about the drawing, and each was decided against rendered output rather than
+by eye at full size.
+
+| Decision | Value | Why |
+| --- | --- | --- |
+| Crop | The gradient's own `xMidYMid slice` centre square | No bespoke framing. A tighter crop into Bloom's lightest corner raises contrast but lands in the Lime Green bloom, and the tile goes mint. |
+| Corner radius | 22% of the tile | The `--radius-*` tokens are absolute and do not transfer to a drawing rendered anywhere from 16 to 512px. 22% is what iOS, Android and macOS round app tiles to. |
+| Mark size | 82% of the tile width | At 74% the hairlines fall below one pixel at 16px and drop out. |
+| Mark stroke | 0.8 units, in the mark's own colour | Optical compensation. It thickens the hairlines symmetrically without redrawing the letterform. |
+
+The mark measures 9.66:1 against the tile at its thinnest strokes, well over the 3:1 a non-text
+graphic needs. The tile itself is only 1.37:1 against light browser chrome, so on a light tab strip
+the silhouette thins out and the mark carries; on dark chrome it is 10.59:1.
+
+**The favicon drops the grain.** This is the one place a gradient is used without its
+`feTurbulence` filter. Below about 64px the filter is sampled far under its own frequency and lands
+as coloured blotch fighting the mark, and it renders at a different apparent size depending on how
+large the icon is rasterised. That licence is narrow: the favicon is a generated derivative at fixed
+small sizes, not a reproduction of the gradient. The artwork in `assets/images/` keeps its grain, and
+nowhere that shows a gradient as itself may drop it.
+
+Two sizes are drawn from a heavier cut — 86% and a 1.5 stroke — embedded as the 16 and 32 bitmaps
+inside `favicon.ico`. Browsers that support SVG favicons use `favicon.svg` and rasterise it
+themselves, so that heavier cut reaches Windows shortcuts, bookmark exports and older browsers only.
+`apple-touch-icon.png` is generated full-bleed and square, without the rounded corners: iOS applies
+its own mask and composites on black, so a rounded source would show black corners.
+
 ## Where the masters are
 
 Vector logo masters, the icon set in six colourways, the illustration masters and the print

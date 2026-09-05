@@ -72,6 +72,12 @@ Both are transparent and filled with `currentColor`; set `color` on the parent t
 They sit on Snow White, white or Night Blue, and nothing else. Clear space on all four sides
 is the height of the icon logo. Minimum size: logotype 96px wide, icon logo 16px.
 
+For a favicon, do not roll your own from the icon logo — use the set in
+`../../assets/favicons/`. It is the icon knocked out of a rounded Bloom tile, drawn larger and
+slightly thickened so it survives 16px, and it is the one place a gradient is used without its
+grain. `favicon.svg` is the source; the rasters come from it. Rules:
+`../../guidelines/imagery.md`.
+
 ## Icons
 
 `../../assets/icons/` holds 18 marks — sparkles, stars, spheres, orbits, ovals — all

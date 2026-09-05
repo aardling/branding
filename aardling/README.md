@@ -31,7 +31,7 @@ import tokens from "@aardling/aardling/tokens/tokens.json" with { type: "json" }
 | `guidelines/voice.md` | Register, person, and do/don't examples. |
 | `assets/logos/` | The logotype and the icon logo, both SVG, both `currentColor`. |
 | `assets/icons/` | The 18-mark icon set, SVG, `currentColor`. |
-| `assets/favicons/` | `favicon.svg` and the raster set generated from it. |
+| `assets/favicons/` | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
 | `assets/fonts/` | Variable General Sans and Voyage as `woff2`, plus `fonts.css`. |
 | `assets/images/` | Three SVG gradients, and three illustrations as WebP with PNG beside. |
 | `skills/aardling-brand/` | Claude Code skill teaching agents to apply this brand. |
