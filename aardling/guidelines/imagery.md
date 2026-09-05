@@ -4,19 +4,21 @@ Aardling has two kinds of picture, and they follow different rules.
 
 ## Gradients
 
-Two, in `assets/images/`. They are **SVG** — a few kilobytes each, sharp at any size, and
+Three, in `assets/images/`. They are **SVG** — a few kilobytes each, sharp at any size, and
 they carry their own grain through an SVG filter rather than a baked-in texture.
 
 | File | What it is | Use for |
 | --- | --- | --- |
 | `gradient-meridian.svg` | Night Blue to a lighter indigo, one Ocean Blue highlight and a faint Lime Green. | The quiet one. Behind a slide of content, or a section band that must not compete. |
 | `gradient-bloom.svg` | Snow White into Violet, with Lime Green and Pink blooms. | The light option, and the only one that takes Night Blue text-adjacent panels well. |
+| `gradient-harvest.svg` | Snow White into Yellow, with a second Yellow bloom low, Pink opposite, and a Lime Green highlight. | The warm option. Social cards, event artwork, a title slide. |
 
-**There is no warm gradient.** Both of these are cool — Meridian runs Night Blue into
-indigo, Bloom runs Snow White into Violet. Bloom's Lime Green and Pink blooms keep it from
-reading icy, but its base is a cool ramp. Social cards and event artwork, which wanted a
-warm register, have no gradient assigned to them until one is drawn. Do not warm one of
-these two up to fill the gap — see the rule below.
+**Each one sits at one end of the luminance range, and stays there.** Meridian is dark
+throughout; Bloom and Harvest are light throughout. That is what lets a single knocked-out
+colour separate cleanly from the whole field rather than only from part of it. A gradient
+whose ramp spans the range takes no mark at all: the warm gradient that preceded Harvest
+ran from Pink to deep indigo and was withdrawn for exactly that reason. A new colourway
+holds the same discipline or it does not ship.
 
 They are **artwork, not colour**. Do not sample a pixel out of one and add it to the palette;
 the palette is in `colour.md` and is defined in text. Do not recolour them ad hoc either — if
@@ -41,10 +43,33 @@ shipped at 1600px, which is enough for a full-width web block or a slide. The fu
 masters (5000×5000, plus CMYK TIFFs for print) live in Aardling's Google Drive brand folder;
 take them from there for anything printed.
 
-## The one thing that may sit on a gradient
+## What may sit on a gradient
 
-The icon logo, knocked out. White on Meridian, Night Blue on Bloom. That is the
-social avatar treatment, and it is the brand's own lettering rather than running text.
+Either mark, knocked out: the logotype or the icon logo. White on Meridian, Night Blue on
+Bloom and Harvest. Both are the brand's own lettering rather than running text, so the same
+licence covers the social avatar and a title card carrying the full name.
+
+The knockout colours are measured under each mark's own ink rather than against the field's
+average — white on Meridian is 6.75:1 at worst, Night Blue on Bloom 9.42:1, Night Blue on
+Harvest 12.02:1. Holding one end of the luminance range is exactly what buys that: a single
+colour separates from the whole field, not merely from part of it.
+
+**The minimum size depends on which mark.** The limit is legibility, not contrast, which stays
+well clear on all three. Under it the grain starts competing with the mark's hairlines and the
+letterform dissolves.
+
+| Mark | Not below |
+| --- | --- |
+| Logotype | 380px wide |
+| Icon logo | 64px wide |
+
+The logotype needs the larger floor because its cap height is a small fraction of its width;
+the icon logo is the same lettering at a far coarser scale and survives much smaller. If the
+space is under those widths, use a flat approved ground instead of a gradient. The favicon is
+the one exception, and it is a generated derivative with its own rules below.
+
+Ready-made lockups of both marks on all three gradients are in `assets/logos/lockups/`. See
+`logos.md`.
 
 **Nothing else goes on top.** No headlines over a gradient, no body copy over an
 illustration, no captions over either, and no scrim or blur to make it work. The rule is in

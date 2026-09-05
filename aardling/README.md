@@ -27,31 +27,39 @@ import tokens from "@aardling/aardling/tokens/tokens.json" with { type: "json" }
 | `guidelines/typography.md` | The two faces, the scale, weights, and the font licence position. |
 | `guidelines/layout.md` | Spacing scale in use, radii, and the protected terms. |
 | `guidelines/imagery.md` | The gradients and illustrations, and what may sit on them. |
+| `guidelines/logos.md` | Masters and lockups, clear space, which pairs carry a mark, minimum sizes. |
 | `guidelines/naming.md` | How the brand name and the company names are written. |
 | `guidelines/voice.md` | Register, person, and do/don't examples. |
 | `assets/logos/` | The logotype and the icon logo, both SVG, both `currentColor`. |
+| `assets/logos/lockups/` | 22 flattened mark-on-ground files, generated from the two masters. |
 | `assets/icons/` | The 18-mark icon set, SVG, `currentColor`. |
 | `assets/favicons/` | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
 | `assets/fonts/` | Variable General Sans and Voyage as `woff2`, plus `fonts.css`. |
-| `assets/images/` | Two SVG gradients, and three illustrations as WebP with PNG beside. |
+| `assets/images/` | Three SVG gradients, and three illustrations as WebP with PNG beside. |
 | `skills/aardling-brand/` | Claude Code skill teaching agents to apply this brand. |
 
 ## Marks
 
-`assets/logos/aardling-logotype.svg` is the full logotype, 195×40, transparent, filled with
+`assets/logos/aardling-logotype.svg` is the full logotype, 623×131, transparent, filled with
 `currentColor` — set `color` on the parent to recolour it.
 
 `assets/logos/aardling-icon.svg` is the icon logo: the double-A ligature, cut from the
-logotype's own outline. Use it for small touchpoints — favicon, social thumbnail.
+logotype's own outline at 1:1. Use it for small touchpoints — favicon, social thumbnail.
 
 Both are drawn in capitals. That is lettering; the name is written **Aardling**. See
 `guidelines/naming.md`.
 
+`assets/logos/lockups/` carries both marks flattened onto each ground they are approved on —
+nine flat pairs and three gradients — with the clear space built in. Use a lockup where you
+cannot set `color` or supply a ground: an avatar upload, a slide master, a print file. They
+are generated from the two masters by `scripts/build-lockups.mjs` and never edited by hand.
+See `guidelines/logos.md`.
+
 ## Imagery
 
-`assets/images/` carries two SVG gradients — `gradient-meridian` and `gradient-bloom` — a few kilobytes each, with their grain drawn as an SVG filter. The icon
-logo may be knocked out of one for a social avatar. Nothing else goes on top of them: see
-`guidelines/imagery.md`.
+`assets/images/` carries three SVG gradients — `gradient-meridian`, `gradient-bloom` and
+`gradient-harvest` — a few kilobytes each, with their grain drawn as an SVG filter. Either
+mark may be knocked out of one. Nothing else goes on top of them: see `guidelines/imagery.md`.
 
 ## Using the skill
 

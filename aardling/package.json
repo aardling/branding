@@ -1,6 +1,6 @@
 {
   "name": "@aardling/aardling",
-  "version": "0.2.2",
+  "version": "0.3.1",
   "description": "Brand guidelines, tokens and assets for the Aardling brand.",
   "license": "UNLICENSED",
   "files": [
@@ -8,6 +8,10 @@
     "tokens",
     "guidelines",
     "skills",
+    "scripts",
     "README.md"
-  ]
+  ],
+  "scripts": {
+    "build:lockups": "node scripts/build-lockups.mjs"
+  }
 }

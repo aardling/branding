@@ -71,6 +71,13 @@ Night Blue is the only foreground approved on any of them.
 
 **Any pair not in the table.** Including pastel on pastel, and any of the greys on a pastel.
 
+## Which pairs carry a mark
+
+Nine of the pairs above are also approved for the logotype and the icon logo. The rest are
+not: a pair approved for secondary text, form errors or hairline rules is approved for that,
+and a mark is none of those things. `logos.md` lists the nine and says which mark each takes —
+`--colour-ocean-blue` is the logotype only, and not below 141px.
+
 ## Notes on the source
 
 The brand guide holds two colour tables that overlap and disagree with each other. Ocean Blue

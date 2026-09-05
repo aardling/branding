@@ -51,8 +51,9 @@ The current website breaks this — `.hero-default--img` sets the h1 over a cove
 and so do several mockups in the original brand guide. Those layouts are wrong and change; the
 rule does not bend for them.
 
-The one thing that sits on imagery is the mark itself, knocked out of the brand's gradient
-artwork for a social avatar. That is lettering, not running text.
+The only thing that sits on imagery is a mark — the logotype or the icon logo, knocked
+out of the brand's gradient artwork. That is lettering, not running text. It is gradients
+only, never an illustration, and the knockout colours and minimum sizes are in `imagery.md`.
 
 ## Protected terms
 
