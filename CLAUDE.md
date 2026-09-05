@@ -123,6 +123,13 @@ scrim or blur to rescue legibility. If asked for it, say why not and offer the a
 text beside the image, text on a solid panel adjacent to it, or the image reduced to an
 accent. Push back before building it.
 
+One brand narrows this. Aardling permits a single heading on a gradient, under constraints
+set out in its own `guidelines/imagery.md` — a gradient is a measured field, and the licence
+was granted on measurements. It does not extend to illustrations or photographs, and it does
+not extend to the other four brands: for dddeu, dml, ncrafts and dddacademy the rule above
+stands whole. A brand may narrow this rule only with the same evidence, written down in its
+own guidelines.
+
 If the user insists anyway: tell them plainly that it will probably look bad and messy and
 will not be very readable, ask once more whether they really want it — and if the answer is
 still yes, build it, in a visibly disgruntled tone. The decision is theirs; the enthusiasm
