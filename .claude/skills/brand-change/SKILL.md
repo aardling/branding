@@ -105,6 +105,10 @@ A **layout** change is only finished when:
    each one whole on a single line — one `white-space: nowrap` span around the entire term
    in markup, covering its spaces and hyphens alike; U+00A0 and U+2011 in plain text.
 
+A **voice** change is only finished when `guidelines/voice.md` exists, sits inside the
+repository's general voice rules rather than against them, and carries the brand's own
+do/don't examples in its own register.
+
 Bump the brand package's `version` when its published content changes. Do not commit unless
 the user asks.
 
@@ -122,3 +126,5 @@ the user asks.
   way past this is the user insisting twice, after being told both times.
 - No spacing left unspecified, and no protected term broken across lines — not at a
   space, not at a hyphen. If it does not fit, the line changes, not the term.
+- No brand voice that contradicts the general voice rules, and no copy shipped with
+  filler, hype or unbacked claims.

@@ -40,7 +40,8 @@ Each brand directory:
 │   └── favicons/
 ├── guidelines/               voice, usage rules, do/don't
 │   ├── colour.md             accepted foreground/background pairs + when to use each
-│   └── layout.md             spacing scale in use, protected terms
+│   ├── layout.md             spacing scale in use, protected terms
+│   └── voice.md              register and do/don't, within the general rules
 └── skills/<brand>-brand/     Claude Code skill for applying this brand
 ```
 

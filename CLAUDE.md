@@ -30,6 +30,7 @@ anything under a brand directory.
   guidelines/               written guidance: voice, usage, do/don't
     colour.md               accepted foreground/background pairs + when to use each
     layout.md               spacing scale in use, protected terms
+    voice.md                the brand's register and do/don't, within the general rules
   skills/<brand>-brand/     skill teaching agents to apply this brand
 ```
 
@@ -139,6 +140,36 @@ around all of it, which covers spaces and hyphens at once. In plain text, where 
 markup, use U+00A0 non-breaking space between the words *and* U+2011 non-breaking hyphen;
 prefer the span wherever markup exists, since U+2011 is missing from many fonts and falls
 back to a different face mid-word.
+
+## Voice and tone
+
+These are the floor every brand stands on. A brand's `guidelines/voice.md` specialises
+within them — its own register, its own do/don't examples — and never contradicts them.
+
+**Pleasant, not corporate — but the readers are serious businesses.** Warm and direct,
+never stiff, never chummy. Our customers work in finance, government and a wide range of
+other domains; anything we write has to be forwardable to a CFO or a civil servant without
+embarrassment. That also rules out assumed jargon and in-jokes: the reader may not share our
+background.
+
+**No filler.** If a sentence can be deleted and nothing is lost, delete it. No throat-clearing
+before the point, no restating what was just said.
+
+**No bullshit.** Every claim is one we could back up. No superlatives with nothing behind
+them, no numbers without a source, no promises we have not thought through.
+
+**No hyping.** Say what the thing does and who it is for. Not exciting, not revolutionary,
+not game-changing, not a journey.
+
+**Personal.** Name who does the thing — we, you, a person. A brand is people talking to
+people, not an institution issuing statements. Whether a brand says "we" or "I" is its own
+choice, made in its `voice.md`.
+
+**Active and light.** Active voice. Short sentences. A verb where a nominalisation tempts:
+
+> Not: *Comprehensive delivery of transformational value is provided across the engagement.*
+>
+> But: *We work with your team for three days and leave you with a model you can use.*
 
 ## Adding a brand
 
