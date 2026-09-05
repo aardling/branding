@@ -47,6 +47,29 @@ Each brand directory:
 
 ## Using a brand in another project
 
+These packages are published to **GitHub Packages**, not the public npm
+registry. That needs two things in the consuming project.
+
+**1. Point the `@aardling` scope at GitHub and supply a token.** In that project's `.npmrc`:
+
+```
+@aardling:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+**2. Put a token in the environment.** A classic personal access token with the
+`read:packages` scope is enough:
+
+```sh
+export GITHUB_TOKEN=ghp_...
+```
+
+GitHub Packages requires authentication for every install, including public packages — there
+is no anonymous read. Commit the `.npmrc` (it names the registry, not the secret) and keep
+the token in the environment or in CI secrets, never in the file.
+
+Then install as normal:
+
 ```sh
 npm install @aardling/dddeu
 ```
@@ -73,6 +96,13 @@ ln -s ../../node_modules/@aardling/dddeu/skills/dddeu-brand .claude/skills/dddeu
 
 ```sh
 npm install    # links all five workspaces
+```
+
+Publishing a brand needs a token with the `write:packages` scope in `GITHUB_TOKEN`; the
+repository `.npmrc` already points the scope at GitHub Packages.
+
+```sh
+npm publish -w @aardling/dddeu
 ```
 
 Before adding or changing anything in a brand, read `CLAUDE.md` and use the

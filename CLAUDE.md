@@ -2,7 +2,9 @@
 
 Brand guidelines, design tokens and assets for five brands: **aardling, dddeu, dml,
 ncrafts, dddacademy**. Each brand is an independently publishable npm package under the
-`@aardling/` scope, consumed via npm workspaces from the repository root.
+`@aardling/` scope, consumed via npm workspaces from the repository root. They are published
+to **GitHub Packages**, not the public npm registry, so a consuming project needs an `.npmrc`
+pointing the scope at `npm.pkg.github.com` and a token — see the root `README.md`.
 
 ## Standing rules
 

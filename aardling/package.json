@@ -3,6 +3,14 @@
   "version": "0.4.1",
   "description": "Brand guidelines, tokens and assets for the Aardling brand.",
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aardling/branding.git",
+    "directory": "aardling"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
     "assets",
     "tokens",

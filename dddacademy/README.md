@@ -6,6 +6,29 @@ Brand guidelines, design tokens and assets for the **dddacademy** brand.
 
 ## Install
 
+These packages are published to **GitHub Packages**, not the public npm
+registry. That needs two things in the consuming project.
+
+**1. Point the `@aardling` scope at GitHub and supply a token.** In that project's `.npmrc`:
+
+```
+@aardling:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
+**2. Put a token in the environment.** A classic personal access token with the
+`read:packages` scope is enough:
+
+```sh
+export GITHUB_TOKEN=ghp_...
+```
+
+GitHub Packages requires authentication for every install, including public packages — there
+is no anonymous read. Commit the `.npmrc` (it names the registry, not the secret) and keep
+the token in the environment or in CI secrets, never in the file.
+
+Then:
+
 ```sh
 npm install @aardling/dddacademy
 ```

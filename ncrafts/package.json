@@ -3,6 +3,14 @@
   "version": "0.0.0",
   "description": "Brand guidelines, tokens and assets for the ncrafts brand.",
   "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aardling/branding.git",
+    "directory": "ncrafts"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "files": [
     "assets",
     "tokens",
