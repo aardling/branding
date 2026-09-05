@@ -35,8 +35,12 @@ Each brand directory:
 │   ├── logos/
 │   ├── icons/
 │   ├── images/
-│   └── fonts/
+│   ├── fonts/
+│   │   └── fonts.css         @font-face declarations, local files only
+│   └── favicons/
 ├── guidelines/               voice, usage rules, do/don't
+│   ├── colour.md             accepted foreground/background pairs + when to use each
+│   └── layout.md             spacing scale in use, protected terms
 └── skills/<brand>-brand/     Claude Code skill for applying this brand
 ```
 
@@ -48,6 +52,7 @@ npm install @aardling/dddeu
 
 ```css
 @import "@aardling/dddeu/tokens/tokens.css";
+@import "@aardling/dddeu/assets/fonts/fonts.css";
 ```
 
 ```js
