@@ -4,8 +4,13 @@ Aardling has two kinds of picture, and they follow different rules.
 
 ## Gradients
 
-Three, in `assets/images/`. They are **SVG** — a few kilobytes each, sharp at any size, and
-they carry their own grain through an SVG filter rather than a baked-in texture.
+Three, in `assets/images/`. They are **SVG** — a few kilobytes each, and sharp at any size.
+
+**Bloom and Harvest carry grain**, drawn as an SVG filter rather than a baked-in texture.
+**Meridian does not.** Its grain was removed: it is the gradient whose job is to sit behind
+content without competing, and the noise was working against that as well as costing it
+contrast — white on Meridian measures 5.07:1 at worst without the grain against 4.14:1 with
+it, because the filter's bright excursions were the worst pixels in the field.
 
 | File | What it is | Use for |
 | --- | --- | --- |
@@ -55,8 +60,10 @@ Harvest 12.02:1. Holding one end of the luminance range is exactly what buys tha
 colour separates from the whole field, not merely from part of it.
 
 **The minimum size depends on which mark.** The limit is legibility, not contrast, which stays
-well clear on all three. Under it the grain starts competing with the mark's hairlines and the
-letterform dissolves.
+well clear on all three. On Bloom and Harvest, the grain starts competing with the mark's
+hairlines under it and the letterform dissolves; on Meridian, which has no grain, the limit is
+simply the hairlines themselves falling below a pixel. The floors are the same for both cases,
+so one number covers all three.
 
 | Mark | Not below |
 | --- | --- |
@@ -118,12 +125,13 @@ The mark measures 9.66:1 against the tile at its thinnest strokes, well over the
 graphic needs. The tile itself is only 1.37:1 against light browser chrome, so on a light tab strip
 the silhouette thins out and the mark carries; on dark chrome it is 10.59:1.
 
-**The favicon drops the grain.** This is the one place a gradient is used without its
-`feTurbulence` filter. Below about 64px the filter is sampled far under its own frequency and lands
-as coloured blotch fighting the mark, and it renders at a different apparent size depending on how
-large the icon is rasterised. That licence is narrow: the favicon is a generated derivative at fixed
-small sizes, not a reproduction of the gradient. The artwork in `assets/images/` keeps its grain, and
-nowhere that shows a gradient as itself may drop it.
+**The favicon drops the grain.** Bloom carries grain and the favicon cut from it does not.
+Below about 64px the filter is sampled far under its own frequency and lands as coloured blotch
+fighting the mark, and it renders at a different apparent size depending on how large the icon is
+rasterised. That licence is narrow: the favicon is a generated derivative at fixed small sizes, not
+a reproduction of the gradient. Bloom and Harvest keep their grain wherever they are shown as
+themselves, and nowhere that reproduces one of them may drop it. Meridian is a separate case — it
+has no grain to drop.
 
 Two sizes are drawn from a heavier cut — 86% and a 1.5 stroke — embedded as the 16 and 32 bitmaps
 inside `favicon.ico`. Browsers that support SVG favicons use `favicon.svg` and rasterise it

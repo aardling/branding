@@ -88,8 +88,8 @@ Full rules: `../../guidelines/logos.md`.
 
 For a favicon, do not roll your own from the icon logo — use the set in
 `../../assets/favicons/`. It is the icon knocked out of a rounded Bloom tile, drawn larger and
-slightly thickened so it survives 16px, and it is the one place a gradient is used without its
-grain. `favicon.svg` is the source; the rasters come from it. Rules:
+slightly thickened so it survives 16px, and it drops Bloom's grain because the filter turns to
+blotch at that size. `favicon.svg` is the source; the rasters come from it. Rules:
 `../../guidelines/imagery.md`.
 
 ## Icons
@@ -101,8 +101,8 @@ icon library, and never use emoji as icons.
 ## Imagery
 
 Three SVG gradients in `../../assets/images/` — `gradient-meridian` (quiet, for use behind
-content), `gradient-bloom` (light) and `gradient-harvest` (warm). Three painterly
-illustrations as WebP with a PNG beside each.
+content), `gradient-bloom` (light) and `gradient-harvest` (warm). Bloom and Harvest carry
+grain; Meridian does not. Three painterly illustrations as WebP with a PNG beside each.
 
 The gradients are artwork, not colour: never sample a pixel from one into the palette.
 
