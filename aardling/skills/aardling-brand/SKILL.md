@@ -104,9 +104,15 @@ Three SVG gradients in `../../assets/images/` — `gradient-meridian` (quiet, fo
 content), `gradient-bloom` (light) and `gradient-harvest` (warm). Three painterly
 illustrations as WebP with a PNG beside each.
 
-The gradients are artwork, not colour: never sample a pixel from one into the palette. The
-icon logo knocked out of a gradient is the social avatar, and it is the only thing that goes
-on top of one. Full rules: `../../guidelines/imagery.md`.
+The gradients are artwork, not colour: never sample a pixel from one into the palette.
+
+Two things may go on a gradient, and only one of them at a time: a mark knocked out, or a
+single heading. A heading is the body face and never Voyage, `--font-size-h3` or larger, at
+most half the width and set to one side — the field's luminance changes across it, so a
+full-width line visibly shifts weight from one end to the other. It takes the same colour the
+mark takes on that ground: white on Meridian, Night Blue on Bloom and Harvest. Nothing else
+goes on top — no body copy, no captions, no scrim — and illustrations take no text at all.
+Full rules: `../../guidelines/imagery.md`.
 
 ## Voice
 

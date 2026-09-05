@@ -51,9 +51,15 @@ The current website breaks this — `.hero-default--img` sets the h1 over a cove
 and so do several mockups in the original brand guide. Those layouts are wrong and change; the
 rule does not bend for them.
 
-The only thing that sits on imagery is a mark — the logotype or the icon logo, knocked
-out of the brand's gradient artwork. That is lettering, not running text. It is gradients
-only, never an illustration, and the knockout colours and minimum sizes are in `imagery.md`.
+Two things may sit on gradient artwork, and nothing at all may sit on a photograph or an
+illustration. The first is a mark — the logotype or the icon logo, knocked out. The second is
+a single heading: the body face and never Voyage, `--font-size-h3` or larger, at most half the
+width, set to one side, and never on the same gradient as a mark.
+
+Running text is still never set on an image. A heading is one short phrase held inside a
+measured region of a controlled field; body copy is neither, and no scrim, blur or gradient
+overlay makes it acceptable. The knockout colours, the heading colours and the minimum sizes
+are in `imagery.md`.
 
 ## Protected terms
 

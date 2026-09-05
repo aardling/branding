@@ -87,6 +87,10 @@ Voyage below about 24px loses its detail and reads as a generic serif, so it nev
 anything small. If a title needs to be smaller than that, it is not the Voyage title on that
 page — use General Sans.
 
+**Voyage never sets a heading on artwork.** A heading placed on a gradient is General Sans at
+the heading weight, whatever its size. Voyage's hairlines and its thick-to-thin contrast are
+exactly what the gradients' grain interferes with. See `imagery.md`.
+
 ## Letter-spacing
 
 None, at any size, in either face, with one exception: uppercase labels take `0.12em` to

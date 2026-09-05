@@ -71,10 +71,32 @@ the one exception, and it is a generated derivative with its own rules below.
 Ready-made lockups of both marks on all three gradients are in `assets/logos/lockups/`. See
 `logos.md`.
 
-**Nothing else goes on top.** No headlines over a gradient, no body copy over an
-illustration, no captions over either, and no scrim or blur to make it work. The rule is in
-`layout.md` and imagery does not get an exception from it. Text goes beside the image, or on
-a solid panel next to it.
+## A heading may go on a gradient
+
+One heading, and nothing else. It takes the same colour the knocked-out mark takes on that
+ground — white on Meridian, Night Blue on Bloom and Harvest — so a gradient never carries two
+lettering colours.
+
+Four constraints, and each one exists because of something measured:
+
+| Constraint | Why |
+| --- | --- |
+| The body face, never Voyage. | Voyage's thick-to-thin contrast and hairline serifs lose to the grain. It is the same interference that sets the marks' minimum sizes. |
+| `--font-size-h3` (35px) or larger. | Comfortably past the large-text threshold, with margin for the grain. |
+| At most half the width, set to one side. | The field's luminance changes across it. Full width, a heading on Meridian runs from 4.26:1 at one end to 16.68:1 at the other and visibly shifts weight along the line. Half the width roughly halves that. |
+| Two or three lines, balanced. | A heading is a phrase held inside one region of the artwork, not a line crossing it. |
+
+**A gradient carries a mark or a heading, never both.** The knocked-out logotype is already a
+title treatment. Two lettering treatments on one piece of artwork is the failure this rule
+exists to prevent.
+
+**Nothing else goes on top.** No body copy, no captions, no labels, no lists, no buttons —
+and no scrim or blur anywhere, on anything. Body copy is small and long and would cross the
+field the way a full-width heading does; it is never set on artwork.
+
+**Illustrations take no text at all.** Not a heading, not a caption. The licence above is for
+gradients only, because a gradient is a controlled field with a measured luminance band and
+an illustration is not. Text goes beside an illustration, or on a solid panel next to it.
 
 ## The favicon
 
