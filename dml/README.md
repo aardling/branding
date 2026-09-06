@@ -27,6 +27,25 @@ GitHub Packages requires authentication for every install, including public pack
 is no anonymous read. Commit the `.npmrc` (it names the registry, not the secret) and keep
 the token in the environment or in CI secrets, never in the file.
 
+### Getting a token
+
+With the `gh` CLI:
+
+```sh
+gh auth refresh -h github.com -s read:packages
+export GITHUB_TOKEN=$(gh auth token)
+```
+
+By hand: open
+[github.com/settings/tokens/new](https://github.com/settings/tokens/new?scopes=read:packages&description=GitHub%20Packages%20read)
+— or **Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate
+new token (classic)** — tick `read:packages`, set an expiry, and generate. Copy the value
+straight away; GitHub shows it once.
+
+GitHub Packages accepts classic tokens only; fine-grained tokens do not work on its npm
+registry. In GitHub Actions you need no personal token — use the workflow's own
+`GITHUB_TOKEN` with `permissions: packages: read`.
+
 Then:
 
 ```sh
