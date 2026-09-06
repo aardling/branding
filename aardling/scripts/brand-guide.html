@@ -106,6 +106,8 @@ body {
   gap: var(--space-3);
 }
 
+.page-body.tight { gap: var(--space-2); }
+
 .page-foot {
   display: flex;
   justify-content: space-between;
@@ -282,14 +284,14 @@ tr:last-child td { border-bottom: 0; }
 .band img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 .gradient-row { display: grid; grid-template-columns: 190px 1fr; gap: var(--space-3); align-items: center; }
-.gradient-row .band { height: 116px; }
+.gradient-row .band { height: 78px; }
 
-.demo { position: relative; border-radius: var(--radius-md); overflow: hidden; }
+.demo { position: relative; border-radius: var(--radius-md); overflow: hidden; flex: none; }
 .demo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .demo-inner { position: relative; height: 100%; display: flex; align-items: center; }
 
-.demo-mark { height: 210px; justify-content: center; }
-.demo-mark svg { width: 380px; color: var(--colour-white); }
+.demo-mark { height: 134px; justify-content: center; }
+.demo-mark svg { width: 340px; color: var(--colour-white); }
 
 .demo-heading {
   position: relative;
@@ -409,7 +411,7 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
 <!-- ======================= 1. Cover ======================= -->
 <section class="page cover">
   <div class="cover-art">
-    <img src="{{DATA:assets/images/gradient-meridian.svg}}" alt="">
+    <img src="{{DATA:assets/images/gradient-vesper.svg}}" alt="">
     <div class="cover-mark">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
   </div>
   <div class="cover-text">
@@ -1020,20 +1022,28 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
     <span class="eyebrow">Imagery</span>
     <span class="eyebrow eyebrow-path">guidelines/imagery.md</span>
   </div>
-  <div class="page-body">
-    <h2 class="title">Three gradients</h2>
-    <p class="small">SVG, a few kilobytes each, sharp at any size. Each is authored at 1600 × 1000 and
-      crops to fill any box without distorting: give it a container with a real aspect ratio and
-      let it crop.</p>
+  <div class="page-body tight">
+    <h2 class="title">Four gradients</h2>
+    <p class="small">SVG, a few kilobytes each, sharp at any size. Two dark, two light. Each is
+      authored at 1600 × 1000 and crops to fill any box without distorting.</p>
 
     <div class="gradient-row">
-      <div class="band"><img src="{{DATA:assets/images/gradient-meridian.svg}}" alt="Meridian gradient"></div>
+      <div class="band"><img src="{{DATA:assets/images/gradient-vesper.svg}}" alt="Vesper gradient"></div>
       <div>
-        <p class="subhead">Meridian</p>
-        <p class="small">Night Blue to a lighter indigo, one Ocean Blue highlight and a faint Lime
-          Green. The quiet one: behind a slide of content, or a section band that must not compete.
-          <strong>It carries no grain</strong> — the noise was working against that job and costing
-          it contrast.</p>
+        <p class="subhead">Vesper</p>
+        <p class="small">Near-black to a deep violet, a Pink glow low left, Ocean Blue holding the far
+          corner. The quiet dark one: behind a slide of content, or a section band that must not
+          compete. <strong>No grain</strong> — with it, white falls from 6.57:1 to 5.20:1.</p>
+      </div>
+    </div>
+    <div class="gradient-row">
+      <div class="band"><img src="{{DATA:assets/images/gradient-understory.svg}}" alt="Understory gradient"></div>
+      <div>
+        <p class="subhead">Understory</p>
+        <p class="small">The darkest field in the brand: Ocean Blue at one corner, Lime Green at the
+          other, near-black between them. The dark one meant to be looked at — a cover, or a
+          full-bleed ground. It competes, deliberately. <strong>No grain</strong>: with it, white
+          drops to 4.60:1, under the floor.</p>
       </div>
     </div>
     <div class="gradient-row">
@@ -1058,14 +1068,12 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
     <div class="card card-violet gap-top">
       <p class="small"><strong>Each one sits at one end of the luminance range, and stays there.</strong>
         That is what lets a single knocked-out colour separate cleanly from the whole field rather
-        than only from part of it. A gradient whose ramp spans the range takes no mark at all: the
-        warm gradient that preceded Harvest ran from Pink to deep indigo and was withdrawn for
-        exactly that reason. A new colourway holds the same discipline or it does not ship.</p>
+        than only from part of it. A gradient whose ramp spans the range takes no mark at all, and
+        the warm gradient that preceded Harvest was withdrawn for exactly that reason.</p>
     </div>
 
-    <p class="meta">They are <strong>artwork, not colour</strong>. Never sample a pixel out of one and
-      add it to the palette, and never recolour one ad hoc. If a new colourway is needed, it gets
-      drawn and added to the package.</p>
+    <p class="meta">They are <strong>artwork, not colour</strong>. Never sample a pixel into the
+      palette and never recolour one ad hoc — a new colourway gets drawn and added.</p>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
@@ -1078,18 +1086,18 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
     <span class="eyebrow">Imagery</span>
     <span class="eyebrow">What may sit on a gradient</span>
   </div>
-  <div class="page-body">
+  <div class="page-body tight">
     <h2 class="title">A mark, or one heading. Never both.</h2>
 
     <div class="demo demo-mark">
-      <img src="{{DATA:assets/images/gradient-meridian.svg}}" alt="">
+      <img src="{{DATA:assets/images/gradient-vesper.svg}}" alt="">
       <div class="demo-inner demo-mark">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
     </div>
-    <p class="meta">Either mark, knocked out: White on Meridian, Night Blue on Bloom and Harvest.
-      Measured under each mark's own ink rather than against the field's average — White on
-      Meridian is 6.75:1 at worst, Night Blue on Bloom 9.42:1, on Harvest 12.02:1.</p>
+    <p class="meta">Either mark, knocked out: White on Vesper and Understory, Night Blue on Bloom and
+      Harvest. Measured under the mark's own ink — Vesper 7.09:1 at worst, Understory 7.00:1,
+      Bloom 8.08:1, Harvest 10.33:1.</p>
 
-    <div class="demo" style="height: 190px">
+    <div class="demo" style="height: 142px">
       <img src="{{DATA:assets/images/gradient-bloom.svg}}" alt="">
       <div class="demo-inner">
         <p class="demo-heading" style="color: var(--colour-night-blue)">We work with your team for three days.</p>
@@ -1103,7 +1111,7 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
       <tbody>
         <tr><td>The body face, never Voyage.</td><td>Voyage's thick-to-thin contrast and hairline serifs lose to the grain.</td></tr>
         <tr><td>35px or larger.</td><td>Comfortably past the large-text threshold, with margin for the grain.</td></tr>
-        <tr><td>At most half the width, set to one side.</td><td>The field's luminance changes across it. Full width, a heading on Meridian runs from 4.26:1 at one end to 16.68:1 at the other and visibly shifts weight along the line.</td></tr>
+        <tr><td>At most half the width, on the gradient's steadiest side — upper right on Vesper, lower left on Understory, right of centre on Bloom, lower right on Harvest.</td><td>Full width across the middle, a heading runs 6.65:1 to 16.25:1 on Vesper and 5.87:1 to 17.33:1 on Understory, and visibly shifts weight along the line. Inside the steady region it swings 2.91 and 3.88. Width alone is not enough: Understory's right half still swings 10.41.</td></tr>
         <tr><td>Two or three lines, balanced.</td><td>A heading is a phrase held inside one region of the artwork, not a line crossing it.</td></tr>
       </tbody>
     </table>
@@ -1540,7 +1548,7 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
         <tr><td><span class="token">assets/icons/</span></td><td>The 18-mark icon set, SVG, currentColor.</td></tr>
         <tr><td><span class="token">assets/favicons/</span></td><td>The favicon source and its rasters.</td></tr>
         <tr><td><span class="token">assets/fonts/</span></td><td>Both faces as woff2, plus the @font-face declarations.</td></tr>
-        <tr><td><span class="token">assets/images/</span></td><td>Three gradients, and three illustrations.</td></tr>
+        <tr><td><span class="token">assets/images/</span></td><td>Four gradients, and three illustrations.</td></tr>
         <tr><td><span class="token">skills/aardling-brand/</span></td><td>A skill teaching agents to apply this brand.</td></tr>
       </tbody>
     </table>

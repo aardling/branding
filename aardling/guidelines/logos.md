@@ -106,7 +106,7 @@ Token names without the `--colour-` prefix; a gradient by its file's stem:
 ```
 aardling-logotype-night-blue-on-lime-green.svg
 aardling-icon-snow-white-on-night-blue.svg
-aardling-logotype-white-on-gradient-meridian.svg
+aardling-logotype-white-on-gradient-vesper.svg
 ```
 
 ## Which mark

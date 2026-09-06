@@ -95,7 +95,8 @@ const SOLID_LOGOTYPE_ONLY = [
 
 /* Knockout colour measured per gradient under the mark's own ink, not inherited. */
 const GRADIENT = [
-  ["white", "gradient-meridian"],
+  ["white", "gradient-vesper"],
+  ["white", "gradient-understory"],
   ["night-blue", "gradient-bloom"],
   ["night-blue", "gradient-harvest"],
 ];

@@ -75,7 +75,7 @@ in both drawings, because the icon is cut from the logotype at 1:1.
 Nine flat pairs carry a mark: Night Blue on Snow White, white, Lime Green, Yellow, Pink or
 Violet; Snow White on Night Blue; and Ocean Blue on white or Snow White, which is the logotype
 only and never below 141px. Either mark may also be knocked out of a gradient — white on
-Meridian, Night Blue on Bloom and Harvest. Nothing else in `../../guidelines/colour.md`
+Vesper and Understory, Night Blue on Bloom and Harvest. Nothing else in `../../guidelines/colour.md`
 carries a mark: those pairs are approved for secondary text, errors or rules, and a mark is
 none of those.
 
@@ -100,17 +100,21 @@ icon library, and never use emoji as icons.
 
 ## Imagery
 
-Three SVG gradients in `../../assets/images/` — `gradient-meridian` (quiet, for use behind
-content), `gradient-bloom` (light) and `gradient-harvest` (warm). Bloom and Harvest carry
-grain; Meridian does not. Three painterly illustrations as WebP with a PNG beside each.
+Four SVG gradients in `../../assets/images/` — `gradient-vesper` (dark and quiet, for use
+behind content), `gradient-understory` (dark and assertive, for a cover or a full-bleed
+ground), `gradient-bloom` (light) and `gradient-harvest` (warm). Bloom and Harvest carry
+grain; Vesper and Understory do not, because in a dark field the grain's bright pixels are
+the worst ones and cost the knockout more than it can spare. Three painterly illustrations as WebP with a PNG beside each.
 
 The gradients are artwork, not colour: never sample a pixel from one into the palette.
 
 Two things may go on a gradient, and only one of them at a time: a mark knocked out, or a
-single heading. A heading is the body face and never Voyage, `--font-size-h3` or larger, at
-most half the width and set to one side — the field's luminance changes across it, so a
-full-width line visibly shifts weight from one end to the other. It takes the same colour the
-mark takes on that ground: white on Meridian, Night Blue on Bloom and Harvest. Nothing else
+single heading. A heading is the body face and never Voyage, `--font-size-h3` or larger, and
+at most half the width — the field's luminance changes across it, so a full-width line visibly
+shifts weight from one end to the other. Half the width is not enough on its own: it goes in
+the one region where that gradient's field is steadiest — Vesper upper right, Understory lower
+left, Bloom right of centre, Harvest lower right. It takes the same colour the mark takes on
+that ground: white on Vesper and Understory, Night Blue on Bloom and Harvest. Nothing else
 goes on top — no body copy, no captions, no scrim — and illustrations take no text at all.
 Full rules: `../../guidelines/imagery.md`.
 

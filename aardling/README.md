@@ -58,7 +58,7 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `assets/icons/`            | The 18-mark icon set, SVG, `currentColor`.                                                                         |
 | `assets/favicons/`         | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
 | `assets/fonts/`            | Variable General Sans and Voyage as `woff2`, plus `fonts.css`.                                                     |
-| `assets/images/`           | Three SVG gradients, and three illustrations as WebP with PNG beside.                                              |
+| `assets/images/`           | Four SVG gradients, and three illustrations as WebP with PNG beside.                                               |
 | `skills/aardling-brand/`   | Claude Code skill teaching agents to apply this brand.                                                             |
 | `aardling-brand-guide-v*.pdf` | The whole brand as a printable A4 document, generated from everything above.                                    |
 
@@ -97,16 +97,18 @@ Both are drawn in capitals. That is lettering; the name is written **Aardling**.
 `guidelines/naming.md`.
 
 `assets/logos/lockups/` carries both marks flattened onto each ground they are approved on —
-nine flat pairs and three gradients — with the clear space built in. Use a lockup where you
+nine flat pairs and four gradients — with the clear space built in. Use a lockup where you
 cannot set `color` or supply a ground: an avatar upload, a slide master, a print file. They
 are generated from the two masters by `scripts/build-lockups.mjs` and never edited by hand.
 See `guidelines/logos.md`.
 
 ## Imagery
 
-`assets/images/` carries three SVG gradients — `gradient-meridian`, `gradient-bloom` and
-`gradient-harvest` — a few kilobytes each, with their grain drawn as an SVG filter. Either
-mark may be knocked out of one. Nothing else goes on top of them: see `guidelines/imagery.md`.
+`assets/images/` carries four SVG gradients — two dark, `gradient-vesper` and
+`gradient-understory`, and two light, `gradient-bloom` and `gradient-harvest` — a few
+kilobytes each. The light pair carry grain as an SVG filter; the dark pair carry none, because
+in a dark field the filter's bright pixels are the worst ones. Either mark may be knocked out
+of any of them. Nothing else goes on top: see `guidelines/imagery.md`.
 
 ## Using the skill
 
