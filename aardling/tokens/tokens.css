@@ -19,6 +19,24 @@
   --colour-hairline-grey: #D7D7D7;
   --colour-error-red: #CF1322;
 
+  /* Colour — functional, dark ground only. The light greys and the light red do not
+     measure on Night Blue; these replace them. Never used on a light ground. */
+  --colour-dark-surface: #242942;
+  --colour-dark-muted-grey: #9BA1B8;
+  --colour-dark-hairline-grey: #3A4059;
+  --colour-dark-error-red: #EF7A7A;
+
+  /* Roles. Components reference these, never a palette colour. A theme re-points the
+     roles and the palette above does not move. guidelines/colour.md holds the table. */
+  --surface-page: var(--colour-snow-white);
+  --surface-raised: var(--colour-white);
+  --text-primary: var(--colour-night-blue);
+  --text-secondary: var(--colour-muted-grey);
+  --text-error: var(--colour-error-red);
+  --border-control: var(--colour-muted-grey);
+  --border-hairline: var(--colour-hairline-grey);
+  --focus-ring: var(--colour-night-blue);
+
   /* Typography. @font-face lives in assets/fonts/fonts.css, not here. */
   --font-display: Voyage, Georgia, "Times New Roman", serif;
   --font-body: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -62,6 +80,11 @@
   --radius-sm: 8px;
   --radius-md: 24px;
   --radius-pill: 60px;
+
+  /* Elevation. Cast in Night Blue, not black. Two steps and no more; which is which
+     is in guidelines/web.md. --shadow-raised is none on the dark ground. */
+  --shadow-raised: 0 2px 8px rgba(24, 28, 47, 0.08);
+  --shadow-overlay: 0 8px 32px rgba(24, 28, 47, 0.16);
 
   /* Motion. Both durations collapse under prefers-reduced-motion, at the foot of
      this file. Which one is used for what: guidelines/web.md. */
@@ -140,6 +163,42 @@
     --font-size-body: 22px;
     --font-size-small: 17px;
   }
+}
+
+/* Dark. The reader's operating system decides; there is no toggle. Only the roles
+   re-point — every palette colour above keeps its value in both themes. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface-page: var(--colour-night-blue);
+    --surface-raised: var(--colour-dark-surface);
+    --text-primary: var(--colour-snow-white);
+    --text-secondary: var(--colour-dark-muted-grey);
+    --text-error: var(--colour-dark-error-red);
+    --border-control: var(--colour-dark-muted-grey);
+    --border-hairline: var(--colour-dark-hairline-grey);
+    --focus-ring: var(--colour-snow-white);
+
+    /* A shadow under a dark card on a dark page is invisible; --surface-raised does
+       that job instead. Only the overlay survives, and black is correct here because
+       nothing lighter is darker than the ground it falls on. */
+    --shadow-raised: none;
+    --shadow-overlay: 0 8px 32px rgba(0, 0, 0, 0.48);
+  }
+}
+
+/* An inverted section — the footer, a dark band — is the same roles scoped to a
+   container. It holds in both themes. guidelines/web.md explains when to reach for it. */
+[data-surface="dark"] {
+  --surface-page: var(--colour-night-blue);
+  --surface-raised: var(--colour-dark-surface);
+  --text-primary: var(--colour-snow-white);
+  --text-secondary: var(--colour-dark-muted-grey);
+  --text-error: var(--colour-dark-error-red);
+  --border-control: var(--colour-dark-muted-grey);
+  --border-hairline: var(--colour-dark-hairline-grey);
+  --focus-ring: var(--colour-snow-white);
+  --shadow-raised: none;
+  --shadow-overlay: 0 8px 32px rgba(0, 0, 0, 0.48);
 }
 
 @media (prefers-reduced-motion: reduce) {

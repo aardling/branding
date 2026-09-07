@@ -36,6 +36,11 @@ The default is `--colour-night-blue` on `--colour-snow-white`. The primary butto
 `--colour-night-blue` on `--colour-lime-green`. `--colour-ocean-blue` is a details colour: it
 fails contrast as body text and is never a background.
 
+On screen, reference a **role** rather than a palette colour — `--text-primary`,
+`--surface-page`, `--border-control` and five more. The palette never changes; the roles
+re-point between light and dark. The eight roles and both allowlists are in
+`../../guidelines/colour.md`.
+
 ## Typography
 
 `--font-body` (General Sans) sets nearly everything, most headings included. `--font-display`
@@ -60,6 +65,44 @@ image, or on a solid panel next to it.
 
 **Protected terms never break across a line:** Domain-Driven Design, EventStorming, Event
 Sourcing, Team Topologies, Data Mesh, Aardling. Wrap each in one `white-space: nowrap` span.
+
+## Web
+
+**Mobile first.** The values `tokens.css` declares in `:root` are the phone; every media query
+is `min-width`. Design at 360px before any other width. Six breakpoints: 540, 720, 960 and
+1400 move layout, 1728 and 1920 move type only. A custom property cannot be read inside a
+media query — write the literal and keep it equal to the token.
+
+**Dark mode follows the reader's operating system.** One `prefers-color-scheme` block
+re-points the roles; there is no toggle. An inverted section — the footer, a dark band — is
+`[data-surface="dark"]` on a container, not hand-set colours. Pastel sections, gradients and
+illustrations are identical in both themes.
+
+**Focus is never removed.** 3px of `--focus-ring`, offset 2px, on `:focus-visible`. Never
+`outline: none` without a replacement in the same rule. Anything that reacts to hover reacts
+to focus the same way, and nothing lives in a hover state alone — a touchscreen cannot reach it.
+
+**Links** are `--text-primary` and always underlined. Hover thickens the underline from 1px to
+3px and never changes the colour. Visited is not styled.
+
+**Control boundaries are `--border-control`**, never `--border-hairline` — hairline grey
+measures 1.44 against white and fails the 3:1 that a control boundary has to clear. Anything
+tappable is at least 44px high. An error always carries a message, never colour alone.
+
+**Motion:** `--duration-fast` for colour, `--duration-base` for anything that moves,
+`--ease-standard` for both. The tokens collapse under `prefers-reduced-motion`; anything
+animating without them must be stopped by hand. Nothing animates on load, and only `transform`
+and `opacity` animate at all.
+
+**Elevation:** `--shadow-raised` and `--shadow-overlay`, cast in Night Blue rather than black,
+and no third step. On the dark ground `--shadow-raised` is `none` and the surface colour does
+that job.
+
+**Icons** are sized by height with `--icon-sm`, `--icon-md`, `--icon-lg` and `--icon-xl`. The
+set is not drawn on a common grid, so the sizes are a starting point — match the icon to its
+neighbouring text by eye.
+
+Full rules: `../../guidelines/web.md`.
 
 ## Marks
 
@@ -131,7 +174,7 @@ to someone who does not have the package. It is generated from the guidelines an
 so it is a view and never the source: when the two disagree, the file under `guidelines/`
 wins.
 
-Its source is nine chapter fragments in `../../scripts/guide/`, one per section of the guide.
+Its source is ten chapter fragments in `../../scripts/guide/`, one per section of the guide.
 Edit the fragment for the section you are changing; only that chapter re-renders.
 
 **Never render it yourself.** Show the user what is stale and ask first:

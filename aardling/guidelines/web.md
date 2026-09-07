@@ -57,6 +57,77 @@ query. In a query, write the literal, and keep it equal to the token.
 layout — an intrinsic one, sized by its content rather than by the viewport. Reach for
 `minmax()`, `auto-fit` and `clamp()` on the component before adding a breakpoint to the brand.
 
+## States
+
+Anything a reader can interact with has five states: rest, hover, focus, pressed and
+disabled. `colour.md` holds the colours for all of them — the focus ring, the link table, the
+form-control table. What follows is the behaviour.
+
+**Focus is a requirement; hover is a courtesy.** Anything that reacts to a pointer reacts to
+the keyboard the same way. A reader on a phone, a trackpad or a switch has to reach every
+state a mouse can, and hover is the one state a touchscreen cannot produce at all — so no
+information, no control and no navigation may exist only in a hover state.
+
+**Never write `outline: none` without a replacement in the same rule.** The ring is three
+pixels of `--focus-ring`, offset two, on `:focus-visible`. Using `:focus-visible` rather than
+`:focus` is what keeps the ring off a mouse click while keeping it for a keyboard; the browser
+decides, and it decides better than we would.
+
+**A state change is a colour change, at `--duration-fast`.** Buttons, links and cards do not
+move, grow or lift on hover. The one thing that changes size is a link's underline, which
+thickens from 1px to 3px — see `colour.md`.
+
+**The pressed state is the hover state.** The brand has one extra colour for interaction,
+`--colour-hover-green`, and it serves hover and focus on the primary button. There is nothing
+below it for `:active`, and a control that has visibly reacted twice already does not need a
+third appearance.
+
+## Elevation
+
+Two shadows, and both are cast in Night Blue rather than black. A neutral black shadow over a
+warm ground reads as dirt rather than depth.
+
+| Token | Value | Use for |
+| --- | --- | --- |
+| `--shadow-raised` | `0 2px 8px rgba(24, 28, 47, 0.08)` | A card or panel at rest. |
+| `--shadow-overlay` | `0 8px 32px rgba(24, 28, 47, 0.16)` | Something genuinely floating: a menu, a dialog, a sticky bar. |
+
+**Two, and no more.** A third step is a request for a hierarchy the page does not have. If two
+things need to be distinguished and neither is floating, distinguish them with ground colour,
+radius and space — which is how `--surface-raised` already lifts a card off the page.
+
+**On the dark ground `--shadow-raised` is `none`.** A shadow under a dark card on a dark page
+is invisible, so `--colour-dark-surface` does that job instead. Only `--shadow-overlay`
+survives into dark, deepened to `rgba(0, 0, 0, 0.48)` — the one place black is correct,
+because nothing lighter is darker than the ground it falls on.
+
+## Dark mode
+
+**The reader's operating system decides.** One `prefers-color-scheme: dark` block re-points
+the eight roles in `colour.md`, and that is the whole mechanism. There is no toggle in the
+header, nothing to remember between visits, and no third state to test.
+
+The palette does not move. `--colour-snow-white` is Snow White in both themes; it is
+`--text-primary` that resolves differently. A component that references roles is already
+correct in dark mode and needs no dark-mode CSS of its own. A component that references
+palette colours directly is the bug.
+
+**An inverted section is dark mode, scoped.** The footer and the dark bands that already exist
+are the same eight roles set on a container rather than on `:root`, which `tokens.css` ships
+as `[data-surface="dark"]`. Use it instead of hand-setting colours, and an inverted section
+stays correct when the theme changes underneath it.
+
+```html
+<footer data-surface="dark"> … </footer>
+```
+
+**Artwork does not have a dark variant.** The four gradients and the illustrations are the
+same files in both themes, and the pastel sections are unchanged — Night Blue on Violet
+measures 9.21 whatever surrounds it. `imagery.md` is unaffected by any of this.
+
+**Check both themes before calling anything finished.** Switch the operating system setting;
+do not rely on a browser devtools override, which misses the `[data-surface]` case entirely.
+
 ## Motion
 
 Two durations and one easing. That is the entire vocabulary.
