@@ -201,6 +201,23 @@
   --shadow-overlay: 0 8px 32px rgba(0, 0, 0, 0.48);
 }
 
+/* A light island: a pastel section or card sitting inside a dark band, or on a dark
+   page. The pastels are unchanged between themes, so what sits on them must be too —
+   without this, a focus ring inside a Violet callout inherits Snow White and measures
+   1.69 against it. These are the two values --surface-* takes; there is no third. */
+[data-surface="light"] {
+  --surface-page: var(--colour-snow-white);
+  --surface-raised: var(--colour-white);
+  --text-primary: var(--colour-night-blue);
+  --text-secondary: var(--colour-muted-grey);
+  --text-error: var(--colour-error-red);
+  --border-control: var(--colour-muted-grey);
+  --border-hairline: var(--colour-hairline-grey);
+  --focus-ring: var(--colour-night-blue);
+  --shadow-raised: 0 2px 8px rgba(24, 28, 47, 0.08);
+  --shadow-overlay: 0 8px 32px rgba(24, 28, 47, 0.16);
+}
+
 @media (prefers-reduced-motion: reduce) {
   :root {
     --duration-fast: 1ms;
