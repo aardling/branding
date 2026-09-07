@@ -109,12 +109,12 @@ It is generated, not maintained by hand:
 npm run build:guide --workspace @aardling/brand-aardling
 ```
 
-The source is nine chapter fragments in `scripts/guide/`, plus `head.html` for the shared
+The source is ten chapter fragments in `scripts/guide/`, plus `head.html` for the shared
 type and layout. `scripts/build-brand-guide.mjs` fills each with the version from
 `package.json`, inlines every asset as a data URI, prints it with headless Chrome, and merges
 the chapters into one document. A chapter is only re-rendered when the HTML it would produce
 has actually changed — `scripts/guide/manifest.json` records the hash it was last built from,
-so editing one chapter costs a couple of seconds rather than rebuilding all 25 pages. The
+so editing one chapter costs a couple of seconds rather than rebuilding all 31 pages. The
 rendered chapters are cached in `.guide-cache/`, which is not committed.
 
 ```sh
