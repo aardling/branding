@@ -16,8 +16,15 @@ The scale is 8px steps. Nine of them are published, and every one has a job.
 | `--space-12` | 96px | Vertical padding of a coloured section, from 960px. |
 | `--space-18` | 144px | Top of a detail-page hero, from 960px. |
 
-Page side margins are 28px below 540px, and the container gutter above it. Containers are in
-`tokens.json` under `container`, topping out at 1696px.
+Page side margins are `--page-margin` below `--breakpoint-sm`, and the container above it.
+Containers are in `tokens.json` under `container`, topping out at 1696px. `--container-xl`
+was retired along with the 1140px breakpoint — `web.md` lists the six that remain, and the
+convention that every query is `min-width`.
+
+`--page-margin` is 28px, and it is the one published value in this brand that is not on the
+8px ladder. It is inherited from the website and kept at 28px so nothing reflows; it is a
+candidate to normalise to `--space-4` the next time the grid is opened. Until then, use the
+token rather than the literal, so that decision has one place to happen.
 
 Prefer the larger step when two look plausible. Cramped is the failure that keeps happening;
 nobody has ever complained that an Aardling page had too much air.

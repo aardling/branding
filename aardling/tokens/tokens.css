@@ -1,4 +1,7 @@
-/* Aardling design tokens. Keep in sync with tokens/tokens.json. */
+/* Aardling design tokens. Keep in sync with tokens/tokens.json.
+
+   Mobile first. The values declared in :root are the phone. Every media query below
+   is min-width, and each one restates only what actually changes at that width. */
 :root {
   /* Colour — brand. Approved combinations are in guidelines/colour.md. */
   --colour-night-blue: #181C2F;
@@ -27,12 +30,13 @@
   --font-weight-bold: 700;
   --font-weight-heading: 500;
 
-  --font-size-h1: 55px;
-  --font-size-h2: 45px;
-  --font-size-h3: 35px;
-  --font-size-h4: 30px;
-  --font-size-h5: 25px;
-  --font-size-h6: 22px;
+  /* Type scale — the phone. Larger steps are in the min-width blocks below. */
+  --font-size-h1: 36px;
+  --font-size-h2: 30px;
+  --font-size-h3: 26px;
+  --font-size-h4: 22px;
+  --font-size-h5: 20px;
+  --font-size-h6: 18px;
   --font-size-body: 18px;
   --font-size-small: 14px;
 
@@ -51,31 +55,67 @@
   --space-12: 96px;
   --space-18: 144px;
 
+  /* Page side margin below --breakpoint-sm. Deliberately off the 8px ladder;
+     see guidelines/layout.md. */
+  --page-margin: 28px;
+
   --radius-sm: 8px;
   --radius-md: 24px;
   --radius-pill: 60px;
 
+  /* Motion. Both durations collapse under prefers-reduced-motion, at the foot of
+     this file. Which one is used for what: guidelines/web.md. */
+  --duration-fast: 120ms;
+  --duration-base: 240ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Icon sizes, set on the height. The set is not drawn on a common grid, so these
+     are a starting point to match by eye — see guidelines/web.md. */
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 32px;
+
+  /* Breakpoints, carried as documentation only. A custom property cannot be read
+     inside a media query — copy the literal, and keep it equal to the value here. */
+  --breakpoint-sm: 540px;
+  --breakpoint-md: 720px;
+  --breakpoint-lg: 960px;
+  --breakpoint-xxl: 1400px;
+  --breakpoint-xxxl: 1728px;
+  --breakpoint-mega: 1920px;
+
   --container-sm: 516px;
   --container-md: 696px;
   --container-lg: 936px;
-  --container-xl: 1116px;
   --container-xxl: 1312px;
   --container-xxxl: 1504px;
   --container-mega: 1696px;
 }
 
-/* Below 960px every heading step is 0.8 of its base size. */
-@media (max-width: 959.98px) {
+/* 540px. Only the top of the scale moves; h5, h6, body and small are already right. */
+@media (min-width: 540px) {
   :root {
     --font-size-h1: 44px;
     --font-size-h2: 36px;
     --font-size-h3: 28px;
     --font-size-h4: 24px;
-    --font-size-h5: 20px;
-    --font-size-h6: 18px;
   }
 }
 
+/* 960px. The full desktop scale. */
+@media (min-width: 960px) {
+  :root {
+    --font-size-h1: 55px;
+    --font-size-h2: 45px;
+    --font-size-h3: 35px;
+    --font-size-h4: 30px;
+    --font-size-h5: 25px;
+    --font-size-h6: 22px;
+  }
+}
+
+/* 1728px and 1920px are display steps: they move type and nothing else. */
 @media (min-width: 1728px) {
   :root {
     --font-size-h1: 61px;
@@ -99,5 +139,12 @@
     --font-size-h6: 26px;
     --font-size-body: 22px;
     --font-size-small: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
   }
 }
