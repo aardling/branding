@@ -25,9 +25,10 @@ does not have to.
 directory before the user has seen the change rendered (an Artifact for anything visual, a
 tree diff for structure) and explicitly approved it. Propose in one turn, write in the next.
 
-**3. Never render the Aardling brand guide without asking.** The printed guide is generated,
-and a render is a visible, minutes-long-feeling detour that the user may not want right now.
-Report what is stale — `node aardling/scripts/build-brand-guide.mjs --status` renders nothing
+**3. Never render the Aardling brand guide without asking.** A render is quick — a few
+seconds — but it rewrites a 14 MB tracked binary and, on a version bump, renames the file the
+package ships. Whether to spend that, and when, is the user's call and not a detail to slip
+into another change. Report what is stale — `node aardling/scripts/build-brand-guide.mjs --status` renders nothing
 — and wait for a yes. The `/render-guide` command does this in the right order. Publishing
 enforces the other half: `prepublishOnly` refuses to ship a guide that no longer matches the
 brand, and tells the user how to fix it rather than fixing it silently.

@@ -12,9 +12,9 @@ without asking.
 2. Show the user which chapters are stale and what changed. If nothing is stale, say
    so and stop — do not rebuild for the sake of it.
 3. Ask the user to confirm. Wait for a real answer.
-4. On yes, run `npm run build:guide -w @aardling/brand-aardling`.
-   `$ARGUMENTS` passes flags through: `--force` re-renders everything,
-   `--section <id>` re-renders one chapter.
+4. On yes, run `node aardling/scripts/build-brand-guide.mjs $ARGUMENTS`. Call the
+   script directly rather than through npm, which swallows `--force` as its own flag.
+   `--force` re-renders everything; `--section <id>` re-renders one chapter.
 5. Report the page count, the file size and the path.
 
 If the guide's *content* changed rather than only its assets, the package version

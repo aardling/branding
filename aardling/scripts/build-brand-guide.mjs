@@ -353,6 +353,21 @@ if (monolithic) {
 
 const stale = chapters.filter((c) => c.stale);
 
+// Merging is not free of consequence: pdf-lib stamps a new modification date, so a
+// re-merge of unchanged chapters produces different bytes and leaves a 14 MB binary
+// dirty in git for nothing. If the committed PDF already matches the manifest, stop.
+if (!stale.length && !outPath) {
+  const current =
+    manifest?.pdf?.sha256 &&
+    manifest.version === version &&
+    existsSync(pdfPath) &&
+    sha(readFileSync(pdfPath)) === manifest.pdf.sha256;
+  if (current) {
+    console.log(`Brand guide is already current: ${pdfName}, ${totalPages} pages.`);
+    process.exit(0);
+  }
+}
+
 if (!stale.length) {
   console.log(`Every chapter is current; merging ${chapters.length} cached chapters.`);
 } else {
