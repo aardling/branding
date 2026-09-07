@@ -1,9 +1,9 @@
 {
   "renderer": 1,
   "version": "0.8.0",
-  "pages": 25,
+  "pages": 31,
   "headDeps": {
-    "tokens/tokens.css": "8d5a13c3137149febe00a35e85e77c04e246c919592a6ebe5f7785f3c90f3a71",
+    "tokens/tokens.css": "5dffbeb083731d3e7d0aee19e53820f7dc9f296e36280188732fc92acdd78958",
     "assets/fonts/general-sans-variable.woff2": "49d3fbd2f1bcc9850d8d939cabf107d6ade508ce08419fca466b06879e4a0a8e",
     "assets/fonts/general-sans-variable-italic.woff2": "5caa1d9baebac52533458016a982cc699a6992c956054ce8e4d5cf51814ce28b",
     "assets/fonts/voyage-regular.woff2": "d70cb9bbc9560d984dff3a399fbe63314a520cc32b1b208adca14d92773171d4"
@@ -16,9 +16,9 @@
       "pages": 2,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "109ec6e531e69fb7c8ee82dc604f4462bea3e45bcc8a64aa59d927b8044d8e84",
-      "fragment": "ce470b595481155274a33fed6b763756cb307a1ce9af056d94658a4a3bf4073c",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "hash": "0d8dfd0267411ce497da8f1569509e24525f633190bc5060cfde91ffcc153db5",
+      "fragment": "ab8f3efed913f4d114e10a2b3c4e2d13793db3dca3cc8c90d58f3b91578bae0d",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {
         "assets/images/gradient-vesper.svg": "a4b063c48ccfbfcc298414236abc3b7157279b892fb38f83bf6622c0ebf1aa33",
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf"
@@ -31,9 +31,9 @@
       "pages": 2,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "bed30c4791240ce755fa6f3c3df6da409ed699f1e2cb73444db5c3816b3408bd",
+      "hash": "f57e6a49de441582ddec6b7e9f6231f72e8d92d776e1640e4216c986524ddaf7",
       "fragment": "98e709c7aab9e19db3b4318a04c6faa2b27215d48c39b816f64290f50cfc6941",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf"
       }
@@ -42,36 +42,36 @@
       "id": "colour",
       "file": "03-colour.html",
       "folio": 5,
-      "pages": 3,
+      "pages": 5,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "81aaf8683e8f32892dec0edb3b4ec5c8e62df25f05aaf3d25c8632e5e0559e5a",
-      "fragment": "4d9bbb10cc5994b38c078f082280adc64ff37abcd0872bea4edddf76ffca06f0",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "hash": "846bb9b03350a4d47f831f75b6ab0738cea69c0dda36fc4ec328e0549314ee46",
+      "fragment": "e1c0b2e9e30da50564ad13b240fe815603f6c450effc56c7b6715be6f295004a",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {}
     },
     {
       "id": "typography",
       "file": "04-typography.html",
-      "folio": 8,
+      "folio": 10,
       "pages": 4,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "c54fcf6638e8c0fd7e4c098bc517452afd357211b3b3c1a19204a3c0aa2bea1f",
-      "fragment": "c94d471ca21c8877873925a175faa91779dd1394657735f17e9debc492a7b589",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "hash": "8bb5b828e7949e769c9e2f484e0b751ebb1bac245a7c08d65a1aa330ef87ea78",
+      "fragment": "ee81e04b27276430e42a584e00a9e0fa2d2e9256dc7d51facc69c9d8c89df094",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {}
     },
     {
       "id": "logos",
       "file": "05-logos.html",
-      "folio": 12,
+      "folio": 14,
       "pages": 3,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "22e44995dc6c956e49d4b1491b51cbe63d4c353907c01947557e4a18ae83cc51",
-      "fragment": "bbf5227d5d22605e7d3786514342eabd8ee3584d0a3999be9ccfde16926ca20d",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "hash": "f1f0e70e2431a1570d8ca297d708aa3c6133fd13998da4f69fbb5f0a65a103b4",
+      "fragment": "f05df4513abc3b02c273cf4e70cd1eca9258f784085a7220e7133eb72bd5a5f7",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf",
         "assets/logos/aardling-icon.svg": "dd0bcbcf593ebcc78f8f4cdd8d1e68d48ba486a54e04334db429e653b1dcf0f3"
@@ -80,13 +80,13 @@
     {
       "id": "imagery",
       "file": "06-imagery.html",
-      "folio": 15,
+      "folio": 17,
       "pages": 4,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "1ad2686add41d9e09e819d50535fbefdb8026a54eae29d777d46e83a12f789d0",
-      "fragment": "44e6582415c5773f311c9173c16d188372720b3c8068299726620e95662e6d22",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "hash": "debac85dae81e70b28337565ce4c6edb5c158b1e0f559a5ff1eccacf3f67101b",
+      "fragment": "9c2fb057240371dba5778c4458aaaeba2bedebb9cbcbdbf1e7040300d04b2bfa",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {
         "assets/images/gradient-vesper.svg": "a4b063c48ccfbfcc298414236abc3b7157279b892fb38f83bf6622c0ebf1aa33",
         "assets/images/gradient-understory.svg": "3f5d433732c3272d393939e52c1527bbeebe087c9fe3c2952256836af4455166",
@@ -102,43 +102,55 @@
     {
       "id": "layout",
       "file": "07-layout.html",
-      "folio": 19,
+      "folio": 21,
       "pages": 3,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "4091b3f7fc3776b447d872179237fc82c6942bf63d168af6086985edea28f62c",
-      "fragment": "29c6e5338e0b12287f9eec82725ad7bb423d7bc5dac5f62cc796d472ee2bc8c6",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "hash": "f2f001cb357f88b498c4397384c0a9a9e29a8116ec9516d0100ceb0bab6c1291",
+      "fragment": "feab4d02a236089d9e953a89c40ff8ab258bdaae0d561de17a370b7fabc7486e",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
+      "deps": {}
+    },
+    {
+      "id": "web",
+      "file": "08-web.html",
+      "folio": 24,
+      "pages": 4,
+      "renderer": 1,
+      "version": "0.8.0",
+      "hash": "b50c4842bade66bec8b3fc64f6dddec0f67214cadf367ce37dc16295c96248a5",
+      "fragment": "33d52f1411b0a2bccdad104f75f9cc15e6ea5b8a975407742ddd95cd7d9621fb",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {}
     },
     {
       "id": "voice",
-      "file": "08-voice.html",
-      "folio": 22,
+      "file": "09-voice.html",
+      "folio": 28,
       "pages": 3,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "abbd536251d1a96eb51596b7a2912f4f1ec2b7424c51428f05fd6a37b4bcc504",
-      "fragment": "47870c7a05913f96ac6cde047bd8177102993e637ba67ac1e6de361dbf08486b",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "hash": "0fdd89b1e6a005b0e363191ae102a9000d1744f6fd4c3243eab41947d690f169",
+      "fragment": "7288c3d02d7b70cc3b59091823c12180860c980117b6abe32afe1e542477e5fd",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {}
     },
     {
       "id": "colophon",
-      "file": "09-colophon.html",
-      "folio": 25,
+      "file": "10-colophon.html",
+      "folio": 31,
       "pages": 1,
       "renderer": 1,
       "version": "0.8.0",
-      "hash": "8109116c121e995e08511570be4f8d24af4dc06370fbb691961228119750d908",
-      "fragment": "910af1c1e634b5542a992789a69d13c85cf9bc4fed77bc37e111e81f5ba7bd29",
-      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "hash": "f8ef1ac1706f7d8c017718156480dcb44584ea1274553e3fba82955e981cfbbe",
+      "fragment": "8ef9f02d32b0dfabee289c26ed58e534fd46c460eed7b58e24410871cf25f1d0",
+      "head": "af1f3c3d159a1ce4b29c2f7b0fda27fe8b0a2d023468a818b67809dd8c10c1de",
       "deps": {}
     }
   ],
   "pdf": {
     "file": "aardling-brand-guide-v0.8.0.pdf",
-    "bytes": 14239514,
-    "sha256": "cae02cf809b79a3656f51188b02d757e349704b5b95eb3c1d97a5b8875de6bee"
+    "bytes": 14454652,
+    "sha256": "40ab82cada76a0d94a989fb2768dc7242d029ab6bf50cfdae96cd7c7308fbd93"
   }
 }
