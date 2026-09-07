@@ -72,6 +72,7 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `guidelines/logos.md`      | Masters and lockups, clear space, which pairs carry a mark, minimum sizes.                                         |
 | `guidelines/naming.md`     | How the brand name and the company names are written.                                                              |
 | `guidelines/voice.md`      | Register, person, and do/don't examples.                                                                           |
+| `guidelines/web.md`        | Breakpoints, states, dark mode, motion, elevation, icon sizing.                                                    |
 | `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
 | `assets/logos/lockups/`    | 22 flattened mark-on-ground files, generated from the two masters.                                                 |
 | `assets/icons/`            | The 18-mark icon set, SVG, `currentColor`.                                                                         |
