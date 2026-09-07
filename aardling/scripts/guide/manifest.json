@@ -1,0 +1,144 @@
+{
+  "renderer": 1,
+  "version": "0.7.0",
+  "pages": 25,
+  "headDeps": {
+    "tokens/tokens.css": "8d5a13c3137149febe00a35e85e77c04e246c919592a6ebe5f7785f3c90f3a71",
+    "assets/fonts/general-sans-variable.woff2": "49d3fbd2f1bcc9850d8d939cabf107d6ade508ce08419fca466b06879e4a0a8e",
+    "assets/fonts/general-sans-variable-italic.woff2": "5caa1d9baebac52533458016a982cc699a6992c956054ce8e4d5cf51814ce28b",
+    "assets/fonts/voyage-regular.woff2": "d70cb9bbc9560d984dff3a399fbe63314a520cc32b1b208adca14d92773171d4"
+  },
+  "chapters": [
+    {
+      "id": "front",
+      "file": "01-front.html",
+      "folio": 1,
+      "pages": 2,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "816fadaf13991a22f45814774951fe55f962cb447ac2208f2ed0d71529fe0f01",
+      "fragment": "49fc49c86ee7ad3ad1ce8f14a5e07b151a46e52d82533939e790eea976adc656",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {
+        "assets/images/gradient-vesper.svg": "a4b063c48ccfbfcc298414236abc3b7157279b892fb38f83bf6622c0ebf1aa33",
+        "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf"
+      }
+    },
+    {
+      "id": "name",
+      "file": "02-name.html",
+      "folio": 3,
+      "pages": 2,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "dd46b5a68b5923e1c394a14f837d13d1496381c1ce41d060c506e82f7aa21cdd",
+      "fragment": "81ebd7d44b7cc9765f61efb6307e6f4645adc852d991010b3fab69b5f75bd627",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {
+        "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf"
+      }
+    },
+    {
+      "id": "colour",
+      "file": "03-colour.html",
+      "folio": 5,
+      "pages": 3,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "8ccc671a2b22b92e96fba20869884c4bb0584dc24a5461a65c73e91f0e067a6d",
+      "fragment": "44afe4d810d0ce430d2b5d6b33649849085508f204b228d196f5e47d6866fa06",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {}
+    },
+    {
+      "id": "typography",
+      "file": "04-typography.html",
+      "folio": 8,
+      "pages": 4,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "7405d0a8852d740dde8b41d541f2924295f4b9acecdb410c738f7c2e9f911f5c",
+      "fragment": "8400b7174b4003175d28946978985273ba2cc650d54bb140898620c8d3291c46",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {}
+    },
+    {
+      "id": "logos",
+      "file": "05-logos.html",
+      "folio": 12,
+      "pages": 3,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "3549ab38ad9de85a524e8875ec84a0a946a648acda5533b5b19de6450f9c8a72",
+      "fragment": "8d3cc76b1c5ac94fda6ca2691304ad26201abbfacc413592b8a6e03a948b3fa1",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {
+        "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf",
+        "assets/logos/aardling-icon.svg": "dd0bcbcf593ebcc78f8f4cdd8d1e68d48ba486a54e04334db429e653b1dcf0f3"
+      }
+    },
+    {
+      "id": "imagery",
+      "file": "06-imagery.html",
+      "folio": 15,
+      "pages": 4,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "864b6f7720bb315212823f00256ca7f98ae4e9bb8a0972711693a105976ac299",
+      "fragment": "6459fb498fd383533936d1c3976cf30745c355028b09990268aa34b730deacdf",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {
+        "assets/images/gradient-vesper.svg": "a4b063c48ccfbfcc298414236abc3b7157279b892fb38f83bf6622c0ebf1aa33",
+        "assets/images/gradient-understory.svg": "3f5d433732c3272d393939e52c1527bbeebe087c9fe3c2952256836af4455166",
+        "assets/images/gradient-bloom.svg": "bc9fd74006e4f7d0962bed612818d47a0cdf5ca361ecbd649141e6555aedf084",
+        "assets/images/gradient-harvest.svg": "34a60ba34cfae1841caa6da64e290e1656b411bc6ce73a233cfa817a02062b7f",
+        "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf",
+        "assets/images/illustration-workshop.webp": "b9de2efdbc75b8662e97f7df9d43e1bf5a2bbaa14e4c5958dc35c7d03a701441",
+        "assets/images/illustration-coaching.webp": "ab554dd143d971be356de7c6d133c9d74eb23888f4717840dfa75b9504fcb0ae",
+        "assets/images/illustration-event.webp": "de941d79124326fbc8ab8bedda8eef5b784798945507641ededf245de7356062",
+        "assets/favicons/favicon.svg": "c33554b67006980a71cdd4487363354f03be3442e6a334c3539ab34485925aae"
+      }
+    },
+    {
+      "id": "layout",
+      "file": "07-layout.html",
+      "folio": 19,
+      "pages": 3,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "57e88d734ab9126d71770e88c76a39d37257c01b6c5bd2f41e7fa5073ecddf74",
+      "fragment": "6e49894de02b3ae20b5d3009c4a6424ac2ecd9109b6277ea86e37e7ffc5ef5fd",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {}
+    },
+    {
+      "id": "voice",
+      "file": "08-voice.html",
+      "folio": 22,
+      "pages": 3,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "3ac5315df359adc4bd1170a395af1c57695c43b04635f7de51217b50cd3b70fe",
+      "fragment": "e4b073b5918b9bb628fb9758172083b6781020f2ae568b60745a9430b153863c",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {}
+    },
+    {
+      "id": "colophon",
+      "file": "09-colophon.html",
+      "folio": 25,
+      "pages": 1,
+      "renderer": 1,
+      "version": "0.7.0",
+      "hash": "0109ca5251c129cae4755cd493e95f2b99f0ec9bae7b953531005f4ecce23e62",
+      "fragment": "29c64373df90164c74f8362bef061ad92bf50dec6924eeb5c1f4ea109d5f6e5b",
+      "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
+      "deps": {}
+    }
+  ],
+  "pdf": {
+    "file": "aardling-brand-guide-v0.7.0.pdf",
+    "bytes": 14237772,
+    "sha256": "e5de66f7c072408e9e7e0536065505295b83117726ff73a641983de09edc02fe"
+  }
+}

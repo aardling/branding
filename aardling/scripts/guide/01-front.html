@@ -1,0 +1,51 @@
+<!-- ======================= 1. Cover ======================= -->
+<section class="page cover">
+  <div class="cover-art">
+    <img src="{{DATA:assets/images/gradient-vesper.svg}}" alt="">
+    <div class="cover-mark">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+  </div>
+  <div class="cover-text">
+    <h1 class="cover-title">Aardling brand guide</h1>
+    <p class="cover-version">Version {{VERSION}}</p>
+    <p class="cover-tagline">Software strategy, architecture, and domain modelling in complex environments.</p>
+    <p class="cover-foot">Generated from <span class="token">@aardling/brand-aardling</span> at version {{VERSION}}. The package is the source of truth; this document is a view of it.</p>
+  </div>
+</section>
+
+<!-- ======================= 2. How to use ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">How to use this guide</span>
+    <span class="eyebrow">v{{VERSION}}</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">What this is</h2>
+    <p class="lede">Everything <span class="nowrap">Aardling</span> puts in front of a reader is built from one package.
+      This document is that package, printed.</p>
+    <p>The rules here are not preferences. Each was decided against something measured — a
+      contrast ratio, a rendered mark at 16px, a heading at half a gradient's width. Where this
+      guide states a number, the number came from a test.</p>
+    <p>Follow it when you are asked to make an exception. The exceptions that exist are already
+      in here; the ones that are not in here are not exceptions.</p>
+
+    <hr class="rule gap-top">
+
+    <div>
+      <div class="contents-row"><span class="what">The name</span><span class="where">{{FOLIO:name}}</span></div>
+      <div class="contents-row"><span class="what">Colour</span><span class="where">{{FOLIO:colour}}</span></div>
+      <div class="contents-row"><span class="what">Typography</span><span class="where">{{FOLIO:typography}}</span></div>
+      <div class="contents-row"><span class="what">Logos</span><span class="where">{{FOLIO:logos}}</span></div>
+      <div class="contents-row"><span class="what">Imagery</span><span class="where">{{FOLIO:imagery}}</span></div>
+      <div class="contents-row"><span class="what">Layout</span><span class="where">{{FOLIO:layout}}</span></div>
+      <div class="contents-row"><span class="what">Voice</span><span class="where">{{FOLIO:voice}}</span></div>
+      <div class="contents-row"><span class="what">Where things live</span><span class="where">{{FOLIO:colophon}}</span></div>
+    </div>
+
+    <p class="meta gap-top">Each section maps to a file in the package's <span class="token">guidelines/</span>
+      directory, named in the top right of every page. Where this printed guide condenses, that
+      file is the longer answer — and where the two disagree, the file wins.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>

@@ -1,0 +1,153 @@
+<!-- ======================= 18. Layout: spacing ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Layout</span>
+    <span class="eyebrow eyebrow-path">guidelines/layout.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Spacing is specified, never implied</h2>
+    <p class="small">The scale is 8px steps. Nine are published, every one has a job, and each is shown
+      here at size.</p>
+
+    <div class="stack-tight">
+      <div class="spacing-row"><span class="token">--space-1</span><span>8px</span><span class="bar" style="width:8px"></span></div>
+      <div class="spacing-row"><span class="token">--space-2</span><span>16px</span><span class="bar" style="width:16px"></span></div>
+      <div class="spacing-row"><span class="token">--space-3</span><span>24px</span><span class="bar" style="width:24px"></span></div>
+      <div class="spacing-row"><span class="token">--space-4</span><span>32px</span><span class="bar" style="width:32px"></span></div>
+      <div class="spacing-row"><span class="token">--space-6</span><span>48px</span><span class="bar" style="width:48px"></span></div>
+      <div class="spacing-row"><span class="token">--space-8</span><span>64px</span><span class="bar" style="width:64px"></span></div>
+      <div class="spacing-row"><span class="token">--space-10</span><span>80px</span><span class="bar" style="width:80px"></span></div>
+      <div class="spacing-row"><span class="token">--space-12</span><span>96px</span><span class="bar" style="width:96px"></span></div>
+      <div class="spacing-row"><span class="token">--space-18</span><span>144px</span><span class="bar" style="width:144px"></span></div>
+    </div>
+
+    <table>
+      <tbody>
+        <tr><td style="width: 96px"><span class="token">--space-1</span></td><td>Gap inside a control: between an icon and its label.</td></tr>
+        <tr><td><span class="token">--space-2</span></td><td>Gap between closely related things: a label and its field, items in a list.</td></tr>
+        <tr><td><span class="token">--space-3</span></td><td>Grid gutter up to 1400px. Paragraph rhythm in running prose.</td></tr>
+        <tr><td><span class="token">--space-4</span></td><td>Grid gutter above 1400px. Padding inside a card.</td></tr>
+        <tr><td><span class="token">--space-6</span></td><td>Vertical padding of a coloured section, below 720px.</td></tr>
+        <tr><td><span class="token">--space-8</span></td><td>Top and bottom of a hero, below 960px.</td></tr>
+        <tr><td><span class="token">--space-10</span></td><td>Vertical padding of a coloured section, from 720px.</td></tr>
+        <tr><td><span class="token">--space-12</span></td><td>Vertical padding of a coloured section, from 960px.</td></tr>
+        <tr><td><span class="token">--space-18</span></td><td>Top of a detail-page hero, from 960px.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta"><strong>Prefer the larger step when two look plausible.</strong> Lay sibling
+      groups out with flex or grid and <span class="token">gap</span> — not margins on children, and not
+      whitespace in the source.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 19. Layout: radii and controls ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Layout</span>
+    <span class="eyebrow">Radii, controls, containers</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Three radii, and no more</h2>
+
+    <div class="radii">
+      <div class="radius-demo" style="border-radius: var(--radius-sm)">8px</div>
+      <div class="radius-demo" style="border-radius: var(--radius-md)">24px</div>
+      <div class="radius-demo" style="border-radius: var(--radius-pill)">60px</div>
+    </div>
+    <p class="small"><span class="token">--radius-sm</span> for tooltips, tags and swatches;
+      <span class="token">--radius-md</span> for cards, panels and image containers; <span class="token">--radius-pill</span>
+      for buttons and pills.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">The button</p>
+    <div style="display: flex; gap: var(--space-3); align-items: center; margin-top: var(--space-2)">
+      <span class="btn">Get in touch</span>
+      <span class="btn btn-hover">Get in touch</span>
+    </div>
+    <p class="small"><span class="token">--space-1</span> gap, 12px vertical and 24px horizontal
+      padding, pill radius, never less than 44px high — a minimum for anything tappable, not a
+      target to design down to.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">Breakpoints and containers</p>
+    <table>
+      <thead><tr><th>Step</th><th class="num">Breakpoint</th><th class="num">Container</th></tr></thead>
+      <tbody>
+        <tr><td>sm</td><td class="num">540px</td><td class="num">516px</td></tr>
+        <tr><td>md</td><td class="num">720px</td><td class="num">696px</td></tr>
+        <tr><td>lg</td><td class="num">960px</td><td class="num">936px</td></tr>
+        <tr><td>xl</td><td class="num">1140px</td><td class="num">1116px</td></tr>
+        <tr><td>xxl</td><td class="num">1400px</td><td class="num">1312px</td></tr>
+        <tr><td>xxxl</td><td class="num">1728px</td><td class="num">1504px</td></tr>
+        <tr><td>mega</td><td class="num">1920px</td><td class="num">1696px</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta">Page side margins are 28px below 540px, and the container gutter above it.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 20. Layout: terms and images ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Layout</span>
+    <span class="eyebrow">Protected terms, and text on images</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">A protected term sits on one line</h2>
+    <p class="small">Every break opportunity inside it is suppressed, at spaces and at hyphens
+      alike. "<span class="nowrap">Domain-Driven Design</span>" is one concept and has to look like one.</p>
+
+    <div class="cols">
+      <div class="card card-pink">
+        <p class="eyebrow">No</p>
+        <div class="measure-col">
+          <p class="h">Scaling Domain-Driven Design to 800 engineers</p>
+        </div>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Yes</p>
+        <div class="measure-col">
+          <p class="h">Scaling <span class="nowrap">Domain-Driven Design</span> to 800 engineers</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="small"><span class="nowrap">Domain-Driven Design</span> &nbsp;·&nbsp;
+      <span class="nowrap">EventStorming</span> &nbsp;·&nbsp; <span class="nowrap">Event Sourcing</span> &nbsp;·&nbsp;
+      <span class="nowrap">Team Topologies</span> &nbsp;·&nbsp; <span class="nowrap">Data Mesh</span> &nbsp;·&nbsp;
+      <span class="nowrap">Aardling</span></p>
+
+    <p class="meta">In markup, wrap the whole term in a single span with
+      <span class="token">white-space: nowrap</span> — one span covers the spaces and the hyphens at once. In
+      plain text, use a non-breaking space between the words <em>and</em> a non-breaking hyphen,
+      but prefer the span wherever markup exists: U+2011 is missing from many fonts, Voyage
+      included. If a term does not fit the line, the line is wrong, not the term.</p>
+
+    <hr class="rule gap-top">
+
+    <div class="card card-pink">
+      <p class="subhead">Never text on top of an image</p>
+      <p class="small gap-top">Not over photographs, not over illustrations, and not with a scrim, a
+        blur or a gradient overlay to rescue it. The alternatives, in order of preference: text
+        beside the image; text on a solid panel adjacent to it; the image reduced to an accent.</p>
+      <p class="small gap-top">The current website breaks this — the default hero sets the h1 over a
+        cover photograph — and so do several mockups in the original brand guide. Those layouts are
+        wrong and change; the rule does not bend for them.</p>
+      <p class="small gap-top">The single exception is the gradient licence on page 16, and it is
+        narrow: a gradient is a measured field, an illustration is not.</p>
+    </div>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>

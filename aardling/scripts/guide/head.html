@@ -1,0 +1,407 @@
+<title>Aardling Brand Guide</title>
+
+<style>
+/* ---------------------------------------------------------------------------
+   Tokens, verbatim from tokens/tokens.css. The guide is set in its own brand.
+   --------------------------------------------------------------------------- */
+{{TEXT:tokens/tokens.css}}
+
+/* Fonts, inlined so the printed file carries no external dependency. */
+@font-face {
+  font-family: "General Sans";
+  font-style: normal;
+  font-weight: 200 700;
+  src: url("{{DATA:assets/fonts/general-sans-variable.woff2}}") format("woff2");
+}
+@font-face {
+  font-family: "General Sans";
+  font-style: italic;
+  font-weight: 200 700;
+  src: url("{{DATA:assets/fonts/general-sans-variable-italic.woff2}}") format("woff2");
+}
+@font-face {
+  font-family: "Voyage";
+  font-style: normal;
+  font-weight: 400;
+  src: url("{{DATA:assets/fonts/voyage-regular.woff2}}") format("woff2");
+}
+
+/* A4 at 96dpi is 794px wide, so tokens.css's below-960px heading step is the one
+   that applies. Pinned here rather than left to the media query, so the on-screen
+   preview and the printed page agree whatever the window is. */
+:root {
+  --font-size-h1: 44px;
+  --font-size-h2: 36px;
+  --font-size-h3: 28px;
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-h6: 18px;
+  --font-size-body: 18px;
+  --font-size-small: 14px;
+}
+
+/* --- Sheet ---------------------------------------------------------------- */
+
+@page { size: A4; margin: 0; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--colour-night-blue);
+  font-family: var(--font-body);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-regular);
+  color: var(--colour-night-blue);
+  hyphens: none;
+  counter-reset: folio;
+  -webkit-font-smoothing: antialiased;
+}
+
+.sheet { display: flex; flex-direction: column; align-items: center; }
+
+@media screen {
+  .sheet { padding: var(--space-6) var(--space-3); gap: var(--space-4); }
+  .page { box-shadow: 0 2px 24px rgba(0, 0, 0, 0.35); }
+}
+
+@media print {
+  body { background: var(--colour-snow-white); }
+}
+
+.page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  padding: var(--space-10) var(--space-12) var(--space-6);
+  background: var(--colour-snow-white);
+  color: var(--colour-night-blue);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  break-after: page;
+  break-inside: avoid;
+  counter-increment: folio;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+.page:last-child { break-after: auto; }
+
+.page-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-bottom: var(--space-2);
+  border-bottom: 1px solid var(--colour-hairline-grey);
+}
+
+.page-body {
+  flex: 1;
+  min-height: 0;
+  padding-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.page-body.tight { gap: var(--space-2); }
+
+.page-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+  border-top: 1px solid var(--colour-hairline-grey);
+  font-size: var(--font-size-small);
+  color: var(--colour-muted-grey);
+}
+.folio::after { content: counter(folio); }
+
+/* --- Type ----------------------------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: var(--font-weight-heading);
+  line-height: var(--line-height-display);
+  text-wrap: balance;
+}
+p, ul, ol { margin: 0; text-wrap: pretty; }
+ul, ol { padding-left: 1.15em; }
+li + li { margin-top: var(--space-1); }
+strong { font-weight: var(--font-weight-semibold); }
+
+/* Voyage: one short title per page, never below 24px. See guidelines/typography.md. */
+.title {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-h2);
+  line-height: 1.1;
+}
+
+.eyebrow {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  color: var(--colour-muted-grey);
+}
+/* Machine identifiers keep their own case, so a path never takes the uppercase
+   label treatment. naming.md. */
+.eyebrow-path { text-transform: none; letter-spacing: 0.02em; }
+
+.lede {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-light);
+  line-height: 1.4;
+}
+
+.subhead {
+  font-size: var(--font-size-h5);
+  font-weight: var(--font-weight-heading);
+  text-wrap: balance;
+}
+
+.small { font-size: var(--font-size-small); line-height: 1.5; }
+.meta { font-size: var(--font-size-small); color: var(--colour-muted-grey); line-height: 1.5; }
+/* Token names and machine identifiers. General Sans at 500 — the brand has two
+   faces and a monospace is not one of them. */
+.token { font-weight: var(--font-weight-medium); white-space: nowrap; }
+.nowrap { white-space: nowrap; }
+
+.stack-tight { display: flex; flex-direction: column; gap: var(--space-2); }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); }
+.cols-top { align-items: start; }
+.beside { display: grid; grid-template-columns: 180px 1fr; gap: var(--space-3); align-items: center; }
+.beside img { display: block; width: 100%; border-radius: var(--radius-md); }
+/* 180px logotype: its 106-unit clear space is 30.6px, inside the card's 32px padding
+   and under the 48px gap to the text beside it. */
+.beside-mark { display: grid; grid-template-columns: 180px 1fr; gap: var(--space-6); align-items: center; }
+.beside-mark svg { display: block; width: 100%; height: auto; }
+
+.rule { border: 0; border-top: 1px solid var(--colour-hairline-grey); margin: 0; }
+.gap-top { margin-top: var(--space-2); }
+
+/* --- Tables --------------------------------------------------------------- */
+
+table { width: 100%; border-collapse: collapse; font-size: var(--font-size-small); }
+th {
+  text-align: left;
+  font-weight: var(--font-weight-semibold);
+  padding: 0 var(--space-2) var(--space-1) 0;
+  border-bottom: 1px solid var(--colour-hairline-grey);
+}
+td {
+  padding: var(--space-1) var(--space-2) var(--space-1) 0;
+  border-bottom: 1px solid var(--colour-hairline-grey);
+  vertical-align: top;
+  line-height: 1.4;
+}
+tr:last-child td { border-bottom: 0; }
+.num { font-variant-numeric: tabular-nums; text-align: right; padding-right: var(--space-3); }
+
+/* --- Cards ---------------------------------------------------------------- */
+
+.card {
+  background: var(--colour-white);
+  border-radius: var(--radius-md);
+  /* --space-4 is the spec for padding inside a card. */
+  padding: var(--space-4);
+}
+.card-pink { background: var(--colour-pink); }
+.card-violet { background: var(--colour-violet); }
+.card-night { background: var(--colour-night-blue); color: var(--colour-snow-white); }
+.card .eyebrow + * { margin-top: var(--space-2); }
+.card-pink .eyebrow, .card-night .eyebrow { color: inherit; }
+
+/* --- Colour swatches ------------------------------------------------------ */
+
+.swatches { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+.swatch { display: flex; flex-direction: column; gap: 2px; }
+.swatch .chip {
+  height: 52px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--colour-hairline-grey);
+  margin-bottom: var(--space-1);
+}
+.swatch .name { font-size: var(--font-size-small); font-weight: var(--font-weight-medium); }
+.swatch .hex { font-size: var(--font-size-small); color: var(--colour-muted-grey); font-variant-numeric: tabular-nums; }
+.swatch .job { font-size: var(--font-size-small); color: var(--colour-muted-grey); line-height: 1.35; }
+
+.pair-sample {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 22px;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: var(--font-weight-medium);
+}
+.pair-large { width: 52px; height: 32px; font-size: 24px; }
+.pair-rule { display: block; width: 52px; height: 3px; margin: 10px 0; border-radius: 2px; }
+
+/* --- Marks ---------------------------------------------------------------- */
+
+.mark-chips { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.mark-chip {
+  /* Padding is the mark's clear space: 106 units of 623, at a 170px logotype. */
+  padding: 28.9px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mark-chip svg { width: 170px; }
+.mark-chip-label { font-size: var(--font-size-small); color: var(--colour-muted-grey); margin-top: 2px; line-height: 1.35; }
+
+.clearspace {
+  background: var(--colour-white);
+  border: 1px solid var(--colour-hairline-grey);
+  border-radius: var(--radius-sm);
+  /* 106 units of 623, at a 360px logotype. */
+  padding: 61.2px;
+  display: inline-block;
+}
+.clearspace .inner { outline: 1px dashed var(--colour-hairline-grey); }
+.clearspace svg { width: 360px; }
+
+.size-floor { display: flex; align-items: flex-end; gap: var(--space-8); }
+.size-floor svg { width: 100%; }
+
+/* The masters carry a viewBox and no width/height, so every place one is inlined
+   states its own width and lets the height follow. */
+.cover-mark svg, .mark-chip svg, .clearspace svg, .demo-mark svg, .size-floor svg {
+  height: auto;
+  display: block;
+}
+
+/* --- Imagery -------------------------------------------------------------- */
+
+.band { border-radius: var(--radius-md); overflow: hidden; }
+.band img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+.gradient-row { display: grid; grid-template-columns: 190px 1fr; gap: var(--space-3); align-items: center; }
+.gradient-row .band { height: 78px; }
+
+.demo { position: relative; border-radius: var(--radius-md); overflow: hidden; flex: none; }
+.demo > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.demo-inner { position: relative; height: 100%; display: flex; align-items: center; }
+
+.demo-mark { height: 134px; justify-content: center; }
+.demo-mark svg { width: 340px; color: var(--colour-white); }
+
+.demo-heading {
+  position: relative;
+  width: 48%;
+  margin-left: var(--space-6);
+  /* --font-size-h3 at its base value, per guidelines/imagery.md. */
+  font-size: 35px;
+  font-weight: var(--font-weight-heading);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+.illos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+.illos figure { margin: 0; }
+.illos img { display: block; width: 100%; border-radius: var(--radius-md); }
+figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey); margin-top: var(--space-1); }
+
+.favicons { display: flex; align-items: flex-start; gap: var(--space-3); }
+.favicon-ground {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+}
+.favicon-ground img { display: block; }
+
+/* --- Layout specimens ----------------------------------------------------- */
+
+.spacing-row { display: grid; grid-template-columns: 96px 52px 1fr; gap: var(--space-2); align-items: center; font-size: var(--font-size-small); }
+.bar { height: 12px; border-radius: 2px; background: var(--colour-night-blue); display: block; }
+
+.radii { display: flex; gap: var(--space-3); }
+.radius-demo {
+  width: 112px;
+  height: 56px;
+  background: var(--colour-white);
+  border: 1px solid var(--colour-hairline-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-small);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  min-height: 44px;
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  background: var(--colour-lime-green);
+  color: var(--colour-night-blue);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-body);
+  line-height: 1.2;
+}
+.btn-hover { background: var(--colour-hover-green); }
+
+.measure-col { width: 236px; }
+.measure-col .h { font-size: var(--font-size-h4); font-weight: var(--font-weight-heading); line-height: 1.2; }
+
+/* --- Type specimens ------------------------------------------------------- */
+
+.specimen-voyage { font-family: var(--font-display); font-weight: 400; font-size: 52px; line-height: 1; }
+.specimen-sans { font-size: 36px; font-weight: var(--font-weight-medium); line-height: 1.1; }
+
+.scale-row { display: grid; grid-template-columns: 104px 1fr; gap: var(--space-3); align-items: baseline; }
+.scale-list { display: flex; flex-direction: column; gap: var(--space-1); }
+.scale-row .label { font-size: var(--font-size-small); color: var(--colour-muted-grey); font-variant-numeric: tabular-nums; }
+.scale-row .sample { line-height: 1.1; font-weight: var(--font-weight-heading); }
+
+.weight-row { display: grid; grid-template-columns: 136px 1fr; gap: var(--space-3); align-items: baseline; }
+.weight-row .sample { font-size: var(--font-size-h5); }
+
+/* --- Cover ---------------------------------------------------------------- */
+
+.cover { padding: 0; }
+.cover-art { height: 148mm; position: relative; }
+.cover-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cover-mark { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; }
+.cover-mark svg { width: 420px; color: var(--colour-white); }
+.cover-text {
+  flex: 1;
+  padding: var(--space-10) var(--space-12) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.cover-title { font-family: var(--font-display); font-weight: 400; font-size: var(--font-size-h1); line-height: 1.05; }
+.cover-version { font-size: var(--font-size-h5); font-weight: var(--font-weight-medium); font-variant-numeric: tabular-nums; }
+.cover-tagline { font-size: var(--font-size-h6); font-weight: var(--font-weight-light); max-width: 34ch; }
+.cover-foot { margin-top: auto; font-size: var(--font-size-small); color: var(--colour-muted-grey); }
+
+/* --- Contents ------------------------------------------------------------- */
+
+.contents-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-1) 0;
+  border-bottom: 1px solid var(--colour-hairline-grey);
+}
+.contents-row .what { font-size: var(--font-size-h6); font-weight: var(--font-weight-medium); }
+.contents-row .where { font-variant-numeric: tabular-nums; color: var(--colour-muted-grey); font-size: var(--font-size-small); }
+
+/* --- Addresses ------------------------------------------------------------ */
+
+.addresses { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.address { background: var(--colour-white); border-radius: var(--radius-sm); padding: var(--space-3); font-size: var(--font-size-small); line-height: 1.45; }
+.address .who { font-weight: var(--font-weight-medium); }
+</style>

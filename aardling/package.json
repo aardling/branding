@@ -22,6 +22,7 @@
   ],
   "scripts": {
     "build:lockups": "node scripts/build-lockups.mjs",
-    "build:guide": "node scripts/build-brand-guide.mjs"
+    "build:guide": "node scripts/build-brand-guide.mjs",
+    "prepublishOnly": "node scripts/build-brand-guide.mjs --check"
   }
 }

@@ -129,7 +129,18 @@ CFO may read it next. Do/don't examples: `../../guidelines/voice.md`.
 `../../aardling-brand-guide-v*.pdf` is the whole brand as a 25-page A4 document, for handing
 to someone who does not have the package. It is generated from the guidelines and the assets,
 so it is a view and never the source: when the two disagree, the file under `guidelines/`
-wins. Rebuild it after any change to this brand:
+wins.
+
+Its source is nine chapter fragments in `../../scripts/guide/`, one per section of the guide.
+Edit the fragment for the section you are changing; only that chapter re-renders.
+
+**Never render it yourself.** Show the user what is stale and ask first:
+
+```sh
+node scripts/build-brand-guide.mjs --status   # renders nothing
+```
+
+Then, once they have said yes:
 
 ```sh
 npm run build:guide --workspace @aardling/brand-aardling

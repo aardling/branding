@@ -110,12 +110,18 @@ do/don't examples in its own register.
 Bump the brand package's `version` when its published content changes. Do not commit unless
 the user asks.
 
+Aardling's printed guide is generated from the brand, so a change to the brand makes it
+stale. **Never render it yourself** — say what is stale, using
+`node aardling/scripts/build-brand-guide.mjs --status`, and ask. The `/render-guide` command
+does this in the right order. Publishing enforces it: `prepublishOnly` refuses a stale guide.
+
 ## What never happens
 
 - No `shared/`, `common/` or `core/` package. Brands stay strictly separated, even when
   they duplicate a value.
 - No brand file references another brand's path.
 - No brand content written without a confirmed visualisation.
+- No brand guide rendered without asking the user first.
 - No palette committed without its combinations list and its per-pair usage guidance.
 - No bitmap where an SVG is possible, and no baked-in background on a mark.
 - No favicon shipped as a single size.

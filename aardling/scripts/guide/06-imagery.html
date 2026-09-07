@@ -1,0 +1,208 @@
+<!-- ======================= 14. Imagery: gradients ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Imagery</span>
+    <span class="eyebrow eyebrow-path">guidelines/imagery.md</span>
+  </div>
+  <div class="page-body tight">
+    <h2 class="title">Four gradients</h2>
+    <p class="small">SVG, a few kilobytes each, sharp at any size. Two dark, two light. Each is
+      authored at 1600 × 1000 and crops to fill any box without distorting.</p>
+
+    <div class="gradient-row">
+      <div class="band"><img src="{{DATA:assets/images/gradient-vesper.svg}}" alt="Vesper gradient"></div>
+      <div>
+        <p class="subhead">Vesper</p>
+        <p class="small">Near-black to a deep violet, a Pink glow low left, Ocean Blue holding the far
+          corner. The quiet dark one: behind a slide of content, or a section band that must not
+          compete. <strong>No grain</strong> — with it, white falls from 6.57:1 to 5.20:1.</p>
+      </div>
+    </div>
+    <div class="gradient-row">
+      <div class="band"><img src="{{DATA:assets/images/gradient-understory.svg}}" alt="Understory gradient"></div>
+      <div>
+        <p class="subhead">Understory</p>
+        <p class="small">The darkest field in the brand: Ocean Blue at one corner, Lime Green at the
+          other, near-black between them. The dark one meant to be looked at — a cover, or a
+          full-bleed ground. It competes, deliberately. <strong>No grain</strong>: with it, white
+          drops to 4.60:1, under the floor.</p>
+      </div>
+    </div>
+    <div class="gradient-row">
+      <div class="band"><img src="{{DATA:assets/images/gradient-bloom.svg}}" alt="Bloom gradient"></div>
+      <div>
+        <p class="subhead">Bloom</p>
+        <p class="small">Snow White into Violet, with Lime Green and Pink blooms. The light option,
+          and the only one that takes Night Blue text-adjacent panels well. Carries grain, drawn as
+          an SVG filter rather than a baked-in texture.</p>
+      </div>
+    </div>
+    <div class="gradient-row">
+      <div class="band"><img src="{{DATA:assets/images/gradient-harvest.svg}}" alt="Harvest gradient"></div>
+      <div>
+        <p class="subhead">Harvest</p>
+        <p class="small">Snow White into Yellow, with a second Yellow bloom low, Pink opposite, and a
+          Lime Green highlight. The warm option: social cards, event artwork, a title slide. Carries
+          grain.</p>
+      </div>
+    </div>
+
+    <div class="card card-violet gap-top">
+      <p class="small"><strong>Each one sits at one end of the luminance range, and stays there.</strong>
+        That is what lets a single knocked-out colour separate cleanly from the whole field rather
+        than only from part of it. A gradient whose ramp spans the range takes no mark at all, and
+        the warm gradient that preceded Harvest was withdrawn for exactly that reason.</p>
+    </div>
+
+    <p class="meta">They are <strong>artwork, not colour</strong>. Never sample a pixel into the
+      palette and never recolour one ad hoc — a new colourway gets drawn and added.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 15. Imagery: on a gradient ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Imagery</span>
+    <span class="eyebrow">What may sit on a gradient</span>
+  </div>
+  <div class="page-body tight">
+    <h2 class="title">A mark, or one heading. Never both.</h2>
+
+    <div class="demo demo-mark">
+      <img src="{{DATA:assets/images/gradient-vesper.svg}}" alt="">
+      <div class="demo-inner demo-mark">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+    </div>
+    <p class="meta">Either mark, knocked out: White on Vesper and Understory, Night Blue on Bloom and
+      Harvest. Measured under the mark's own ink — Vesper 7.09:1 at worst, Understory 7.00:1,
+      Bloom 8.08:1, Harvest 10.33:1.</p>
+
+    <div class="demo" style="height: 142px">
+      <img src="{{DATA:assets/images/gradient-bloom.svg}}" alt="">
+      <div class="demo-inner">
+        <p class="demo-heading" style="color: var(--colour-night-blue)">We work with your team for three days.</p>
+      </div>
+    </div>
+    <p class="meta">Or one heading, in the same colour the knocked-out mark takes on that ground, so a
+      gradient never carries two lettering colours.</p>
+
+    <table>
+      <thead><tr><th style="width: 214px">Constraint</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>The body face, never Voyage.</td><td>Voyage's thick-to-thin contrast and hairline serifs lose to the grain.</td></tr>
+        <tr><td>35px or larger.</td><td>Comfortably past the large-text threshold, with margin for the grain.</td></tr>
+        <tr><td>At most half the width, on the gradient's steadiest side — upper right on Vesper, lower left on Understory, right of centre on Bloom, lower right on Harvest.</td><td>Full width across the middle, a heading runs 6.65:1 to 16.25:1 on Vesper and 5.87:1 to 17.33:1 on Understory, and visibly shifts weight along the line. Inside the steady region it swings 2.91 and 3.88. Width alone is not enough: Understory's right half still swings 10.41.</td></tr>
+        <tr><td>Two or three lines, balanced.</td><td>A heading is a phrase held inside one region of the artwork, not a line crossing it.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="small"><strong>Nothing else goes on top.</strong> No body copy, no captions, no labels, no
+      lists, no buttons — and no scrim or blur anywhere, on anything.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 16. Imagery: illustrations ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Imagery</span>
+    <span class="eyebrow">Illustrations</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Illustrations take no text at all</h2>
+    <p>Not a heading, not a caption. The licence on the previous page is for gradients only,
+      because a gradient is a controlled field with a measured luminance band and an illustration
+      is not. Text goes beside an illustration, or on a solid panel next to it.</p>
+
+    <div class="illos">
+      <figure>
+        <img src="{{DATA:assets/images/illustration-workshop.webp}}" alt="A workshop in progress">
+        <figcaption>A workshop in progress</figcaption>
+      </figure>
+      <figure>
+        <img src="{{DATA:assets/images/illustration-coaching.webp}}" alt="One-to-one coaching">
+        <figcaption>One-to-one coaching</figcaption>
+      </figure>
+      <figure>
+        <img src="{{DATA:assets/images/illustration-event.webp}}" alt="A conference or event">
+        <figcaption>A conference or event</figcaption>
+      </figure>
+    </div>
+
+    <p class="small">These are painterly and stay raster — the exception the SVG-by-default rule
+      exists for. The package ships them at 1600px as WebP with a PNG beside each.</p>
+
+    <div class="card">
+      <p class="eyebrow">Yes — text beside the image</p>
+      <div class="beside">
+        <img src="{{DATA:assets/images/illustration-coaching.webp}}" alt="One-to-one coaching">
+        <div>
+          <p class="subhead">One-to-one coaching</p>
+          <p class="small gap-top">The image keeps its own frame and the words keep theirs. Nothing
+            is set over the artwork, and nothing needs a scrim to stay readable. The alternatives,
+            in order of preference: text beside the image; text on a solid panel adjacent to it;
+            the image reduced to an accent.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="meta">The full-resolution masters — 5000 × 5000, plus CMYK TIFFs for print — are in the
+      <strong>Aardling — Brand</strong> shared Google Drive. The package carries the versions meant
+      for building things; Drive carries the originals.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 17. Imagery: the favicon ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Imagery</span>
+    <span class="eyebrow">The favicon</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The icon logo, knocked out of Bloom</h2>
+    <p class="small">Night Blue on a rounded tile cut from <span class="token">gradient-bloom.svg</span>.
+      <span class="token">favicon.svg</span> is the source; every raster is generated from it. Shown at
+      180, 32 and 16 pixels, on both grounds a tab strip offers.</p>
+
+    <div class="favicons">
+      <div class="favicon-ground" style="background: var(--colour-white)">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="180" height="180" alt="">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="32" height="32" alt="">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="16" height="16" alt="">
+      </div>
+      <div class="favicon-ground" style="background: var(--colour-night-blue)">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="32" height="32" alt="">
+        <img src="{{DATA:assets/favicons/favicon.svg}}" width="16" height="16" alt="">
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th style="width: 120px">Decision</th><th style="width: 190px">Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Crop</td><td>The gradient's own centre square</td><td>No bespoke framing. A tighter crop raises contrast but lands in the Lime Green bloom, and the tile goes mint.</td></tr>
+        <tr><td>Corner radius</td><td>22% of the tile</td><td>The radius tokens are absolute and do not transfer to a drawing rendered from 16 to 512px. 22% is what iOS, Android and macOS use.</td></tr>
+        <tr><td>Mark size</td><td>82% of the tile width</td><td>At 74% the hairlines fall below one pixel at 16px and drop out.</td></tr>
+        <tr><td>Mark stroke</td><td>0.8 units, in the mark's own colour</td><td>Thickens the hairlines symmetrically without redrawing the letterform.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="small"><strong>The favicon drops Bloom's grain.</strong> Below about 64px the filter is
+      sampled far under its own frequency and lands as coloured blotch fighting the mark. That
+      licence is narrow: a generated derivative at fixed small sizes is not a reproduction of the
+      gradient, and Bloom and Harvest keep their grain wherever they are shown as themselves.</p>
+
+    <p class="meta">A favicon change ships the whole set: <span class="token">favicon.svg</span>,
+      <span class="token">favicon.ico</span> with 16 and 32 embedded, <span class="token">apple-touch-icon.png</span> at
+      180, <span class="token">icon-192.png</span> and <span class="token">icon-512.png</span>.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>

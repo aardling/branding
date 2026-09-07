@@ -1,0 +1,171 @@
+<!-- ======================= 8. Typography: the faces ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Typography</span>
+    <span class="eyebrow eyebrow-path">guidelines/typography.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Two faces, used in very unequal measure</h2>
+
+    <div class="card">
+      <p class="eyebrow">Display</p>
+      <p class="specimen-voyage">Voyage</p>
+      <p class="meta gap-top"><span class="token">--font-display</span>: Voyage, Georgia, "Times New Roman", serif. Regular only — no italic, no
+        variable axis, one weight. Below about 24px it loses its detail and reads as a generic
+        serif, so it never sets anything small.</p>
+    </div>
+
+    <div class="card">
+      <p class="eyebrow">Body</p>
+      <p class="specimen-sans">General Sans</p>
+      <p class="meta gap-top"><span class="token">--font-body</span>: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif. A
+        variable font: one file per style spanning weight 200 to 700, upright and italic.</p>
+    </div>
+
+    <p class="meta">Both faces ship in the package as woff2 and are self-hosted. Never a link or an
+      import to Google Fonts, Fontshare or any other third-party host: Aardling's typography does
+      not depend on a network it does not control.</p>
+
+    <div class="cols gap-top">
+      <div>
+        <p class="subhead">Letter-spacing</p>
+        <p class="small gap-top">None, at any size, in either face, with one exception: uppercase
+          labels take 0.12em to 0.14em, because capitals set at their default fit are too tight to
+          read. The eyebrow at the top of this page is one.</p>
+      </div>
+      <div>
+        <p class="subhead">Wrapping</p>
+        <p class="small gap-top">Headings, taglines, pull quotes, buttons and captions are balanced
+          across their lines rather than left with a single orphaned word. Body copy is set to
+          avoid orphans. Protected terms never break — see page 21.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 9. Typography: weights ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Typography</span>
+    <span class="eyebrow">Weights</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Six weights, upright and italic</h2>
+    <p class="small">General Sans covers 200 to 700 in one variable file per style, so every weight
+      below is available without loading a file per cut. Voyage is Regular only.</p>
+
+    <div class="stack-tight">
+      <div class="weight-row"><span class="small"><span class="token">200</span> Extralight</span><span class="sample" style="font-weight:200">Very large display settings only</span></div>
+      <div class="weight-row"><span class="small"><span class="token">300</span> Light</span><span class="sample" style="font-weight:300">Large introductory paragraphs</span></div>
+      <div class="weight-row"><span class="small"><span class="token">400</span> Regular</span><span class="sample" style="font-weight:400">Body copy, buttons, captions — the default</span></div>
+      <div class="weight-row"><span class="small"><span class="token">500</span> Medium</span><span class="sample" style="font-weight:500">Headings, everywhere</span></div>
+      <div class="weight-row"><span class="small"><span class="token">600</span> Semibold</span><span class="sample" style="font-weight:600">Emphasis in running text, table headers</span></div>
+      <div class="weight-row"><span class="small"><span class="token">700</span> Bold</span><span class="sample" style="font-weight:700">Rare — only where 600 fails to separate</span></div>
+    </div>
+
+    <p class="small gap-top">Headings are <strong>500</strong>. Use <span class="token">--font-weight-heading</span>
+      rather than the literal, so the decision lives in one place. The website's stylesheet has
+      asked for 500 since it was built and silently rendered 400, because only two cuts were
+      loaded; the Medium cut is in the package now and the original intent stands.</p>
+
+    <p class="subhead gap-top">Italics</p>
+    <div class="stack-tight">
+      <div class="weight-row"><span class="small"><span class="token">400</span> Regular italic</span><span class="sample" style="font-weight:400;font-style:italic">The title of a work</span></div>
+      <div class="weight-row"><span class="small"><span class="token">500</span> Medium italic</span><span class="sample" style="font-weight:500;font-style:italic">A term being introduced</span></div>
+      <div class="weight-row"><span class="small"><span class="token">600</span> Semibold italic</span><span class="sample" style="font-weight:600;font-style:italic">A genuine aside</span></div>
+    </div>
+
+    <p class="meta gap-top">Italics exist at every weight. Use them for what italics are for. Not for
+      emphasis; that is what 600 is for.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 10. Typography: the scale ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Typography</span>
+    <span class="eyebrow">The scale</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Eight steps</h2>
+    <p class="small">Base sizes, at 960px and above, shown at size. Every heading step drops to 0.8
+      below 960px, which is the step this page is set at: an A4 sheet at 96dpi is 794px wide.</p>
+
+    <div class="scale-list">
+      <div class="scale-row"><span class="label">h1 &nbsp; 55 / 1.2</span><span class="sample" style="font-size:55px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h2 &nbsp; 45 / 1.2</span><span class="sample" style="font-size:45px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h3 &nbsp; 35 / 1.2</span><span class="sample" style="font-size:35px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h4 &nbsp; 30 / 1.2</span><span class="sample" style="font-size:30px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h5 &nbsp; 25 / 1.2</span><span class="sample" style="font-size:25px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h6 &nbsp; 22 / 1.3</span><span class="sample" style="font-size:22px">Aardling</span></div>
+      <div class="scale-row"><span class="label">body &nbsp; 18 / 1.5</span><span class="sample" style="font-size:18px;font-weight:400">Aardling</span></div>
+      <div class="scale-row"><span class="label">small &nbsp; 14 / 1.5</span><span class="sample" style="font-size:14px;font-weight:400">Aardling</span></div>
+    </div>
+
+    <p class="subhead gap-top">The scale moves at three breakpoints</p>
+    <table>
+      <thead>
+        <tr><th>Step</th><th class="num">Below 960</th><th class="num">Base</th><th class="num">From 1728</th><th class="num">From 1920</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>h1</td><td class="num">44</td><td class="num">55</td><td class="num">61</td><td class="num">66</td></tr>
+        <tr><td>h2</td><td class="num">36</td><td class="num">45</td><td class="num">50</td><td class="num">54</td></tr>
+        <tr><td>h3</td><td class="num">28</td><td class="num">35</td><td class="num">39</td><td class="num">42</td></tr>
+        <tr><td>h4</td><td class="num">24</td><td class="num">30</td><td class="num">33</td><td class="num">36</td></tr>
+        <tr><td>h5</td><td class="num">20</td><td class="num">25</td><td class="num">28</td><td class="num">30</td></tr>
+        <tr><td>h6</td><td class="num">18</td><td class="num">22</td><td class="num">24</td><td class="num">26</td></tr>
+        <tr><td>body</td><td class="num">18</td><td class="num">18</td><td class="num">20</td><td class="num">22</td></tr>
+        <tr><td>small</td><td class="num">14</td><td class="num">14</td><td class="num">15</td><td class="num">17</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 11. Typography: which face where ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Typography</span>
+    <span class="eyebrow">Which face, where</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Voyage holds a phrase, not a paragraph</h2>
+
+    <p>Voyage is used sparingly — typically once on a page, on one short title. Normally that is
+      the h1: the page hero, or the one heading a reader is meant to carry away. A second Voyage
+      setting on the same page is an exception and needs a reason.</p>
+
+    <p>Everything else is General Sans, including headings that look like they want the display
+      face: h2 and h3, card titles, call-to-action headings, pull quotes, form section labels,
+      table captions, sidebar headers. A page set almost entirely in General Sans is the normal
+      case, not a compromise.</p>
+
+    <p>Keep the Voyage title short — one line, a handful of words. The face has one weight, no
+      italic and no variable axis. Below about 24px it never sets anything at all: if a title
+      needs to be smaller than that, it is not the Voyage title on that page.</p>
+
+    <div class="card card-violet gap-top">
+      <p class="subhead">Voyage never sets a heading on artwork</p>
+      <p class="small gap-top">A heading placed on a gradient is General Sans at the heading weight,
+        whatever its size. Voyage's hairlines and its thick-to-thin contrast are exactly what the
+        gradients' grain interferes with. It is the same interference that sets the marks'
+        minimum sizes on a gradient. See page 16.</p>
+    </div>
+
+    <p class="meta gap-top">Every Voyage setting in this document is a page title, one per page —
+      the single exception being the specimen on page 8, which is the face shown as itself. The
+      subheads, the tables and this paragraph are all General Sans.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>v{{VERSION}}</span><span class="folio"></span>
+  </div>
+</section>

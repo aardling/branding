@@ -83,7 +83,7 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 
 ## The brand guide
 
-`aardling-brand-guide-v0.6.0.pdf` is 25 A4 pages carrying the palette, the type scale, the
+`aardling-brand-guide-v0.7.0.pdf` is 25 A4 pages carrying the palette, the type scale, the
 marks, the imagery rules, the spacing ladder and the voice — set in the brand, with the fonts
 and artwork embedded. The version in the filename is the package version, and it appears on
 the cover, in every page footer and on the last page.
@@ -94,11 +94,26 @@ It is generated, not maintained by hand:
 npm run build:guide --workspace @aardling/brand-aardling
 ```
 
-`scripts/build-brand-guide.mjs` fills `scripts/brand-guide.html` — the prose and the layout —
-with the version from `package.json` and every asset inlined as a data URI, then prints it
-with headless Chrome. Chrome's path comes from `CHROME` if set, and defaults to the macOS
-location. Unlike `build:lockups`, a rerun is not byte-identical: Chrome stamps a creation
-time into the PDF.
+The source is nine chapter fragments in `scripts/guide/`, plus `head.html` for the shared
+type and layout. `scripts/build-brand-guide.mjs` fills each with the version from
+`package.json`, inlines every asset as a data URI, prints it with headless Chrome, and merges
+the chapters into one document. A chapter is only re-rendered when the HTML it would produce
+has actually changed — `scripts/guide/manifest.json` records the hash it was last built from,
+so editing one chapter costs a couple of seconds rather than rebuilding all 25 pages. The
+rendered chapters are cached in `.guide-cache/`, which is not committed.
+
+```sh
+node scripts/build-brand-guide.mjs --status   # what is stale, and why. Renders nothing.
+node scripts/build-brand-guide.mjs --force    # rebuild every chapter
+```
+
+The contents page numbers itself: `{{FOLIO:colour}}` resolves to the page a chapter starts on,
+so adding a page cannot leave the contents lying. Chrome's path comes from `CHROME` if set,
+and defaults to the macOS location. Unlike `build:lockups`, a rerun is not byte-identical:
+Chrome stamps a creation time into the PDF.
+
+`npm publish` refuses to ship a stale guide — `prepublishOnly` runs the same hash check and
+fails with the command to run. It never renders on your behalf.
 
 **When a guideline changes, rebuild the guide.** The template quotes the guidelines rather
 than importing them, so the two can drift; the files under `guidelines/` are the source of
