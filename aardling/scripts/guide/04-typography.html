@@ -1,4 +1,4 @@
-<!-- ======================= 8. Typography: the faces ======================= -->
+<!-- ======================= 10. Typography: the faces ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Typography</span>
@@ -37,7 +37,8 @@
         <p class="subhead">Wrapping</p>
         <p class="small gap-top">Headings, taglines, pull quotes, buttons and captions are balanced
           across their lines rather than left with a single orphaned word. Body copy is set to
-          avoid orphans. Protected terms never break — see page 21.</p>
+          avoid orphans. Protected terms never break — see the Layout section, from
+          page {{FOLIO:layout}}.</p>
       </div>
     </div>
   </div>
@@ -46,7 +47,7 @@
   </div>
 </section>
 
-<!-- ======================= 9. Typography: weights ======================= -->
+<!-- ======================= 11. Typography: weights ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Typography</span>
@@ -86,52 +87,57 @@
   </div>
 </section>
 
-<!-- ======================= 10. Typography: the scale ======================= -->
+<!-- ======================= 12. Typography: the scale ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Typography</span>
     <span class="eyebrow">The scale</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Eight steps</h2>
-    <p class="small">Base sizes, at 960px and above, shown at size. Every heading step drops to 0.8
-      below 960px, which is the step this page is set at: an A4 sheet at 96dpi is 794px wide.</p>
+    <h2 class="title">Eight steps, and the base is the phone</h2>
+    <p class="small">The sizes declared in <span class="token">:root</span> are what a 360px screen gets,
+      shown here at size. Every larger step is a <span class="token">min-width</span> query layered on
+      top — the direction is set out in the Web section, from page {{FOLIO:web}}.</p>
 
     <div class="scale-list">
-      <div class="scale-row"><span class="label">h1 &nbsp; 55 / 1.2</span><span class="sample" style="font-size:55px">Aardling</span></div>
-      <div class="scale-row"><span class="label">h2 &nbsp; 45 / 1.2</span><span class="sample" style="font-size:45px">Aardling</span></div>
-      <div class="scale-row"><span class="label">h3 &nbsp; 35 / 1.2</span><span class="sample" style="font-size:35px">Aardling</span></div>
-      <div class="scale-row"><span class="label">h4 &nbsp; 30 / 1.2</span><span class="sample" style="font-size:30px">Aardling</span></div>
-      <div class="scale-row"><span class="label">h5 &nbsp; 25 / 1.2</span><span class="sample" style="font-size:25px">Aardling</span></div>
-      <div class="scale-row"><span class="label">h6 &nbsp; 22 / 1.3</span><span class="sample" style="font-size:22px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h1 &nbsp; 36 / 1.2</span><span class="sample" style="font-size:36px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h2 &nbsp; 30 / 1.2</span><span class="sample" style="font-size:30px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h3 &nbsp; 26 / 1.2</span><span class="sample" style="font-size:26px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h4 &nbsp; 22 / 1.2</span><span class="sample" style="font-size:22px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h5 &nbsp; 20 / 1.2</span><span class="sample" style="font-size:20px">Aardling</span></div>
+      <div class="scale-row"><span class="label">h6 &nbsp; 18 / 1.3</span><span class="sample" style="font-size:18px">Aardling</span></div>
       <div class="scale-row"><span class="label">body &nbsp; 18 / 1.5</span><span class="sample" style="font-size:18px;font-weight:400">Aardling</span></div>
       <div class="scale-row"><span class="label">small &nbsp; 14 / 1.5</span><span class="sample" style="font-size:14px;font-weight:400">Aardling</span></div>
     </div>
 
-    <p class="subhead gap-top">The scale moves at three breakpoints</p>
+    <p class="subhead gap-top">The scale moves at four breakpoints</p>
     <table>
       <thead>
-        <tr><th>Step</th><th class="num">Below 960</th><th class="num">Base</th><th class="num">From 1728</th><th class="num">From 1920</th></tr>
+        <tr><th>Step</th><th class="num">Phone</th><th class="num">From 540</th><th class="num">From 960</th><th class="num">From 1728</th><th class="num">From 1920</th></tr>
       </thead>
       <tbody>
-        <tr><td>h1</td><td class="num">44</td><td class="num">55</td><td class="num">61</td><td class="num">66</td></tr>
-        <tr><td>h2</td><td class="num">36</td><td class="num">45</td><td class="num">50</td><td class="num">54</td></tr>
-        <tr><td>h3</td><td class="num">28</td><td class="num">35</td><td class="num">39</td><td class="num">42</td></tr>
-        <tr><td>h4</td><td class="num">24</td><td class="num">30</td><td class="num">33</td><td class="num">36</td></tr>
-        <tr><td>h5</td><td class="num">20</td><td class="num">25</td><td class="num">28</td><td class="num">30</td></tr>
-        <tr><td>h6</td><td class="num">18</td><td class="num">22</td><td class="num">24</td><td class="num">26</td></tr>
-        <tr><td>body</td><td class="num">18</td><td class="num">18</td><td class="num">20</td><td class="num">22</td></tr>
-        <tr><td>small</td><td class="num">14</td><td class="num">14</td><td class="num">15</td><td class="num">17</td></tr>
+        <tr><td>h1</td><td class="num">36</td><td class="num">44</td><td class="num">55</td><td class="num">61</td><td class="num">66</td></tr>
+        <tr><td>h2</td><td class="num">30</td><td class="num">36</td><td class="num">45</td><td class="num">50</td><td class="num">54</td></tr>
+        <tr><td>h3</td><td class="num">26</td><td class="num">28</td><td class="num">35</td><td class="num">39</td><td class="num">42</td></tr>
+        <tr><td>h4</td><td class="num">22</td><td class="num">24</td><td class="num">30</td><td class="num">33</td><td class="num">36</td></tr>
+        <tr><td>h5</td><td class="num">20</td><td class="num">20</td><td class="num">25</td><td class="num">28</td><td class="num">30</td></tr>
+        <tr><td>h6</td><td class="num">18</td><td class="num">18</td><td class="num">22</td><td class="num">24</td><td class="num">26</td></tr>
+        <tr><td>body</td><td class="num">18</td><td class="num">18</td><td class="num">18</td><td class="num">20</td><td class="num">22</td></tr>
+        <tr><td>small</td><td class="num">14</td><td class="num">14</td><td class="num">14</td><td class="num">15</td><td class="num">17</td></tr>
       </tbody>
     </table>
 
+    <p class="meta">The 540px step moves h1 to h4 and nothing else: further down, the phone sizes are
+      already right, and dropping h6 below 18 would push it under the body size it has to outrank.
+      There is no multiplier — the columns were set by eye, not by scaling the one beside them.
+      This page is set at the 540 column, because an A4 sheet at 96dpi is 794px wide.</p>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Typography</span><span class="folio"></span>
   </div>
 </section>
 
-<!-- ======================= 11. Typography: which face where ======================= -->
+<!-- ======================= 13. Typography: which face where ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Typography</span>
@@ -158,11 +164,11 @@
       <p class="small gap-top">A heading placed on a gradient is General Sans at the heading weight,
         whatever its size. Voyage's hairlines and its thick-to-thin contrast are exactly what the
         gradients' grain interferes with. It is the same interference that sets the marks'
-        minimum sizes on a gradient. See page 16.</p>
+        minimum sizes on a gradient. See the Imagery section, from page {{FOLIO:imagery}}.</p>
     </div>
 
     <p class="meta gap-top">Every Voyage setting in this document is a page title, one per page —
-      the single exception being the specimen on page 8, which is the face shown as itself. The
+      the single exception being the specimen on page {{FOLIO:typography}}, which is the face shown as itself. The
       subheads, the tables and this paragraph are all General Sans.</p>
   </div>
   <div class="page-foot">

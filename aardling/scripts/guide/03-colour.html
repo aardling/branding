@@ -28,8 +28,8 @@
     <p class="eyebrow gap-top">Functional</p>
     <div class="swatches">
       <div class="swatch"><div class="chip" style="background: #98DE7E"></div><span class="name">Hover Green</span><span class="hex">#98DE7E</span><span class="job">The hover and focus state of the primary button.</span></div>
-      <div class="swatch"><div class="chip" style="background: #6B6B6B"></div><span class="name">Muted Grey</span><span class="hex">#6B6B6B</span><span class="job">Secondary text: dates, captions, metadata.</span></div>
-      <div class="swatch"><div class="chip" style="background: #D7D7D7"></div><span class="name">Hairline Grey</span><span class="hex">#D7D7D7</span><span class="job">Hairline rules, and the border of an unchecked control.</span></div>
+      <div class="swatch"><div class="chip" style="background: #6B6B6B"></div><span class="name">Muted Grey</span><span class="hex">#6B6B6B</span><span class="job">Secondary text, and the boundary of a form control.</span></div>
+      <div class="swatch"><div class="chip" style="background: #D7D7D7"></div><span class="name">Hairline Grey</span><span class="hex">#D7D7D7</span><span class="job">Hairline rules. Never a control boundary; it does not measure.</span></div>
       <div class="swatch"><div class="chip" style="background: #CF1322"></div><span class="name">Error Red</span><span class="hex">#CF1322</span><span class="job">Form error messages.</span></div>
     </div>
 
@@ -72,8 +72,8 @@
         <tr><td><span class="pair-sample" style="color:#181C2F;background:#F8E181">Aa</span></td><td>Night Blue on Yellow</td><td class="num">12.90</td><td>Section grounds and cards.</td></tr>
         <tr><td><span class="pair-sample" style="color:#181C2F;background:#F3B0B0">Aa</span></td><td>Night Blue on Pink</td><td class="num">9.35</td><td>Section grounds and cards.</td></tr>
         <tr><td><span class="pair-sample" style="color:#181C2F;background:#B9BBF4">Aa</span></td><td>Night Blue on Violet</td><td class="num">9.21</td><td>Section grounds and callouts.</td></tr>
-        <tr><td><span class="pair-sample" style="color:#6B6B6B;background:#FFFFFF">Aa</span></td><td>Muted Grey on White</td><td class="num">5.33</td><td>Secondary text on a card.</td></tr>
-        <tr><td><span class="pair-sample" style="color:#6B6B6B;background:#F6F6F6">Aa</span></td><td>Muted Grey on Snow White</td><td class="num">4.93</td><td>Secondary text on the page ground.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#6B6B6B;background:#FFFFFF">Aa</span></td><td>Muted Grey on White</td><td class="num">5.33</td><td>Secondary text, and a control border, on a card.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#6B6B6B;background:#F6F6F6">Aa</span></td><td>Muted Grey on Snow White</td><td class="num">4.93</td><td>The same, on the page ground.</td></tr>
         <tr><td><span class="pair-sample" style="color:#CF1322;background:#FFFFFF">Aa</span></td><td>Error Red on White</td><td class="num">5.57</td><td>Form error messages on a card.</td></tr>
         <tr><td><span class="pair-sample" style="color:#CF1322;background:#F6F6F6">Aa</span></td><td>Error Red on Snow White</td><td class="num">5.16</td><td>Form error messages on the page ground.</td></tr>
         <tr><td><span class="pair-sample pair-large" style="color:#4B7BC3;background:#FFFFFF">Aa</span></td><td>Ocean Blue on White</td><td class="num">4.27</td><td>Display text at 24px and above. Never body text.</td></tr>
@@ -88,7 +88,109 @@
   </div>
 </section>
 
-<!-- ======================= 7. Colour: not approved ======================= -->
+<!-- ======================= 7. Colour: roles ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Colour</span>
+    <span class="eyebrow">Roles, and the dark palette</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The palette names colours; roles name jobs</h2>
+    <p class="small">A component references the job, never the colour, and a theme re-points the jobs
+      without the palette moving at all. <span class="token">--colour-snow-white</span> is Snow White in
+      every theme; <span class="token">--text-primary</span> is Night Blue on a light ground and Snow White
+      on a dark one. In a stylesheet, write the role.</p>
+
+    <table>
+      <thead><tr><th style="width: 160px">Role</th><th>Light</th><th>Dark</th></tr></thead>
+      <tbody>
+        <tr><td><span class="token">--surface-page</span></td><td>Snow White</td><td>Night Blue</td></tr>
+        <tr><td><span class="token">--surface-raised</span></td><td>White</td><td>Dark Surface</td></tr>
+        <tr><td><span class="token">--text-primary</span></td><td>Night Blue</td><td>Snow White</td></tr>
+        <tr><td><span class="token">--text-secondary</span></td><td>Muted Grey</td><td>Dark Muted Grey</td></tr>
+        <tr><td><span class="token">--text-error</span></td><td>Error Red</td><td>Dark Error Red</td></tr>
+        <tr><td><span class="token">--border-control</span></td><td>Muted Grey</td><td>Dark Muted Grey</td></tr>
+        <tr><td><span class="token">--border-hairline</span></td><td>Hairline Grey</td><td>Dark Hairline Grey</td></tr>
+        <tr><td><span class="token">--focus-ring</span></td><td>Night Blue</td><td>Snow White</td></tr>
+      </tbody>
+    </table>
+
+    <p class="small">Eight roles, and no more without a reason. A ninth role is a request to add a
+      colour, and goes through the same approval as one.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="eyebrow">Functional, dark ground only</p>
+    <div class="swatches">
+      <div class="swatch"><div class="chip" style="background: #242942"></div><span class="name">Dark Surface</span><span class="hex">#242942</span><span class="job">Cards and panels lifted off the dark ground.</span></div>
+      <div class="swatch"><div class="chip" style="background: #9BA1B8"></div><span class="name">Dark Muted Grey</span><span class="hex">#9BA1B8</span><span class="job">Secondary text, and the boundary of a form control.</span></div>
+      <div class="swatch"><div class="chip" style="background: #3A4059"></div><span class="name">Dark Hairline Grey</span><span class="hex">#3A4059</span><span class="job">Hairline rules. Never a control boundary.</span></div>
+      <div class="swatch"><div class="chip" style="background: #EF7A7A"></div><span class="name">Dark Error Red</span><span class="hex">#EF7A7A</span><span class="job">Form error messages.</span></div>
+    </div>
+
+    <p class="meta gap-top">Nothing in the light set crosses over. Muted Grey measures 3.16 on Night
+      Blue and is too faint to read; Hairline Grey measures 11.71, far too loud for a hairline; and
+      Error Red measures 3.03, below what a message has to clear. That is the whole reason these
+      four exist.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Colour</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 8. Colour: the dark ground ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Colour</span>
+    <span class="eyebrow">Accepted combinations, dark</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Night Blue is the dark ground</h2>
+    <p class="small">Snow White on Night Blue is a pair this brand has always had — it is what an
+      inverted section and the footer are already made of. The rest of the interface needed
+      somewhere to go.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 62px">Pair</th>
+          <th style="width: 214px">Foreground on background</th>
+          <th class="num" style="width: 52px">Ratio</th>
+          <th>Use for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="pair-sample" style="color:#F6F6F6;background:#181C2F">Aa</span></td><td>Snow White on Night Blue</td><td class="num">15.60</td><td>The dark page ground. All long-form reading.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#F6F6F6;background:#242942">Aa</span></td><td>Snow White on Dark Surface</td><td class="num">13.21</td><td>Cards and panels lifted off the dark ground.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#9BA1B8;background:#181C2F">Aa</span></td><td>Dark Muted Grey on Night Blue</td><td class="num">6.57</td><td>Secondary text, and control boundaries.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#9BA1B8;background:#242942">Aa</span></td><td>Dark Muted Grey on Dark Surface</td><td class="num">5.56</td><td>The same, on a card.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#EF7A7A;background:#181C2F">Aa</span></td><td>Dark Error Red on Night Blue</td><td class="num">6.21</td><td>Form error messages.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#EF7A7A;background:#242942">Aa</span></td><td>Dark Error Red on Dark Surface</td><td class="num">5.26</td><td>The same, on a card.</td></tr>
+        <tr><td><span class="pair-rule" style="background:#3A4059"></span></td><td>Dark Hairline Grey on Night Blue</td><td class="num">1.65</td><td>Hairline rules only. Never text.</td></tr>
+        <tr><td><span class="pair-rule" style="background:#3A4059"></span></td><td>Dark Hairline Grey on Dark Surface</td><td class="num">1.40</td><td>The same, on a card.</td></tr>
+        <tr><td><span class="pair-sample pair-large" style="color:#4B7BC3;background:#181C2F">Aa</span></td><td>Ocean Blue on Night Blue</td><td class="num">3.95</td><td>Display text at 24px and above. Never body text.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="small">Dark Surface on Night Blue is 1.18. That is a surface against a surface, not a
+      text pair, and it is enough to separate two grounds when a radius separates them too — but
+      not enough to be the only cue that a card exists. Give the card padding as well.</p>
+
+    <div class="card card-violet gap-top">
+      <p class="subhead">The pastels do not change</p>
+      <p class="small gap-top">Violet, Lime Green, Yellow and Pink are grounds, and the only
+        foreground approved on any of them is Night Blue. That pair measures the same on a dark
+        page as on a light one — 9.21 to 13.05 — so a pastel section is identical in both themes,
+        and so is the primary button. They are light panels on a dark page, and that is correct
+        rather than a compromise. A focus ring inside one is Night Blue, not Snow White.</p>
+    </div>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Colour</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 9. Colour: not approved ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Colour</span>
@@ -100,9 +202,10 @@
     <div class="cols">
       <div class="card card-pink">
         <p class="subhead">Ocean Blue as body text</p>
-        <p class="small gap-top">4.27:1 on White, 3.95:1 on Snow White. It is a details colour: large
-          display text, icons and rules. The website uses it as the link hover colour at 18px,
-          which fails; links hover to Night Blue instead.</p>
+        <p class="small gap-top">4.27:1 on White, 3.95:1 on Snow White, 3.95:1 on Night Blue. It is a
+          details colour in either theme: large display text, icons and rules. The website uses it
+          as the link hover colour at 18px, which fails — a link never changes colour on hover, and
+          the underline carries the change instead.</p>
       </div>
       <div class="card card-pink">
         <p class="subhead">Ocean Blue as a background</p>
@@ -112,7 +215,8 @@
       <div class="card card-pink">
         <p class="subhead">The four pastels as text</p>
         <p class="small gap-top">Violet, Lime Green, Yellow and Pink are grounds and details. Night
-          Blue is the only foreground approved on any of them.</p>
+          Blue is the only foreground approved on any of them, in either theme. Pink is close enough
+          to a light red to tempt as the dark error colour, and it is still not text.</p>
       </div>
       <div class="card card-pink">
         <p class="subhead">Any pair not in the table</p>
@@ -123,15 +227,19 @@
     <hr class="rule gap-top">
 
     <p class="subhead">Not every approved pair carries a mark</p>
-    <p class="small">Nine of the sixteen pairs are also approved for the logotype and the icon logo.
-      A pair approved for secondary text, form errors or hairline rules is approved for that, and
-      a mark is none of those things. The nine are on page 14.</p>
+    <p class="small">Nine of the sixteen light pairs are also approved for the logotype and the icon
+      logo. A pair approved for secondary text, form errors or hairline rules is approved for that,
+      and a mark is none of those things. No mark is approved on Dark Surface: a mark on a dark card
+      takes the Night Blue ground it already has a lockup for. The nine are in the
+      Logos section, from page {{FOLIO:logos}}.</p>
 
     <p class="meta gap-top">The original guide holds two colour tables that overlap and disagree.
       Ocean Blue is tagged <em>Details</em> in one and <em>Backgrounds, Details</em> in the other;
       the package resolves that as details only, on the contrast evidence. The guide also
       instructs "Dark Mode: use Grey for titles &amp; body text" while defining no colour called
-      Grey. That instruction is not carried over.</p>
+      Grey. That instruction is still not carried over — there was no value in it to carry. The
+      dark ground here is Night Blue with Snow White text, and its four supporting colours were
+      measured for the package rather than taken from the guide.</p>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Colour</span><span class="folio"></span>

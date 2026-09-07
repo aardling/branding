@@ -172,7 +172,7 @@ CFO may read it next. Do/don't examples: `../../guidelines/voice.md`.
 
 ## The printed guide
 
-`../../aardling-brand-guide-v*.pdf` is the whole brand as a 25-page A4 document, for handing
+`../../aardling-brand-guide-v*.pdf` is the whole brand as a 31-page A4 document, for handing
 to someone who does not have the package. It is generated from the guidelines and the assets,
 so it is a view and never the source: when the two disagree, the file under `guidelines/`
 wins.

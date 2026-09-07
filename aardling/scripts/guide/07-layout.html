@@ -1,4 +1,4 @@
-<!-- ======================= 18. Layout: spacing ======================= -->
+<!-- ======================= 21. Layout: spacing ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Layout</span>
@@ -44,7 +44,7 @@
   </div>
 </section>
 
-<!-- ======================= 19. Layout: radii and controls ======================= -->
+<!-- ======================= 22. Layout: radii and controls ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Layout</span>
@@ -82,21 +82,25 @@
         <tr><td>sm</td><td class="num">540px</td><td class="num">516px</td></tr>
         <tr><td>md</td><td class="num">720px</td><td class="num">696px</td></tr>
         <tr><td>lg</td><td class="num">960px</td><td class="num">936px</td></tr>
-        <tr><td>xl</td><td class="num">1140px</td><td class="num">1116px</td></tr>
         <tr><td>xxl</td><td class="num">1400px</td><td class="num">1312px</td></tr>
         <tr><td>xxxl</td><td class="num">1728px</td><td class="num">1504px</td></tr>
         <tr><td>mega</td><td class="num">1920px</td><td class="num">1696px</td></tr>
       </tbody>
     </table>
 
-    <p class="meta">Page side margins are 28px below 540px, and the container gutter above it.</p>
+    <p class="meta">Page side margins are <span class="token">--page-margin</span> — 28px — below 540px, and
+      the container above it. 28px is the one published value in this brand that is not on the 8px
+      ladder; it is inherited from the website and kept so that nothing reflows.
+      <span class="token">xl</span> at 1140px was declared and never used by anything, so it and its
+      container are retired. Every query is <span class="token">min-width</span>: the Web section, from
+      page {{FOLIO:web}}, lists the six that remain and says what each one moves.</p>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Layout</span><span class="folio"></span>
   </div>
 </section>
 
-<!-- ======================= 20. Layout: terms and images ======================= -->
+<!-- ======================= 23. Layout: terms and images ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Layout</span>
@@ -143,8 +147,9 @@
       <p class="small gap-top">The current website breaks this — the default hero sets the h1 over a
         cover photograph — and so do several mockups in the original brand guide. Those layouts are
         wrong and change; the rule does not bend for them.</p>
-      <p class="small gap-top">The single exception is the gradient licence on page 16, and it is
-        narrow: a gradient is a measured field, an illustration is not.</p>
+      <p class="small gap-top">The single exception is the gradient licence in the Imagery section,
+        from page {{FOLIO:imagery}}, and it is narrow: a gradient is a measured field, an
+        illustration is not.</p>
     </div>
   </div>
   <div class="page-foot">
