@@ -14,8 +14,9 @@ registry. That needs two things in the consuming project.
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
-**2. Put a token in the environment.** A classic personal access token with the
-`read:packages` scope is enough:
+**2. Put a token in the environment.** A classic personal access token needs **two** scopes:
+`read:packages` to download, and `repo` because these packages belong to a private
+repository and are invisible without it:
 
 ```sh
 export GITHUB_TOKEN=ghp_...
@@ -30,18 +31,20 @@ the token in the environment or in CI secrets, never in the file.
 With the `gh` CLI:
 
 ```sh
-gh auth refresh -h github.com -s read:packages
+gh auth refresh -h github.com -s read:packages,repo
 export GITHUB_TOKEN=$(gh auth token)
 ```
 
 By hand: open
-[github.com/settings/tokens/new](https://github.com/settings/tokens/new?scopes=read:packages&description=GitHub%20Packages%20read)
+[github.com/settings/tokens/new](https://github.com/settings/tokens/new?scopes=read:packages,repo&description=GitHub%20Packages%20read)
 — or **Settings → Developer settings → Personal access tokens → Tokens (classic) → Generate
-new token (classic)** — tick `read:packages`, set an expiry, and generate. Copy the value
-straight away; GitHub shows it once.
+new token (classic)** — tick `read:packages` **and** `repo`, set an expiry, and generate. Copy
+the value straight away; GitHub shows it once.
 
 GitHub Packages accepts classic tokens only; fine-grained tokens do not work on its npm
-registry. In GitHub Actions you need no personal token — use the workflow's own
+registry. If the `aardling` organisation has SSO enabled, authorise the token for it after
+generating — **Configure SSO → Authorize** beside the token — or it is refused whatever its
+scopes. In GitHub Actions you need no personal token — use the workflow's own
 `GITHUB_TOKEN` with `permissions: packages: read`.
 
 Then:
