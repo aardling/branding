@@ -1,6 +1,6 @@
 {
   "renderer": 1,
-  "version": "0.7.0",
+  "version": "0.8.0",
   "pages": 25,
   "headDeps": {
     "tokens/tokens.css": "8d5a13c3137149febe00a35e85e77c04e246c919592a6ebe5f7785f3c90f3a71",
@@ -15,9 +15,9 @@
       "folio": 1,
       "pages": 2,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "816fadaf13991a22f45814774951fe55f962cb447ac2208f2ed0d71529fe0f01",
-      "fragment": "49fc49c86ee7ad3ad1ce8f14a5e07b151a46e52d82533939e790eea976adc656",
+      "version": "0.8.0",
+      "hash": "109ec6e531e69fb7c8ee82dc604f4462bea3e45bcc8a64aa59d927b8044d8e84",
+      "fragment": "ce470b595481155274a33fed6b763756cb307a1ce9af056d94658a4a3bf4073c",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {
         "assets/images/gradient-vesper.svg": "a4b063c48ccfbfcc298414236abc3b7157279b892fb38f83bf6622c0ebf1aa33",
@@ -30,9 +30,9 @@
       "folio": 3,
       "pages": 2,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "dd46b5a68b5923e1c394a14f837d13d1496381c1ce41d060c506e82f7aa21cdd",
-      "fragment": "81ebd7d44b7cc9765f61efb6307e6f4645adc852d991010b3fab69b5f75bd627",
+      "version": "0.8.0",
+      "hash": "bed30c4791240ce755fa6f3c3df6da409ed699f1e2cb73444db5c3816b3408bd",
+      "fragment": "98e709c7aab9e19db3b4318a04c6faa2b27215d48c39b816f64290f50cfc6941",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf"
@@ -44,9 +44,9 @@
       "folio": 5,
       "pages": 3,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "8ccc671a2b22b92e96fba20869884c4bb0584dc24a5461a65c73e91f0e067a6d",
-      "fragment": "44afe4d810d0ce430d2b5d6b33649849085508f204b228d196f5e47d6866fa06",
+      "version": "0.8.0",
+      "hash": "81aaf8683e8f32892dec0edb3b4ec5c8e62df25f05aaf3d25c8632e5e0559e5a",
+      "fragment": "4d9bbb10cc5994b38c078f082280adc64ff37abcd0872bea4edddf76ffca06f0",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {}
     },
@@ -56,9 +56,9 @@
       "folio": 8,
       "pages": 4,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "7405d0a8852d740dde8b41d541f2924295f4b9acecdb410c738f7c2e9f911f5c",
-      "fragment": "8400b7174b4003175d28946978985273ba2cc650d54bb140898620c8d3291c46",
+      "version": "0.8.0",
+      "hash": "c54fcf6638e8c0fd7e4c098bc517452afd357211b3b3c1a19204a3c0aa2bea1f",
+      "fragment": "c94d471ca21c8877873925a175faa91779dd1394657735f17e9debc492a7b589",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {}
     },
@@ -68,9 +68,9 @@
       "folio": 12,
       "pages": 3,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "3549ab38ad9de85a524e8875ec84a0a946a648acda5533b5b19de6450f9c8a72",
-      "fragment": "8d3cc76b1c5ac94fda6ca2691304ad26201abbfacc413592b8a6e03a948b3fa1",
+      "version": "0.8.0",
+      "hash": "22e44995dc6c956e49d4b1491b51cbe63d4c353907c01947557e4a18ae83cc51",
+      "fragment": "bbf5227d5d22605e7d3786514342eabd8ee3584d0a3999be9ccfde16926ca20d",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf",
@@ -83,9 +83,9 @@
       "folio": 15,
       "pages": 4,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "864b6f7720bb315212823f00256ca7f98ae4e9bb8a0972711693a105976ac299",
-      "fragment": "6459fb498fd383533936d1c3976cf30745c355028b09990268aa34b730deacdf",
+      "version": "0.8.0",
+      "hash": "1ad2686add41d9e09e819d50535fbefdb8026a54eae29d777d46e83a12f789d0",
+      "fragment": "44e6582415c5773f311c9173c16d188372720b3c8068299726620e95662e6d22",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {
         "assets/images/gradient-vesper.svg": "a4b063c48ccfbfcc298414236abc3b7157279b892fb38f83bf6622c0ebf1aa33",
@@ -105,9 +105,9 @@
       "folio": 19,
       "pages": 3,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "57e88d734ab9126d71770e88c76a39d37257c01b6c5bd2f41e7fa5073ecddf74",
-      "fragment": "6e49894de02b3ae20b5d3009c4a6424ac2ecd9109b6277ea86e37e7ffc5ef5fd",
+      "version": "0.8.0",
+      "hash": "4091b3f7fc3776b447d872179237fc82c6942bf63d168af6086985edea28f62c",
+      "fragment": "29c6e5338e0b12287f9eec82725ad7bb423d7bc5dac5f62cc796d472ee2bc8c6",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {}
     },
@@ -117,9 +117,9 @@
       "folio": 22,
       "pages": 3,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "3ac5315df359adc4bd1170a395af1c57695c43b04635f7de51217b50cd3b70fe",
-      "fragment": "e4b073b5918b9bb628fb9758172083b6781020f2ae568b60745a9430b153863c",
+      "version": "0.8.0",
+      "hash": "abbd536251d1a96eb51596b7a2912f4f1ec2b7424c51428f05fd6a37b4bcc504",
+      "fragment": "47870c7a05913f96ac6cde047bd8177102993e637ba67ac1e6de361dbf08486b",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {}
     },
@@ -129,16 +129,16 @@
       "folio": 25,
       "pages": 1,
       "renderer": 1,
-      "version": "0.7.0",
-      "hash": "0109ca5251c129cae4755cd493e95f2b99f0ec9bae7b953531005f4ecce23e62",
-      "fragment": "29c64373df90164c74f8362bef061ad92bf50dec6924eeb5c1f4ea109d5f6e5b",
+      "version": "0.8.0",
+      "hash": "8109116c121e995e08511570be4f8d24af4dc06370fbb691961228119750d908",
+      "fragment": "910af1c1e634b5542a992789a69d13c85cf9bc4fed77bc37e111e81f5ba7bd29",
       "head": "db3be5a4d1bd7b2cf69237ff5e079fd2994df479bd5e1e75ec7f67029af067b9",
       "deps": {}
     }
   ],
   "pdf": {
-    "file": "aardling-brand-guide-v0.7.0.pdf",
-    "bytes": 14237772,
-    "sha256": "e5de66f7c072408e9e7e0536065505295b83117726ff73a641983de09edc02fe"
+    "file": "aardling-brand-guide-v0.8.0.pdf",
+    "bytes": 14239514,
+    "sha256": "cae02cf809b79a3656f51188b02d757e349704b5b95eb3c1d97a5b8875de6bee"
   }
 }

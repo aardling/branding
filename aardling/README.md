@@ -83,10 +83,11 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 
 ## The brand guide
 
-`aardling-brand-guide-v0.7.0.pdf` is 25 A4 pages carrying the palette, the type scale, the
+`aardling-brand-guide-v0.8.0.pdf` is 25 A4 pages carrying the palette, the type scale, the
 marks, the imagery rules, the spacing ladder and the voice — set in the brand, with the fonts
 and artwork embedded. The version in the filename is the package version, and it appears on
-the cover, in every page footer and on the last page.
+the cover, on the contents page and on the last page. Every other page ends with the section
+you are in, so the running foot says where you are rather than repeating the version.
 
 It is generated, not maintained by hand:
 
