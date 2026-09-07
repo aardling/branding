@@ -146,12 +146,20 @@ matters. The warning was right and the job contradicted it.
 | Field border | `--border-control`, 1px. |
 | Field ground | `--surface-raised`. |
 | Label and value | `--text-primary`. |
-| Placeholder and help text | `--text-secondary`. |
+| Help text | `--text-secondary`. |
 | Error message and border | `--text-error`. |
 | Focus | The focus ring, outside the field. |
 
 **An error is never signalled by colour alone.** A red border with no message is not an error
-state; write what went wrong and how to fix it, in `--text-error`, next to the field.
+state; write what went wrong and how to fix it, in `--text-error`, next to the field. The
+border also doubles to 2px, so the state survives without colour at all.
+
+**There is no placeholder row above,** because there are no placeholders. An earlier version of
+this file gave placeholder text `--text-secondary`; `forms.md` removed the placeholder itself,
+and what it would have said is help text now.
+
+**There is no success colour.** The palette has an error red and no counterpart, so nothing in
+this brand says *this passed* in colour. Success is words — `forms.md` says how.
 
 **A disabled control is `--text-secondary` on `--surface-page`,** at 4.93, and carries
 `aria-disabled` or `disabled`. It is not a lighter grey: a control a reader cannot read is
