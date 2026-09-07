@@ -26,9 +26,10 @@
   src: url("{{DATA:assets/fonts/voyage-regular.woff2}}") format("woff2");
 }
 
-/* A4 at 96dpi is 794px wide, so tokens.css's below-960px heading step is the one
-   that applies. Pinned here rather than left to the media query, so the on-screen
-   preview and the printed page agree whatever the window is. */
+/* A4 at 96dpi is 794px wide, which under the mobile-first scale in tokens.css lands on
+   the 540px column — past the phone step, short of the desktop one. Pinned here rather
+   than left to the media query, so the on-screen preview and the printed page agree
+   whatever the window is. */
 :root {
   --font-size-h1: 44px;
   --font-size-h2: 36px;

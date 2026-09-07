@@ -1,0 +1,238 @@
+<!-- ======================= 24. Web: mobile first ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Web</span>
+    <span class="eyebrow eyebrow-path">guidelines/web.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The base value is the phone</h2>
+    <p class="small">Everything <span class="token">tokens.css</span> declares in <span class="token">:root</span> —
+      type sizes, spacing, containers, the page margin — is what a 360px screen gets. Every media
+      query in this brand is <span class="token">min-width</span>, and each one restates only what
+      actually changes at that width.</p>
+
+    <p class="meta">This is a reversal. Until version 0.8.0 <span class="token">:root</span> held the
+      desktop sizes and a <span class="token">max-width</span> query shrank them, which described the
+      phone as a subtraction from a screen nobody was designing on. The values did not change; the
+      direction did.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">Six breakpoints, each with a reason</p>
+    <table>
+      <thead><tr><th style="width: 150px">Token</th><th class="num" style="width: 62px">Value</th><th>What changes there</th></tr></thead>
+      <tbody>
+        <tr><td><span class="token">--breakpoint-sm</span></td><td class="num">540px</td><td>h1 to h4 step up from the phone column. The page margin gives way to the container.</td></tr>
+        <tr><td><span class="token">--breakpoint-md</span></td><td class="num">720px</td><td>Vertical section padding goes from <span class="token">--space-6</span> to <span class="token">--space-10</span>.</td></tr>
+        <tr><td><span class="token">--breakpoint-lg</span></td><td class="num">960px</td><td>The full desktop type scale. Section padding to <span class="token">--space-12</span>.</td></tr>
+        <tr><td><span class="token">--breakpoint-xxl</span></td><td class="num">1400px</td><td>Grid gutter goes from <span class="token">--space-3</span> to <span class="token">--space-4</span>.</td></tr>
+        <tr><td><span class="token">--breakpoint-xxxl</span></td><td class="num">1728px</td><td>Display step. The type scale rises, body to 20px. No layout change.</td></tr>
+        <tr><td><span class="token">--breakpoint-mega</span></td><td class="num">1920px</td><td>Display step. Type rises again, body to 22px. No layout change.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="small">The last two are <strong>display steps</strong>: they exist so a 27-inch monitor
+      does not set 18px body copy across a wide column. They move type and nothing else.
+      <span class="token">1140px</span> was declared and never used by anything; it and its container
+      are retired.</p>
+
+    <div class="cols">
+      <div class="card">
+        <p class="subhead">Design at 360px first</p>
+        <p class="small gap-top">Not 375, not 390. 360px is the narrowest width in common use, and a
+          layout that survives it survives the rest. Check the hero, the navigation and any table
+          at that width before opening a desktop viewport.</p>
+      </div>
+      <div class="card card-pink">
+        <p class="subhead">A custom property cannot be read in a media query</p>
+        <p class="small gap-top"><span class="token">@media (min-width: var(--breakpoint-lg))</span> does not
+          work in any browser, and fails silently. The breakpoint tokens exist to be read from
+          JavaScript and to keep the two token files in step — not to be used in a query. In a
+          query, write the literal.</p>
+      </div>
+    </div>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 25. Web: states ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Web</span>
+    <span class="eyebrow">Focus, links, controls</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Focus is a requirement; hover is a courtesy</h2>
+    <p class="small">Anything that reacts to a pointer reacts to the keyboard the same way. Hover is
+      the one state a touchscreen cannot produce at all, so no information, no control and no
+      navigation may live in a hover state alone.</p>
+
+    <p class="subhead gap-top">The ring is the same everywhere</p>
+    <div style="display: flex; gap: var(--space-3); align-items: center; margin-top: var(--space-2); flex-wrap: wrap">
+      <span class="btn" style="outline: 3px solid #181C2F; outline-offset: 2px">Book a call</span>
+      <span style="display: inline-flex; align-items: center; padding: 12px 24px; border-radius: var(--radius-pill); background: #B9BBF4; color: #181C2F; outline: 3px solid #181C2F; outline-offset: 2px">On Violet</span>
+      <span style="display: inline-flex; align-items: center; padding: 12px 24px; border-radius: var(--radius-pill); background: #181C2F; color: #F6F6F6; outline: 3px solid #F6F6F6; outline-offset: 2px">On Night Blue</span>
+    </div>
+    <p class="small">Three pixels solid, offset two, on <span class="token">:focus-visible</span> — so it
+      appears for a keyboard and not under a mouse click. Night Blue on every light ground, Snow
+      White on every dark one. Night Blue is the only palette colour that clears 3:1 against all
+      eight approved grounds; Ocean Blue fails on Violet at 2.33, Pink at 2.37 and Hover Green at
+      2.66. Never <span class="token">outline: none</span> without a replacement in the same rule.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">A link is underlined, always</p>
+    <p class="small gap-top">There is no approved second text colour on the page ground, so the
+      underline is not decoration — it is the only thing distinguishing a link, and removing it
+      removes the link. Colour never changes on hover, at any size; the underline thickens from
+      1px to 3px.</p>
+    <p style="margin-top: var(--space-2)">We ran a <span style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em">three-day modelling workshop</span>
+      with their platform team, and it <span style="text-decoration: underline; text-decoration-thickness: 3px; text-underline-offset: 0.18em">thickens on hover</span>.</p>
+    <p class="meta">Visited links are not styled: there is no approved pair for a third text colour,
+      and on a site of this kind the distinction tells a reader nothing they need.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">A control boundary has to be visible</p>
+    <div class="cols">
+      <div class="card card-pink">
+        <p class="eyebrow">No — Hairline Grey, 1.44</p>
+        <div style="margin-top: var(--space-2); padding: 12px 16px; border: 1px solid #D7D7D7; border-radius: var(--radius-sm); background: #FFFFFF; color: #6B6B6B">you@company.com</div>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Yes — Muted Grey, 5.33</p>
+        <div style="margin-top: var(--space-2); padding: 12px 16px; border: 1px solid #6B6B6B; border-radius: var(--radius-sm); background: #FFFFFF; color: #6B6B6B">you@company.com</div>
+      </div>
+    </div>
+    <p class="small">WCAG 1.4.11 holds a user-interface component boundary to 3:1. Hairline Grey
+      measures 1.44 on White and 1.33 on Snow White: it rules a section off, and never borders a
+      control. An error always carries a message saying what went wrong — never colour alone.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 26. Web: motion, elevation, icons ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Web</span>
+    <span class="eyebrow">Motion, elevation, icons</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Two durations, two shadows, four icon sizes</h2>
+
+    <p class="subhead">Motion</p>
+    <table>
+      <tbody>
+        <tr><td style="width: 150px"><span class="token">--duration-fast</span></td><td style="width: 76px">120ms</td><td>Colour changes: hover, focus, active. Anything that does not move.</td></tr>
+        <tr><td><span class="token">--duration-base</span></td><td>240ms</td><td>Anything that moves, resizes or fades — a disclosure, a drawer, a menu.</td></tr>
+        <tr><td><span class="token">--ease-standard</span></td><td colspan="2">cubic-bezier(0.2, 0, 0, 1) — every transition, both durations.</td></tr>
+      </tbody>
+    </table>
+    <p class="small">One easing curve everywhere is what makes unrelated components feel like one
+      site. The tokens collapse to 1ms under <span class="token">prefers-reduced-motion</span>, so a
+      transition written against them already complies; anything animating <em>without</em> them
+      must be stopped by hand. Nothing animates on load — the page arrives at rest. Animate
+      <span class="token">transform</span> and <span class="token">opacity</span>, nothing else.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">Elevation</p>
+    <div class="cols" style="margin-top: var(--space-2)">
+      <div style="padding: var(--space-3); background: #FFFFFF; border-radius: var(--radius-md); box-shadow: 0 2px 8px rgba(24,28,47,0.08)">
+        <span class="token">--shadow-raised</span><br><span class="small">A card or panel at rest.</span>
+      </div>
+      <div style="padding: var(--space-3); background: #FFFFFF; border-radius: var(--radius-md); box-shadow: 0 8px 32px rgba(24,28,47,0.16)">
+        <span class="token">--shadow-overlay</span><br><span class="small">A menu, a dialog, a sticky bar.</span>
+      </div>
+    </div>
+    <p class="small">Both are cast in Night Blue rather than black — a neutral black shadow over a
+      warm ground reads as dirt rather than depth. Two steps and no more: a third is a request for
+      a hierarchy the page does not have. On the dark ground
+      <span class="token">--shadow-raised</span> is <span class="token">none</span>, because a shadow under a
+      dark card on a dark page is invisible and the surface colour does that job instead.</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">Icons</p>
+    <table>
+      <tbody>
+        <tr><td style="width: 110px"><span class="token">--icon-sm</span></td><td style="width: 60px">16px</td><td>Inline with small text, and inside dense controls.</td></tr>
+        <tr><td><span class="token">--icon-md</span></td><td>20px</td><td>Inline with body copy. The default.</td></tr>
+        <tr><td><span class="token">--icon-lg</span></td><td>24px</td><td>Buttons, navigation items, list bullets.</td></tr>
+        <tr><td><span class="token">--icon-xl</span></td><td>32px</td><td>A section or feature mark standing on its own.</td></tr>
+      </tbody>
+    </table>
+    <p class="meta"><strong>Set the height and let the width follow.</strong> Several marks are not
+      square, so constraining the width distorts them. The set is not drawn on a common grid —
+      some marks carry interface-scale dimensions at a 1.25 stroke, the rest are viewBox-only at
+      drawing scale with a stroke of 2 — so at the same pixel height they will not have the same
+      apparent weight. These sizes are a starting point; match the icon to its neighbouring text
+      by eye.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 27. Web: dark mode ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Web</span>
+    <span class="eyebrow">Dark mode</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The reader's operating system decides</h2>
+    <p class="small">One <span class="token">prefers-color-scheme: dark</span> block re-points the eight
+      roles, and that is the whole mechanism. There is no toggle in the header, nothing to
+      remember between visits, and no third state to test.</p>
+
+    <p class="meta">The palette does not move. <span class="token">--colour-snow-white</span> is Snow White
+      in both themes; it is <span class="token">--text-primary</span> that resolves differently. A
+      component written against roles is already correct in dark mode and needs no dark-mode CSS
+      of its own. A component written against palette colours is the bug.</p>
+
+    <div class="card card-night gap-top">
+      <p class="subhead">Domain Modelling</p>
+      <p class="small gap-top">Untangle complex business domains and make your architecture work for
+        you. Secondary text sits at 6.57, a hairline at 1.65, and a card lifts to
+        <span class="token">#242942</span> rather than casting a shadow.</p>
+      <div style="display: flex; gap: var(--space-2); align-items: center; margin-top: var(--space-3); flex-wrap: wrap">
+        <span class="btn">Book a call</span>
+        <span style="display: inline-flex; align-items: center; padding: 12px 24px; border-radius: var(--radius-pill); background: #242942; color: #F6F6F6; outline: 3px solid #F6F6F6; outline-offset: 2px">Focused</span>
+      </div>
+    </div>
+
+    <hr class="rule gap-top">
+
+    <div class="cols">
+      <div class="card">
+        <p class="subhead">The pastels do not change</p>
+        <p class="small gap-top">Violet, Lime Green, Yellow and Pink are grounds whose only approved
+          foreground is Night Blue, and that pair measures the same on a dark page as a light one.
+          A pastel section is identical in both themes, and so is the primary button. They are
+          light panels on a dark page, and that is correct rather than a compromise.</p>
+      </div>
+      <div class="card card-violet">
+        <p class="subhead">A light island says so</p>
+        <p class="small gap-top">A pastel section on a dark page carries
+          <span class="token">data-surface="light"</span>, which puts all eight roles back. Without it a
+          focus ring inside this callout would inherit Snow White and measure 1.69 against the
+          Violet — invisible. An inverted section is the mirror of it:
+          <span class="token">data-surface="dark"</span>, which is what the footer uses.</p>
+      </div>
+    </div>
+
+    <p class="meta gap-top"><span class="token">light</span> and <span class="token">dark</span> are the only two
+      values, and <span class="token">data-surface</span> is the only attribute this brand styles. Artwork
+      has no dark variant: the four gradients and the illustrations are the same files in both
+      themes. Check both before calling anything finished, by switching the operating system
+      setting — a browser devtools override misses the scoped case entirely.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
+  </div>
+</section>
