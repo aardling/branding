@@ -33,7 +33,16 @@ into another change. Report what is stale — `node aardling/scripts/build-brand
 enforces the other half: `prepublishOnly` refuses to ship a guide that no longer matches the
 brand, and tells the user how to fix it rather than fixing it silently.
 
-All three are operationalised in the `brand-change` skill — invoke it before touching
+**4. Version numbers change only at publish time.** Editing a brand — tokens, assets,
+guidelines, skills — never touches a package's `version`. Many changes land under one
+version, and that is correct: the number describes what was published, not how much work
+happened since. When the user asks for a publish, choose the new number from everything that
+changed since the last published one, by semver. While the packages are pre-1.0, a breaking
+change — a token, asset or path removed or renamed — bumps the minor, and everything else
+bumps the patch. Say which number you picked and why before publishing. Never bump on your
+own initiative.
+
+Rules 1 to 3 are operationalised in the `brand-change` skill — invoke it before touching
 anything under a brand directory.
 
 ## Brand directory layout

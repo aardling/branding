@@ -17,5 +17,7 @@ without asking.
    `--force` re-renders everything; `--section <id>` re-renders one chapter.
 5. Report the page count, the file size and the path.
 
-If the guide's *content* changed rather than only its assets, the package version
-should be bumped before rendering, so the PDF ships under the right name. Ask.
+Do not bump the package version to go with the render. The guide is rendered under
+whatever version the package currently carries; the version changes only when the user
+asks for a publish. If that publish then picks a new number, the guide is re-rendered
+under it as part of publishing.
