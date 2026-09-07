@@ -172,10 +172,14 @@ CFO may read it next. Do/don't examples: `../../guidelines/voice.md`.
 
 ## The printed guide
 
-`../../aardling-brand-guide-v*.pdf` is the whole brand as a 31-page A4 document, for handing
-to someone who does not have the package. It is generated from the guidelines and the assets,
-so it is a view and never the source: when the two disagree, the file under `guidelines/`
-wins.
+The brand guide is the whole brand as a 31-page A4 document, for handing to someone who does
+not have the package. It is generated from the guidelines and the assets, so it is a view and
+never the source: when the two disagree, the file under `guidelines/` wins.
+
+**It is not inside the package** — at roughly 14 MB it is not worth installing for every
+consumer. Download it from the GitHub release for the version you want:
+<https://github.com/aardling/branding/releases>. Do not link a reader to a path inside
+`node_modules`; there is no PDF there.
 
 Its source is ten chapter fragments in `../../scripts/guide/`, one per section of the guide.
 Edit the fragment for the section you are changing; only that chapter re-renders.

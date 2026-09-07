@@ -80,15 +80,25 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `assets/fonts/`            | Variable General Sans and Voyage as `woff2`, plus `fonts.css`.                                                     |
 | `assets/images/`           | Four SVG gradients, and three illustrations as WebP with PNG beside.                                               |
 | `skills/aardling-brand/`   | Claude Code skill teaching agents to apply this brand.                                                             |
-| `aardling-brand-guide-v*.pdf` | The whole brand as a printable A4 document, generated from everything above.                                    |
 
 ## The brand guide
 
-`aardling-brand-guide-v0.8.0.pdf` is 25 A4 pages carrying the palette, the type scale, the
-marks, the imagery rules, the spacing ladder and the voice — set in the brand, with the fonts
-and artwork embedded. The version in the filename is the package version, and it appears on
-the cover, on the contents page and on the last page. Every other page ends with the section
-you are in, so the running foot says where you are rather than repeating the version.
+`aardling-brand-guide-v<version>.pdf` is 31 A4 pages carrying the palette, the type scale, the
+marks, the imagery rules, the spacing ladder, the web rules and the voice — set in the brand,
+with the fonts and artwork embedded. The version in the filename is the package version, and
+it appears on the cover, on the contents page and on the last page. Every other page ends with
+the section you are in, so the running foot says where you are rather than repeating the
+version.
+
+**It does not ship inside the package.** It is roughly 14 MB, almost all of it embedded fonts
+and artwork, and every consumer would download it on every install to get a document most of
+them never open. It is attached instead to the GitHub release for its version:
+
+<https://github.com/aardling/branding/releases>
+
+The file stays tracked in this repository, because `prepublishOnly` checks it against
+`scripts/guide/manifest.json` and refuses to publish a package whose guide no longer matches
+the brand. Tracked, checked, and handed out separately — not installed.
 
 It is generated, not maintained by hand:
 
