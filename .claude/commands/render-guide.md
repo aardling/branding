@@ -18,6 +18,10 @@ without asking.
 5. Report the page count, the file size and the path.
 
 Do not bump the package version to go with the render. The guide is rendered under
-whatever version the package currently carries; the version changes only when the user
-asks for a publish. If that publish then picks a new number, the guide is re-rendered
-under it as part of publishing.
+whatever version the package currently carries, and the version changes only when the
+user asks for a publish.
+
+That makes the order matter at publish time. A new version renames the PDF and marks
+every chapter stale — the script reports `version <old> → <new>` as the reason — so an
+Aardling publish goes: bump, then render, then publish. The render still needs asking
+for; `prepublishOnly` only refuses a stale guide, it never renders one.
