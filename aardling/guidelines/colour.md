@@ -1,6 +1,6 @@
 # Colour
 
-Aardling's palette is seven brand colours and four functional ones, plus four more functional
+Aardling's palette is seven brand colours and five functional ones, plus five more functional
 colours that exist only on the dark ground. The brand colours come from Hartstikke's original
 brand guide; the functional colours were in the website's CSS without ever having been
 approved, and are kept here because each does a job the brand colours cannot.
@@ -11,7 +11,7 @@ combination of this brand. Ratios are WCAG 2.x contrast, computed from the two v
 ## Two tiers
 
 The palette names colours. A second, smaller set names **jobs** and points at the palette:
-`--surface-page`, `--text-primary`, `--border-control` and five more. Components reference the
+`--surface-page`, `--text-primary`, `--border-control` and six more. Components reference the
 job, never the colour, and a theme re-points the jobs without the palette moving at all.
 
 `--colour-snow-white` is always Snow White, in every theme. `--text-primary` is Night Blue on
@@ -24,12 +24,16 @@ a light ground and Snow White on a dark one. In a stylesheet, write `var(--text-
 | `--text-primary` | `--colour-night-blue` | `--colour-snow-white` |
 | `--text-secondary` | `--colour-muted-grey` | `--colour-dark-muted-grey` |
 | `--text-error` | `--colour-error-red` | `--colour-dark-error-red` |
+| `--text-success` | `--colour-success-green` | `--colour-dark-success-green` |
 | `--border-control` | `--colour-muted-grey` | `--colour-dark-muted-grey` |
 | `--border-hairline` | `--colour-hairline-grey` | `--colour-dark-hairline-grey` |
 | `--focus-ring` | `--colour-night-blue` | `--colour-snow-white` |
 
-Eight roles, and no more without a reason. A ninth role is a request to add a colour, and goes
+Nine roles, and no more without a reason. A tenth role is a request to add a colour, and goes
 through the same approval as one.
+
+`--text-success` was the ninth, added with the two greens below. It went through exactly that
+approval: the palette could say a thing failed and had no approved way to say it passed.
 
 ## Brand colours
 
@@ -55,9 +59,18 @@ and a ground that carries text has to be an approved half of a pair.
 | `--colour-muted-grey` | `#6B6B6B` | Secondary text — dates, captions, metadata — and the boundary of a form control. |
 | `--colour-hairline-grey` | `#D7D7D7` | Hairline rules. Never a control boundary; it does not measure. |
 | `--colour-error-red` | `#CF1322` | Form error messages. |
+| `--colour-success-green` | `#38761E` | Confirmation messages. |
 
 `--colour-muted-grey` is set where it clears 4.5:1 on both white and Snow White. A lighter
 grey does not, however good it looks.
+
+`--colour-success-green` sits at hue 102, between Lime Green at 101.7 and Hover Green at
+103.8. It is the brand's own green darkened until it reads as text, not a signal green
+borrowed from elsewhere, and it was set to land on the red's numbers rather than merely to
+pass: 5.56 against Error Red's 5.57 on white, 5.14 against 5.16 on Snow White. A confirmation
+and a rejection then carry the same weight on the page, and neither shouts over the other.
+Lime Green and Hover Green are grounds — Night Blue sits on them, they never sit on
+anything — so neither could do this job.
 
 ## Accepted combinations
 
@@ -75,6 +88,8 @@ grey does not, however good it looks.
 | `--colour-muted-grey` | `--colour-snow-white` | 4.93 | The same, on the page ground. |
 | `--colour-error-red` | `--colour-white` | 5.57 | Form error messages on a card. |
 | `--colour-error-red` | `--colour-snow-white` | 5.16 | Form error messages on the page ground. |
+| `--colour-success-green` | `--colour-white` | 5.56 | Confirmation messages on a card. |
+| `--colour-success-green` | `--colour-snow-white` | 5.14 | Confirmation messages on the page ground. |
 | `--colour-ocean-blue` | `--colour-white` | 4.27 | Large display text at 24px and above, icons, rules. Never body text. |
 | `--colour-ocean-blue` | `--colour-snow-white` | 3.95 | The same, on the page ground. |
 | `--colour-hairline-grey` | `--colour-white` | 1.44 | Hairline rules only. Never text, and never the only cue for a boundary that matters. |
@@ -148,10 +163,17 @@ matters. The warning was right and the job contradicted it.
 | Label and value | `--text-primary`. |
 | Placeholder and help text | `--text-secondary`. |
 | Error message and border | `--text-error`. |
+| Confirmation message and border | `--text-success`. |
 | Focus | The focus ring, outside the field. |
 
 **An error is never signalled by colour alone.** A red border with no message is not an error
 state; write what went wrong and how to fix it, in `--text-error`, next to the field.
+
+**Nor is a success.** A green border with no message is not a confirmation; say what passed, in
+`--text-success`, next to the field. Confirm only what the reader could not already see — a
+value that was checked against something, an action that completed. Repeating a field back
+because it is well-formed is noise, and a form that congratulates every entry teaches the
+reader to stop looking at the green.
 
 **A disabled control is `--text-secondary` on `--surface-page`,** at 4.93, and carries
 `aria-disabled` or `disabled`. It is not a lighter grey: a control a reader cannot read is
@@ -161,7 +183,7 @@ rather than dimming it further.
 ## The dark ground
 
 Night Blue is the dark page ground, and Snow White on it is a pair this brand has always had.
-Four more colours exist so the rest of the interface has somewhere to go. Nothing in the light
+Five more colours exist so the rest of the interface has somewhere to go. Nothing in the light
 palette crosses over: `--colour-muted-grey` measures 3.16 on Night Blue and is too faint to
 read, and `--colour-hairline-grey` measures 11.71, which is far too loud for a hairline.
 
@@ -171,9 +193,11 @@ read, and `--colour-hairline-grey` measures 11.71, which is far too loud for a h
 | `--colour-dark-muted-grey` | `#9BA1B8` | Secondary text, and the boundary of a form control. |
 | `--colour-dark-hairline-grey` | `#3A4059` | Hairline rules. Never a control boundary. |
 | `--colour-dark-error-red` | `#EF7A7A` | Form error messages. |
+| `--colour-dark-success-green` | `#5AB234` | Confirmation messages. |
 
-`--colour-error-red` is not among them. It measures 3.03 on Night Blue, below the 4.5 a
-message has to clear, so the dark ground needs its own red.
+Neither `--colour-error-red` nor `--colour-success-green` is among them. Both measure 3.03 on
+Night Blue — the same number by coincidence — below the 4.5 a message has to clear, so the dark
+ground needs its own red and its own green.
 
 ### Accepted combinations on the dark ground
 
@@ -185,6 +209,8 @@ message has to clear, so the dark ground needs its own red.
 | `--colour-dark-muted-grey` | `--colour-dark-surface` | 5.56 | The same, on a card. |
 | `--colour-dark-error-red` | `--colour-night-blue` | 6.21 | Form error messages. |
 | `--colour-dark-error-red` | `--colour-dark-surface` | 5.26 | The same, on a card. |
+| `--colour-dark-success-green` | `--colour-night-blue` | 6.30 | Confirmation messages. |
+| `--colour-dark-success-green` | `--colour-dark-surface` | 5.34 | The same, on a card. |
 | `--colour-dark-hairline-grey` | `--colour-night-blue` | 1.65 | Hairline rules only. Never text, never a control boundary. |
 | `--colour-dark-hairline-grey` | `--colour-dark-surface` | 1.40 | The same, on a card. |
 | `--colour-ocean-blue` | `--colour-night-blue` | 3.95 | Large display text at 24px and above, icons, rules. Never body text. |
@@ -217,7 +243,20 @@ theme.
 
 **The four pastels as text.** Violet, Lime Green, Yellow and Pink are grounds and details.
 Night Blue is the only foreground approved on any of them, in either theme. Pink is close
-enough to a light red to be tempting as the dark error colour, and it is still not text.
+enough to a light red to be tempting as the dark error colour, and it is still not text; Lime
+Green is close enough to a light green to tempt the same way as the success colour, and it is
+still not text either.
+
+**Either green on the wrong ground.** `--colour-success-green` measures 3.03 on Night Blue and
+2.57 on Dark Surface; `--colour-dark-success-green` measures 2.67 on white and 2.47 on Snow
+White. Use `--text-success` and the theme picks.
+
+**Either green on a pastel.** `--colour-success-green` is 4.30 on Lime Green and 4.26 on
+Yellow. Close is not approved, and a green message on a green ground would be poor signalling
+even if it measured.
+
+**Either green as a background.** They are message colours, like the reds. A confirmation sits
+on the surface it is already on.
 
 **Any grey on the wrong ground.** `--colour-muted-grey` and `--colour-hairline-grey` are light
 only; `--colour-dark-muted-grey` and `--colour-dark-hairline-grey` are dark only. Use
@@ -229,8 +268,8 @@ pastel.
 ## Which pairs carry a mark
 
 Nine of the light pairs above are also approved for the logotype and the icon logo. The rest
-are not: a pair approved for secondary text, form errors or hairline rules is approved for
-that, and a mark is none of those things. `logos.md` lists the nine and says which mark each
+are not: a pair approved for secondary text, form errors, confirmations or hairline rules is
+approved for that, and a mark is none of those things. `logos.md` lists the nine and says which mark each
 takes — `--colour-ocean-blue` is the logotype only, and not below 141px.
 
 No mark is approved on `--colour-dark-surface`. A mark on a dark card takes the Night Blue

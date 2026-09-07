@@ -5,7 +5,7 @@
     <span class="eyebrow eyebrow-path">guidelines/colour.md</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Seven brand colours, four functional</h2>
+    <h2 class="title">Seven brand colours, five functional</h2>
     <p class="small">The brand colours come from the original brand guide. The functional colours were
       in the website's CSS without ever having been approved, and are kept because each does a job
       the brand colours cannot.</p>
@@ -31,10 +31,14 @@
       <div class="swatch"><div class="chip" style="background: #6B6B6B"></div><span class="name">Muted Grey</span><span class="hex">#6B6B6B</span><span class="job">Secondary text, and the boundary of a form control.</span></div>
       <div class="swatch"><div class="chip" style="background: #D7D7D7"></div><span class="name">Hairline Grey</span><span class="hex">#D7D7D7</span><span class="job">Hairline rules. Never a control boundary; it does not measure.</span></div>
       <div class="swatch"><div class="chip" style="background: #CF1322"></div><span class="name">Error Red</span><span class="hex">#CF1322</span><span class="job">Form error messages.</span></div>
+      <div class="swatch"><div class="chip" style="background: #38761E"></div><span class="name">Success Green</span><span class="hex">#38761E</span><span class="job">Confirmation messages.</span></div>
     </div>
 
     <p class="meta gap-top">Muted Grey is set where it clears 4.5:1 on both White and Snow White; a
-      lighter grey does not, however good it looks. The original guide states CMYK values
+      lighter grey does not, however good it looks. Success Green sits at hue 102, between Lime
+      Green and Hover Green — the brand's own green darkened until it reads as text — and was set
+      to land on Error Red's numbers, so a confirmation and a rejection carry the same weight.
+      The original guide states CMYK values
       alongside each colour, but they do not match a standard conversion from the same hex and
       name no profile, so they are not reproduced — get CMYK from your printer against a named
       profile.</p>
@@ -76,6 +80,8 @@
         <tr><td><span class="pair-sample" style="color:#6B6B6B;background:#F6F6F6">Aa</span></td><td>Muted Grey on Snow White</td><td class="num">4.93</td><td>The same, on the page ground.</td></tr>
         <tr><td><span class="pair-sample" style="color:#CF1322;background:#FFFFFF">Aa</span></td><td>Error Red on White</td><td class="num">5.57</td><td>Form error messages on a card.</td></tr>
         <tr><td><span class="pair-sample" style="color:#CF1322;background:#F6F6F6">Aa</span></td><td>Error Red on Snow White</td><td class="num">5.16</td><td>Form error messages on the page ground.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#38761E;background:#FFFFFF">Aa</span></td><td>Success Green on White</td><td class="num">5.56</td><td>Confirmation messages on a card.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#38761E;background:#F6F6F6">Aa</span></td><td>Success Green on Snow White</td><td class="num">5.14</td><td>Confirmation messages on the page ground.</td></tr>
         <tr><td><span class="pair-sample pair-large" style="color:#4B7BC3;background:#FFFFFF">Aa</span></td><td>Ocean Blue on White</td><td class="num">4.27</td><td>Display text at 24px and above. Never body text.</td></tr>
         <tr><td><span class="pair-sample pair-large" style="color:#4B7BC3;background:#F6F6F6">Aa</span></td><td>Ocean Blue on Snow White</td><td class="num">3.95</td><td>The same, on the page ground.</td></tr>
         <tr><td><span class="pair-rule" style="background:#D7D7D7"></span></td><td>Hairline Grey on White</td><td class="num">1.44</td><td>Hairline rules only. Never text.</td></tr>
@@ -109,14 +115,16 @@
         <tr><td><span class="token">--text-primary</span></td><td>Night Blue</td><td>Snow White</td></tr>
         <tr><td><span class="token">--text-secondary</span></td><td>Muted Grey</td><td>Dark Muted Grey</td></tr>
         <tr><td><span class="token">--text-error</span></td><td>Error Red</td><td>Dark Error Red</td></tr>
+        <tr><td><span class="token">--text-success</span></td><td>Success Green</td><td>Dark Success Green</td></tr>
         <tr><td><span class="token">--border-control</span></td><td>Muted Grey</td><td>Dark Muted Grey</td></tr>
         <tr><td><span class="token">--border-hairline</span></td><td>Hairline Grey</td><td>Dark Hairline Grey</td></tr>
         <tr><td><span class="token">--focus-ring</span></td><td>Night Blue</td><td>Snow White</td></tr>
       </tbody>
     </table>
 
-    <p class="small">Eight roles, and no more without a reason. A ninth role is a request to add a
-      colour, and goes through the same approval as one.</p>
+    <p class="small">Nine roles, and no more without a reason. A tenth role is a request to add a
+      colour, and goes through the same approval as one. Status is a pair: --text-error for what
+      went wrong, --text-success for what passed.</p>
 
     <hr class="rule gap-top">
 
@@ -126,12 +134,13 @@
       <div class="swatch"><div class="chip" style="background: #9BA1B8"></div><span class="name">Dark Muted Grey</span><span class="hex">#9BA1B8</span><span class="job">Secondary text, and the boundary of a form control.</span></div>
       <div class="swatch"><div class="chip" style="background: #3A4059"></div><span class="name">Dark Hairline Grey</span><span class="hex">#3A4059</span><span class="job">Hairline rules. Never a control boundary.</span></div>
       <div class="swatch"><div class="chip" style="background: #EF7A7A"></div><span class="name">Dark Error Red</span><span class="hex">#EF7A7A</span><span class="job">Form error messages.</span></div>
+      <div class="swatch"><div class="chip" style="background: #5AB234"></div><span class="name">Dark Success Green</span><span class="hex">#5AB234</span><span class="job">Confirmation messages.</span></div>
     </div>
 
     <p class="meta gap-top">Nothing in the light set crosses over. Muted Grey measures 3.16 on Night
       Blue and is too faint to read; Hairline Grey measures 11.71, far too loud for a hairline; and
-      Error Red measures 3.03, below what a message has to clear. That is the whole reason these
-      four exist.</p>
+      Error Red and Success Green both measure 3.03 — the same number by coincidence — below what a
+      message has to clear. That is the whole reason these five exist.</p>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Colour</span><span class="folio"></span>
@@ -166,6 +175,8 @@
         <tr><td><span class="pair-sample" style="color:#9BA1B8;background:#242942">Aa</span></td><td>Dark Muted Grey on Dark Surface</td><td class="num">5.56</td><td>The same, on a card.</td></tr>
         <tr><td><span class="pair-sample" style="color:#EF7A7A;background:#181C2F">Aa</span></td><td>Dark Error Red on Night Blue</td><td class="num">6.21</td><td>Form error messages.</td></tr>
         <tr><td><span class="pair-sample" style="color:#EF7A7A;background:#242942">Aa</span></td><td>Dark Error Red on Dark Surface</td><td class="num">5.26</td><td>The same, on a card.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#5AB234;background:#181C2F">Aa</span></td><td>Dark Success Green on Night Blue</td><td class="num">6.30</td><td>Confirmation messages.</td></tr>
+        <tr><td><span class="pair-sample" style="color:#5AB234;background:#242942">Aa</span></td><td>Dark Success Green on Dark Surface</td><td class="num">5.34</td><td>The same, on a card.</td></tr>
         <tr><td><span class="pair-rule" style="background:#3A4059"></span></td><td>Dark Hairline Grey on Night Blue</td><td class="num">1.65</td><td>Hairline rules only. Never text.</td></tr>
         <tr><td><span class="pair-rule" style="background:#3A4059"></span></td><td>Dark Hairline Grey on Dark Surface</td><td class="num">1.40</td><td>The same, on a card.</td></tr>
         <tr><td><span class="pair-sample pair-large" style="color:#4B7BC3;background:#181C2F">Aa</span></td><td>Ocean Blue on Night Blue</td><td class="num">3.95</td><td>Display text at 24px and above. Never body text.</td></tr>
@@ -216,7 +227,14 @@
         <p class="subhead">The four pastels as text</p>
         <p class="small gap-top">Violet, Lime Green, Yellow and Pink are grounds and details. Night
           Blue is the only foreground approved on any of them, in either theme. Pink is close enough
-          to a light red to tempt as the dark error colour, and it is still not text.</p>
+          to a light red to tempt as the dark error colour, and Lime Green close enough to a light green
+          to tempt as the success colour. Neither is text.</p>
+      </div>
+      <div class="card card-pink">
+        <p class="subhead">Either green on the wrong ground</p>
+        <p class="small gap-top">Success Green measures 3.03 on Night Blue and 2.57 on Dark Surface;
+          Dark Success Green measures 2.67 on White and 2.47 on Snow White. Neither is a background
+          either — a confirmation sits on the surface it is already on.</p>
       </div>
       <div class="card card-pink">
         <p class="subhead">Any pair not in the table</p>
@@ -227,8 +245,9 @@
     <hr class="rule gap-top">
 
     <p class="subhead">Not every approved pair carries a mark</p>
-    <p class="small">Nine of the sixteen light pairs are also approved for the logotype and the icon
-      logo. A pair approved for secondary text, form errors or hairline rules is approved for that,
+    <p class="small">Nine of the eighteen light pairs are also approved for the logotype and the icon
+      logo. A pair approved for secondary text, form errors, confirmations or hairline rules is
+      approved for that,
       and a mark is none of those things. No mark is approved on Dark Surface: a mark on a dark card
       takes the Night Blue ground it already has a lockup for. The nine are in the
       Logos section, from page {{FOLIO:logos}}.</p>
