@@ -47,27 +47,38 @@ being introduced, a genuine aside. Not for emphasis; that is what 600 is for.
 
 ## Scale
 
-Base sizes, at 960px and above:
+**The base sizes are the phone.** `tokens.css` declares them in `:root`, and every larger
+step is a `min-width` query layered on top. The convention and the breakpoints are in
+`web.md`.
 
-| Step | Token | Size | Line height |
-| --- | --- | --- | --- |
-| h1 | `--font-size-h1` | 55px | 1.2 |
-| h2 | `--font-size-h2` | 45px | 1.2 |
-| h3 | `--font-size-h3` | 35px | 1.2 |
-| h4 | `--font-size-h4` | 30px | 1.2 |
-| h5 | `--font-size-h5` | 25px | 1.2 |
-| h6 | `--font-size-h6` | 22px | 1.3 |
-| body | `--font-size-body` | 18px | 1.5 |
-| small | `--font-size-small` | 14px | 1.5 |
+| Step | Token | Phone | 540px | 960px | 1728px | 1920px | Line height |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| h1 | `--font-size-h1` | 36px | 44px | 55px | 61px | 66px | 1.2 |
+| h2 | `--font-size-h2` | 30px | 36px | 45px | 50px | 54px | 1.2 |
+| h3 | `--font-size-h3` | 26px | 28px | 35px | 39px | 42px | 1.2 |
+| h4 | `--font-size-h4` | 22px | 24px | 30px | 33px | 36px | 1.2 |
+| h5 | `--font-size-h5` | 20px | 20px | 25px | 28px | 30px | 1.2 |
+| h6 | `--font-size-h6` | 18px | 18px | 22px | 24px | 26px | 1.3 |
+| body | `--font-size-body` | 18px | 18px | 18px | 20px | 22px | 1.5 |
+| small | `--font-size-small` | 14px | 14px | 14px | 15px | 17px | 1.5 |
 
-`tokens.css` redefines these at three breakpoints: every heading step drops to 0.8 below
-960px, and the whole scale rises at 1728px and again at 1920px. Body copy stays at 18px until
-1728px.
+**The 540px step moves h1 to h4 and nothing else.** Further down the scale the phone sizes
+are already right: h5 at 20px and h6 at 18px read the same on a 360px screen as on a 900px
+one, and dropping them on the phone would push h6 beneath the body size it has to outrank.
 
-The website's own CSS intends a further step down below 720px and never applies it — the
-`max-width: 719.98px` block is emitted before the `max-width: 959.98px` block at equal
-specificity, so the later rule wins. That step is not reproduced here; if a smaller phone size
-is wanted, it needs adding deliberately.
+The phone column is new. The old stylesheet intended a step below 720px and never delivered
+it — its `max-width: 719.98px` block was emitted before the `max-width: 959.98px` block at
+equal specificity, so the later rule always won. That intent is honoured here, at 540px
+rather than 720px, and the column is set by eye rather than by multiplication.
+
+**There is no multiplier any more.** The scale used to be described as one ladder with four
+factors — 0.8, 1, 1.1, 1.2 — and the phone column breaks it: 36 to 44 is 0.82, and h5 and h6
+do not move at all. Those factors are gone from `tokens.json`. Each column is now a measured
+set of sizes, and a new size is chosen by looking at it, not by multiplying the one beside it.
+
+Body copy holds at 18px from the phone all the way to 1728px. That is deliberate: 18px is
+comfortable at every width a phone or a laptop offers, and it only rises where the reader is
+sitting further from a much larger screen.
 
 ## Which face, where
 
