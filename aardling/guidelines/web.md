@@ -121,6 +121,19 @@ stays correct when the theme changes underneath it.
 <footer data-surface="dark"> … </footer>
 ```
 
+**A pastel section on a dark page declares itself light.** The pastels are the same in both
+themes, so what sits on them has to be too — and the roles cannot infer that, because the
+container changed the ground without changing the theme. Left alone, a focus ring inside a
+Violet callout on a dark page inherits Snow White and measures 1.69 against the Violet.
+
+```html
+<section data-surface="light"> … </section>
+```
+
+`light` and `dark` are the only two values `data-surface` takes, and it is the only attribute
+this brand styles. It is not a place to add `data-surface="violet"`: a pastel is a background
+on a section, not a surface role.
+
 **Artwork does not have a dark variant.** The four gradients and the illustrations are the
 same files in both themes, and the pastel sections are unchanged — Night Blue on Violet
 measures 9.21 whatever surrounds it. `imagery.md` is unaffected by any of this.

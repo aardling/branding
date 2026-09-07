@@ -200,8 +200,11 @@ them is Night Blue. That pair measures the same on a dark page as on a light one
 13.05 — so **a pastel section is identical in both themes**, and so is the primary button.
 They are light panels on a dark page, and that is correct rather than a compromise.
 
-A focus ring inside a pastel section is Night Blue, not Snow White. The ring contrasts against
-the ground it sits on, which there is the pastel.
+A focus ring inside a pastel section is Night Blue, not Snow White — the ring contrasts
+against the ground it sits on, which there is the pastel. Snow White on Violet is 1.69 and
+would be invisible. The roles do not work this out on their own: a pastel section on a dark
+page carries `data-surface="light"`, which puts all eight roles back to their light values.
+That is the one place a container has to declare its own surface, and `web.md` says when.
 
 ## What is not approved
 

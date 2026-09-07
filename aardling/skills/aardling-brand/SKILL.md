@@ -76,7 +76,10 @@ media query — write the literal and keep it equal to the token.
 **Dark mode follows the reader's operating system.** One `prefers-color-scheme` block
 re-points the roles; there is no toggle. An inverted section — the footer, a dark band — is
 `[data-surface="dark"]` on a container, not hand-set colours. Pastel sections, gradients and
-illustrations are identical in both themes.
+illustrations are identical in both themes — which is why a pastel section on a dark page
+takes `[data-surface="light"]`, or a focus ring inside it inherits Snow White and disappears
+against the pastel. `light` and `dark` are the only two values, and `data-surface` is the only
+attribute this brand styles.
 
 **Focus is never removed.** 3px of `--focus-ring`, offset 2px, on `:focus-visible`. Never
 `outline: none` without a replacement in the same rule. Anything that reacts to hover reacts
