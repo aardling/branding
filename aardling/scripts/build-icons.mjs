@@ -1,12 +1,12 @@
 // Aardling interface marks.
 //
 // Every mark is 16x16, stroke 1.25, butt caps, currentColor, no fill — the same as
-// arrow.svg and download.svg, which were already drawn that way.
+// download.svg, which was already drawn that way.
 //
 // The set has one curve. Every arrowhead already in assets/icons/ is the same cubic:
 // leaving its outer end perpendicular to the shaft with its control at 0.36364 of the
 // box side, arriving at the tip tangent to it with its control at 0.68182. Those two
-// constants hold to five decimals across arrow, arrow-down and download,
+// constants hold to five decimals across every generated arrowhead and download,
 // and everything below is built from them: ring() is four of that curve closed,
 // rrect() is four of it at the corners, chev() is two of it meeting at a point.
 //
@@ -76,7 +76,7 @@ function rrect(x,y,w,h,r,mp=(a,b)=>[a,b]){
        + L(p(x+r,y2))+qt(p(x+r,y2),D(-1,0),p(x,y2-r),D(0,-1))
        + L(p(x,y+r))+qt(p(x,y+r),D(0,-1),p(x+r,y),D(1,0))+'Z';
 }
-// Chevron: two brand barbs meeting at a point, exactly as arrow-down.svg is built.
+// Chevron: two brand barbs meeting at a point, no shaft.
 function chev(cx,cy,s,dir){
   const u=U[dir], p=[-u[1],u[0]];
   const tip=[cx+u[0]*s*0.5, cy+u[1]*s*0.5];
@@ -176,9 +176,7 @@ for(const [k,dir] of Object.entries({left:'l',right:'r',up:'u',down:'d'}))
 const arrow=dir=>{const u=U[dir],p=[-u[1],u[0]],s=6,tip=[8+u[0]*6.5,8+u[1]*6.5],tail=[8-u[0]*6.5,8-u[1]*6.5];
   const e1=[tip[0]-u[0]*s+p[0]*s,tip[1]-u[1]*s+p[1]*s], e2=[tip[0]-u[0]*s-p[0]*s,tip[1]-u[1]*s-p[1]*s];
   return svg([M(tail)+L(tip), M(e1)+qt(e1,[-p[0],-p[1]],tip,u), M(e2)+qt(e2,p,tip,u)]);};
-I['arrow-left']=arrow('l'); I['arrow-right']=arrow('r');
-// No arrow-up or arrow-down: neither was asked for, and assets/icons/arrow-down.svg
-// already exists as the brand's chevron. Rotating arrow-right covers the other two.
+for(const [k,dir] of Object.entries({left:'l',right:'r',up:'u',down:'d'})) I['arrow-'+k]=arrow(dir);
 
 I['close']=svg([M([3.4,3.4])+L([12.6,12.6]), M([12.6,3.4])+L([3.4,12.6])]);
 I['menu']=svg([[1.5,3],[1.5,8],[1.5,13]].map(p=>M(p)+L([14.5,p[1]])));

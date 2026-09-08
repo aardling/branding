@@ -176,9 +176,8 @@ of it at the corners, a chevron two of it meeting at a point. Like `build-lockup
 deterministic: the same inputs give byte-identical output, so re-running is safe and a diff
 after a run means an input changed. Redraw there, not in a file.
 
-Three marks predate the script and are not generated: `arrow.svg`, `download.svg` and
-`arrow-down.svg` — the last drawn on a 10×6 box, so it renders a far heavier stroke than
-everything else at the same height. All three are left as they ship. See `guidelines/web.md`.
+One mark predates the script and is not generated: `download.svg`, left as it ships. See
+`guidelines/web.md`.
 
 ## Imagery
 
