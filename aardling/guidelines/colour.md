@@ -277,6 +277,12 @@ theme.
 **`--colour-ocean-blue` as a background.** Night Blue on it is 3.95:1 and Snow White on it is
 3.95:1 — there is no readable text colour for that ground, so it is never a ground.
 
+**Snow White or White text on Violet, explicitly forbidden.** Violet is the pastel most
+likely to be mistaken for light enough to carry light text. It is not: Snow White on Violet
+measures 1.69:1 and White measures barely more — both fail even the 3:1 floor for large
+text, let alone the 4.5:1 floor for body copy. Night Blue is the only approved foreground on
+Violet, in any theme.
+
 **The four pastels as text.** Violet, Lime Green, Yellow and Pink are grounds and details.
 Night Blue is the only foreground approved on any of them, in either theme. Pink is close
 enough to a light red to be tempting as the dark error colour, and it is still not text.
