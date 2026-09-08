@@ -64,6 +64,127 @@ shipped at 1600px, which is enough for a full-width web block or a slide. The fu
 masters (5000×5000, plus CMYK TIFFs for print) live in Aardling's Google Drive brand folder;
 take them from there for anything printed.
 
+## Photographs
+
+Where gradients and illustrations are drawn, a photograph is found. It earns a place only
+when an article has a concrete, real subject: the port in a piece about logistics, a trading
+floor for a finance client, a ward for a healthcare domain model. A photograph pictures a
+place; a gradient or an illustration pictures a mood — and that licence is only worth
+spending when the article actually has a place to picture.
+
+### When a photograph is the right call
+
+Ask what the article is actually about. A specific real-world domain — logistics, healthcare,
+finance, retail, manufacturing, agriculture — is a photograph's job: show the domain, not the
+software. A general engineering or process topic — testing strategy, team structure, an
+internal retrospective — has no real subject to photograph; reach for an illustration or a
+gradient instead, or run with no image at all. Adding a photo doesn't make an abstract topic
+more concrete — the wrong photo just makes it generic instead.
+
+If unsure, one question decides it: could this photograph run under a different headline,
+about a different company, in the same domain, and still be correct? If yes — a generic
+office, a generic server room, a generic handshake — it is stock, not evidence, and it does
+not belong.
+
+### Ideas, so choosing one isn't the hard part
+
+A short list of domains Aardling's articles keep returning to. It isn't exhaustive — the same
+test applies to any domain not listed: photograph the world the software is modelling, never
+the software itself.
+
+| Article is about… | Photograph |
+| --- | --- |
+| Logistics, supply chain | A port, a container yard, a warehouse floor, a fleet in a depot. |
+| Finance, banking, insurance | A trading floor, a clearing house, a claims office — paperwork and process, not a stock handshake. |
+| Healthcare | A ward, a pharmacy, an ambulance bay. |
+| Manufacturing | A production line, a factory floor, a quality-control bench. |
+| Agriculture | A field under work, a grain store, a co-op auction. |
+| Retail, e-commerce | A distribution centre, a shop floor, a fulfilment line. |
+| Energy, utilities | A grid substation, a control room, a wind farm. |
+
+None of these is Aardling's own subject — Aardling writes about the domain, so the photo is
+always the client's world, not ours.
+
+### What disqualifies a photo
+
+Same instinct as `web.md`'s "no cliché metaphors" rule for icons: a handshake for
+partnership, a lightbulb for an idea, a laptop keyboard close-up for "software", a meeting
+room of people pointing at a whiteboard. These are stock, posed and interchangeable — they
+picture the idea of work rather than the work itself. A real port, shot documentary-style,
+beats a posed one every time, even at lower production value.
+
+### Selecting and treating one
+
+- **Documentary over staged.** A candid, working shot beats a posed, lit one — even a
+  lower-resolution one.
+- **Real colour.** No brand-colour tint, no duotone, no filter forcing it toward the palette.
+  A photograph earns its place by being real; forcing it into the brand's colours undoes that.
+- **Landscape, and croppable to 3:2.** The framing below assumes a wide source; a square or
+  portrait source fights every container this brand puts a photo in.
+- **Licensed for the use.** Editorial and commercial licences are not interchangeable — check
+  before publishing, not after.
+
+### Framing
+
+The same container language as the rest of imagery, so a photograph slots into a hero, a card
+or an article body without a bespoke rule.
+
+| Setting | Value |
+| --- | --- |
+| Aspect ratio | 3:2, `object-fit: cover` — the ratio card media already uses. |
+| Corners | `--radius-md`, or square where it's already full-bleed to a card's edge. |
+| Border | 1px `--border-hairline` when the photo sits directly on the page or a raised surface — a straight photo edge disappears against Snow White without one. Skipped inside a card, where the card's own edge already does that job. |
+| Caption | Optional for an aside; required, and numbered, for a content-critical image — see "Two ways to use an image in an article" below. `--font-size-small`, `--text-secondary`, `--space-1` below the image. |
+
+A photograph follows every rule already in this file and in `layout.md`: never text on top of
+it, not even a caption overlaid on the frame — the caption sits below, on the page ground. And
+like an illustration, it takes no heading or mark knocked out of it; that licence is for
+gradients only.
+
+### Where they live
+
+`assets/images/`, alongside the illustrations — full size for web, `webp` with a `png`
+fallback. There's no photograph in the package yet; the first one ships when an article needs
+it, sized and licensed for that use, not stockpiled ahead of need.
+
+## Two ways to use an image in an article
+
+Long-form text wants the occasional image, and there are two different jobs one can do.
+Confusing them is why an image in an article ends up either too small to read or so large it
+breaks the argument's pace.
+
+### Illustrative aside
+
+Breaks up a long run of text. Adds nothing the words don't already say — if removing it would
+lose information, it's the content-critical pattern below, not this one.
+
+| Setting | Value |
+| --- | --- |
+| Width | About a third of the text column, never more than half. |
+| Placement | Floats left or right; text wraps beside it. Alternate sides rather than stacking two in a row on the same one. |
+| Below `--breakpoint-sm` | The float drops. Full width, above or below the paragraph it illustrates. |
+| Caption | Optional, unnumbered. Skip it, or spend it on a credit — a photographer, a source, who's pictured — not on describing the obvious. |
+
+This is text flowing *beside* an image in the document flow, not the overlay the "never text
+on top of an image" rule in `layout.md` forbids. That rule is about type set into the image
+itself; a float is two things side by side.
+
+### Content-critical
+
+Carries information the text doesn't restate — a diagram, a chart, a screenshot the argument
+depends on.
+
+| Setting | Value |
+| --- | --- |
+| Width | Sized to what's legible, not to the column. A simple diagram stays small and centred; a dense one fills the column, or breaks out wider still. Never floated, never stretched past what it needs. |
+| Aspect ratio | Its own — never cropped to 3:2 like a photograph. |
+| Caption | Required, short, prefixed "Fig. N" — numbered in order through the article, and named at least once in the body text ("see Fig. 1"). |
+| Web | Click to enlarge: a real button with an accessible name ("Enlarge: …"), opens the image full-screen over a dark scrim, pannable and zoomable, closes on Escape or a click outside it, and returns focus to the trigger on close. |
+| Print | May take a full page — turned to landscape where that fits the content better — when the content needs more room than the page's text width gives it. |
+
+The print exception never reaches the illustrative aside above: it's small by definition and
+never needs the room.
+
 ## What may sit on a gradient
 
 Either mark, knocked out: the logotype or the icon logo. White on Vesper and Understory, Night

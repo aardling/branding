@@ -43,7 +43,7 @@ moves above it.
 | Heading | The page's h1, and its one Voyage setting. `--font-size-h1`, `--line-height-display`, `text-wrap: balance`. |
 | Standfirst | `--font-size-h6` at `--font-weight-light`, `--line-height-body`, `text-wrap: pretty`. Two or three sentences. Optional. |
 | Actions | Buttons per `layout.md`. One primary, at most one secondary beside it. A flex row, `--space-2` gap, wrapping rather than stretching. Optional. |
-| Artwork | Its own container, `--radius-md`, a declared `aspect-ratio`, `object-fit: cover`. A gradient or an illustration. Optional. |
+| Artwork | Its own container, `--radius-md`, a declared `aspect-ratio`, `object-fit: cover`. A gradient, an illustration or a photograph. Optional. |
 
 | Between | Gap |
 | --- | --- |
@@ -112,7 +112,7 @@ happens to have a border is a panel, and it does not need to look like a card.
 
 | Part | Setting |
 | --- | --- |
-| Media | Full bleed to the card's edge, top corners `--radius-md`, a declared `aspect-ratio` — 3:2 — and `object-fit: cover`. An illustration or a gradient. Optional. |
+| Media | Full bleed to the card's edge, top corners `--radius-md`, a declared `aspect-ratio` — 3:2 — and `object-fit: cover`. A photograph, an illustration or a gradient. Optional. |
 | Eyebrow | `--font-size-small`, uppercase, `letter-spacing: 0.12em`, `--font-weight-semibold`, `--text-secondary`. Optional. |
 | Title | General Sans at `--font-weight-heading`, `--font-size-h5`, `--line-height-display`, `text-wrap: balance`. |
 | Body | `--font-size-body`, `text-wrap: pretty`. Three lines is plenty. Optional. |

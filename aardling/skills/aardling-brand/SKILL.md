@@ -281,6 +281,19 @@ the one region where that gradient's field is steadiest — Vesper upper right, 
 left, Bloom right of centre, Harvest lower right. It takes the same colour the mark takes on
 that ground: white on Vesper and Understory, Night Blue on Bloom and Harvest. Nothing else
 goes on top — no body copy, no captions, no scrim — and illustrations take no text at all.
+
+Photographs earn a place only when an article has a concrete, real subject — the port for a
+logistics piece, a ward for a healthcare one — never as a stand-in for an abstract topic. Same
+"no cliché" instinct as the icon set: no stock handshake, no lightbulb. 3:2, `--radius-md`, a
+1px `--border-hairline` when it sits directly on the page rather than full-bleed in a card.
+
+Inside a long article, an image does one of two jobs. An **illustrative aside** breaks up the
+text: about a third of the column, floats left or right with text wrapping beside it, caption
+optional and unnumbered. A **content-critical** image — a diagram, a chart — carries
+information the text doesn't restate: sized to what's legible rather than stretched to the
+column, never floated, a required numbered caption ("Fig. 1") referenced in the body text,
+click-to-enlarge on the web, and licensed to take a full page in print if the content needs it.
+
 Full rules: `../../guidelines/imagery.md`.
 
 ## Voice
