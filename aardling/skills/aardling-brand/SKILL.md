@@ -294,7 +294,7 @@ consumer. Download it from the GitHub release for the version you want:
 <https://github.com/aardling/branding/releases>. Do not link a reader to a path inside
 `node_modules`; there is no PDF there.
 
-Its source is eleven chapter fragments in `../../scripts/guide/`, one per section of the guide.
+Its source is fourteen chapter fragments in `../../scripts/guide/`, one per section of the guide.
 Edit the fragment for the section you are changing; only that chapter re-renders.
 
 **Never render it yourself.** Show the user what is stale and ask first:

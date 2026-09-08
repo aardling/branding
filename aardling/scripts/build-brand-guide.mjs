@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Builds the Aardling brand guide PDF from the chapter fragments in scripts/guide/.
 //
-// The guide is eleven chapters. Each is rendered to its own PDF by Chrome and cached
+// The guide is fourteen chapters. Each is rendered to its own PDF by Chrome and cached
 // against a hash of the exact HTML that produced it, so a rebuild only re-renders the
 // chapters whose input actually changed. pdf-lib merges the cached chapters back into
 // one document. A chapter costs a second or two, so a full build is a handful of
