@@ -187,8 +187,7 @@ colour instead; nothing in this set is a decoration.
 ### The set has one curve
 
 Every arrowhead in the directory is the same cubic Bézier. Not a family of similar curves — the
-identical curve, at three different scales, in six instances across `arrow`, `arrow-down` and
-`download`.
+identical curve, at two different scales, in every generated arrowhead and in `download`.
 
 Take the square a barb crosses, of side *s*. The stroke leaves its outer end **perpendicular**
 to the shaft, with its control point at **0.36364·s**. It arrives at the tip **tangent** to the
@@ -200,10 +199,10 @@ into the shaft. That asymmetry is what makes the set look drawn rather than plot
 what anything new is built from — a ring is four of that curve closed, a rounded rectangle is
 four of it at the corners, a chevron is two of it meeting at a point.
 
-**New interface marks are drawn on 16×16 at stroke 1.25.** The older marks are not on a common
-grid — `arrow-down` is 10×6 and renders a 5px stroke where everything else renders about 2px at
-the same height — so they cannot all match. What can be done is keeping everything drawn since
-consistent with itself.
+**New interface marks are drawn on 16×16 at stroke 1.25.** `download` is not on that grid and
+carries its own intrinsic dimensions, so set to the same pixel height as its neighbours it will
+not have quite the same apparent weight. Everything else — including all four `arrow-*` marks —
+shares the one grid and matches exactly.
 
 `scripts/build-icons.mjs` generates the interface marks from the curve. It is deterministic, so
 re-running is safe and a diff after a run means an input changed. Redraw there, not in a file.
@@ -212,7 +211,7 @@ re-running is safe and a diff after a run means an input changed. Redraw there, 
 
 **back**, **forward** and **next** are `arrow-left` and `arrow-right` under other names. There
 are no assets for them: three more files would be three ways to say one thing and three chances
-to drift apart. Rotating `arrow-right` covers up and down.
+to drift apart.
 
 ### Where the curve is not used
 
@@ -237,15 +236,15 @@ this package is published anywhere it has not been published already.**
 section accent, and nothing does that any more. A mark in this set sits beside text; if a
 design wants a large graphic on its own, that is imagery, and `imagery.md` covers it.
 
-**Set the height and let the width follow.** Not every mark is square — `arrow-down` is 10×6 —
+**Set the height and let the width follow.** Not every mark is square — `download` is not —
 so constraining the width distorts it or crops the container. Set `height` and leave
 `width: auto`.
 
-**Three marks are not drawn on the common grid.** `arrow`, `arrow-down` and `download` predate
-the generator and carry their own intrinsic dimensions, so set to the same pixel height as
-their neighbours they will not have the same apparent weight. The sizes above are a starting
-point for them, not an answer: put the mark beside the text it belongs to and adjust by eye
-until it matches. Everything else is 16×16 at stroke 1.25 and scales together.
+**One mark is not drawn on the common grid.** `download` predates the generator and carries
+its own intrinsic dimensions, so set to the same pixel height as its neighbours it will not
+have the same apparent weight. The sizes above are a starting point for it, not an answer: put
+the mark beside the text it belongs to and adjust by eye until it matches. Everything else,
+including all four `arrow-*` marks, is 16×16 at stroke 1.25 and scales together.
 
 **An icon is never the only label.** A control that carries an icon and no visible text needs
 an accessible name — and if the meaning is not obvious to someone outside our field, it needs
