@@ -1,0 +1,33 @@
+<!-- ======================= 4. Installing the package ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Installing the package</span>
+    <span class="eyebrow">v{{VERSION}}</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Getting the package into a project</h2>
+    <p class="lede">Published to GitHub Packages, not the public registry — one extra
+      step before install works like any other package.</p>
+
+    <p class="token" style="display: block">@aardling:registry=https://npm.pkg.github.com<br>//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}</p>
+    <p class="small">In the consuming project's <span class="token">.npmrc</span>, committed — it
+      names the registry, not the secret. The token is a classic personal access token scoped to
+      <span class="token">read:packages</span> and <span class="token">repo</span>.</p>
+
+    <p class="token" style="display: block">npm install @aardling/brand-aardling</p>
+
+    <hr class="rule gap-top">
+
+    <p class="subhead">Using it in a project</p>
+    <p class="token" style="display: block">@import "@aardling/brand-aardling/assets/fonts/fonts.css";<br>@import "@aardling/brand-aardling/tokens/tokens.css";</p>
+    <p class="small">Every colour, typeface and spacing step in this guide, as a CSS custom
+      property or read from <span class="token">tokens/tokens.json</span> — enough to build
+      anything carrying the brand: a web page, a deck, a one-off document, with the logos and
+      icons in <span class="token">assets/</span> alongside. An agent reads the rules directly:
+      copy or symlink <span class="token">skills/aardling-brand</span> into
+      <span class="token">.claude/skills/</span>.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Installing the package</span><span class="folio"></span>
+  </div>
+</section>
