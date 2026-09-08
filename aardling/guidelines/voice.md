@@ -67,6 +67,16 @@ it. "The go-to technology consultants" is not a fact at all.
 **No filler.** If a sentence can be deleted and nothing is lost, delete it. No throat-clearing
 before the point, no restating what was just said in different words.
 
+**No emoji.** Not in headings, not in body copy, not as bullets, not to soften a sentence.
+An emoji is drawn by the reader's operating system, in a face we did not choose and at a
+size we do not control, and it does the job a word should be doing. Two things sit outside
+this: quoted text stands as it was written, and a platform whose vocabulary is emoji — a
+Slack or GitHub reaction — is not brand writing.
+
+> No: We help you make sense of complex environments 🌳
+>
+> Yes: We help you make sense of complex environments.
+
 ## Sentences
 
 Active voice. Short sentences. A verb where a nominalisation tempts.
