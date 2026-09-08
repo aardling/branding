@@ -152,6 +152,36 @@ No dark section directly above the footer.
 
 Full rules: `../../guidelines/components.md`.
 
+## Forms
+
+**A field is label, help text, control, error message — stacked, in that order.** The label is
+always visible and **there are no placeholders at all**: a placeholder disappears the moment
+somebody types, and whatever it would have said is help text, above the control and never in a
+tooltip. Mark the optional fields in words — "(optional)" in the label — rather than starring
+the required ones.
+
+**Validation is "reward early, punish late".** Nothing fires while somebody is typing. Leaving
+a field **empty** shows nothing — a reader tabbing through to read has done nothing wrong.
+Leaving it **filled in but wrong** shows the error. Once a field is in error it is re-checked
+on every keystroke, so the error clears the instant the value is right. Checkboxes, radios and
+selects are judged on submit only. **Never disable the submit button**, never use the browser's
+own validation bubbles (`novalidate` on the form), and never validate on a timer while
+somebody types.
+
+**An error carries a message, and the border doubles to 2px** — two cues, never colour alone.
+Messages start with a verb and say what to do: "Enter your email address", not "This field is
+required". A form of more than one field puts a summary above its first field on a failed
+submit, with `role="alert"` and focus moved to it; a one-field form does not.
+
+**A fieldset is one question with several boxes** — a radio group, a date split across three
+inputs. Its legend is the question, in General Sans at `--font-size-h6`, with no border and no
+background. Unrelated fields get a heading and `--space-6`, not a legend.
+
+**There is no success colour in this palette**, so success is words and the error
+disappearing — never a green tick or a green border.
+
+Full rules, including the newsletter signup: `../../guidelines/forms.md`.
+
 ## Marks
 
 - `../../assets/logos/aardling-logotype.svg` — the full logotype. Big touchpoints, social

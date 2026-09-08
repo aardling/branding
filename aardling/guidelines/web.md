@@ -82,6 +82,10 @@ thickens from 1px to 3px — see `colour.md`.
 below it for `:active`, and a control that has visibly reacted twice already does not need a
 third appearance.
 
+**A form control has a sixth state: wrong.** When it appears is a question about time rather
+than colour, and `forms.md` answers it — along with help text, fieldsets, error messages and
+the newsletter signup.
+
 ## Elevation
 
 Two shadows, and both are cast in Night Blue rather than black. A neutral black shadow over a

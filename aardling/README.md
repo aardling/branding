@@ -77,6 +77,7 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `guidelines/voice.md`      | Register, person, and do/don't examples.                                                                           |
 | `guidelines/web.md`        | Breakpoints, states, dark mode, motion, elevation, loading, and how the icons are drawn.                           |
 | `guidelines/components.md` | The hero, the card, the callout and the footer.                                                                    |
+| `guidelines/forms.md`      | Field anatomy, help text, validation timing, fieldsets, and the newsletter signup.                                 |
 | `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
 | `assets/logos/lockups/`    | 22 flattened mark-on-ground files, generated from the two masters.                                                 |
 | `assets/icons/`            | 65 marks, SVG, `currentColor`: 18 decorative, 47 interface, the latter generated.                                  |

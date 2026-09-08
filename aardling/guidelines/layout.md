@@ -38,7 +38,7 @@ Three, and no more.
 
 | Token | Value | Use for |
 | --- | --- | --- |
-| `--radius-sm` | 8px | Small surfaces: tooltips, tags, swatches. |
+| `--radius-sm` | 8px | Small surfaces: tooltips, tags, swatches, form controls. |
 | `--radius-md` | 24px | Cards, panels, section blocks, image containers. |
 | `--radius-pill` | 60px | Buttons and pills. |
 
@@ -83,6 +83,10 @@ every button fills the column: a 44px pill with 24px of side padding does not fi
 **An action is a `<button>` and a destination is an `<a>`,** and they look identical. Never a
 `div` with `role="button"`. `colour.md` says a link that is a call to action is a button; this
 is the other half of it.
+
+A form control takes the same 12px vertically, `--space-2` horizontally, and `--radius-sm`.
+Which step separates a label from its field, a field from the next, and one fieldset from
+another is in `forms.md`, along with everything else a form does.
 
 ## Never text on top of an image
 
