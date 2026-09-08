@@ -191,8 +191,9 @@ submit, with `role="alert"` and focus moved to it; a one-field form does not.
 inputs. Its legend is the question, in General Sans at `--font-size-h6`, with no border and no
 background. Unrelated fields get a heading and `--space-6`, not a legend.
 
-**There is no success colour in this palette**, so success is words and the error
-disappearing — never a green tick or a green border.
+**The success colour never carries the message on its own.** Success is words and the error
+disappearing; `--text-success` may accompany them, but a green tick or a green border with no
+message is not a confirmation.
 
 Full rules, including the newsletter signup: `../../guidelines/forms.md`.
 
