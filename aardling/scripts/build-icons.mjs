@@ -6,7 +6,7 @@
 // The set has one curve. Every arrowhead already in assets/icons/ is the same cubic:
 // leaving its outer end perpendicular to the shaft with its control at 0.36364 of the
 // box side, arriving at the tip tangent to it with its control at 0.68182. Those two
-// constants hold to five decimals across arrow, arrow-long, arrow-down and download,
+// constants hold to five decimals across arrow, arrow-down and download,
 // and everything below is built from them: ring() is four of that curve closed,
 // rrect() is four of it at the corners, chev() is two of it meeting at a point.
 //

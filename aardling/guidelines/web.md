@@ -176,15 +176,19 @@ out on every frame and stutter on the phones our readers actually carry.
 The marks in `assets/icons/` are stroked SVG filled with `currentColor`. Recolour them by
 setting `color` on a parent — never by editing a file, and never by adding a `fill` attribute.
 
-Two families share the directory. The **decorative** marks — the circles, ovals, sparkles and
-stars — are drawing-scale, some of them filled, and are used as section accents. The
-**interface** marks are 16×16, stroke 1.25, butt caps, no fill, and are used in controls.
+One family. Every mark is an **interface** mark: 16×16, stroke 1.25, butt caps, no fill, drawn
+for use in controls.
+
+The brand once carried a second, decorative family — circles, ovals, sparkles and stars at
+drawing scale, some of them filled, used as section accents. Those marks have been withdrawn
+and will not come back. A section that seems to want an accent takes space, a rule or a ground
+colour instead; nothing in this set is a decoration.
 
 ### The set has one curve
 
 Every arrowhead in the directory is the same cubic Bézier. Not a family of similar curves — the
-identical curve, at three different scales, in six instances across `arrow`, `arrow-long`,
-`arrow-down` and `download`.
+identical curve, at three different scales, in six instances across `arrow`, `arrow-down` and
+`download`.
 
 Take the square a barb crosses, of side *s*. The stroke leaves its outer end **perpendicular**
 to the shaft, with its control point at **0.36364·s**. It arrives at the tip **tangent** to the
@@ -228,17 +232,20 @@ this package is published anywhere it has not been published already.**
 | `--icon-sm` | 16px | Inline with `--font-size-small`, and inside dense controls. |
 | `--icon-md` | 20px | Inline with body copy. The default. |
 | `--icon-lg` | 24px | Buttons, navigation items, list bullets. |
-| `--icon-xl` | 32px | A section or feature mark standing on its own. |
 
-**Set the height and let the width follow.** Several marks are not square —
-`circle-overlap-multiple` is 160×290, `oval-vertical` is 88×144 — so constraining the width
-distorts them or crops the container. Set `height` and leave `width: auto`.
+**There is no size above 24px.** A `--icon-xl` step existed for a mark standing on its own as a
+section accent, and nothing does that any more. A mark in this set sits beside text; if a
+design wants a large graphic on its own, that is imagery, and `imagery.md` covers it.
 
-**The set is not drawn on a common grid.** Some marks carry intrinsic dimensions at interface
-scale with a 1.25 stroke; the rest are viewBox-only at drawing scale with a stroke of 2. Set
-to the same pixel height they will not have the same apparent weight. The sizes above are a
-starting point, not an answer: put the icon beside the text it belongs to and adjust by eye
-until it matches. If a mark still fights its neighbours at every size, use a different mark.
+**Set the height and let the width follow.** Not every mark is square — `arrow-down` is 10×6 —
+so constraining the width distorts it or crops the container. Set `height` and leave
+`width: auto`.
+
+**Three marks are not drawn on the common grid.** `arrow`, `arrow-down` and `download` predate
+the generator and carry their own intrinsic dimensions, so set to the same pixel height as
+their neighbours they will not have the same apparent weight. The sizes above are a starting
+point for them, not an answer: put the mark beside the text it belongs to and adjust by eye
+until it matches. Everything else is 16×16 at stroke 1.25 and scales together.
 
 **An icon is never the only label.** A control that carries an icon and no visible text needs
 an accessible name — and if the meaning is not obvious to someone outside our field, it needs
@@ -258,8 +265,9 @@ a download that means download. What we do not draw is a picture standing in for
 concept: a lightbulb for an idea or a strategy, a rocket for a launch, a gear for
 engineering, a target for a goal, a handshake for a partnership, a puzzle piece for fit, a
 compass or a chess piece for strategy. They are stock, and they carry no meaning the sentence
-beside them is not already carrying. The house set is abstract on purpose — sparkles, stars,
-spheres, orbits, ovals — so the concept stays in the words and the mark stays a mark.
+beside them is not already carrying. Every mark in this set names an action or a thing — back,
+download, search, a file, a clock — so the concept stays in the words and the mark stays a
+mark.
 
 ## Loading
 

@@ -114,9 +114,10 @@ and `opacity` animate at all.
 and no third step. On the dark ground `--shadow-raised` is `none` and the surface colour does
 that job.
 
-**Icons** are sized by height with `--icon-sm`, `--icon-md`, `--icon-lg` and `--icon-xl`. The
-older marks are not drawn on a common grid, so the sizes are a starting point — match the icon
-to its neighbouring text by eye. Everything drawn since is 16×16 and scales together.
+**Icons** are sized by height with `--icon-sm`, `--icon-md` and `--icon-lg`, and there is no
+step above 24px. Three older marks are not drawn on a common grid, so for those the sizes are a
+starting point — match the mark to its neighbouring text by eye. Everything else is 16×16 and
+scales together.
 
 **Buttons** come in three tiers and three sizes. Primary is Night Blue on Lime Green, hovering
 to Hover Green; secondary is a 1px `--text-primary` outline that fills on hover; ghost is the
@@ -228,14 +229,15 @@ blotch at that size. `favicon.svg` is the source; the rasters come from it. Rule
 
 ## Icons
 
-`../../assets/icons/` holds 65 marks, all `currentColor`, all from the brand's own set. Use
+`../../assets/icons/` holds 50 marks, all `currentColor`, all from the brand's own set. Use
 them; do not substitute an off-the-shelf icon library, and never use emoji as icons. Marks are
-functional or abstract, never a metaphor for a concept: no lightbulb for strategy, no rocket
-for a launch, no gear, target, handshake or puzzle piece. If asked for one, say why not and
-offer a mark from the set, or plain text.
+functional, never a metaphor for a concept: no lightbulb for strategy, no rocket for a launch,
+no gear, target, handshake or puzzle piece. If asked for one, say why not and offer a mark from
+the set, or plain text.
 
-Two families. The **decorative** marks — sparkles, stars, spheres, orbits, ovals — are
-drawing-scale section accents. The **interface** marks are 16×16 at stroke 1.25, butt caps, no
+One family, and it is an interface set. The brand had a decorative family — sparkles, stars,
+spheres, orbits, ovals — and it has been withdrawn; do not reach for an ornamental mark,
+because there is not one. Every mark is 16×16 at stroke 1.25, butt caps, no
 fill: chevrons and arrows, `close`, `menu`, `search`, `home`, `external-link`, `more-horizontal`
 and `more-vertical`, `filter`, `settings-sliders`, `refresh`, `plus`, `check`, `edit`, `trash`,
 `copy`, `share`, `upload`, `info`, `warning`, `error`, `spinner`, `user`, `bag`, `heart`,

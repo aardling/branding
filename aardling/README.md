@@ -80,7 +80,7 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `guidelines/forms.md`      | Field anatomy, help text, validation timing, fieldsets, and the newsletter signup.                                 |
 | `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
 | `assets/logos/lockups/`    | 22 flattened mark-on-ground files, generated from the two masters.                                                 |
-| `assets/icons/`            | 65 marks, SVG, `currentColor`: 18 decorative, 47 interface, the latter generated.                                  |
+| `assets/icons/`            | 50 interface marks, SVG, `currentColor`, all but three generated.                                                  |
 | `assets/favicons/`         | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
 | `assets/fonts/`            | Variable General Sans and Voyage as `woff2`, plus `fonts.css`.                                                     |
 | `assets/images/`           | Four SVG gradients, and three illustrations as WebP with PNG beside.                                               |
@@ -156,14 +156,14 @@ See `guidelines/logos.md`.
 
 ## Icons
 
-`assets/icons/` holds two families, both `currentColor` — set `color` on a parent to recolour
-them, and never edit a file or add a `fill`.
+`assets/icons/` holds 50 interface marks, all `currentColor` — set `color` on a parent to
+recolour them, and never edit a file or add a `fill`. They are 16×16 at stroke 1.25, butt caps,
+no fill: chevrons and arrows, and the forty-odd glyphs a product interface needs.
 
-The **decorative** marks — sparkles, stars, spheres, orbits, ovals — are drawing-scale section
-accents, and some of them are filled. The **interface** marks are 16×16 at stroke 1.25, butt
-caps, no fill: chevrons and arrows, and the forty-odd glyphs a product interface needs.
+A second, decorative family — sparkles, stars, spheres, orbits, ovals at drawing scale — was
+withdrawn and will not return. There is no ornamental mark in this brand.
 
-The interface marks are generated, not drawn:
+The marks are generated, not drawn:
 
 ```sh
 npm run build:icons --workspace @aardling/brand-aardling
@@ -176,9 +176,9 @@ of it at the corners, a chevron two of it meeting at a point. Like `build-lockup
 deterministic: the same inputs give byte-identical output, so re-running is safe and a diff
 after a run means an input changed. Redraw there, not in a file.
 
-The decorative marks predate the script and are not generated. Neither is `arrow-down.svg`,
-which is drawn on a 10×6 box and renders a far heavier stroke than everything else at the same
-height — it is left as it ships. See `guidelines/web.md`.
+Three marks predate the script and are not generated: `arrow.svg`, `download.svg` and
+`arrow-down.svg` — the last drawn on a 10×6 box, so it renders a far heavier stroke than
+everything else at the same height. All three are left as they ship. See `guidelines/web.md`.
 
 ## Imagery
 

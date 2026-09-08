@@ -108,7 +108,6 @@
   --icon-sm: 16px;
   --icon-md: 20px;
   --icon-lg: 24px;
-  --icon-xl: 32px;
 
   /* Breakpoints, carried as documentation only. A custom property cannot be read
      inside a media query — copy the literal, and keep it equal to the value here. */
