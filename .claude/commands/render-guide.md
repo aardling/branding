@@ -17,5 +17,11 @@ without asking.
    `--force` re-renders everything; `--section <id>` re-renders one chapter.
 5. Report the page count, the file size and the path.
 
-If the guide's *content* changed rather than only its assets, the package version
-should be bumped before rendering, so the PDF ships under the right name. Ask.
+Do not bump the package version to go with the render. The guide is rendered under
+whatever version the package currently carries, and the version changes only when the
+user asks for a publish.
+
+That makes the order matter at publish time. A new version renames the PDF and marks
+every chapter stale — the script reports `version <old> → <new>` as the reason — so an
+Aardling publish goes: bump, then render, then publish. The render still needs asking
+for; `prepublishOnly` only refuses a stale guide, it never renders one.

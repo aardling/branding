@@ -107,8 +107,8 @@ A **voice** change is only finished when `guidelines/voice.md` exists, sits insi
 repository's general voice rules rather than against them, and carries the brand's own
 do/don't examples in its own register.
 
-Bump the brand package's `version` when its published content changes. Do not commit unless
-the user asks.
+Leave the brand package's `version` alone. It changes only when the user asks for a publish,
+never as part of a brand change. Do not commit unless the user asks.
 
 Aardling's printed guide is generated from the brand, so a change to the brand makes it
 stale. **Never render it yourself** — say what is stale, using
