@@ -193,3 +193,105 @@ until it matches. If a mark still fights its neighbours at every size, use a dif
 **An icon is never the only label.** A control that carries an icon and no visible text needs
 an accessible name — and if the meaning is not obvious to someone outside our field, it needs
 visible text as well. That is the same judgement `voice.md` asks for about jargon.
+
+## Navigation
+
+One component, two shapes. The same markup, the same disclosure behaviour and the same
+`aria-expanded` in both; only the layout of an open section changes. Below `--breakpoint-lg`
+the sections stack inside a full-screen sheet; from 960px they sit in a row in the bar and
+open a full-width panel beneath it.
+
+That switch needs no seventh breakpoint. 960px is simply where the row fits: five section
+words, the logotype at 160px and the call to action come to roughly 840px before gaps, and
+below that the row has to break.
+
+### Opening and closing
+
+**Click and tap, never hover.** A panel opens on activation and on nothing else. This is where
+the brand parts company with how most consultancy sites behave, and the reason is in *States*
+above: hover is the one state a touchscreen cannot produce, so no navigation may live in it.
+It also means the keyboard, the mouse and the thumb all do the same thing.
+
+The trigger is a `<button>` carrying `aria-expanded` and `aria-controls`; the panel carries
+`hidden`. One panel is open at a time. Escape closes it and returns focus to the trigger that
+opened it, and so do pressing that trigger again and clicking outside.
+
+**Move focus with `preventScroll`.** A panel or sheet that is still animating in sits outside
+its scroll container, and focusing something inside it makes the browser scroll sideways to
+chase it — the layout lurches and then settles back as the transition finishes. Focus with
+`{ preventScroll: true }` and let the transition do the moving.
+
+### The bar
+
+Sticky at one height: `position: sticky; top: 0`, and no script. **The bar does not shrink,
+condense or hide on scroll.** That would animate height, wait on a scroll observer and move
+something — three things *Motion* forbids, for one flourish.
+
+The ground is `--surface-page`, with a one-pixel `--border-hairline` along the bottom.
+
+At 360px the bar carries the logotype and one control, and that is all it can carry.
+`--page-margin` leaves 304px; the logotype at 120px, a menu button at 90px and the call to
+action at 126px need 368px once their gaps are counted. **So the call to action moves into the
+sheet**, where it sits at the foot of the list at full width. Reducing the menu button to a
+bare icon saves 46px and still does not close the gap, so this is arithmetic rather than
+taste.
+
+### The panel
+
+From 960px an open section is a full-width panel below the bar: `--surface-raised`,
+`--shadow-overlay`, bottom corners at `--radius-md`, laid out in columns.
+
+A column heading is itself a link to that section's own index. **No word in the bar is a
+parent that only opens a menu** — every one of them leads somewhere on its own.
+
+One featured item per panel, on a pastel ground carrying `data-surface="light"` so it stays
+correct when the page around it is dark.
+
+### The sheet
+
+Below 960px the sections stack in a full-screen sheet over the page. It arrives on
+`transform` at `--duration-base`; the disclosure panels inside it appear at once, because
+opening one changes layout and layout is not animated. The `0fr`-to-`1fr` grid trick animates
+`grid-template-rows` and is not used here.
+
+### States
+
+A navigation item is neither prose nor a button, so it takes neither the underline rule in
+`colour.md` nor the button rules in `layout.md`. It has its own.
+
+| State | Treatment |
+| --- | --- |
+| Rest | `--text-primary`, no rule. |
+| Hover | A 1px `--colour-ocean-blue` rule under the label. |
+| Focus | The focus ring, plus the hover rule. |
+| Current section | The same rule at 3px. |
+
+**Ocean Blue is the only colour that can do this.** As a WCAG 1.4.11 non-text indicator the
+rule has to clear 3:1 against its ground, and the bar has two grounds. Ocean Blue measures
+3.95 on Snow White and 3.95 on Night Blue, and 4.27 on the white panel. Every pastel clears it
+on the dark ground and fails on the light one — Lime Green 1.20, Yellow 1.21, Pink 1.67,
+Violet 1.69 — so none of them can mark anything in both themes. Ocean Blue passes because it
+sits in the middle of the range, which is the same property that disqualifies it as body text.
+
+This is not a new pair. Ocean Blue on Snow White, on white and on Night Blue are already
+approved for rules; this names one of those rules.
+
+**The rule is drawn on the label, not on the control.** Drawn on the control it runs the full
+width of the item and passes under the chevron, which reads as a mistake. It sits at the foot
+of the label's line box — as close to the word as the descenders allow, and no closer.
+
+**The weight does not change.** What marks the current section is the presence of a rule
+rather than its colour: at rest one item is ruled and the rest are bare, so a reader who
+cannot separate Ocean Blue from Night Blue still sees which section they are in, and WCAG
+1.4.1 is satisfied without spending a second cue on weight. Semibold also set the current word
+wider than its neighbours, and with a rule sized to the word that made the marker wider too.
+
+A link inside a panel takes the same 1px rule on hover and focus, at 4.27 on
+`--surface-raised`.
+
+**Only opacity animates.** The rule fades in at `--duration-fast`, and its thickness is fixed
+per state, so nothing resizes. Hovering the current section changes nothing, because its rule
+is already drawn.
+
+Every trigger and every link in the navigation is at least 44px high, in the bar and in the
+panel alike.

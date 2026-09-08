@@ -88,6 +88,15 @@ to focus the same way, and nothing lives in a hover state alone — a touchscree
 **Links** are `--text-primary` and always underlined. Hover thickens the underline from 1px to
 3px and never changes the colour. Visited is not styled.
 
+**Navigation** is one component in two shapes: a full-screen sheet below 960px, a full-width
+panel under the bar from 960px, with the same markup and the same `aria-expanded` in both.
+Panels open on click and tap, never on hover. The bar is sticky at one height and never
+condenses on scroll. A navigation item is neither prose nor a button — rest is bare, hover and
+focus draw a 1px `--colour-ocean-blue` rule under the label, and the current section takes the
+same rule at 3px with no change of weight. The rule goes on the label, not the control, so it
+does not run under a chevron. Ocean Blue is the only colour that clears 3:1 on both the light
+bar and the dark one.
+
 **Control boundaries are `--border-control`**, never `--border-hairline` — hairline grey
 measures 1.44 against white and fails the 3:1 that a control boundary has to clear. Anything
 tappable is at least 44px high. An error always carries a message, never colour alone.
