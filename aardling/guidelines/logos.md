@@ -67,8 +67,9 @@ of them are approved for something a mark is not.
 
 **The rest of `colour.md` does not carry a mark.** `--colour-muted-grey` is secondary text, and
 a greyed mark reads as disabled. `--colour-error-red` is form errors, and a red mark reads as a
-failure. `--colour-hairline-grey` is rules only — at 1.44:1 and 1.33:1 it is an invisible logo.
-`--colour-hover-green` is a button's hover state, and a mark has no hover.
+failure. `--colour-success-green` is confirmations, and a green mark reads as a status rather
+than a name. `--colour-hairline-grey` is rules only — at 1.44:1 and 1.33:1 it is an invisible
+logo. `--colour-hover-green` is a button's hover state, and a mark has no hover.
 
 ## Ocean Blue needs more room than the rest
 

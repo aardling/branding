@@ -37,9 +37,12 @@ The default is `--colour-night-blue` on `--colour-snow-white`. The primary butto
 fails contrast as body text and is never a background.
 
 On screen, reference a **role** rather than a palette colour — `--text-primary`,
-`--surface-page`, `--border-control` and five more. The palette never changes; the roles
-re-point between light and dark. The eight roles and both allowlists are in
+`--surface-page`, `--border-control` and six more. The palette never changes; the roles
+re-point between light and dark. The nine roles and both allowlists are in
 `../../guidelines/colour.md`.
+
+Status is a pair: `--text-error` for what went wrong, `--text-success` for what passed. Neither
+is ever the only cue — an error carries a message and so does a confirmation.
 
 ## Typography
 
@@ -99,7 +102,8 @@ bar and the dark one.
 
 **Control boundaries are `--border-control`**, never `--border-hairline` — hairline grey
 measures 1.44 against white and fails the 3:1 that a control boundary has to clear. Anything
-tappable is at least 44px high. An error always carries a message, never colour alone.
+tappable is at least 44px high. An error always carries a message, never colour alone, and so
+does a confirmation.
 
 **Motion:** `--duration-fast` for colour, `--duration-base` for anything that moves,
 `--ease-standard` for both. The tokens collapse under `prefers-reduced-motion`; anything
