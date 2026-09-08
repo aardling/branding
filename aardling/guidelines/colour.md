@@ -75,7 +75,7 @@ grey does not, however good it looks.
 | `--colour-muted-grey` | `--colour-snow-white` | 4.93 | The same, on the page ground. |
 | `--colour-error-red` | `--colour-white` | 5.57 | Form error messages on a card. |
 | `--colour-error-red` | `--colour-snow-white` | 5.16 | Form error messages on the page ground. |
-| `--colour-ocean-blue` | `--colour-white` | 4.27 | Large display text at 24px and above, icons, rules. Never body text. |
+| `--colour-ocean-blue` | `--colour-white` | 4.27 | Large display text at 24px and above, icons, and rules — including the navigation accent rule. Never body text. |
 | `--colour-ocean-blue` | `--colour-snow-white` | 3.95 | The same, on the page ground. |
 | `--colour-hairline-grey` | `--colour-white` | 1.44 | Hairline rules only. Never text, and never the only cue for a boundary that matters. |
 | `--colour-hairline-grey` | `--colour-snow-white` | 1.33 | The same, on the page ground. |
@@ -129,6 +129,13 @@ of this kind the distinction tells a reader nothing they need.
 
 A link that is a button — a call to action — is a button, and takes the button rules in
 `layout.md`. The underline rule is for links inside prose.
+
+**A navigation item is neither.** Not prose, so it is not underlined at rest; not a button, so
+it takes no pill. Its states are a rule in `--colour-ocean-blue` drawn under the label — 1px
+on hover and focus, 3px on the current section, and no change of weight. `web.md` specifies
+them, with the measurements that rule out every other colour: the marker has to clear 3:1 on
+both the light bar and the dark one, and Ocean Blue is the only colour in this palette that
+does.
 
 ## Buttons
 
@@ -257,7 +264,7 @@ message has to clear, so the dark ground needs its own red.
 | `--colour-dark-error-red` | `--colour-dark-surface` | 5.26 | The same, on a card. |
 | `--colour-dark-hairline-grey` | `--colour-night-blue` | 1.65 | Hairline rules only. Never text, never a control boundary. |
 | `--colour-dark-hairline-grey` | `--colour-dark-surface` | 1.40 | The same, on a card. |
-| `--colour-ocean-blue` | `--colour-night-blue` | 3.95 | Large display text at 24px and above, icons, rules. Never body text. |
+| `--colour-ocean-blue` | `--colour-night-blue` | 3.95 | Large display text at 24px and above, icons, and rules — including the navigation accent rule. Never body text. |
 
 `--colour-dark-surface` on `--colour-night-blue` is 1.18. That is a surface against a surface,
 not a text pair, and 1.18 is enough to separate two grounds when a radius separates them too.
