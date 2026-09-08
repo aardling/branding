@@ -244,7 +244,7 @@ One footer, on every page, and it declares its own ground:
 <footer data-surface="dark"> … </footer>
 ```
 
-That is the entire mechanism. The attribute sets all eight roles to their dark values, so the
+That is the entire mechanism. The attribute sets all nine roles to their dark values, so the
 footer is the same in both themes and nothing inside it hand-sets a colour.
 
 | Property | Value |

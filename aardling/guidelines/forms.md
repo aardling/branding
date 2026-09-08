@@ -291,15 +291,16 @@ waits.
 **No shamed decline.** No "no thanks, I don't care about architecture" link. A reader who is not
 interested scrolls past.
 
-## There is no success colour
+## The success colour never carries the message
 
-The palette has an error red and no counterpart. Nothing in this brand says *this passed*, so
-success is carried by **words, and by the thing that was wrong disappearing** — never by a tick,
+Success is carried by **words, and by the thing that was wrong disappearing** — never by a tick,
 a green border, or a colour change on a field that has just become correct. When a field is
 fixed, its error simply goes; that is the whole of the feedback, and it is enough.
 
-If a success colour is ever approved, none of this changes. The words stay, and the colour would
-only ever accompany them.
+The palette does now have a counterpart to the error red. `--text-success` was approved after
+this section was written, and it changed nothing here: the words stay, and the colour only ever
+accompanies them. `colour.md` says where it is allowed and what it must not do — a green border
+with no message is not a confirmation.
 
 ## Both themes
 
