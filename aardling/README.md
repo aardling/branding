@@ -76,6 +76,7 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `guidelines/naming.md`     | How the brand name and the company names are written.                                                              |
 | `guidelines/voice.md`      | Register, person, and do/don't examples.                                                                           |
 | `guidelines/web.md`        | Breakpoints, states, dark mode, motion, elevation, loading, and how the icons are drawn.                           |
+| `guidelines/components.md` | The hero, the card, the callout and the footer.                                                                    |
 | `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
 | `assets/logos/lockups/`    | 22 flattened mark-on-ground files, generated from the two masters.                                                 |
 | `assets/icons/`            | 65 marks, SVG, `currentColor`: 18 decorative, 47 interface, the latter generated.                                  |
@@ -86,8 +87,9 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 
 ## The brand guide
 
-`aardling-brand-guide-v<version>.pdf` is 31 A4 pages carrying the palette, the type scale, the
-marks, the imagery rules, the spacing ladder, the web rules and the voice — set in the brand,
+`aardling-brand-guide-v<version>.pdf` is 35 A4 pages carrying the palette, the type scale, the
+marks, the imagery rules, the spacing ladder, the web rules, the components and the voice — set
+in the brand,
 with the fonts and artwork embedded. The version in the filename is the package version, and
 it appears on the cover, on the contents page and on the last page. Every other page ends with
 the section you are in, so the running foot says where you are rather than repeating the
@@ -109,12 +111,12 @@ It is generated, not maintained by hand:
 npm run build:guide --workspace @aardling/brand-aardling
 ```
 
-The source is ten chapter fragments in `scripts/guide/`, plus `head.html` for the shared
+The source is eleven chapter fragments in `scripts/guide/`, plus `head.html` for the shared
 type and layout. `scripts/build-brand-guide.mjs` fills each with the version from
 `package.json`, inlines every asset as a data URI, prints it with headless Chrome, and merges
 the chapters into one document. A chapter is only re-rendered when the HTML it would produce
 has actually changed — `scripts/guide/manifest.json` records the hash it was last built from,
-so editing one chapter costs a couple of seconds rather than rebuilding all 31 pages. The
+so editing one chapter costs a couple of seconds rather than rebuilding all 35 pages. The
 rendered chapters are cached in `.guide-cache/`, which is not committed.
 
 ```sh
