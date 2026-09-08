@@ -1,0 +1,200 @@
+<!-- ======================= 28. Components: hero ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Components</span>
+    <span class="eyebrow eyebrow-path">guidelines/components.md</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">A hero is text on flat ground</h2>
+    <p class="small">Four components, all built from tokens that already exist. The hero is the
+      first: what a page is, in one heading, never on artwork.</p>
+
+    <div class="card card-violet">
+      <p class="eyebrow">Workshops</p>
+      <p style="font-family: var(--font-display); font-weight: 400; font-size: 36px; line-height: 1.2; margin-top: var(--space-2)">Three days, and a model your team can use</p>
+      <p style="font-size: var(--font-size-h6); font-weight: var(--font-weight-light); line-height: 1.5; margin-top: var(--space-3); max-width: 46ch">We run
+        <span class="nowrap">EventStorming</span> with the people who already know the business.</p>
+      <div style="margin-top: var(--space-4)"><span class="btn">Book a workshop</span></div>
+    </div>
+    <p class="meta">Eyebrow, heading, standfirst, actions — <span class="token">--space-2</span>,
+      <span class="token">--space-3</span> and <span class="token">--space-4</span> between them, in that
+      order at every width. On a pastel the eyebrow is Night Blue like everything else: no grey is
+      approved on any pastel.</p>
+
+    <table>
+      <thead><tr><th style="width: 76px">Hero</th><th>Where</th><th>Top</th><th>Bottom</th></tr></thead>
+      <tbody>
+        <tr><td>Page</td><td>Home, a landing page, the top of an index</td><td><span class="token">--space-8</span>, <span class="token">--space-12</span> from 960px</td><td>the same</td></tr>
+        <tr><td>Detail</td><td>An article, an event, a course, a person</td><td><span class="token">--space-8</span>, <span class="token">--space-18</span> from 960px</td><td><span class="token">--space-8</span>, <span class="token">--space-12</span> from 960px</td></tr>
+        <tr><td>Cover</td><td>A title card, event artwork, a social image</td><td colspan="2">One heading on a gradient, and nothing else on the artwork.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta"><strong>The heading never sits on artwork.</strong> Photographs and illustrations
+      are ruled out on page {{FOLIO:layout}}; the gradient licence on page {{FOLIO:imagery}} is for
+      the body face at h3 or larger, and a hero's h1 is the page's Voyage setting — so the two never
+      meet. Artwork sits beside the text, or below it.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Components</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 29. Components: cards ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Components</span>
+    <span class="eyebrow">Cards</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">A card is one of several</h2>
+    <p class="small">A course, an event, a case, an article. A single thing that happens to have a
+      border is a panel, and does not need to look like a card.</p>
+
+    <div class="cols cols-top">
+      <div class="card">
+        <p class="eyebrow">Event</p>
+        <p class="subhead">DDD Europe, Amsterdam</p>
+        <p class="small gap-top">Four days of talks, workshops and the hallway track.</p>
+        <p class="meta" style="margin-top: var(--space-3)">2–5 June 2026 · Amsterdam</p>
+      </div>
+      <div class="card card-violet">
+        <p class="eyebrow">Course</p>
+        <p class="subhead"><span class="nowrap">EventStorming</span> for product teams</p>
+        <p class="small gap-top">The workshop we run most often, as a two-day course.</p>
+        <p class="small" style="margin-top: var(--space-3)">Two days · Ghent</p>
+      </div>
+    </div>
+    <p class="meta">The same card on two grounds. On the left the metadata is
+      <span class="token">--text-secondary</span>; on the right it is Night Blue at
+      <span class="token">--font-size-small</span>, because <strong>no grey is approved on any
+      pastel</strong>. If a card needs grey, it is a <span class="token">--surface-raised</span> card:
+      choose the ground from what the card carries, not the other way round.</p>
+
+    <table>
+      <thead><tr><th style="width: 76px">Part</th><th>Setting</th></tr></thead>
+      <tbody>
+        <tr><td>Card</td><td><span class="token">--surface-raised</span>, <span class="token">--radius-md</span>, <span class="token">--space-4</span> padding, <span class="token">--shadow-raised</span>. No border. A pastel card carries no shadow at all.</td></tr>
+        <tr><td>Media</td><td>Full bleed to the card's edge, a declared aspect ratio of 3:2, <span class="token">object-fit: cover</span>.</td></tr>
+        <tr><td>Eyebrow</td><td><span class="token">--font-size-small</span>, uppercase, 0.12em, semibold.</td></tr>
+        <tr><td>Title</td><td>General Sans at <span class="token">--font-weight-heading</span>, <span class="token">--font-size-h5</span>. Never Voyage.</td></tr>
+        <tr><td>Body</td><td><span class="token">--font-size-body</span>. Three lines is plenty.</td></tr>
+        <tr><td>Metadata</td><td><span class="token">--font-size-small</span>, at the foot, pushed down so a row of cards lines up.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta"><strong>A card title is never Voyage:</strong> the display face is spent once on a
+      page, and cards arrive in threes and fours. <strong>A linked card does not move.</strong> The
+      whole card is the hit area, hover thickens the title's underline from 1px to 3px, and focus
+      rings the card rather than the title — there is no approved hover ground for a card, and page
+      {{FOLIO:web}} rules out movement.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Components</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 30. Components: callouts ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Components</span>
+    <span class="eyebrow">Callouts</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">Violet is the callout</h2>
+    <p class="small">A passage that has to be read differently from the one above it. Two shapes, and
+      the difference between them is width: a panel interrupts a column, a band spans the page.</p>
+
+    <div class="card card-violet">
+      <p class="subhead">This assumes a running system</p>
+      <p class="small gap-top">Everything below describes work on software that is already in
+        production. For a system that does not exist yet, start at the beginning instead.</p>
+    </div>
+    <p class="meta">Violet, <span class="token">--radius-md</span>, <span class="token">--space-4</span>,
+      and no wider than the column it interrupts. Night Blue on Violet is 9.21. Yellow and Pink are
+      section grounds and cards; the callout is Violet, which is what page {{FOLIO:colour}} already
+      says.</p>
+
+    <table>
+      <thead><tr><th style="width: 76px">Shape</th><th>Setting</th></tr></thead>
+      <tbody>
+        <tr><td>Panel</td><td>Inline in a column. <span class="token">--radius-md</span>, <span class="token">--space-4</span> padding, no elevation. An optional icon at <span class="token">--icon-lg</span>, <span class="token">--space-1</span> from its label.</td></tr>
+        <tr><td>Band</td><td>Full bleed. Violet, Yellow or Pink, or Night Blue under <span class="token">data-surface="dark"</span>. Vertical padding <span class="token">--space-6</span>, <span class="token">--space-10</span> from 720px, <span class="token">--space-12</span> from 960px. No radius.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="card card-pink">
+      <p class="subhead">A pastel on a dark page declares itself light</p>
+      <p class="small gap-top">A callout on a dark ground carries
+        <span class="token">data-surface="light"</span>, and it is not optional: the pastels are the
+        same colour in both themes, so what sits on them has to be too. Without the attribute the
+        focus ring inside the callout inherits Snow White and measures 1.69 against the Violet. The
+        mechanism is on page {{FOLIO:web}}.</p>
+    </div>
+
+    <p class="meta"><strong>No grey inside a callout</strong> — so no fine print, no caption and no
+      metadata; one that needs fine print is too long to be a callout. <strong>One at a time:</strong>
+      two callouts in a row are a list, and should be set as one. <strong>Never two coloured bands
+      touching:</strong> put a page-ground section between them, or neither one is emphasis any more.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Components</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 31. Components: footer ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Components</span>
+    <span class="eyebrow">Footer</span>
+  </div>
+  <div class="page-body">
+    <h2 class="title">The footer declares its own ground</h2>
+    <p class="small">One footer, on every page, and one attribute does the whole job:
+      <span class="token">&lt;footer data-surface="dark"&gt;</span>. It sets all eight roles to their
+      dark values, so the footer is the same in both themes and nothing inside it hand-sets a colour.</p>
+
+    <div class="card card-night">
+      <div style="display: grid; grid-template-columns: 200px 1fr 1fr; gap: var(--space-4); align-items: start">
+        <div>
+          <div style="width: 180px; color: var(--colour-snow-white)">{{TEXT:assets/logos/aardling-logotype.svg}}</div>
+          <p class="small" style="margin-top: var(--space-3)">We help teams model the domain they
+            actually work in.</p>
+        </div>
+        <div>
+          <p class="eyebrow" style="color: var(--colour-dark-muted-grey)">What we do</p>
+          <p class="small" style="margin-top: var(--space-2); line-height: 2.4"><u>Workshops</u><br><u>Coaching</u><br><u>Courses</u></p>
+        </div>
+        <div>
+          <p class="eyebrow" style="color: var(--colour-dark-muted-grey)">Read</p>
+          <p class="small" style="margin-top: var(--space-2); line-height: 2.4"><u>Cases</u><br><u>Writing</u><br><u>Talks</u></p>
+        </div>
+      </div>
+      <hr style="border: 0; border-top: 1px solid var(--colour-dark-hairline-grey); margin: var(--space-4) 0 var(--space-3)">
+      <p class="small" style="color: var(--colour-dark-muted-grey)">© 2026 Aardling BV · VAT BE
+        0123.456.789 · <u>Privacy</u> · <u>Terms</u></p>
+    </div>
+
+    <table>
+      <thead><tr><th style="width: 76px">Order</th><th>Setting</th></tr></thead>
+      <tbody>
+        <tr><td>1 · 2</td><td>The logotype, then one sentence saying what Aardling does — two lines at most. <span class="token">--space-4</span> between them.</td></tr>
+        <tr><td>3</td><td>The newsletter signup. A slot: its field, its label and its validation belong to the forms, not here.</td></tr>
+        <tr><td>4</td><td>Link groups, in columns from 720px at the grid gutter.</td></tr>
+        <tr><td>5 · 6</td><td>A <span class="token">--border-hairline</span> rule, then the legal line in <span class="token">--text-secondary</span> — 6.57 on Night Blue.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta">The logotype is the master inlined and given
+      <span class="token">color: var(--text-primary)</span>: it is drawn in
+      <span class="token">currentColor</span>, so it needs no separate file, and a lockup is for places
+      that cannot set a colour. Not below 96px wide — the floor on page {{FOLIO:logos}} — and 160px to
+      200px is comfortable. <strong>Every link is at least 44px high,</strong> set as a minimum rather
+      than computed: an 18px link at 1.5 line height with <span class="token">--space-1</span> above and
+      below measures 43px, which is near enough to be wrong. <strong>No dark section directly above the
+      footer</strong> — two dark regions meeting make one long region with an invisible seam.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Components</span><span class="folio"></span>
+  </div>
+</section>

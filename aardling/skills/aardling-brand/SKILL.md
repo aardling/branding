@@ -107,6 +107,39 @@ neighbouring text by eye.
 
 Full rules: `../../guidelines/web.md`.
 
+## Components
+
+Four are specified, and all four are built from tokens that already exist. Navigation, forms,
+the secondary button and the page grid are not specified yet — do not invent them.
+
+**Hero.** Eyebrow, heading, standfirst, actions, artwork, in that order at every width, with
+`--space-2`, `--space-3` and `--space-4` between them. Page hero: `--space-8` top and bottom,
+`--space-12` from 960px. Detail hero: `--space-18` on top from 960px. Ground is
+`--surface-page` or a flat Violet, Yellow or Pink — never Lime Green, which is the primary
+button's. **The heading never sits on artwork**, gradients included: the gradient licence is
+for the body face at h3 or larger, and a hero's h1 is the page's Voyage setting, so the two
+never meet. Artwork sits beside the text from 960px, below it under.
+
+**Card.** `--surface-raised`, `--radius-md`, `--space-4` padding, `--shadow-raised`, no border.
+Title in General Sans at `--font-weight-heading` and `--font-size-h5` — never Voyage. Metadata
+at the foot in `--text-secondary`. **On a pastel card every word is Night Blue** — no grey is
+approved on any pastel — and a pastel card carries no shadow. A linked card puts the `<a>` on
+the title with a stretched `::after` over the whole card; hover thickens the title's underline
+1px to 3px and nothing moves; focus rings the card, not the title.
+
+**Callout.** A Violet panel inline — `--radius-md`, `--space-4`, no wider than its column, no
+grey inside it — or a full-bleed band in Violet, Yellow, Pink or Night Blue, at the section
+padding steps and with no radius. Never two coloured bands touching. A pastel callout on a dark
+ground always carries `data-surface="light"`.
+
+**Footer.** `<footer data-surface="dark">`, and nothing inside it sets a colour. Order:
+logotype, one sentence, the newsletter slot, link groups, a `--border-hairline` rule, the legal
+line in `--text-secondary`. The logotype is the master inlined at `color: var(--text-primary)`,
+not below 96px wide. Every link is at least 44px high, set as a minimum rather than computed.
+No dark section directly above the footer.
+
+Full rules: `../../guidelines/components.md`.
+
 ## Marks
 
 - `../../assets/logos/aardling-logotype.svg` — the full logotype. Big touchpoints, social
@@ -172,7 +205,7 @@ CFO may read it next. Do/don't examples: `../../guidelines/voice.md`.
 
 ## The printed guide
 
-The brand guide is the whole brand as a 31-page A4 document, for handing to someone who does
+The brand guide is the whole brand as a 35-page A4 document, for handing to someone who does
 not have the package. It is generated from the guidelines and the assets, so it is a view and
 never the source: when the two disagree, the file under `guidelines/` wins.
 
@@ -181,7 +214,7 @@ consumer. Download it from the GitHub release for the version you want:
 <https://github.com/aardling/branding/releases>. Do not link a reader to a path inside
 `node_modules`; there is no PDF there.
 
-Its source is ten chapter fragments in `../../scripts/guide/`, one per section of the guide.
+Its source is eleven chapter fragments in `../../scripts/guide/`, one per section of the guide.
 Edit the fragment for the section you are changing; only that chapter re-renders.
 
 **Never render it yourself.** Show the user what is stale and ask first:
