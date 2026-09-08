@@ -50,7 +50,7 @@ const MANIFEST = join(GUIDE, "manifest.json");
 
 // Bump when a change to this script alters what Chrome is asked to print. Every
 // chapter then re-renders, because the cached PDFs no longer match this renderer.
-const RENDERER = 1;
+const RENDERER = 2;
 
 const CHROME =
   process.env.CHROME ||
@@ -293,6 +293,10 @@ const render = async (html, pdf, label, expectedPages) => {
       "--disable-crash-reporter",
       "--metrics-recording-only",
       "--mute-audio",
+      // Chrome's PDF backend rasterises box-shadow blur poorly at 1x — visible
+      // banding rather than a smooth blur. 2x fixes it; the file size cost is
+      // negligible even for the grain-heavy imagery chapter.
+      "--force-device-scale-factor=2",
       `--user-data-dir=${profile}`,
       `--print-to-pdf=${pdf}`,
       `file://${htmlPath}`,
