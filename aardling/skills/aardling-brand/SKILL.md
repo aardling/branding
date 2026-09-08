@@ -230,7 +230,7 @@ blotch at that size. `favicon.svg` is the source; the rasters come from it. Rule
 
 ## Icons
 
-`../../assets/icons/` holds 50 marks, all `currentColor`, all from the brand's own set. Use
+`../../assets/icons/` holds 54 marks, all `currentColor`, all from the brand's own set. Use
 them; do not substitute an off-the-shelf icon library, and never use emoji as icons. Marks are
 functional, never a metaphor for a concept: no lightbulb for strategy, no rocket for a launch,
 no gear, target, handshake or puzzle piece. If asked for one, say why not and offer a mark from
@@ -243,10 +243,17 @@ fill: chevrons and arrows, `close`, `menu`, `search`, `home`, `external-link`, `
 and `more-vertical`, `filter`, `settings-sliders`, `refresh`, `plus`, `check`, `edit`, `trash`,
 `copy`, `share`, `upload`, `info`, `warning`, `error`, `spinner`, `user`, `bag`, `heart`,
 `star-outline`, `bookmark`, `calendar`, `clock`, `mail`, `phone`, `location`, `file`, `image`,
-`lock`, `link`, `eye` and `eye-off`, `play`, `pause`, `stop`.
+`lock`, `link`, `eye` and `eye-off`, `play`, `pause`, `stop`, `fast-forward`, `rewind`,
+`skip-next`, `skip-previous`.
 
-**back**, **forward** and **next** have no files: they are `arrow-left` and `arrow-right` under
-other names. Rotate `arrow-right` for up and down.
+**back** and **forward** have no files: they are `arrow-left` and `arrow-right` under other
+names. Rotate `arrow-right` for up and down.
+
+**next** and **previous** exist as two different marks for two different meanings: going to
+the next page or list item is `arrow-right`/`arrow-left` under those names, same as forward and
+back. Skipping to the next or previous track is `skip-next`/`skip-previous` — a triangle against
+a bar, the transport-control convention, never a chevron. Pick by what the control does, not by
+the label on it.
 
 Settings is `settings-sliders`. A gear at 1.25 and 16px has teeth thinner than the gaps between
 them and reads as a sun; `settings-gear.svg` exists and is not the default.

@@ -279,6 +279,12 @@ I['settings-gear']=(()=>{const t=[];for(let i=0;i<8;i++){const a=i*45;const p1=r
 I['play']=svg([poly([[4.7,2.7],[13.2,8],[4.7,13.3]],1.2)]);
 I['pause']=svg([M([5.6,2.9])+L([5.6,13.1]), M([10.4,2.9])+L([10.4,13.1])]);
 I['stop']=svg([rrect(3.4,3.4,9.2,9.2,1.6)]);
+// Two play-style triangles, chained. rewind is the exact mirror about x=8.
+I['fast-forward']=svg([poly([[2,3.6],[7.4,8],[2,12.4]],0.9), poly([[8.6,3.6],[14,8],[8.6,12.4]],0.9)]);
+I['rewind']=svg([poly([[7.4,3.6],[2,8],[7.4,12.4]],0.9), poly([[14,3.6],[8.6,8],[14,12.4]],0.9)]);
+// play's triangle narrowed to leave room for the stop-bar. skip-previous mirrors about x=8.
+I['skip-next']=svg([poly([[2.2,2.7],[10.6,8],[2.2,13.3]],1.1), M([13.2,2.7])+L([13.2,13.3])]);
+I['skip-previous']=svg([poly([[13.8,2.7],[5.4,8],[13.8,13.3]],1.1), M([2.8,2.7])+L([2.8,13.3])]);
 I['edit']=(()=>{const F=frame(8,8,-45);
   return svg([rrect(-6.2,-1.9,10.4,3.8,0.9,F), M(F(-6.2,0))+L(F(-8.6,0)), M(F(-2.2,-1.9))+L(F(-2.2,1.9))]);})();
 I['link']=(()=>{const F=frame(8,8,-45);
