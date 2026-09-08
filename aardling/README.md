@@ -70,15 +70,15 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `tokens/tokens.css`        | The same tokens as CSS custom properties, with the responsive type scale.                                          |
 | `guidelines/colour.md`     | The palette, the accepted foreground/background pairs, and what each is for.                                       |
 | `guidelines/typography.md` | The two faces, the scale, weights, and the font licence position.                                                  |
-| `guidelines/layout.md`     | Spacing scale in use, radii, and the protected terms.                                                              |
+| `guidelines/layout.md`     | Spacing scale in use, radii, button geometry and sizes, and the protected terms.                                   |
 | `guidelines/imagery.md`    | The gradients and illustrations, and what may sit on them.                                                         |
 | `guidelines/logos.md`      | Masters and lockups, clear space, which pairs carry a mark, minimum sizes.                                         |
 | `guidelines/naming.md`     | How the brand name and the company names are written.                                                              |
 | `guidelines/voice.md`      | Register, person, and do/don't examples.                                                                           |
-| `guidelines/web.md`        | Breakpoints, states, dark mode, motion, elevation, icon sizing.                                                    |
+| `guidelines/web.md`        | Breakpoints, states, dark mode, motion, elevation, loading, and how the icons are drawn.                           |
 | `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
 | `assets/logos/lockups/`    | 22 flattened mark-on-ground files, generated from the two masters.                                                 |
-| `assets/icons/`            | The 18-mark icon set, SVG, `currentColor`.                                                                         |
+| `assets/icons/`            | 65 marks, SVG, `currentColor`: 18 decorative, 47 interface, the latter generated.                                  |
 | `assets/favicons/`         | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
 | `assets/fonts/`            | Variable General Sans and Voyage as `woff2`, plus `fonts.css`.                                                     |
 | `assets/images/`           | Four SVG gradients, and three illustrations as WebP with PNG beside.                                               |
@@ -150,6 +150,32 @@ nine flat pairs and four gradients — with the clear space built in. Use a lock
 cannot set `color` or supply a ground: an avatar upload, a slide master, a print file. They
 are generated from the two masters by `scripts/build-lockups.mjs` and never edited by hand.
 See `guidelines/logos.md`.
+
+## Icons
+
+`assets/icons/` holds two families, both `currentColor` — set `color` on a parent to recolour
+them, and never edit a file or add a `fill`.
+
+The **decorative** marks — sparkles, stars, spheres, orbits, ovals — are drawing-scale section
+accents, and some of them are filled. The **interface** marks are 16×16 at stroke 1.25, butt
+caps, no fill: chevrons and arrows, and the forty-odd glyphs a product interface needs.
+
+The interface marks are generated, not drawn:
+
+```sh
+npm run build:icons --workspace @aardling/brand-aardling
+```
+
+`scripts/build-icons.mjs` builds them from the one curve the whole set shares — every arrowhead
+already in the directory is the same cubic, leaving perpendicular at 0.36364 of the box side
+and arriving tangent at 0.68182. A ring is four of that curve closed, a rounded rectangle four
+of it at the corners, a chevron two of it meeting at a point. Like `build-lockups.mjs` it is
+deterministic: the same inputs give byte-identical output, so re-running is safe and a diff
+after a run means an input changed. Redraw there, not in a file.
+
+The decorative marks predate the script and are not generated. Neither is `arrow-down.svg`,
+which is drawn on a 10×6 box and renders a far heavier stroke than everything else at the same
+height — it is left as it ships. See `guidelines/web.md`.
 
 ## Imagery
 
