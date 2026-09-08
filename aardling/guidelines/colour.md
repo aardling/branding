@@ -130,6 +130,58 @@ of this kind the distinction tells a reader nothing they need.
 A link that is a button — a call to action — is a button, and takes the button rules in
 `layout.md`. The underline rule is for links inside prose.
 
+## Buttons
+
+Three tiers, and no fourth. Geometry and sizes are in `layout.md`; the colours are here.
+
+**Hover always promotes.** A ghost button hovered looks like a secondary at rest; a secondary
+hovered becomes the dark button this file has always approved. Nothing moves, grows or lifts —
+every state change is a colour change at `--duration-fast`, and **the pressed state is the
+hover state**, as `web.md` says.
+
+| Tier and state | Foreground | Background | Light | Dark |
+| --- | --- | --- | --- | --- |
+| Primary, rest | `--colour-night-blue` | `--colour-lime-green` | 13.05 | 13.05 |
+| Primary, hover and pressed | `--colour-night-blue` | `--colour-hover-green` | 10.50 | 10.50 |
+| Secondary, rest — 1px border and label | `--text-primary` | `--surface-page` | 15.60 | 15.60 |
+| Secondary, rest on a card | `--text-primary` | `--surface-raised` | 16.85 | 13.21 |
+| Secondary, hover and pressed | `--surface-page` | `--text-primary` | 15.60 | 15.60 |
+| Ghost, rest and hover | `--text-primary` | `--surface-page` | 15.60 | 15.60 |
+| Disabled, label and border | `--text-secondary` | transparent | 4.93 | 6.57 |
+
+The secondary hover takes `--surface-page` for its label and not `--surface-raised`: Snow White
+on Night Blue is an approved pair, plain White on Night Blue is not, so a secondary button on a
+card would otherwise hover into a combination this file does not list.
+
+The ghost button's border exists at rest as `1px solid transparent`, so revealing it changes a
+colour and not a box.
+
+**The primary is the one component that names palette colours instead of roles.** That is
+deliberate and it is the only exception: the pastels do not move between themes, and neither
+does this button.
+
+**There is no tertiary tier.** A quieter label would be `--text-secondary`, which is exactly
+the disabled appearance defined below — not a near miss, the same rule. A quieter border would
+be `--border-control`, which is exactly a form field. Emphasis below ghost is carried by size:
+a small ghost button is quieter than a medium one and collides with nothing.
+
+### On a pastel ground
+
+**A pastel section takes the Night Blue primary, not the Lime Green one.** As a shape against
+its ground, Lime Green measures 1.01 on Yellow, 1.42 on Violet and 1.40 on Pink. The label
+still passes at 13.05, but the button has no edge and does not read as a button. On the page
+ground and on the dark ground Lime Green measures 1.20 and 13.05, and stays the primary there.
+
+| On a pastel | Foreground | Background | Ratio |
+| --- | --- | --- | --- |
+| Primary, rest | `--colour-snow-white` | `--colour-night-blue` | 15.60 |
+| Primary, hover and pressed | `--colour-night-blue` | `--colour-lime-green` | 13.05 |
+
+**A pastel section carries one button.** A second action there is a ghost — bare Night Blue
+label, hovering to a Night Blue outline — and never a secondary, whose rest and hover states
+would both collide with the primary's. If a callout seems to need two equal actions, it has one
+too many.
+
 ## Controls and forms
 
 **A control boundary is `--border-control`, one pixel.** That is `--colour-muted-grey` on a
@@ -153,10 +205,20 @@ matters. The warning was right and the job contradicted it.
 **An error is never signalled by colour alone.** A red border with no message is not an error
 state; write what went wrong and how to fix it, in `--text-error`, next to the field.
 
-**A disabled control is `--text-secondary` on `--surface-page`,** at 4.93, and carries
-`aria-disabled` or `disabled`. It is not a lighter grey: a control a reader cannot read is
-worse than one they cannot press. If a disabled control needs explaining, explain it in text
-rather than dimming it further.
+**A disabled control has no fill.** Its ground is transparent, its boundary is
+`--border-control` at 1px, and its label is `--text-secondary` — 4.93 on the page ground, 5.33
+on a card, 6.57 on the dark one. It carries `aria-disabled` or `disabled`.
+
+An earlier version of this file gave the disabled ground as `--surface-page`. That is wrong on
+a card: a Snow White box inside a White panel reads as a stray surface rather than a dead
+control. Transparent lets the border do the work, and the border already measures.
+
+It is not a lighter grey: a control a reader cannot read is worse than one they cannot press.
+If a disabled control needs explaining, explain it in text rather than dimming it further.
+
+**Prefer not to disable at all.** A submit button disabled until a form is complete tells the
+reader nothing about what is missing. Let it submit, and answer with validation that names the
+field and the fix.
 
 ## The dark ground
 

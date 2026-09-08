@@ -169,9 +169,55 @@ out on every frame and stutter on the phones our readers actually carry.
 
 ## Icons
 
-The eighteen marks in `assets/icons/` are stroked SVG filled with `currentColor`. Recolour
-them by setting `color` on a parent — never by editing a file, and never by adding a `fill`
-attribute.
+The marks in `assets/icons/` are stroked SVG filled with `currentColor`. Recolour them by
+setting `color` on a parent — never by editing a file, and never by adding a `fill` attribute.
+
+Two families share the directory. The **decorative** marks — the circles, ovals, sparkles and
+stars — are drawing-scale, some of them filled, and are used as section accents. The
+**interface** marks are 16×16, stroke 1.25, butt caps, no fill, and are used in controls.
+
+### The set has one curve
+
+Every arrowhead in the directory is the same cubic Bézier. Not a family of similar curves — the
+identical curve, at three different scales, in six instances across `arrow`, `arrow-long`,
+`arrow-down` and `download`.
+
+Take the square a barb crosses, of side *s*. The stroke leaves its outer end **perpendicular**
+to the shaft, with its control point at **0.36364·s**. It arrives at the tip **tangent** to the
+shaft, with its control point at **0.68182·s** back along it. Those are 4/11 and 7.5/11, and
+they hold to five decimal places in every barb already drawn.
+
+So a mark is slow to leave and fast to arrive: it turns away from its start gently and flattens
+into the shaft. That asymmetry is what makes the set look drawn rather than plotted, and it is
+what anything new is built from — a ring is four of that curve closed, a rounded rectangle is
+four of it at the corners, a chevron is two of it meeting at a point.
+
+**New interface marks are drawn on 16×16 at stroke 1.25.** The older marks are not on a common
+grid — `arrow-down` is 10×6 and renders a 5px stroke where everything else renders about 2px at
+the same height — so they cannot all match. What can be done is keeping everything drawn since
+consistent with itself.
+
+`scripts/build-icons.mjs` generates the interface marks from the curve. It is deterministic, so
+re-running is safe and a diff after a run means an input changed. Redraw there, not in a file.
+
+### Names without files behind them
+
+**back**, **forward** and **next** are `arrow-left` and `arrow-right` under other names. There
+are no assets for them: three more files would be three ways to say one thing and three chances
+to drift apart. Rotating `arrow-right` covers up and down.
+
+### Where the curve is not used
+
+`refresh` is the one mark whose point is not made from the brand curve. Its head is a
+right-angle bracket and its gap sits on the right, both taken from a supplied reference; the arc
+is still the brand ring. The brand's own arrowhead was tried there three times and does not
+survive being put on a curve — its barbs leave perpendicular and arrive tangent, which reads as
+swept on a straight shaft but throws the visual mass backwards at the end of an arc, and the
+inner barb folds inside the ring and merges with it. Do not "correct" the gap onto the top or
+swap the bracket for a barbed head; both have been tried.
+
+The source of that composition is a Streamline icon. **Check what its licence allows before
+this package is published anywhere it has not been published already.**
 
 | Token | Value | Use for |
 | --- | --- | --- |
@@ -193,3 +239,35 @@ until it matches. If a mark still fights its neighbours at every size, use a dif
 **An icon is never the only label.** A control that carries an icon and no visible text needs
 an accessible name — and if the meaning is not obvious to someone outside our field, it needs
 visible text as well. That is the same judgement `voice.md` asks for about jargon.
+
+In practice that leaves a short list of marks that may stand alone on a control: `close`,
+`menu`, `search`, `plus`, `chevron-*`, `arrow-left`, `arrow-right`, `more-horizontal`,
+`more-vertical`, `play`, `pause`, `download` and `upload`. Everything else takes a visible
+label. A tooltip does not rescue an icon-only control — a thumb cannot hover.
+
+## Loading
+
+**A busy state is never signalled by motion alone.** A visible `role="status"` message beside
+the control says what is happening, in the brand's own words — "Sending…", then "Sent". Same
+reasoning as `colour.md`'s rule that an error is never signalled by colour alone.
+
+`spinner.svg` is three quarters of the brand ring with one quarter left out — the same ring
+`search` and `clock` use. It ships as a plain path like every other mark: **the rotation is
+CSS in the consumer, not baked into the file**, so everything in `assets/icons/` stays one kind
+of object. One linear turn, and nothing else moves.
+
+```css
+.spinner { animation: aardling-spin var(--duration-base) linear infinite; }
+@keyframes aardling-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
+```
+
+The reduced-motion rule has to be written by hand. The token collapse above does not reach a
+keyframe animation, and a spinner is exactly the case it misses. Stopped, the arc says nothing
+on its own — which is why the status message is not optional.
+
+**A loading button keeps its width and its focus.** The label stays in the DOM with
+`visibility: hidden` so it holds the box, and the spinner is centred over it; nothing beside it
+moves. The button takes `aria-busy="true"` and `aria-disabled="true"` — **never the `disabled`
+attribute**, which drops keyboard focus and strands the person who just pressed it. The handler
+ignores the click while busy.

@@ -92,8 +92,16 @@
   --duration-base: 240ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
 
-  /* Icon sizes, set on the height. The set is not drawn on a common grid, so these
-     are a starting point to match by eye — see guidelines/web.md. */
+  /* Control heights. 44px is the tap minimum in guidelines/layout.md and a floor
+     rather than a size to design down to; 52 and 60 continue from it in 8px steps.
+     Named control rather than button because a form field takes the same ladder. */
+  --control-height-sm: 44px;
+  --control-height-md: 52px;
+  --control-height-lg: 60px;
+
+  /* Icon sizes, set on the height. The older marks are not drawn on a common grid, so
+     these are a starting point to match by eye — see guidelines/web.md. Marks drawn
+     since are all 16×16 and scale together. */
   --icon-sm: 16px;
   --icon-md: 20px;
   --icon-lg: 24px;
