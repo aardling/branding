@@ -249,6 +249,18 @@ In practice that leaves a short list of marks that may stand alone on a control:
 `more-vertical`, `play`, `pause`, `download` and `upload`. Everything else takes a visible
 label. A tooltip does not rescue an icon-only control — a thumb cannot hover.
 
+**No emoji as icons.** An emoji is not part of the set. It will not take `currentColor`, it
+will not match the stroke weight of the marks beside it, and it renders differently on every
+platform. Where a mark is needed and the set has none, use text.
+
+**No cliché metaphors.** Functional marks are what the set is for — an arrow that means back,
+a download that means download. What we do not draw is a picture standing in for an abstract
+concept: a lightbulb for an idea or a strategy, a rocket for a launch, a gear for
+engineering, a target for a goal, a handshake for a partnership, a puzzle piece for fit, a
+compass or a chess piece for strategy. They are stock, and they carry no meaning the sentence
+beside them is not already carrying. The house set is abstract on purpose — sparkles, stars,
+spheres, orbits, ovals — so the concept stays in the words and the mark stays a mark.
+
 ## Loading
 
 **A busy state is never signalled by motion alone.** A visible `role="status"` message beside

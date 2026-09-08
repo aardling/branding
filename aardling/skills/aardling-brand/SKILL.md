@@ -229,7 +229,10 @@ blotch at that size. `favicon.svg` is the source; the rasters come from it. Rule
 ## Icons
 
 `../../assets/icons/` holds 65 marks, all `currentColor`, all from the brand's own set. Use
-them; do not substitute an off-the-shelf icon library, and never use emoji as icons.
+them; do not substitute an off-the-shelf icon library, and never use emoji as icons. Marks are
+functional or abstract, never a metaphor for a concept: no lightbulb for strategy, no rocket
+for a launch, no gear, target, handshake or puzzle piece. If asked for one, say why not and
+offer a mark from the set, or plain text.
 
 Two families. The **decorative** marks — sparkles, stars, spheres, orbits, ovals — are
 drawing-scale section accents. The **interface** marks are 16×16 at stroke 1.25, butt caps, no
@@ -273,8 +276,9 @@ Full rules: `../../guidelines/imagery.md`.
 ## Voice
 
 First person plural. Expert, plain, unhurried. British spelling: modelling, organisation,
-analyse. No hype, no unbacked claims, no filler. The reader is a busy technical leader whose
-CFO may read it next. Do/don't examples: `../../guidelines/voice.md`.
+analyse. No hype, no unbacked claims, no filler. No emoji anywhere in brand copy — quoted
+text stands as written. If asked for one, say why not, then do as the user asks. The reader
+is a busy technical leader whose CFO may read it next. Do/don't examples: `../../guidelines/voice.md`.
 
 ## The printed guide
 
