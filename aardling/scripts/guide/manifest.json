@@ -1,7 +1,7 @@
 {
   "renderer": 2,
   "version": "0.10.0",
-  "pages": 47,
+  "pages": 46,
   "headDeps": {
     "tokens/tokens.css": "b975394b083460ced375d3207d49136c79a0c3534d67f3b773db2da0f354ec71",
     "assets/fonts/general-sans-variable.woff2": "49d3fbd2f1bcc9850d8d939cabf107d6ade508ce08419fca466b06879e4a0a8e",
@@ -16,7 +16,7 @@
       "pages": 3,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "b5ef45f0569e93576c8f1775d89d10c91495146b508b1d2d74ec03ddaad8eb1f",
+      "hash": "b601ea60f06ab465a48904dcc43d2ef31462fe1bcab557df7ab4b9f4816f3fc2",
       "fragment": "4804654f8257b5f0b3c53a2ca9c7ea4c6bf8d09e9518640f9202cd893ec0209f",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {
@@ -42,22 +42,22 @@
       "id": "colour",
       "file": "03-colour.html",
       "folio": 6,
-      "pages": 10,
+      "pages": 9,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "1088f4bf8001a927f9879743622e9d4ff2eb9b8e3394bfe551cc3755e5f39549",
-      "fragment": "9e5ac06cc6c998d3fd5681cf22c2b3c121089e65a88f4269a8900243365805ad",
+      "hash": "96c49b18a02f15ef35e83ad4604e594d05c498188448bd61ecf0db5cee2f9965",
+      "fragment": "1e5677616f4903f4bab50adc993cd4c1056a1873cefcde484e0037a61244ce89",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {}
     },
     {
       "id": "typography",
       "file": "04-typography.html",
-      "folio": 16,
+      "folio": 15,
       "pages": 5,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "09adaf2cc894ff9f678ec85ddd914ccdf8806dfd370be56b3ce5ecfff9f3b1f3",
+      "hash": "1079a2ec31168700359fd3565ef084c34b7cb73ab1e64d1b5f93659d31c6eb65",
       "fragment": "534655b94612f908814a0df42f9a4f41cd61d248328ee770ea8742d57ff45690",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {}
@@ -65,11 +65,11 @@
     {
       "id": "logos",
       "file": "05-logos.html",
-      "folio": 21,
+      "folio": 20,
       "pages": 3,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "9e7c8f896ca1c35512b6fcc9183796ca091704406a766b774dc7cc8f73539daa",
+      "hash": "e215d52d63b64b4c5d82990c1ff0ca90e8bb14417d498fc1f8944ca541ac39ea",
       "fragment": "f05df4513abc3b02c273cf4e70cd1eca9258f784085a7220e7133eb72bd5a5f7",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {
@@ -80,11 +80,11 @@
     {
       "id": "imagery",
       "file": "06-imagery.html",
-      "folio": 24,
+      "folio": 23,
       "pages": 4,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "9cddb194c06bfd7f3f2bb608add2565782b03d7acd1cb8ef36902e79299b4b5b",
+      "hash": "2bc9597d399c4d3385a1336fb703051cbb070974ce83a1f1647cc59f41bcabff",
       "fragment": "fd8c39758e7cf1f57cecdcac893ded8be427170d869082aea1580fe050b58395",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {
@@ -102,11 +102,11 @@
     {
       "id": "layout",
       "file": "07-layout.html",
-      "folio": 28,
+      "folio": 27,
       "pages": 4,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "eb35667263bfef84d534b13d6ab8b43547fba54a3de390374afb918d4913a72e",
+      "hash": "51c11ed047da3569c1a18f02b7c32c110b00f29ba768aa6320c14a724b4b2862",
       "fragment": "fc9dee4c84b96d5b7e4a439c2c08f709eda0b80c15bc6a5b5753bf14beb87b43",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {}
@@ -114,11 +114,11 @@
     {
       "id": "web",
       "file": "08-web.html",
-      "folio": 32,
+      "folio": 31,
       "pages": 8,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "2bd3686bdb50cf813c377eb3ca57b0df02dbc82d5c9cc0c6ecb5a3c31bc88d72",
+      "hash": "8ef3077be9ab22efa6a2d39dc37ff63094395557b86d6224f056184ee68381ac",
       "fragment": "eb85b1fc89a25e6a55a409f1c1bbf4c9ac7fd5b428618cf9d7a4a578aceda70c",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {}
@@ -126,11 +126,11 @@
     {
       "id": "components",
       "file": "09-components.html",
-      "folio": 40,
+      "folio": 39,
       "pages": 4,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "8f5dd02965917c461917cb6b3ab97261089c7a231c8b96fcaf487cf6c6e70b79",
+      "hash": "a19105b7687de2af6c52bbe8b9e6b7f7793f8d61f0700d1b62957a6021a6474e",
       "fragment": "8a65f49e49c14a455810c4831894af0bb5daf1f5b723e76c0130fb2febf04c9b",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {
@@ -140,11 +140,11 @@
     {
       "id": "voice",
       "file": "10-voice.html",
-      "folio": 44,
+      "folio": 43,
       "pages": 3,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "f1ec525088cded2e5ed26befa455a97bf2e031452dd620aa2f7e27db460d034f",
+      "hash": "4742b96f5b5f47f61487bb046093b145b06bf017b240e181ae9a21a753c66b27",
       "fragment": "7288c3d02d7b70cc3b59091823c12180860c980117b6abe32afe1e542477e5fd",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {}
@@ -152,11 +152,11 @@
     {
       "id": "colophon",
       "file": "11-colophon.html",
-      "folio": 47,
+      "folio": 46,
       "pages": 1,
       "renderer": 2,
       "version": "0.10.0",
-      "hash": "cc2bedefdc9550d968c028a28db6d5c7fb3054a4a2dede9263a84c164836f4fd",
+      "hash": "625aa2ca94236b4edfeda4e70f0b2149720ecccc97fb3ada58f7d0b240cd4ef6",
       "fragment": "c798c36ca22c1c33c91ace0c730146ef2c4bc726d301759c81e199560908c4e3",
       "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
       "deps": {}
@@ -164,7 +164,7 @@
   ],
   "pdf": {
     "file": "aardling-brand-guide-v0.10.0.pdf",
-    "bytes": 14570073,
-    "sha256": "b213fad3fa9881596fc0a673e5f430efcd547cc6b3a99797049f54bd6a92c2ff"
+    "bytes": 14535538,
+    "sha256": "52114bc59cbb07476393e992e2d87634cec76f2350d489f17471cba8de2807be"
   }
 }
