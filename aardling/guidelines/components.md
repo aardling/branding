@@ -151,9 +151,10 @@ covers the card:
 .card a::after { content: ""; position: absolute; inset: 0; }
 ```
 
-**Hover changes the title's underline and nothing else** — 1px to 3px at `--duration-fast`,
-which is the link rule in `colour.md`. The card does not lift, grow, or change ground: `web.md`
-rules out movement, and there is no approved hover ground for a card.
+**Hover changes the title's underline and nothing else** — its 50% tint goes to full
+`--text-primary` at `--duration-fast`, which is the link rule in `colour.md`. The card does not
+lift, grow, or change ground: `web.md` rules out movement, and there is no approved hover
+ground for a card.
 
 Focus draws the ring around the card rather than around the title:
 
@@ -205,7 +206,7 @@ Inline, in the flow of a column.
 
 A title is `--font-size-h6` at `--font-weight-heading`; the body is `--font-size-body`; the gap
 between them is `--space-2`. Links inside a callout are the link rule unchanged — Night Blue,
-underlined, thickening on hover, at 9.21 against Violet.
+underlined, hover bringing the underline to full strength, at 9.21 against Violet.
 
 **No grey inside a callout.** `--text-secondary` is not approved on Violet, so there is no fine
 print, no caption and no metadata in one. A callout that needs fine print is too long to be a
@@ -287,7 +288,7 @@ range for a footer. Clear space on all four sides is the height of the icon logo
 ### Links
 
 - Rest, hover and focus are the link rule in `colour.md`, unchanged: `--text-primary`,
-  underlined, the underline thickening to 3px. A footer link is a link.
+  underlined, hover bringing the underline to full strength. A footer link is a link.
 - Whether a *navigation* link keeps its underline is the navigation specification's question.
   Until that is answered the footer follows the prose rule rather than inventing a second one.
 - Every link is at least 44px high: `min-height: 44px`, and centre the label in it. An 18px

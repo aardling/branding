@@ -74,8 +74,8 @@ pixels of `--focus-ring`, offset two, on `:focus-visible`. Using `:focus-visible
 decides, and it decides better than we would.
 
 **A state change is a colour change, at `--duration-fast`.** Buttons, links and cards do not
-move, grow or lift on hover. The one thing that changes size is a link's underline, which
-thickens from 1px to 3px — see `colour.md`.
+move, grow or lift on hover. A link's underline stays 1px throughout; hover brings it from a
+50% tint of `--text-primary` to full colour — see `colour.md`.
 
 **The pressed state is the hover state.** The brand has one extra colour for interaction,
 `--colour-hover-green`, and it serves hover and focus on the primary button. There is nothing

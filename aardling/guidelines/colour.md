@@ -130,14 +130,15 @@ removes the link.
 
 | State | Treatment |
 | --- | --- |
-| Rest | `--text-primary`, underline 1px, `text-underline-offset: 0.18em`. |
-| Hover | Unchanged colour, underline thickens to 3px. |
+| Rest | `--text-primary` text, underline 1px, `text-underline-offset: 0.18em`, at 50% opacity — 3.22 against Snow White, 4.84 against Night Blue. |
+| Hover | Text unchanged; underline goes to full `--text-primary`, same 1px, same offset. |
 | Focus | The focus ring, plus the hover underline. |
 | Visited | Not distinguished. |
 
-Colour never changes on hover, at any size. The website hovers links to Ocean Blue at 18px,
-which measures 3.95 against the page ground and fails; that is why the change is carried by
-the underline instead.
+Text colour never changes on hover, at any size. The website hovers links to Ocean Blue at
+18px, which measures 3.95 against the page ground and fails; that is why the state change is
+carried by the underline instead — by its opacity, not its thickness, so it reads as a colour
+change like every other state in the brand.
 
 Visited links are not styled. There is no approved pair for a third text colour, and on a site
 of this kind the distinction tells a reader nothing they need.
