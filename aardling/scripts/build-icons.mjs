@@ -76,6 +76,19 @@ function rrect(x,y,w,h,r,mp=(a,b)=>[a,b]){
        + L(p(x+r,y2))+qt(p(x+r,y2),D(-1,0),p(x,y2-r),D(0,-1))
        + L(p(x,y+r))+qt(p(x,y+r),D(0,-1),p(x+r,y),D(1,0))+'Z';
 }
+// A drop: a domed top turned with two brand-curve quarters, tapering to a point. Same
+// construction as location.svg's pin, generalised so it can be placed and rotated by a
+// frame() — quote.svg lays two of them down as a mirrored pair of commas.
+function drop(F,R,H){
+  const left=F(-R,0), top=F(0,-R), right=F(R,0), apex=F(0,H);
+  const du=F.dir(0,-1), dr=F.dir(1,0), dd=F.dir(0,1);
+  const dome = qt(left,du,top,dr) + qt(top,dr,right,dd);
+  const cp1L=F(-0.3478*R, 0.716*H), cp2L=F(-R, 0.4198*H);
+  const cp1R=F(0.3478*R, 0.716*H), cp2R=F(R, 0.4198*H);
+  const tailL=`C${f(cp1L[0])} ${f(cp1L[1])} ${f(cp2L[0])} ${f(cp2L[1])} ${f(left[0])} ${f(left[1])}`;
+  const tailR=`C${f(cp2R[0])} ${f(cp2R[1])} ${f(cp1R[0])} ${f(cp1R[1])} ${f(apex[0])} ${f(apex[1])}`;
+  return M(apex) + tailL + dome + tailR + 'Z';
+}
 // Chevron: two brand barbs meeting at a point, no shaft.
 function chev(cx,cy,s,dir){
   const u=U[dir], p=[-u[1],u[0]];
@@ -227,6 +240,11 @@ I['heart']=svg([
    +qt([1.8,7.4],U.u,[4.9,4.3],U.r)+qt([4.9,4.3],U.r,[8,6.4],U.d)
    +qt([8,6.4],U.u,[11.1,4.3],U.r)+qt([11.1,4.3],U.r,[14.2,7.4],U.d)
    +`C14.2 10.4 10.6 12.4 8 14.4`+'Z']);
+// Two drops, dome up, tail down-left — a mirrored pair of commas, the way an opening
+// double quotation mark sets. Sits high in the box, cap-height, the way a quote mark reads.
+I['quote']=(()=>{
+  const F1=frame(5.4,6.6,195), F2=frame(10.8,6.6,195);
+  return svg([drop(F1,2.5,4.9), drop(F2,2.5,4.9)]);})();
 I['eye']=svg([
   M([1.2,8])+`Q8 1.4 14.8 8`+`Q8 14.6 1.2 8`+'Z', ring(8,8,2.5)]);
 I['eye-off']=svg([

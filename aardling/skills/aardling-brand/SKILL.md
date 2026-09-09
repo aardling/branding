@@ -179,6 +179,18 @@ component, the same kind of exception the primary button gets. Numbers right-ali
 else centres. A protected term inside a cell holds whole, same as running text. Full rules:
 `../../guidelines/tables.md`.
 
+**Blockquote.** A verbatim quotation, not a callout. Always opens with `quote.svg` at
+`--icon-lg` in `--colour-ocean-blue` — the one part that is never optional — followed by the
+quote text in General Sans at `--font-weight-light` and `--font-size-h6`, the standfirst's
+weight. Attribution — name, role, company, a photo, a company logo — stacks on top once a
+name exists; a company logo drops the typed company name, the same rule a generated Cover
+drops a card's own title. **Inline** sits on `--surface-page` with an Ocean Blue rule beside
+the text; **card** takes the card ground above. On a pastel ground the mark and rule fall back
+to `--text-primary` — Ocean Blue has no approved pair on a pastel. A photo is a 44px square,
+never a circle — that family was withdrawn. Full width is the column's measure, no wider;
+half width centres in the column and drops to full below `--breakpoint-sm`. Full rules:
+`../../guidelines/blockquote.md`.
+
 ## Forms
 
 **A field is label, help text, control, error message — stacked, in that order.** The label is
@@ -243,7 +255,7 @@ blotch at that size. `favicon.svg` is the source; the rasters come from it. Rule
 
 ## Icons
 
-`../../assets/icons/` holds 54 marks, all `currentColor`, all from the brand's own set. Use
+`../../assets/icons/` holds 57 marks, all `currentColor`, all from the brand's own set. Use
 them; do not substitute an off-the-shelf icon library, and never use emoji as icons. Marks are
 functional, never a metaphor for a concept: no lightbulb for strategy, no rocket for a launch,
 no gear, target, handshake or puzzle piece. If asked for one, say why not and offer a mark from
@@ -255,7 +267,7 @@ because there is not one. Every mark is 16×16 at stroke 1.25, butt caps, no
 fill: chevrons and arrows, `close`, `menu`, `search`, `home`, `external-link`, `more-horizontal`
 and `more-vertical`, `filter`, `settings-sliders`, `refresh`, `plus`, `check`, `edit`, `trash`,
 `copy`, `share`, `upload`, `info`, `warning`, `error`, `spinner`, `user`, `bag`, `heart`,
-`star-outline`, `bookmark`, `calendar`, `clock`, `mail`, `phone`, `location`, `file`, `image`,
+`star-outline`, `bookmark`, `calendar`, `clock`, `mail`, `phone`, `location`, `quote`, `file`, `image`,
 `lock`, `link`, `eye` and `eye-off`, `play`, `pause`, `stop`, `fast-forward`, `rewind`,
 `skip-next`, `skip-previous`.
 
