@@ -1,27 +1,22 @@
 ---
-description: Render the Aardling brand guide PDF, after showing what is stale and asking first.
+description: Render the Aardling brand guide PDF, reporting what was stale and why.
 ---
 
 Render the Aardling brand guide.
 
-Rendering is slow — a full build takes minutes, because Chrome rasterises the grain
-filters in the Bloom and Harvest gradients at print resolution. So never start one
-without asking.
+No permission needed — but a full render takes minutes, because Chrome rasterises the
+grain filters in the Bloom and Harvest gradients at print resolution. Say that it is
+running rather than leaving the user watching a silent terminal.
 
 1. Run `node aardling/scripts/build-brand-guide.mjs --status`. It renders nothing.
-2. Show the user which chapters are stale and what changed. If nothing is stale, say
-   so and stop — do not rebuild for the sake of it.
-3. Ask the user to confirm. Wait for a real answer.
-4. On yes, run `node aardling/scripts/build-brand-guide.mjs $ARGUMENTS`. Call the
-   script directly rather than through npm, which swallows `--force` as its own flag.
-   `--force` re-renders everything; `--section <id>` re-renders one chapter.
-5. Report the page count, the file size and the path.
+2. Say which chapters are stale and why. If nothing is stale, say so and stop — there is
+   nothing to gain from rebuilding an identical PDF. `--force` overrides that.
+3. Run `node aardling/scripts/build-brand-guide.mjs $ARGUMENTS`. Call the script directly
+   rather than through npm, which swallows `--force` as its own flag. `--force` re-renders
+   everything; `--section <id>` re-renders one chapter.
+4. Report the page count, the file size and the path.
 
-Do not bump the package version to go with the render. The guide is rendered under
-whatever version the package currently carries, and the version changes only when the
-user asks for a publish.
-
-That makes the order matter at publish time. A new version renames the PDF and marks
-every chapter stale — the script reports `version <old> → <new>` as the reason — so an
-Aardling publish goes: bump, then render, then publish. The render still needs asking
-for; `prepublishOnly` only refuses a stale guide, it never renders one.
+This command does not touch the version, and rendering is not a reason to bump one. The
+guide is built at whatever version the package currently carries. `/release` owns the
+version, and renders the guide itself as part of publishing — so use this one to look at
+the guide between releases, not to prepare one.
