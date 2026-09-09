@@ -142,7 +142,130 @@
   </div>
 </section>
 
-<!-- ======================= 31. Components: footer ======================= -->
+<!-- ======================= 31. Components: blockquote ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Components</span>
+    <span class="eyebrow eyebrow-path">guidelines/blockquote.md</span>
+  </div>
+  <div class="page-body tight">
+    <h2 class="title">Every quotation opens the same way</h2>
+    <p class="small">Someone's own words, set apart from the text around them — not a caveat or a
+      warning, which is the callout on the previous page. Inline sits on
+      <span class="token">--surface-page</span>; the card is the one the cards page specifies.</p>
+
+    <p class="eyebrow">Inline — in a column of running prose</p>
+    <div class="bq">
+      <div class="bq-rule"></div>
+      <div>
+        <div class="bq-mark">{{TEXT:assets/icons/quote.svg}}</div>
+        <p class="bq-text">The model stopped being what we argued about in meetings and became what
+          the code was named after.</p>
+        <div class="bq-cite">
+          <div>
+            <span class="bq-name">Ineke Vandersteen</span>
+            <span class="bq-role">Head of Engineering, Meridian Bank</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="eyebrow">Card — a testimonial, where the fuller attribution belongs</p>
+    <div class="cols cols-top">
+      <div class="card">
+        <div class="bq-mark">{{TEXT:assets/icons/quote.svg}}</div>
+        <p class="bq-text">Three days in, we had a name for it.</p>
+        <div class="bq-cite">
+          <div class="bq-avatar" style="background: var(--colour-hairline-grey)"></div>
+          <div>
+            <span class="bq-name">Tomas Ruiz</span><br>
+            <span class="bq-role">Product Lead, Northbeam</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="bq-mark">{{TEXT:assets/icons/quote.svg}}</div>
+        <p class="bq-text">We stopped translating between the spreadsheet and the system.</p>
+        <div class="bq-cite">
+          <div><span class="bq-name">Aoife Brennan</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="meta">A full attribution beside one with nothing but a name — the parts are independent
+      toggles, though the mark and the text never vary. <strong>The avatar is a placeholder.</strong></p>
+
+    <table>
+      <thead><tr><th style="width: 96px">Part</th><th>Setting</th></tr></thead>
+      <tbody>
+        <tr><td>Quote mark</td><td><span class="token">quote.svg</span>, <span class="token">--icon-lg</span>, <span class="token">--colour-ocean-blue</span>. <strong>Never optional.</strong></td></tr>
+        <tr><td>Quote text</td><td>General Sans, <span class="token">--font-weight-light</span>, <span class="token">--font-size-h6</span>, balanced — that step at every width.</td></tr>
+        <tr><td>Attribution</td><td>Name semibold; role and company <span class="token">--text-secondary</span>, joined with ", " or to a bare name with " · ". Set off by weight and colour, never size. Company drops when a logo is present.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Components</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 32. Components: blockquote attribution ======================= -->
+<section class="page">
+  <div class="page-head">
+    <span class="eyebrow">Components</span>
+    <span class="eyebrow">Blockquote · attribution</span>
+  </div>
+  <div class="page-body tight">
+    <h2 class="title">Ocean Blue, except on a pastel</h2>
+
+    <div class="cols cols-top">
+      <div class="card card-violet">
+        <div class="bq-mark">{{TEXT:assets/icons/quote.svg}}</div>
+        <p class="bq-text">They asked better questions than our own architects did.</p>
+        <div class="bq-cite">
+          <div>
+            <span class="bq-name">Sanne de Waal</span><br>
+            <span class="bq-role">CTO, Halden Group</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="bq-mark">{{TEXT:assets/icons/quote.svg}}</div>
+        <p class="bq-text">The vocabulary we left with is still the one the team uses.</p>
+        <div class="bq-cite">
+          <svg width="104" height="24" viewBox="0 0 104 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="bq-logo" role="img" aria-label="Meridian">
+            <polygon points="9,3 15,12 9,21 3,12" fill="#2E7D6B"/>
+            <text x="24" y="17" font-family="Georgia, 'Times New Roman', serif" font-size="14" letter-spacing="0.1em" fill="#2E7D6B">MERIDIAN</text>
+          </svg>
+          <div><span class="bq-name">Ineke Vandersteen</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="meta"><strong>On a pastel the mark and the rule are Night Blue.</strong> Page
+      {{FOLIO:colour}} approves Ocean Blue on white, Snow White and Night Blue only; the pastels take
+      Night Blue as their one foreground, and a blockquote is no exception to what a card on a pastel
+      already applies to everything in it. On the right, <strong>the typed company name is dropped
+      because the logo is present.</strong></p>
+
+    <table>
+      <thead><tr><th style="width: 96px">Part</th><th>Setting</th></tr></thead>
+      <tbody>
+        <tr><td>Photo</td><td>Square, <span class="token">--radius-sm</span>, <span class="token">object-fit: cover</span>, at <span class="token">--control-height-sm</span> — 44px, the box an icon button uses. A 1px <span class="token">--border-hairline</span> outlines it, always. <strong>Never a circle:</strong> page {{FOLIO:web}} withdrew the decorative circle family.</td></tr>
+        <tr><td>Company logo</td><td>The company's own mark, <strong>never recoloured</strong>, at <span class="token">--icon-lg</span> height with the width following. Always an accessible name, <span class="token">alt="Meridian"</span>. Ask for a variant that reads on a dark ground if the page might show one.</td></tr>
+        <tr><td>Width</td><td><strong>Full is the default</strong> — the measure of its column, no wider, as the callout panel takes. <strong>Half</strong> suits a shorter quote: centred, breaking the paragraph either side rather than floating, and dropping to full below <span class="token">--breakpoint-sm</span>.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="meta">A testimonial card needs no half-width rule of its own: two cards side by side is
+      already half width, one spanning the row already full. <strong>At 360px,</strong> check the quote
+      wraps to no more than four or five lines before the citation feels distant from what it cites,
+      and that protected terms hold whole in a single <span class="token">nowrap</span> span.</p>
+  </div>
+  <div class="page-foot">
+    <span>Aardling brand guide</span><span>Components</span><span class="folio"></span>
+  </div>
+</section>
+
+<!-- ======================= 33. Components: footer ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Components</span>
