@@ -21,9 +21,13 @@ Work through these in order and stop at the first thing that does not hold.
 
 ## 2. Work out where the last release left off
 
-- Last tag: `git tag -l '<brand>-v*' | sort -V | tail -1`.
-- Compare it with `version` in `<brand>/package.json`. If the two disagree, stop and show
-  both — something published outside this command, and guessing past it risks a wrong number.
+The last release is the tag for the version the package currently carries: read `version`
+from `<brand>/package.json` and confirm `git tag -l '<brand>-v<version>'` returns it. If the
+tag is missing, stop and show what `git tag -l '<brand>-v*'` does have — something published
+outside this command, and guessing past it risks a wrong number.
+
+Do not pick the tag by sorting. `sort -V` orders `1.0.0-beta.1` *after* `1.0.0`, so it hands
+back the prerelease once a final exists; the package version is the reliable answer.
 
 ## 3. Show what changed
 
@@ -81,13 +85,21 @@ install picks up a beta.
 
 ## 9. Publish the guide
 
+Aardling attaches the rendered PDF:
+
 ```sh
-gh release create <brand>-v<version> <brand>/<brand>-brand-guide-v<version>.pdf \
+gh release create aardling-v<version> aardling/aardling-brand-guide-v<version>.pdf \
   --title "Aardling brand guide v<version>" --notes-file <notes>
 ```
 
-Add `--prerelease` when the version has a prerelease suffix. The PDF is attached to the
-release rather than shipped in the package — 14 MB that most consumers would never open.
+A brand with no guide gets the release without an asset, titled for the package:
+
+```sh
+gh release create <brand>-v<version> --title "<brand> v<version>" --notes-file <notes>
+```
+
+Add `--prerelease` when the version has a prerelease suffix. Aardling's PDF is attached to
+the release rather than shipped in the package — 14 MB that most consumers would never open.
 
 ## 10. Report
 
