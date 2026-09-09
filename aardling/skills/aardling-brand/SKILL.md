@@ -166,6 +166,17 @@ No dark section directly above the footer.
 
 Full rules: `../../guidelines/components.md`.
 
+**Table.** Usually inside a card — same `--surface-raised`, `--radius-md`, `--space-4` padding
+as any other card, never a container of its own. Header row is `--font-size-small` at
+`--font-weight-semibold`, on the table's own ground, not uppercase. Every cell keeps full
+`--space-2`/`--space-3` padding, including the first and last column — never zeroed to flush an
+edge. Every other row sits in `--surface-page`, a quiet stripe that needs no special case for
+either theme. One accent is held back for hover and focus: a Yellow wash, Night Blue on Yellow,
+the same pair already approved for section grounds — the one deliberate hard-set colour in this
+component, the same kind of exception the primary button gets. Numbers right-align; nothing
+else centres. A protected term inside a cell holds whole, same as running text. Full rules:
+`../../guidelines/tables.md`.
+
 ## Forms
 
 **A field is label, help text, control, error message — stacked, in that order.** The label is
