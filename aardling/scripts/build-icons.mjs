@@ -226,7 +226,11 @@ I['refresh']=(()=>{
   const k=[C+KR*R*Math.cos(KA), C+KR*R*Math.sin(KA)];
   return svg([ringArcRange(C,C,R,17.46,333.71),
     M([k[0],k[1]-ARM])+L(k)+L([k[0]-ARM,k[1]])]);})();
-I['clock']=svg([ring(8,8,6.2), M([8,8])+L([8,4.2]), M([8,8])+L([11.1,9.5])]);
+// The two hands meet at the centre with butt caps, which leaves a notch where they
+// join. A small filled disc over the join closes it: a true circle, not the brand
+// ring, since at r=0.9 there is no turn left to draw.
+I['clock']=svg([ring(8,8,6.2), M([8,8])+L([8,4.2]), M([8,8])+L([11.1,9.5])],
+  '    <circle cx="8" cy="8" r="0.9" fill="currentColor"/>');
 I['info']=svg([ring(8,8,6.2), M([8,7.2])+L([8,11.6]), D(8,4.7,0.75)]);
 I['error']=svg([ring(8,8,6.2), M([5.4,5.4])+L([10.6,10.6]), M([10.6,5.4])+L([5.4,10.6])]);
 I['warning']=svg([poly([[8,1.7],[15,13.9],[1,13.9]],1.6), M([8,6.4])+L([8,10.2]), D(8,12.3,0.75)]);
