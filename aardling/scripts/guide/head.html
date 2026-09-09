@@ -405,4 +405,44 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
 .addresses { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
 .address { background: var(--colour-white); border-radius: var(--radius-sm); padding: var(--space-3); font-size: var(--font-size-small); line-height: 1.45; }
 .address .who { font-weight: var(--font-weight-medium); }
+
+/* --- Blockquote ----------------------------------------------------------- */
+
+/* The mark is never optional, so it is the one thing every shape here carries.
+   Ocean Blue is the pair colour.md already approves for icons and rules. */
+.bq { display: grid; grid-template-columns: 2px 1fr; gap: var(--space-3); }
+.bq-rule { background: var(--colour-ocean-blue); border-radius: 1px; }
+.bq-mark { color: var(--colour-ocean-blue); margin-bottom: var(--space-2); }
+.bq-mark svg { display: block; width: var(--icon-lg); height: var(--icon-lg); }
+
+/* The standfirst's weight: a blockquote does the job a standfirst does. It holds
+   --font-size-h6 at every width, because a card in a row has no room to grow. */
+.bq-text {
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-body);
+  text-wrap: balance;
+}
+
+.bq-cite { display: flex; align-items: center; gap: var(--space-2); margin-top: var(--space-3); }
+.bq-name { font-weight: var(--font-weight-semibold); font-size: var(--font-size-small); }
+.bq-role { color: var(--text-secondary); font-size: var(--font-size-small); font-weight: var(--font-weight-regular); }
+
+/* 44px, the box an icon button already uses. Square, never a circle: web.md
+   withdrew the decorative circle family. The hairline is always present. */
+.bq-avatar {
+  width: var(--control-height-sm);
+  height: var(--control-height-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-hairline);
+  object-fit: cover;
+  flex: none;
+}
+.bq-logo { display: block; height: var(--icon-lg); width: auto; }
+
+/* On a pastel, Night Blue is the only approved foreground — the mark and the
+   rule included. Ocean Blue is approved on white, Snow White and Night Blue only. */
+.card-violet .bq-mark, .card-pink .bq-mark { color: var(--colour-night-blue); }
+.card-violet .bq-rule, .card-pink .bq-rule { background: var(--colour-night-blue); }
+.card-violet .bq-role, .card-pink .bq-role { color: var(--colour-night-blue); }
 </style>
