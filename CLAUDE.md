@@ -44,6 +44,26 @@ says how to fix it rather than fixing it silently.
 Rules 1 and 2 are operationalised in the `brand-change` skill — invoke it before touching
 anything under a brand directory.
 
+## Issue tracking
+
+**Every piece of work is tracked as its own GitHub issue.** Each requirement — a brand
+change, an infrastructure change, a bug — gets its own issue. The issue is the channel for
+reporting findings and questions on that work until a PR implementing it is merged. If a new
+requirement is discovered mid-work, it gets its own new issue rather than expanding the
+current one; if the current issue depends on it, note the dependency and deliver the new
+issue first.
+
+**Issue updates are milestone-only, with a live Findings/Decisions section.** Comments are
+posted on an issue only at milestones: plan, decisions that deviate from the plan, blocking
+questions, and delivery summary. Findings and decisions are not appended as a stream of
+comments; instead they are kept in a running "Findings / Decisions" section edited in place
+at the top of the issue body, so the current state is always visible without reading history.
+Open questions are kept in a dedicated, clearly marked section or comment and flagged with the
+`needs-input` label, and that marker is removed once the question is answered, so issues
+waiting on input can be filtered for.
+
+This mirrors the workflow used in the `aardling-eu-website2` repo (its ADR-009 and ADR-010).
+
 ## Brand directory layout
 
 ```
