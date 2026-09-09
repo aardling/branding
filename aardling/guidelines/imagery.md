@@ -173,6 +173,11 @@ fall back to one of these, tried in this order:
    on the gradient's own steady side, nothing else on top. No subtitle, no eyebrow, no metadata
    knocked out alongside it — those stay on the card, below the media, same as any other card.
 
+   **The card drops its own title text when its media is a Cover.** The heading on the gradient
+   already is the title; setting it a second time below repeats the same words back to the
+   reader. Eyebrow and metadata are unaffected and stay, since they carry information the cover
+   doesn't — only the title line goes.
+
 This is also the priority order: reach for the plainer option first, and use the generated
 cover only when the title genuinely needs to carry the piece. The more a fallback does, the
 more there is to get wrong.

@@ -310,7 +310,8 @@ placeholder, not an image. Look for a real photograph first (a case study's own 
 the usual source) and propose a candidate rather than leaving the gap. Failing that, fall back
 in order: no image at all, then a brand illustration, then a generated Cover carrying the
 content's title — the same knocked-out-heading pattern above, title only, no subtitle or
-eyebrow added.
+eyebrow added. When the media is that generated Cover, drop the card's own title text below it
+— the cover already says it, and repeating it shows the reader the same words twice.
 
 Full rules: `../../guidelines/imagery.md`.
 
