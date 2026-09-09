@@ -96,9 +96,9 @@ column is too narrow, not the term — widen it, or drop a less important column
 ## A row that links elsewhere
 
 The destination lives on the row's primary cell, as a real `<a>`, styled with the link rule in
-`colour.md`: `--text-primary`, underlined, thickening from 1px to 3px on hover and focus, its
-own colour never changing. The row around it washes to Yellow at the same time, so the whole
-row answers — not just the link's own text.
+`colour.md`: `--text-primary`, underlined at a 50% tint, hover and focus bringing it to full
+strength, its own colour never changing. The row around it washes to Yellow at the same time,
+so the whole row answers — not just the link's own text.
 
 If the whole row needs to act as the target rather than just the one cell, the row is the hit
 area and the anchor is what a keyboard and a screen reader land on — the same split `forms.md`
@@ -110,7 +110,7 @@ control.
 The label sits inside a `<button>`, and `aria-sort` (`none`, `ascending` or `descending`) sits
 on the `<th>` around it. A sort control is not running text, so it does not start underlined —
 the same exception `web.md` already makes for a navigation item. Hover and focus add the
-underline, thickening 1px to 3px exactly as a link does; rest is bare.
+underline, at full `--text-primary` strength exactly as a link's hover does; rest is bare.
 
 The active column carries a small arrow beside its label — `chevron-up` or `chevron-down` at
 `--icon-sm`, `--space-1` away, in the same colour as the label — pointing the way it is
