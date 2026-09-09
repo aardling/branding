@@ -81,7 +81,7 @@ anything — so neither could do this job.
 | `--colour-snow-white` | `--colour-night-blue` | 15.60 | Inverted sections, the footer, dark buttons. |
 | `--colour-night-blue` | `--colour-lime-green` | 13.05 | The primary button. |
 | `--colour-night-blue` | `--colour-hover-green` | 10.50 | The primary button, hover and focus. |
-| `--colour-night-blue` | `--colour-yellow` | 12.90 | Section grounds and cards. |
+| `--colour-night-blue` | `--colour-yellow` | 12.90 | Section grounds and cards. Also a table row's hover and focus wash — `tables.md`. |
 | `--colour-night-blue` | `--colour-pink` | 9.35 | Section grounds and cards. |
 | `--colour-night-blue` | `--colour-violet` | 9.21 | Section grounds and callouts. |
 | `--colour-muted-grey` | `--colour-white` | 5.33 | Secondary text on a card, and the border of a control on one. |
