@@ -1,7 +1,7 @@
 {
   "renderer": 2,
-  "version": "1.0.0-beta.1",
-  "pages": 47,
+  "version": "1.0.0-beta.2",
+  "pages": 50,
   "headDeps": {
     "tokens/tokens.css": "b975394b083460ced375d3207d49136c79a0c3534d67f3b773db2da0f354ec71",
     "assets/fonts/general-sans-variable.woff2": "49d3fbd2f1bcc9850d8d939cabf107d6ade508ce08419fca466b06879e4a0a8e",
@@ -15,10 +15,10 @@
       "folio": 1,
       "pages": 1,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "0e3941cca8f6a11360d1c29d86312543074b430f0b11999b1b48d6b120f9ef90",
+      "version": "1.0.0-beta.2",
+      "hash": "510e8e2b3e1b70fdc96da8622a0beda2ee6b302ba496176afa06c44a5c6aaff3",
       "fragment": "150a10d00d5524c5dacb496493a395baef55bc11f70d94e98a3c256db8e36fb7",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {
         "assets/images/gradient-vesper.svg": "a4b063c48ccfbfcc298414236abc3b7157279b892fb38f83bf6622c0ebf1aa33",
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf"
@@ -30,10 +30,10 @@
       "folio": 2,
       "pages": 1,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "ab2a6fc942670298e0d87a586806fa2d3dcc6c45af31d3ed9690005e2534f5c8",
+      "version": "1.0.0-beta.2",
+      "hash": "07a37059342c04001d372760c465b7d969f5691f0b8f4b891f4b58be4944f3aa",
       "fragment": "da29fdbbcf78c4b3814515a4b310fb3a973ff15b21fb410821a9440b1c9e26e7",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     },
     {
@@ -42,10 +42,10 @@
       "folio": 3,
       "pages": 1,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "195d6b4694cb5c5fd4c36502a79d61f56c66b23d1a0f5a28537e8cc3c40a8afb",
+      "version": "1.0.0-beta.2",
+      "hash": "72463710c470c2db647574e5c55b3438f3096a1dac01d9d5d3cf5b936e399448",
       "fragment": "1d49774415cd4c69fb4f307a56cee97f0abdbe200ac9be5efdd03e1282410388",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     },
     {
@@ -54,10 +54,10 @@
       "folio": 4,
       "pages": 1,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "03dad91869c8fa9a9893f31c39b30a4b4464e5f123955bb79ed335dc52d7ad75",
+      "version": "1.0.0-beta.2",
+      "hash": "4cc4d1b16369e7b42e42e5f64d4fa67f9c03c5257645191b92da6518fec85357",
       "fragment": "6c387617d256eb9d2b0299bca04da9902ac8a1443becd883d7cb4c459c43b1a0",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     },
     {
@@ -66,10 +66,10 @@
       "folio": 5,
       "pages": 2,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "2cb91fc4957863fa6e83ddab40f4a26ed2bbfdb37fbc8fca3ae77584e738fe89",
+      "version": "1.0.0-beta.2",
+      "hash": "80b28536ef58aaee9b9c03cedc92dbf63519d04c48fcbe2a7b43deb933de350c",
       "fragment": "98e709c7aab9e19db3b4318a04c6faa2b27215d48c39b816f64290f50cfc6941",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf"
       }
@@ -80,10 +80,10 @@
       "folio": 7,
       "pages": 9,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "74624406e1b00964fd83853c5d93fb75aadce31fff72171177594a912d001da9",
+      "version": "1.0.0-beta.2",
+      "hash": "d2a49a1a0d4f0d78dc4348fb1962073ddaf61f0c942aac1d1eb26ab033c68290",
       "fragment": "1e5677616f4903f4bab50adc993cd4c1056a1873cefcde484e0037a61244ce89",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     },
     {
@@ -92,10 +92,10 @@
       "folio": 16,
       "pages": 5,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "09adaf2cc894ff9f678ec85ddd914ccdf8806dfd370be56b3ce5ecfff9f3b1f3",
+      "version": "1.0.0-beta.2",
+      "hash": "c9c10d2b473a16e903240e264153077ea8ad9432c43687db57554e50344aea4b",
       "fragment": "534655b94612f908814a0df42f9a4f41cd61d248328ee770ea8742d57ff45690",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     },
     {
@@ -104,10 +104,10 @@
       "folio": 21,
       "pages": 3,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "9e7c8f896ca1c35512b6fcc9183796ca091704406a766b774dc7cc8f73539daa",
+      "version": "1.0.0-beta.2",
+      "hash": "de2af6a9983cca0de6273f9b84eecf1239c5b3ada9fc84c503bca685f2079749",
       "fragment": "f05df4513abc3b02c273cf4e70cd1eca9258f784085a7220e7133eb72bd5a5f7",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf",
         "assets/logos/aardling-icon.svg": "dd0bcbcf593ebcc78f8f4cdd8d1e68d48ba486a54e04334db429e653b1dcf0f3"
@@ -117,12 +117,12 @@
       "id": "imagery",
       "file": "09-imagery.html",
       "folio": 24,
-      "pages": 4,
+      "pages": 5,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "9cddb194c06bfd7f3f2bb608add2565782b03d7acd1cb8ef36902e79299b4b5b",
-      "fragment": "fd8c39758e7cf1f57cecdcac893ded8be427170d869082aea1580fe050b58395",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "version": "1.0.0-beta.2",
+      "hash": "d59fc20df0cf51793e29dbafa0c86e1f4f2abc74668ae843e36152ecf654609e",
+      "fragment": "91cf340d8f6fa69858ad19bf32fd54cf3b9a9652e667f77ebe9bc0c12cd4e023",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {
         "assets/images/gradient-vesper.svg": "a4b063c48ccfbfcc298414236abc3b7157279b892fb38f83bf6622c0ebf1aa33",
         "assets/images/gradient-understory.svg": "3f5d433732c3272d393939e52c1527bbeebe087c9fe3c2952256836af4455166",
@@ -138,69 +138,70 @@
     {
       "id": "layout",
       "file": "10-layout.html",
-      "folio": 28,
+      "folio": 29,
       "pages": 4,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "eb35667263bfef84d534b13d6ab8b43547fba54a3de390374afb918d4913a72e",
+      "version": "1.0.0-beta.2",
+      "hash": "d7ca3e86edeff3a5d74ee37384d2b682f9cd70b888328e99b0b4d97259ca43c7",
       "fragment": "fc9dee4c84b96d5b7e4a439c2c08f709eda0b80c15bc6a5b5753bf14beb87b43",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     },
     {
       "id": "web",
       "file": "11-web.html",
-      "folio": 32,
+      "folio": 33,
       "pages": 8,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "2bd3686bdb50cf813c377eb3ca57b0df02dbc82d5c9cc0c6ecb5a3c31bc88d72",
-      "fragment": "eb85b1fc89a25e6a55a409f1c1bbf4c9ac7fd5b428618cf9d7a4a578aceda70c",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "version": "1.0.0-beta.2",
+      "hash": "fd48a89340da667101ab858977da2bf3a2c52a713e8b97cc7af10fa26cf3d663",
+      "fragment": "bbf21957fc272147b7a0f792232ebbcf8c9b034d09aa7d637a8cc3a511dcf030",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     },
     {
       "id": "components",
       "file": "12-components.html",
-      "folio": 40,
-      "pages": 4,
+      "folio": 41,
+      "pages": 6,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "d93bfc1838d8bf6346dd29c233c36f9fb94ab109a61822495e5c54252d0d2d99",
-      "fragment": "8a65f49e49c14a455810c4831894af0bb5daf1f5b723e76c0130fb2febf04c9b",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "version": "1.0.0-beta.2",
+      "hash": "10472d66617c8534dba87a40f96e2be60b8858fcae0f11c2384552110637666b",
+      "fragment": "e96eb998e7a99ddcac0267aeca23382bab0a78894c8f268729be01524360f2da",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {
+        "assets/icons/quote.svg": "9b65c8bca6251fbc7f4c0ddb69689193c98100d530208233735745bf7858a504",
         "assets/logos/aardling-logotype.svg": "103b54f621aed181bdb0eebe2f2c70e918afa1bc262d12fdf2da9c90f2fc11bf"
       }
     },
     {
       "id": "voice",
       "file": "13-voice.html",
-      "folio": 44,
+      "folio": 47,
       "pages": 3,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "f1ec525088cded2e5ed26befa455a97bf2e031452dd620aa2f7e27db460d034f",
+      "version": "1.0.0-beta.2",
+      "hash": "d69dac06d32f7ecd57cd3388344aca876ff0b2e8dd990cd263b1d9ff7b51d6b8",
       "fragment": "7288c3d02d7b70cc3b59091823c12180860c980117b6abe32afe1e542477e5fd",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     },
     {
       "id": "colophon",
       "file": "14-colophon.html",
-      "folio": 47,
+      "folio": 50,
       "pages": 1,
       "renderer": 2,
-      "version": "1.0.0-beta.1",
-      "hash": "5b2a2ab492d970ec86dd10ad055932c9fccbd44c262caf1ad4a385a56addf33d",
+      "version": "1.0.0-beta.2",
+      "hash": "b3a8316486d9abb4c2597f949baa03c23fa22c53241dcca0131c2bfb4330d966",
       "fragment": "c798c36ca22c1c33c91ace0c730146ef2c4bc726d301759c81e199560908c4e3",
-      "head": "0fceaad24cbfe9dd95cae55e982ab077f7cb361668d34dd38347658ab8adb5ac",
+      "head": "4eb02c18af03eb27204284c60c4237d28bed61186f60d7bdaf708aceb4aed038",
       "deps": {}
     }
   ],
   "pdf": {
-    "file": "aardling-brand-guide-v1.0.0-beta.1.pdf",
-    "bytes": 14660206,
-    "sha256": "60fb3198130e7b0912d867453a6430776f5d6cabb14a6d038a97b97d9ce07c02"
+    "file": "aardling-brand-guide-v1.0.0-beta.2.pdf",
+    "bytes": 15191831,
+    "sha256": "3f10bcd8d92b8b67a5ed7e20da6cceabc56b0fdafb8df6fcd3c248f66d9a647e"
   }
 }
