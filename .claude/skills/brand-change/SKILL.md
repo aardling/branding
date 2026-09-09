@@ -111,9 +111,12 @@ Leave the brand package's `version` alone. It changes only when the user asks fo
 never as part of a brand change. Do not commit unless the user asks.
 
 Aardling's printed guide is generated from the brand, so a change to the brand makes it
-stale. **Never render it yourself** — say what is stale, using
-`node aardling/scripts/build-brand-guide.mjs --status`, and ask. The `/render-guide` command
-does this in the right order. Publishing enforces it: `prepublishOnly` refuses a stale guide.
+stale. Leave it stale — that is the normal state between releases, and `/release` re-renders
+it as part of publishing. Do not render after every change: the PDF is a tracked 14 MB binary
+and a rebuild per edit only bloats the history. Say what is stale if it is worth reporting —
+`node aardling/scripts/build-brand-guide.mjs --status` renders nothing — and use
+`/render-guide` when you or the user actually want to look at the thing. No permission
+needed for a render; `prepublishOnly` is what refuses a stale guide at publish time.
 
 ## What never happens
 
@@ -121,7 +124,7 @@ does this in the right order. Publishing enforces it: `prepublishOnly` refuses a
   they duplicate a value.
 - No brand file references another brand's path.
 - No brand content written without a confirmed visualisation.
-- No brand guide rendered without asking the user first.
+- No brand guide rendered once per edit — it is a 14 MB tracked binary; `/release` renders it.
 - No palette committed without its combinations list and its per-pair usage guidance.
 - No bitmap where an SVG is possible, and no baked-in background on a mark.
 - No favicon shipped as a single size.

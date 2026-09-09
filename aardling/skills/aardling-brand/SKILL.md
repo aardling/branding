@@ -328,15 +328,12 @@ consumer. Download it from the GitHub release for the version you want:
 Its source is fourteen chapter fragments in `../../scripts/guide/`, one per section of the guide.
 Edit the fragment for the section you are changing; only that chapter re-renders.
 
-**Never render it yourself.** Show the user what is stale and ask first:
+A brand change leaves it stale, which is fine — `/release` re-renders it when the brand is
+published. Rendering needs no permission, but it is a 14 MB tracked binary, so render to look
+at something, not once per edit:
 
 ```sh
-node scripts/build-brand-guide.mjs --status   # renders nothing
-```
-
-Then, once they have said yes:
-
-```sh
+node scripts/build-brand-guide.mjs --status   # what is stale and why; renders nothing
 npm run build:guide --workspace @aardling/brand-aardling
 ```
 

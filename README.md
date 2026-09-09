@@ -132,6 +132,9 @@ npm publish -w @aardling/brand-dddeu
 `write:packages` covers reading too, so it replaces `read:packages` rather than joining it —
 but `repo` is still needed alongside it. A classic token made by hand works the same way.
 
+The `/release` command runs the whole sequence — propose a version, confirm it, render
+Aardling's guide, tag, publish the package, attach the guide to a GitHub release.
+
 Before adding or changing anything in a brand, read `CLAUDE.md` and use the
 `brand-change` skill: **one brand per change, and always visualise and get confirmation
 before writing.**

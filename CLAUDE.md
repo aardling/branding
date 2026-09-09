@@ -25,24 +25,23 @@ does not have to.
 directory before the user has seen the change rendered (an Artifact for anything visual, a
 tree diff for structure) and explicitly approved it. Propose in one turn, write in the next.
 
-**3. Never render the Aardling brand guide without asking.** A render is quick — a few
-seconds — but it rewrites a 14 MB tracked binary and, on a version bump, renames the file the
-package ships. Whether to spend that, and when, is the user's call and not a detail to slip
-into another change. Report what is stale — `node aardling/scripts/build-brand-guide.mjs --status` renders nothing
-— and wait for a yes. The `/render-guide` command does this in the right order. Publishing
-enforces the other half: `prepublishOnly` refuses to ship a guide that no longer matches the
-brand, and tells the user how to fix it rather than fixing it silently.
-
-**4. Version numbers change only at publish time.** Editing a brand — tokens, assets,
+**3. Version numbers change only at publish time.** Editing a brand — tokens, assets,
 guidelines, skills — never touches a package's `version`. Many changes land under one
 version, and that is correct: the number describes what was published, not how much work
-happened since. When the user asks for a publish, choose the new number from everything that
-changed since the last published one, by semver. While the packages are pre-1.0, a breaking
-change — a token, asset or path removed or renamed — bumps the minor, and everything else
-bumps the patch. Say which number you picked and why before publishing. Never bump on your
-own initiative.
+happened since. `/release` is the one place the number moves: it proposes a version, asks,
+and only on a yes bumps, renders and publishes. Never bump on your own initiative.
 
-Rules 1 to 3 are operationalised in the `brand-change` skill — invoke it before touching
+Choose the number from everything that changed since the last published version, by semver,
+where breaking means a token, asset or path removed or renamed. A package already on a
+prerelease line continues it — the next prerelease, or the final version it is heading for. A
+package still below 1.0 puts breaking changes in the minor and everything else in the patch.
+
+Aardling carries one extra consequence: a bump renames the tracked 14 MB guide PDF and marks
+every chapter stale, so the release re-renders the guide before publishing. `prepublishOnly`
+enforces it — `npm publish` refuses a package whose guide no longer matches the brand, and
+says how to fix it rather than fixing it silently.
+
+Rules 1 and 2 are operationalised in the `brand-change` skill — invoke it before touching
 anything under a brand directory.
 
 ## Brand directory layout
