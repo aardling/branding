@@ -114,7 +114,7 @@ happens to have a border is a panel, and it does not need to look like a card.
 | --- | --- |
 | Media | Full bleed to the card's edge, top corners `--radius-md`, a declared `aspect-ratio` — 3:2 — and `object-fit: cover`. A photograph, an illustration or a gradient. Optional. |
 | Eyebrow | `--font-size-small`, uppercase, `letter-spacing: 0.12em`, `--font-weight-semibold`, `--text-secondary`. Optional. |
-| Title | General Sans at `--font-weight-heading`, `--font-size-h5`, `--line-height-display`, `text-wrap: balance`. |
+| Title | General Sans at `--font-weight-heading`, `--font-size-h5`, `--line-height-display`, `text-wrap: balance`. Omitted when the media is a generated Cover carrying the same title — see "When there is no image" in `imagery.md`. |
 | Body | `--font-size-body`, `text-wrap: pretty`. Three lines is plenty. Optional. |
 | Metadata | `--font-size-small`, `--text-secondary`. Date, duration, place. Sits at the foot. Optional. |
 
