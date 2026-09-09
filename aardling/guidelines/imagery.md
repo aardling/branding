@@ -147,6 +147,36 @@ gradients only.
 fallback. There's no photograph in the package yet; the first one ships when an article needs
 it, sized and licensed for that use, not stockpiled ahead of need.
 
+## When there is no image
+
+Some content simply doesn't have one yet — a case study before the client's assets arrive, an
+internal retrospective, a short update. The easy fix is a flat background with the title set as
+text. **Don't.** That isn't an image, it's a placeholder that shipped, and it reads as
+unfinished next to everything around it.
+
+**Find a real one first.** A case study almost always has one waiting on the client's own site
+or press kit, and that beats anything drawn here. Look there before reaching for any of the
+fallbacks below — and propose a candidate rather than leaving the search to whoever's writing.
+
+When no suitable photograph exists — not a stock one, see "What disqualifies a photo" above —
+fall back to one of these, tried in this order:
+
+1. **No image.** A content page renders correctly without one. Losing the media slot costs
+   nothing a reader needs.
+2. **A brand illustration.** A card may carry one of the three illustrations above instead of a
+   photograph, whichever reads closest to the content.
+3. **A generated cover.** A card's media may be a Cover — the gradient-plus-heading pattern
+   licensed below in "A heading may go on a gradient" — carrying the content's own title. It is
+   the title stamped on a gradient, not on a flat ground: the gradient does the work a
+   placeholder can't. The heading follows every constraint that section already sets, with
+   nothing added for this use — body face, `--font-size-h3` or larger, at most half the width,
+   on the gradient's own steady side, nothing else on top. No subtitle, no eyebrow, no metadata
+   knocked out alongside it — those stay on the card, below the media, same as any other card.
+
+This is also the priority order: reach for the plainer option first, and use the generated
+cover only when the title genuinely needs to carry the piece. The more a fallback does, the
+more there is to get wrong.
+
 ## Two ways to use an image in an article
 
 Long-form text wants the occasional image, and there are two different jobs one can do.

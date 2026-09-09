@@ -305,6 +305,13 @@ information the text doesn't restate: sized to what's legible rather than stretc
 column, never floated, a required numbered caption ("Fig. 1") referenced in the body text,
 click-to-enlarge on the web, and licensed to take a full page in print if the content needs it.
 
+**When content has no image, never fake one with a title on a flat background** — that's a
+placeholder, not an image. Look for a real photograph first (a case study's own client site is
+the usual source) and propose a candidate rather than leaving the gap. Failing that, fall back
+in order: no image at all, then a brand illustration, then a generated Cover carrying the
+content's title — the same knocked-out-heading pattern above, title only, no subtitle or
+eyebrow added.
+
 Full rules: `../../guidelines/imagery.md`.
 
 ## Voice
