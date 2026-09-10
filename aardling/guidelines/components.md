@@ -151,7 +151,7 @@ covers the card:
 .card a::after { content: ""; position: absolute; inset: 0; }
 ```
 
-**Hover changes the title's underline and nothing else** — its 50% tint goes to full
+**Hover changes the title's underline and nothing else** — `--link-underline` goes to full
 `--text-primary` at `--duration-fast`, which is the link rule in `colour.md`. The card does not
 lift, grow, or change ground: `web.md` rules out movement, and there is no approved hover
 ground for a card.
@@ -245,7 +245,7 @@ One footer, on every page, and it declares its own ground:
 <footer data-surface="dark"> … </footer>
 ```
 
-That is the entire mechanism. The attribute sets all nine roles to their dark values, so the
+That is the entire mechanism. The attribute sets all ten roles to their dark values, so the
 footer is the same in both themes and nothing inside it hand-sets a colour.
 
 | Property | Value |

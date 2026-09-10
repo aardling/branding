@@ -167,8 +167,8 @@ long form scrolls it out of sight.
 - `role="alert"` and `tabindex="-1"`. Focus moves to it, so a screen reader hears the whole
   list and a sighted reader sees the ring.
 - Every item is a link to its field's `id`, carrying the same words as the message on the
-  field. The links are links: `--text-primary`, underlined, hover bringing the underline to
-  full strength, exactly as `colour.md` sets out.
+  field. The links are links: `--text-primary`, underlined in `--link-underline`, hover
+  bringing it to full strength, exactly as `colour.md` sets out.
 - The heading counts: "Two things need fixing before this can be sent."
 
 **A one-field form gets no summary.** It would repeat the only message on screen, eight pixels

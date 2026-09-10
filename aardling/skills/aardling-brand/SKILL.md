@@ -37,8 +37,8 @@ The default is `--colour-night-blue` on `--colour-snow-white`. The primary butto
 fails contrast as body text and is never a background.
 
 On screen, reference a **role** rather than a palette colour — `--text-primary`,
-`--surface-page`, `--border-control` and six more. The palette never changes; the roles
-re-point between light and dark. The nine roles and both allowlists are in
+`--surface-page`, `--border-control` and seven more. The palette never changes; the roles
+re-point between light and dark. The ten roles and both allowlists are in
 `../../guidelines/colour.md`.
 
 Status is a pair: `--text-error` for what went wrong, `--text-success` for what passed. Neither
@@ -88,9 +88,9 @@ attribute this brand styles.
 `outline: none` without a replacement in the same rule. Anything that reacts to hover reacts
 to focus the same way, and nothing lives in a hover state alone — a touchscreen cannot reach it.
 
-**Links** are `--text-primary` and always underlined, 1px throughout. Rest is a 50% tint of
-that colour; hover brings the underline to full strength and never changes the text colour.
-Visited is not styled.
+**Links** are `--text-primary` and always underlined, 1px throughout. Rest is
+`--link-underline`, a 50% tint of that colour; hover brings the underline to full strength and
+never changes the text colour. Visited is not styled.
 
 **Navigation** is one component in two shapes: a full-screen sheet below 960px, a full-width
 panel under the bar from 960px, with the same markup and the same `aria-expanded` in both.
@@ -152,7 +152,7 @@ Title in General Sans at `--font-weight-heading` and `--font-size-h5` — never 
 at the foot in `--text-secondary`. **On a pastel card every word is Night Blue** — no grey is
 approved on any pastel — and a pastel card carries no shadow. A linked card puts the `<a>` on
 the title with a stretched `::after` over the whole card; hover brings the title's underline
-from its 50% tint to full `--text-primary` and nothing moves; focus rings the card, not the
+from `--link-underline` to full `--text-primary` and nothing moves; focus rings the card, not the
 title.
 
 **Callout.** A Violet panel inline — `--radius-md`, `--space-4`, no wider than its column, no

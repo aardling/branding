@@ -74,8 +74,8 @@ pixels of `--focus-ring`, offset two, on `:focus-visible`. Using `:focus-visible
 decides, and it decides better than we would.
 
 **A state change is a colour change, at `--duration-fast`.** Buttons, links and cards do not
-move, grow or lift on hover. A link's underline stays 1px throughout; hover brings it from a
-50% tint of `--text-primary` to full colour — see `colour.md`.
+move, grow or lift on hover. A link's underline stays 1px throughout; hover brings it from
+`--link-underline`, a 50% tint of `--text-primary`, to full colour — see `colour.md`.
 
 **The pressed state is the hover state.** The brand has one extra colour for interaction,
 `--colour-hover-green`, and it serves hover and focus on the primary button. There is nothing
@@ -108,7 +108,7 @@ because nothing lighter is darker than the ground it falls on.
 ## Dark mode
 
 **The reader's operating system decides.** One `prefers-color-scheme: dark` block re-points
-the nine roles in `colour.md`, and that is the whole mechanism. There is no toggle in the
+the ten roles in `colour.md`, and that is the whole mechanism. There is no toggle in the
 header, nothing to remember between visits, and no third state to test.
 
 The palette does not move. `--colour-snow-white` is Snow White in both themes; it is
@@ -117,7 +117,7 @@ correct in dark mode and needs no dark-mode CSS of its own. A component that ref
 palette colours directly is the bug.
 
 **An inverted section is dark mode, scoped.** The footer and the dark bands that already exist
-are the same nine roles set on a container rather than on `:root`, which `tokens.css` ships
+are the same ten roles set on a container rather than on `:root`, which `tokens.css` ships
 as `[data-surface="dark"]`. Use it instead of hand-setting colours, and an inverted section
 stays correct when the theme changes underneath it.
 
