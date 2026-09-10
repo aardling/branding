@@ -40,6 +40,13 @@
   --border-hairline: var(--colour-hairline-grey);
   --focus-ring: var(--colour-night-blue);
 
+  /* The link underline at rest: --text-primary at 50%, the value guidelines/colour.md
+     measures. Translucent rather than a flattened grey, so it sits at half strength on a
+     raised surface as well as on the page ground. Hover and focus are --text-primary
+     itself. Restated in every theme block below: var() inside a custom property resolves
+     where it is declared, so one declaration here would never re-point. */
+  --link-underline: rgba(24, 28, 47, 0.5);
+
   /* Typography. @font-face lives in assets/fonts/fonts.css, not here. */
   --font-display: Voyage, Georgia, "Times New Roman", serif;
   --font-body: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -188,6 +195,7 @@
     --border-control: var(--colour-dark-muted-grey);
     --border-hairline: var(--colour-dark-hairline-grey);
     --focus-ring: var(--colour-snow-white);
+    --link-underline: rgba(246, 246, 246, 0.5);
 
     /* A shadow under a dark card on a dark page is invisible; --surface-raised does
        that job instead. Only the overlay survives, and black is correct here because
@@ -209,6 +217,7 @@
   --border-control: var(--colour-dark-muted-grey);
   --border-hairline: var(--colour-dark-hairline-grey);
   --focus-ring: var(--colour-snow-white);
+  --link-underline: rgba(246, 246, 246, 0.5);
   --shadow-raised: none;
   --shadow-overlay: 0 8px 32px rgba(0, 0, 0, 0.48);
 }
@@ -227,6 +236,7 @@
   --border-control: var(--colour-muted-grey);
   --border-hairline: var(--colour-hairline-grey);
   --focus-ring: var(--colour-night-blue);
+  --link-underline: rgba(24, 28, 47, 0.5);
   --shadow-raised: 0 2px 8px rgba(24, 28, 47, 0.08);
   --shadow-overlay: 0 8px 32px rgba(24, 28, 47, 0.16);
 }

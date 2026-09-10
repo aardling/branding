@@ -100,7 +100,7 @@
     <p class="small gap-top">There is no approved second text colour on the page ground, so the
       underline is not decoration — it is the only thing distinguishing a link, and removing it
       removes the link. Colour never changes on hover, at any size; the underline stays 1px and
-      brightens from a 50% tint to full colour.</p>
+      brightens from <span class="token">--link-underline</span>, a 50% tint, to full colour.</p>
     <p style="margin-top: var(--space-2)">We ran a <span style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: rgba(24,28,47,0.5)">three-day modelling workshop</span>
       with their platform team, and it <span style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: #181C2F">brightens on hover</span>.</p>
     <p class="meta">Visited links are not styled: there is no approved pair for a third text colour,
@@ -261,7 +261,7 @@
       <div class="card card-violet">
         <p class="subhead">A light island says so</p>
         <p class="small gap-top">A pastel section on a dark page carries
-          <span class="token">data-surface="light"</span>, which puts all nine roles back. Without it a
+          <span class="token">data-surface="light"</span>, which puts all ten roles back. Without it a
           focus ring inside this callout would inherit Snow White and measure 1.69 against the
           Violet — invisible. An inverted section is the mirror of it:
           <span class="token">data-surface="dark"</span>, which is what the footer uses.</p>

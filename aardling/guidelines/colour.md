@@ -11,7 +11,7 @@ combination of this brand. Ratios are WCAG 2.x contrast, computed from the two v
 ## Two tiers
 
 The palette names colours. A second, smaller set names **jobs** and points at the palette:
-`--surface-page`, `--text-primary`, `--border-control` and six more. Components reference the
+`--surface-page`, `--text-primary`, `--border-control` and seven more. Components reference the
 job, never the colour, and a theme re-points the jobs without the palette moving at all.
 
 `--colour-snow-white` is always Snow White, in every theme. `--text-primary` is Night Blue on
@@ -28,12 +28,20 @@ a light ground and Snow White on a dark one. In a stylesheet, write `var(--text-
 | `--border-control` | `--colour-muted-grey` | `--colour-dark-muted-grey` |
 | `--border-hairline` | `--colour-hairline-grey` | `--colour-dark-hairline-grey` |
 | `--focus-ring` | `--colour-night-blue` | `--colour-snow-white` |
+| `--link-underline` | `rgba(24, 28, 47, 0.5)` | `rgba(246, 246, 246, 0.5)` |
 
-Nine roles, and no more without a reason. A tenth role is a request to add a colour, and goes
-through the same approval as one.
+Ten roles, and no more without a reason. An eleventh role is a request to add a colour, and
+goes through the same approval as one.
 
 `--text-success` was the ninth, added with the two greens below. It went through exactly that
 approval: the palette could say a thing failed and had no approved way to say it passed.
+
+`--link-underline` is the tenth, and the one role that is not a palette colour: `--text-primary`
+at 50% opacity, the rest-state link underline the Links section below measures. It is a
+translucent value rather than a flattened grey so that it sits at half strength on a raised
+surface as well as on the page ground, and it exists so that no consumer has to derive the
+tint for itself — every derivation is a different colour. Hover and focus are `--text-primary`
+and need no role of their own.
 
 ## Brand colours
 
@@ -130,7 +138,7 @@ removes the link.
 
 | State | Treatment |
 | --- | --- |
-| Rest | `--text-primary` text, underline 1px, `text-underline-offset: 0.18em`, at 50% opacity — 3.22 against Snow White, 4.84 against Night Blue. |
+| Rest | `--text-primary` text, underline 1px, `text-underline-offset: 0.18em`, in `--link-underline` — `--text-primary` at 50% opacity, 3.22 against Snow White, 4.84 against Night Blue. |
 | Hover | Text unchanged; underline goes to full `--text-primary`, same 1px, same offset. |
 | Focus | The focus ring, plus the hover underline. |
 | Visited | Not distinguished. |
@@ -304,7 +312,7 @@ They are light panels on a dark page, and that is correct rather than a compromi
 A focus ring inside a pastel section is Night Blue, not Snow White — the ring contrasts
 against the ground it sits on, which there is the pastel. Snow White on Violet is 1.69 and
 would be invisible. The roles do not work this out on their own: a pastel section on a dark
-page carries `data-surface="light"`, which puts all nine roles back to their light values.
+page carries `data-surface="light"`, which puts all ten roles back to their light values.
 That is the one place a container has to declare its own surface, and `web.md` says when.
 
 ## What is not approved

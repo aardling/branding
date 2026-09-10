@@ -96,7 +96,7 @@ column is too narrow, not the term — widen it, or drop a less important column
 ## A row that links elsewhere
 
 The destination lives on the row's primary cell, as a real `<a>`, styled with the link rule in
-`colour.md`: `--text-primary`, underlined at a 50% tint, hover and focus bringing it to full
+`colour.md`: `--text-primary`, underlined in `--link-underline`, hover and focus bringing it to full
 strength, its own colour never changing. The row around it washes to Yellow at the same time,
 so the whole row answers — not just the link's own text.
 
