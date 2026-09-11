@@ -6,6 +6,15 @@ full release notes, and Aardling's rendered guide PDF, are on the
 [releases page](https://github.com/aardling/branding/releases) — this file is the history of
 what changed in the packages.
 
+## aardling 1.0.0-beta.3 — 2026-09-11
+
+- **`--link-underline`, a token for the link underline at rest.** `colour.md` already measured it — `--text-primary` at 50% — and `web.md`, `tables.md`, `components.md`, `forms.md` and the brand skill all repeated the figure, but nothing shipped for a consumer to reference. Every consumer derived the tint itself, and every derivation came out a different colour.
+- **It is translucent, not a flattened grey**: `rgba(24, 28, 47, 0.5)` on a light ground, `rgba(246, 246, 246, 0.5)` on a dark one, so it sits at half strength on a raised surface as well as on the page ground. Restated in all four theme blocks, because `var()` inside a custom property resolves where it is declared.
+- **Ten colour roles, up from nine** — and the tenth is the one role that is not a palette colour. The guidelines, the skill and the colour chapter now name the token where they used to quote "50% tint".
+
+Nothing rendered changes; the token encodes what the guideline already measured. Additive:
+nothing was removed or renamed since `1.0.0-beta.2`.
+
 ## aardling 1.0.0-beta.2 — 2026-09-09
 
 - **Blockquote guidelines** (`guidelines/blockquote.md`, new): a verbatim quotation, distinct from a callout. Two shapes — inline in a column of prose, and a card for testimonials. The Ocean Blue quote mark is the one part that is never optional; the text is General Sans light at `--font-size-h6`; attribution stacks name, role, company, photo and company logo, each an independent toggle once a name exists. On a pastel ground the mark and rule fall back to `--text-primary`, since Ocean Blue has no approved pair on a pastel.
