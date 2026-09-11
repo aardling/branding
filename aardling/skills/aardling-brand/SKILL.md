@@ -90,7 +90,8 @@ to focus the same way, and nothing lives in a hover state alone — a touchscree
 
 **Links** are `--text-primary` and always underlined, 1px throughout. Rest is
 `--link-underline`, a 50% tint of that colour; hover brings the underline to full strength and
-never changes the text colour. Visited is not styled.
+never changes the text colour. Write `text-decoration-color: var(--link-underline)` — not
+`opacity` on the element, not a flattened grey. Visited is not styled.
 
 **Navigation** is one component in two shapes: a full-screen sheet below 960px, a full-width
 panel under the bar from 960px, with the same markup and the same `aria-expanded` in both.

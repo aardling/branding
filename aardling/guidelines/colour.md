@@ -138,7 +138,7 @@ removes the link.
 
 | State | Treatment |
 | --- | --- |
-| Rest | `--text-primary` text, underline 1px, `text-underline-offset: 0.18em`, in `--link-underline` — `--text-primary` at 50% opacity, 3.22 against Snow White, 4.84 against Night Blue. |
+| Rest | `--text-primary` text, underline 1px, `text-underline-offset: 0.18em`, in `--link-underline` — `--text-primary` at 50% opacity. 3.22 against Snow White, 3.27 against White, 4.84 against Night Blue, 4.49 against Dark Surface. |
 | Hover | Text unchanged; underline goes to full `--text-primary`, same 1px, same offset. |
 | Focus | The focus ring, plus the hover underline. |
 | Visited | Not distinguished. |
@@ -147,6 +147,12 @@ Text colour never changes on hover, at any size. The website hovers links to Oce
 18px, which measures 3.95 against the page ground and fails; that is why the state change is
 carried by the underline instead — by its opacity, not its thickness, so it reads as a colour
 change like every other state in the brand.
+
+In a stylesheet, write `text-decoration-color: var(--link-underline)` at rest and
+`var(--text-primary)` on hover and focus. Not `opacity` on the element, which fades the text
+with it, and not a flattened grey: 50% Night Blue on Snow White and 50% Snow White on Night
+Blue both flatten to about `#878993`, and that hex on a card no longer sits at half of its
+ground, so the ratios above stop describing what is drawn.
 
 Visited links are not styled. There is no approved pair for a third text colour, and on a site
 of this kind the distinction tells a reader nothing they need.
