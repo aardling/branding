@@ -57,7 +57,24 @@ npm version <version> --no-git-tag-version -w @aardling/brand-<brand>
 Check `git diff --stat` shows `package-lock.json` moving with it; the lock records workspace
 versions. If it did not, run `npm install --package-lock-only`.
 
-## 6. Render the guide (Aardling only)
+## 6. Write the changelog entry
+
+`CHANGELOG.md` in the repository root is the history of every publish, all five brands in one
+file — they are versioned independently, so the entries interleave. Prepend the new entry
+directly under the file's opening paragraph: newest first, so the top of the file is the most
+recent release.
+
+```markdown
+## <brand> <version> — <YYYY-MM-DD>
+```
+
+The body is the **What is new since `<previous>`** bullets from the notes the user just
+approved, and nothing else. The page count, the download line and the contents table describe
+the guide PDF; they belong on the GitHub release, not in the package's history.
+
+The entry is written before the render so it rides in the release commit with the bump.
+
+## 7. Render the guide (Aardling only)
 
 ```sh
 node aardling/scripts/build-brand-guide.mjs
@@ -68,13 +85,19 @@ before starting it. The script writes the new PDF and removes the one under the 
 Then confirm with `node aardling/scripts/build-brand-guide.mjs --check`, which must exit 0;
 `npm publish` runs the same check and will refuse a stale guide.
 
-## 7. Commit, tag, push
+The render also settles the contents table in the notes. Take the page ranges from the
+rebuilt `scripts/guide/manifest.json` rather than the previous release's — one chapter
+overflowing shifts every range after it.
 
-Commit the bump, `package-lock.json`, `scripts/guide/manifest.json`, the new PDF and the
-deletion of the old one. Tag `<brand>-v<version>` and push the commit and the tag. Tag before
-publishing: the tag has to point at the commit whose guide was checked.
+## 8. Commit, tag, push
 
-## 8. Publish the package
+Commit the bump, `package-lock.json`, `CHANGELOG.md`, `scripts/guide/manifest.json`, the new
+PDF and the deletion of the old one. Name the paths explicitly rather than `git add -A`; a
+working checkout usually has untracked scratch in it. Tag `<brand>-v<version>` and push the
+commit and the tag. Tag before publishing: the tag has to point at the commit whose guide was
+checked.
+
+## 9. Publish the package
 
 ```sh
 npm publish -w @aardling/brand-<brand>
@@ -83,7 +106,7 @@ npm publish -w @aardling/brand-<brand>
 A prerelease version takes `--tag next`, or the registry files it as `latest` and every plain
 install picks up a beta.
 
-## 9. Publish the guide
+## 10. Publish the guide
 
 Aardling attaches the rendered PDF:
 
@@ -101,7 +124,7 @@ gh release create <brand>-v<version> --title "<brand> v<version>" --notes-file <
 Add `--prerelease` when the version has a prerelease suffix. Aardling's PDF is attached to
 the release rather than shipped in the package — 14 MB that most consumers would never open.
 
-## 10. Report
+## 11. Report
 
 The version and why it was chosen, the tag, the release URL, and the package on GitHub
 Packages.
