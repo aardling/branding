@@ -188,7 +188,7 @@ name exists; a company logo drops the typed company name, the same rule a genera
 drops a card's own title. **Inline** sits on `--surface-page` with an Ocean Blue rule beside
 the text; **card** takes the card ground above. On a pastel ground the mark and rule fall back
 to `--text-primary` — Ocean Blue has no approved pair on a pastel. A photo is a 44px square,
-never a circle — that family was withdrawn. Full width is the column's measure, no wider;
+never a circle — the same box an icon button uses. Full width is the column's measure, no wider;
 half width centres in the column and drops to full below `--breakpoint-sm`. Full rules:
 `../../guidelines/blockquote.md`.
 
@@ -262,15 +262,14 @@ functional, never a metaphor for a concept: no lightbulb for strategy, no rocket
 no gear, target, handshake or puzzle piece. If asked for one, say why not and offer a mark from
 the set, or plain text.
 
-One family, and it is an interface set. The brand had a decorative family — sparkles, stars,
-spheres, orbits, ovals — and it has been withdrawn; do not reach for an ornamental mark,
-because there is not one. Every mark is 16×16 at stroke 1.25, butt caps, no
-fill: chevrons and arrows, `close`, `menu`, `search`, `home`, `external-link`, `more-horizontal`
-and `more-vertical`, `filter`, `settings-sliders`, `refresh`, `plus`, `check`, `edit`, `trash`,
-`copy`, `share`, `upload`, `info`, `warning`, `error`, `spinner`, `user`, `bag`, `heart`,
-`star-outline`, `bookmark`, `calendar`, `clock`, `mail`, `phone`, `location`, `quote`, `file`, `image`,
-`lock`, `link`, `eye` and `eye-off`, `play`, `pause`, `stop`, `fast-forward`, `rewind`,
-`skip-next`, `skip-previous`.
+One family, and it is an interface set. There is no ornamental mark in it, so do not reach for
+one. Every mark is 16×16 at stroke 1.25, butt caps, no fill: chevrons and arrows, `close`,
+`menu`, `search`, `home`, `external-link`, `more-horizontal` and `more-vertical`, `filter`,
+`settings-gear`, `settings-sliders`, `refresh`, `plus`, `check`, `edit`, `trash`, `copy`,
+`share`, `upload`, `download`, `info`, `warning`, `error`, `spinner`, `user`, `bag`, `heart`,
+`star-outline`, `bookmark`, `calendar`, `clock`, `mail`, `phone`, `location`, `quote`, `file`,
+`image`, `lock`, `link`, `eye` and `eye-off`, `zoom-in` and `zoom-out`, `play`, `pause`,
+`stop`, `fast-forward`, `rewind`, `skip-next`, `skip-previous`.
 
 **back** and **forward** have no files: they are `arrow-left` and `arrow-right` under other
 names. Rotate `arrow-right` for up and down.

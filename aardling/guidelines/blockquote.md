@@ -66,8 +66,7 @@ the hero eyebrow and the footer's group headings already use.
 
 Square, `--radius-sm`, `object-fit: cover`, sized to `--control-height-sm` — 44px, the same
 box an icon button already uses, rather than a new size invented for this one component.
-**Never a circle.** `web.md` withdrew the brand's decorative circle family — sparkles, stars,
-ovals — and a circular avatar is that family creeping back in through a side door.
+**Never a circle.** A round crop cuts the corners off the photograph.
 
 A 1px `--border-hairline` outlines it, always — inline or in a card. `imagery.md` skips a
 photograph's border inside a card because the card's own edge already separates the image

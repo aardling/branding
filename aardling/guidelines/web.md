@@ -177,12 +177,8 @@ The marks in `assets/icons/` are stroked SVG filled with `currentColor`. Recolou
 setting `color` on a parent — never by editing a file, and never by adding a `fill` attribute.
 
 One family. Every mark is an **interface** mark: 16×16, stroke 1.25, butt caps, no fill, drawn
-for use in controls.
-
-The brand once carried a second, decorative family — circles, ovals, sparkles and stars at
-drawing scale, some of them filled, used as section accents. Those marks have been withdrawn
-and will not come back. A section that seems to want an accent takes space, a rule or a ground
-colour instead; nothing in this set is a decoration.
+for use in controls. Nothing in this set is a decoration: a section that seems to want an
+accent takes space, a rule or a ground colour instead.
 
 ### The set has one curve
 
@@ -232,9 +228,8 @@ this package is published anywhere it has not been published already.**
 | `--icon-md` | 20px | Inline with body copy. The default. |
 | `--icon-lg` | 24px | Buttons, navigation items, list bullets. |
 
-**There is no size above 24px.** A `--icon-xl` step existed for a mark standing on its own as a
-section accent, and nothing does that any more. A mark in this set sits beside text; if a
-design wants a large graphic on its own, that is imagery, and `imagery.md` covers it.
+**There is no size above 24px.** A mark in this set sits beside text; if a design wants a large
+graphic on its own, that is imagery, and `imagery.md` covers it.
 
 **Set the height and let the width follow.** Not every mark is square — `download` is not —
 so constraining the width distorts it or crops the container. Set `height` and leave
