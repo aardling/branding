@@ -30,6 +30,17 @@ shares the one grid and matches exactly.
 `scripts/build-icons.mjs` generates the interface marks from the curve. It is deterministic, so
 re-running is safe and a diff after a run means an input changed. Redraw there, not in a file.
 
+## Groups
+
+`assets/icons/groups.json` places every mark in exactly one group, named for what the mark does,
+in the order the printed guide shows them. It ships in the package, so anything that offers a
+choice of marks can use the same grouping.
+
+**A new mark goes into a group in the same change that adds it.** The guide's build refuses a
+mark that no group names, a group that names a mark with no file, and a mark in two groups —
+and because `npm publish` runs that check, an ungrouped mark cannot be published. The build also
+refuses a mark the brand skill does not name, so the list agents read cannot fall behind the set.
+
 ## Names without files behind them
 
 **back**, **forward** and **next** are `arrow-left` and `arrow-right` under other names. There
