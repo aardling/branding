@@ -115,16 +115,19 @@ npm run build:guide --workspace @aardling/brand-aardling
 
 The source is the chapter fragments in `scripts/guide/`, plus `head.html` for the shared
 type and layout. `scripts/build-brand-guide.mjs` fills each with the version from
-`package.json`, inlines every asset as a data URI, prints it with headless Chrome, and merges
-the chapters into one document. A chapter is only re-rendered when the HTML it would produce
-has actually changed — `scripts/guide/manifest.json` records the hash it was last built from,
-so editing one chapter costs a couple of seconds rather than rebuilding all 35 pages. The
-rendered chapters are cached in `.guide-cache/`, which is not committed.
+`package.json`, inlines every asset as a data URI, and prints the whole guide with headless
+Chrome in one pass — about two seconds. One document is what lets the contents page link to
+every chapter: an anchor only resolves inside the document that holds it.
+`scripts/guide/manifest.json` records what the committed PDF was built from, chapter by
+chapter, so `--status` can say which chapter changed and why.
 
 ```sh
 node scripts/build-brand-guide.mjs --status   # what is stale, and why. Renders nothing.
-node scripts/build-brand-guide.mjs --force    # rebuild every chapter
+node scripts/build-brand-guide.mjs --force    # render even if the guide is current
 ```
+
+Every chapter's first page carries its id — `<section class="page" id="colour">` — and the
+build refuses a chapter without one, or a link to an id no chapter has.
 
 The contents page numbers itself: `{{FOLIO:colour}}` resolves to the page a chapter starts on,
 so adding a page cannot leave the contents lying. Chrome's path comes from `CHROME` if set,

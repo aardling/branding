@@ -1,13 +1,15 @@
 #!/usr/bin/env node
 // Builds the Aardling brand guide PDF from the chapter fragments in scripts/guide/.
 //
-// The guide is a set of chapters. Each is rendered to its own PDF by Chrome and cached
-// against a hash of the exact HTML that produced it, so a rebuild only re-renders the
-// chapters whose input actually changed. pdf-lib merges the cached chapters back into
-// one document. A chapter costs a second or two, so a full build is a handful of
-// seconds and a one-chapter edit is about three. The imagery chapter carries almost
-// all of the file's weight: Chrome rasterises the grain filters in the Bloom and
-// Harvest gradients at print resolution.
+// The guide is one document. Every chapter is expanded into a single HTML page and Chrome
+// prints it in one pass, so an <a href="#colour"> on the contents page is a real link in
+// the PDF — an anchor only resolves inside the document that holds it. The whole guide
+// renders in about two seconds.
+//
+// It used to be rendered a chapter at a time, cached, and merged with pdf-lib. That made a
+// cross-chapter link impossible, and it was not faster: a full per-chapter build took 6.8s
+// against 2.2s for one pass, because the parallel Chrome processes cost more than the cache
+// saved, and head.html — which every chapter depends on — invalidated all of them at once.
 //
 // Output: aardling-brand-guide-v<version>.pdf at the package root.
 //
@@ -15,11 +17,8 @@
 //
 //   --status          say what is stale and why; render nothing
 //   --check           as --status, but exit non-zero if anything is stale (prepublish)
-//   --force           re-render every chapter
-//   --section <id>    re-render one chapter, then merge
-//   --monolithic      render the whole guide in one pass, the way this used to work
-//   --out <path>      write the merged PDF somewhere else, and leave the manifest alone
-//   --jobs <n>        chapters to render at once (default: 4)
+//   --force           render even when the guide is already current
+//   --out <path>      write the PDF somewhere else, and leave the manifest alone
 //   KEEP_HTML=1       leave the expanded intermediate HTML in the temp directory
 //
 // Chrome does the printing. This is macOS-only by default; set CHROME to the binary
@@ -30,7 +29,6 @@ import {
   writeFileSync,
   unlinkSync,
   existsSync,
-  mkdirSync,
   readdirSync,
   rmSync,
 } from "node:fs";
@@ -45,12 +43,11 @@ import { PDFDocument } from "pdf-lib";
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, "..");
 const GUIDE = join(here, "guide");
-const CACHE = join(root, ".guide-cache");
 const MANIFEST = join(GUIDE, "manifest.json");
 
-// Bump when a change to this script alters what Chrome is asked to print. Every
-// chapter then re-renders, because the cached PDFs no longer match this renderer.
-const RENDERER = 2;
+// Bump when a change to this script alters what Chrome is asked to print, so a guide built
+// by the previous renderer reports itself stale. 3: one document instead of merged chapters.
+const RENDERER = 3;
 
 const CHROME =
   process.env.CHROME ||
@@ -73,12 +70,15 @@ const option = (name) => {
   return i === -1 ? null : argv[i + 1];
 };
 
+for (const gone of ["--section", "--jobs", "--monolithic"]) {
+  if (flag(gone)) {
+    throw new Error(`${gone} no longer exists: the guide is always rendered in one pass.`);
+  }
+}
+
 const mode = flag("--check") ? "check" : flag("--status") ? "status" : "build";
 const force = flag("--force");
-const only = option("--section");
-const monolithic = flag("--monolithic");
 const outPath = option("--out");
-const jobs = Math.max(1, Number(option("--jobs")) || 4);
 
 const sha = (data) => createHash("sha256").update(data).digest("hex");
 
@@ -137,33 +137,44 @@ const expand = (text, deps) =>
     return `data:${mime};base64,${bytes.toString("base64")}`;
   });
 
+// Every chapter opens on a page that carries its id, so the contents page — or any other
+// page — can link to it with href="#<id>". The id is written in the fragment where a reader
+// can see it, and checked here so a renamed file cannot quietly orphan its links.
+for (const c of chapters) {
+  const first = c.body.match(/<section class="page[^"]*"[^>]*>/)?.[0] ?? "";
+  if (!first.includes(`id="${c.id}"`)) {
+    throw new Error(`${c.file}: its first <section> needs id="${c.id}" (found ${first || "no section"}).`);
+  }
+}
+for (const [, target] of chapters.flatMap((c) => [...c.body.matchAll(/href="#([^"]+)"/g)])) {
+  if (!chapters.some((c) => c.id === target)) {
+    throw new Error(`A link points at #${target}, and no chapter has that id.`);
+  }
+}
+
 const headDeps = {};
 const head = expand(readFileSync(join(GUIDE, "head.html"), "utf8"), headDeps);
 const headHash = sha(head);
 
-// The fragments carry no doctype and no skeleton; this supplies both, and seeds the
-// folio counter so a chapter printed on its own still numbers its pages correctly.
-// The seed style comes after the head's own, so it wins the cascade.
-const document_ = (bodies, startFolio) => `<!doctype html>
+for (const c of chapters) {
+  c.deps = {};
+  c.expanded = expand(c.body, c.deps);
+}
+
+// The fragments carry no doctype and no skeleton; this supplies both. The folio counter
+// starts at the cover and runs through every page.
+const html = `<!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"></head>
 <body>
 ${head}
-<style>body { counter-reset: folio ${startFolio - 1}; }</style>
-
 <div class="sheet">
-${bodies.join("\n")}
+${chapters.map((c) => c.expanded).join("\n")}
 </div>
 </body>
 </html>
 `;
-
-for (const c of chapters) {
-  c.deps = {};
-  c.html = document_([expand(c.body, c.deps)], c.folio);
-  c.hash = sha(`renderer:${RENDERER}\n${c.html}`);
-  c.pdf = join(CACHE, `${c.id}.pdf`);
-}
+const hash = sha(`renderer:${RENDERER}\n${html}`);
 
 // --- Staleness --------------------------------------------------------------------
 
@@ -172,78 +183,67 @@ const manifest = existsSync(MANIFEST)
   : null;
 const recorded = new Map((manifest?.chapters ?? []).map((c) => [c.id, c]));
 
-// Why a chapter no longer matches what was rendered last time. Named causes beat
-// "something changed" when the answer decides whether you sit through a re-render.
+// One render, but still reported per chapter: "web — 12-web.html, it moved to page 35"
+// says what changed; "the guide changed" does not.
 const reasons = (c) => {
   const was = recorded.get(c.id);
   if (!was) return ["not in the manifest"];
-  if (was.hash === c.hash) return [];
   const why = [];
-  if ((was.renderer ?? 0) !== RENDERER) why.push("the renderer changed");
   if (was.fragment !== sha(c.body)) why.push(c.file);
-  if (was.head !== headHash) {
-    const before = manifest.headDeps ?? {};
-    const moved = [
-      ...Object.keys(headDeps).filter((f) => before[f] !== headDeps[f]),
-      ...Object.keys(before).filter((f) => !(f in headDeps)),
-    ];
-    why.push(...(moved.length ? moved : ["head.html"]));
-  }
-  for (const [path, hash] of Object.entries(c.deps)) {
-    if (was.deps?.[path] !== hash) why.push(path);
+  for (const [path, h] of Object.entries(c.deps)) {
+    if (was.deps?.[path] !== h) why.push(path);
   }
   for (const path of Object.keys(was.deps ?? {})) {
     if (!(path in c.deps)) why.push(`${path} (no longer used)`);
   }
   if (was.folio !== c.folio) why.push(`it moved to page ${c.folio}`);
-  if (was.version !== version) why.push(`version ${was.version} → ${version}`);
-  return why.length ? why : ["its rendered HTML changed"];
+  return why;
 };
 
-for (const c of chapters) {
-  c.why = reasons(c);
-  c.cached = existsSync(c.pdf);
-  if (force) c.why = ["--force"];
-  else if (only)
-    c.why = c.id === only ? ["--section"] : c.cached ? [] : ["no cached PDF"];
-  else if (!c.why.length && !c.cached) c.why = ["no cached PDF"];
-  c.stale = c.why.length > 0;
-}
-
-if (only && !chapters.some((c) => c.id === only)) {
-  throw new Error(
-    `No chapter "${only}". Chapters: ${chapters.map((c) => c.id).join(", ")}`,
-  );
+const problems = [];
+if (!manifest) problems.push("No manifest — the guide has never been built.");
+else {
+  if ((manifest.renderer ?? 0) !== RENDERER) problems.push("The renderer changed.");
+  if (manifest.version !== version) {
+    problems.push(`Manifest is v${manifest.version}, package is v${version}.`);
+  }
+  if (manifest.head !== headHash) {
+    const before = manifest.headDeps ?? {};
+    const moved = [
+      ...Object.keys(headDeps).filter((f) => before[f] !== headDeps[f]),
+      ...Object.keys(before).filter((f) => !(f in headDeps)),
+    ];
+    problems.push(`head.html${moved.length ? ` — ${moved.join(", ")}` : ""} changed; every chapter uses it.`);
+  }
+  for (const c of chapters) {
+    const why = reasons(c);
+    if (why.length) problems.push(`${c.id} — ${why.join(", ")}`);
+  }
+  for (const id of recorded.keys()) {
+    if (!chapters.some((c) => c.id === id)) problems.push(`${id} — no longer a chapter`);
+  }
+  // Anything the named causes miss — a renderer-irrelevant edit that still changes the
+  // printed HTML — is caught by the document hash.
+  if (!problems.length && manifest.hash !== hash) problems.push("The rendered HTML changed.");
 }
 
 const pdfName = `aardling-brand-guide-v${version}.pdf`;
 const pdfPath = outPath ? resolve(outPath) : join(root, pdfName);
+const committed = join(root, pdfName);
+
+if (manifest && !existsSync(committed)) {
+  problems.push(`${pdfName} is missing.`);
+} else if (manifest?.pdf && sha(readFileSync(committed)) !== manifest.pdf.sha256) {
+  problems.push(`${pdfName} does not match the manifest.`);
+}
 
 // --- status / check ------------------------------------------------------------------
 
 if (mode === "status" || mode === "check") {
-  const stale = chapters.filter((c) => c.stale);
-  const problems = [];
-
-  if (!manifest) problems.push("No manifest — the guide has never been built.");
-  for (const c of stale) problems.push(`${c.id} — ${c.why.join(", ")}`);
-  if (manifest && manifest.version !== version) {
-    problems.push(`Manifest is v${manifest.version}, package is v${version}.`);
-  }
-  if (manifest && !existsSync(join(root, pdfName))) {
-    problems.push(`${pdfName} is missing.`);
-  } else if (manifest?.pdf && existsSync(join(root, pdfName))) {
-    const actual = sha(readFileSync(join(root, pdfName)));
-    if (actual !== manifest.pdf.sha256) {
-      problems.push(`${pdfName} does not match the manifest.`);
-    }
-  }
-
   if (!problems.length) {
     console.log(`Brand guide is current: ${pdfName}, ${totalPages} pages.`);
     process.exit(0);
   }
-
   console.log("Brand guide is stale.");
   for (const p of problems) console.log(`  ${p}`);
   console.log("");
@@ -251,12 +251,21 @@ if (mode === "status" || mode === "check") {
   process.exit(mode === "check" ? 1 : 0);
 }
 
+// Rebuilding a current guide is not free of consequence: the PDF carries a creation date,
+// so identical input produces different bytes and leaves a 14 MB binary dirty in git.
+if (!problems.length && !force && !outPath) {
+  console.log(`Brand guide is already current: ${pdfName}, ${totalPages} pages.`);
+  process.exit(0);
+}
+
 // --- Rendering ----------------------------------------------------------------------
 
 if (!existsSync(CHROME)) {
   throw new Error(`Chrome not found at ${CHROME}. Set CHROME to its path.`);
 }
-mkdirSync(CACHE, { recursive: true });
+
+// The per-chapter cache this script used to keep. Nothing reads it any more.
+rmSync(join(root, ".guide-cache"), { recursive: true, force: true });
 
 // Chrome gets a profile directory of its own, so a build never contends with — or
 // writes into — the browser the user has open. The cost is that headless Chrome then
@@ -344,79 +353,22 @@ const render = async (html, pdf, label, expectedPages) => {
   console.log(`  ${label.padEnd(12)} ${seconds}s`);
 };
 
-if (monolithic) {
-  console.log(`Rendering all ${totalPages} pages in one pass…`);
-  const html = document_(
-    chapters.map((c) => expand(c.body, null)),
-    1,
-  );
-  await render(html, pdfPath, "whole guide", totalPages);
-  console.log(`Wrote ${pdfPath}`);
-  process.exit(0);
-}
+console.log(`Rendering ${totalPages} pages in one pass…`);
+if (problems.length) for (const p of problems) console.log(`  ${p}`);
+await render(html, pdfPath, "whole guide", totalPages);
 
-const stale = chapters.filter((c) => c.stale);
-
-// Merging is not free of consequence: pdf-lib stamps a new modification date, so a
-// re-merge of unchanged chapters produces different bytes and leaves a 14 MB binary
-// dirty in git for nothing. If the committed PDF already matches the manifest, stop.
-if (!stale.length && !outPath) {
-  const current =
-    manifest?.pdf?.sha256 &&
-    manifest.version === version &&
-    existsSync(pdfPath) &&
-    sha(readFileSync(pdfPath)) === manifest.pdf.sha256;
-  if (current) {
-    console.log(`Brand guide is already current: ${pdfName}, ${totalPages} pages.`);
-    process.exit(0);
-  }
-}
-
-if (!stale.length) {
-  console.log(`Every chapter is current; merging ${chapters.length} cached chapters.`);
-} else {
-  console.log(`Rendering ${stale.length} of ${chapters.length} chapters:`);
-  for (const c of stale) console.log(`  ${c.id} — ${c.why.join(", ")}`);
-}
-
-const queue = [...stale];
-await Promise.all(
-  Array.from({ length: Math.min(jobs, queue.length) }, async () => {
-    for (let c = queue.shift(); c; c = queue.shift()) {
-      await render(c.html, c.pdf, c.id, c.pages);
-    }
-  }),
-);
-
-// --- Merge ----------------------------------------------------------------------------
-
-const merged = await PDFDocument.create();
-for (const c of chapters) {
-  const part = await PDFDocument.load(readFileSync(c.pdf));
-  if (part.getPageCount() !== c.pages) {
-    throw new Error(
-      `${c.id} rendered ${part.getPageCount()} pages, expected ${c.pages}. ` +
-        `The fragment's content no longer fits its pages.`,
-    );
-  }
-  const pages = await merged.copyPages(part, part.getPageIndices());
-  for (const p of pages) merged.addPage(p);
-}
-
-merged.setTitle(`Aardling brand guide v${version}`);
-merged.setAuthor("Aardling");
-merged.setSubject("Brand guidelines, tokens and assets for the Aardling brand.");
-merged.setProducer("@aardling/brand-aardling");
-
-const bytes = Buffer.from(await merged.save());
+// Metadata is set on Chrome's own file. Loading and saving one document keeps its link
+// annotations; copying its pages into a new document would drop them.
+const pdf = await PDFDocument.load(readFileSync(pdfPath));
+pdf.setTitle(`Aardling brand guide v${version}`);
+pdf.setAuthor("Aardling");
+pdf.setSubject("Brand guidelines, tokens and assets for the Aardling brand.");
+pdf.setProducer("@aardling/brand-aardling");
+const bytes = Buffer.from(await pdf.save());
 writeFileSync(pdfPath, bytes);
 
-if (merged.getPageCount() !== totalPages) {
-  throw new Error(`Merged ${merged.getPageCount()} pages, expected ${totalPages}.`);
-}
-
 // A verification build writes somewhere else and must not touch the manifest, the
-// cached record of what the committed PDF was built from.
+// record of what the committed PDF was built from.
 if (outPath) {
   console.log(`Wrote ${pdfPath} (${totalPages} pages) — manifest left alone.`);
   process.exit(0);
@@ -430,6 +382,7 @@ for (const f of readdirSync(root)) {
   }
 }
 
+// Folios and page counts stay per chapter: /release takes the notes' page ranges from here.
 writeFileSync(
   MANIFEST,
   JSON.stringify(
@@ -437,17 +390,15 @@ writeFileSync(
       renderer: RENDERER,
       version,
       pages: totalPages,
+      hash,
+      head: headHash,
       headDeps,
       chapters: chapters.map((c) => ({
         id: c.id,
         file: c.file,
         folio: c.folio,
         pages: c.pages,
-        renderer: RENDERER,
-        version,
-        hash: c.hash,
         fragment: sha(c.body),
-        head: headHash,
         deps: c.deps,
       })),
       pdf: { file: pdfName, bytes: bytes.length, sha256: sha(bytes) },

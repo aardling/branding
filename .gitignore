@@ -1,6 +1,5 @@
 node_modules/
 .DS_Store
 *.log
-.guide-cache/
 .npmrc
 /.todo.md

@@ -80,8 +80,8 @@ The entry is written before the render so it rides in the release commit with th
 node aardling/scripts/build-brand-guide.mjs
 ```
 
-The bump renamed the PDF, so every chapter is stale and this is the slow full build — say so
-before starting it. The script writes the new PDF and removes the one under the old version.
+The bump renamed the PDF, so the guide is stale. The render is one pass of a couple of
+seconds. The script writes the new PDF and removes the one under the old version.
 Then confirm with `node aardling/scripts/build-brand-guide.mjs --check`, which must exit 0;
 `npm publish` runs the same check and will refuse a stale guide.
 
