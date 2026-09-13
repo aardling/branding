@@ -397,6 +397,9 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
   padding: var(--space-1) 0;
   border-bottom: 1px solid var(--colour-hairline-grey);
 }
+/* Each row is a link to the page it names. It looks exactly as it did before it was one: the
+   folio beside it is the affordance, and an underline across every row would be noise. */
+a.contents-row { color: inherit; text-decoration: none; }
 .contents-row .what { font-size: var(--font-size-h6); font-weight: var(--font-weight-medium); }
 .contents-row .where { font-variant-numeric: tabular-nums; color: var(--colour-muted-grey); font-size: var(--font-size-small); }
 
@@ -428,14 +431,6 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
 .bq-name { font-weight: var(--font-weight-semibold); font-size: var(--font-size-small); }
 .bq-role { color: var(--text-secondary); font-size: var(--font-size-small); font-weight: var(--font-weight-regular); }
 
-/* --- Icons ---------------------------------------------------------------- */
-
-/* The marks that may stand alone on a control, drawn rather than listed. Height set,
-   width left to follow — icons.md. */
-.icon-standalones { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); margin: var(--space-1) 0; }
-.icon-standalone { display: flex; align-items: center; gap: var(--space-1); font-size: var(--font-size-small); font-weight: var(--font-weight-medium); }
-.icon-standalone svg { height: var(--icon-lg); width: auto; flex: none; }
-
 /* 44px, the box an icon button already uses. Square, never a circle — a round crop
    cuts the corners off. The hairline is always present. */
 .bq-avatar {
@@ -453,4 +448,12 @@ figcaption { font-size: var(--font-size-small); color: var(--colour-muted-grey);
 .card-violet .bq-mark, .card-pink .bq-mark { color: var(--colour-night-blue); }
 .card-violet .bq-rule, .card-pink .bq-rule { background: var(--colour-night-blue); }
 .card-violet .bq-role, .card-pink .bq-role { color: var(--colour-night-blue); }
+
+/* --- Icons ---------------------------------------------------------------- */
+
+/* The marks that may stand alone on a control, drawn rather than listed. Height set,
+   width left to follow — icons.md. */
+.icon-standalones { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); margin: var(--space-1) 0; }
+.icon-standalone { display: flex; align-items: center; gap: var(--space-1); font-size: var(--font-size-small); font-weight: var(--font-weight-medium); }
+.icon-standalone svg { height: var(--icon-lg); width: auto; flex: none; }
 </style>
