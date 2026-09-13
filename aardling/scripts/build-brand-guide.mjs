@@ -213,10 +213,15 @@ const expand = (text, deps) =>
 // Every chapter opens on a page that carries its id, so the contents page — or any other
 // page — can link to it with href="#<id>". The id is written in the fragment where a reader
 // can see it, and checked here so a renamed file cannot quietly orphan its links.
+// Only that page carries one: head.html styles the page where a section opens by its id.
 for (const c of chapters) {
-  const first = c.body.match(/<section class="page[^"]*"[^>]*>/)?.[0] ?? "";
+  const [first = "", ...rest] = c.body.match(/<section class="page[^"]*"[^>]*>/g) ?? [];
   if (!first.includes(`id="${c.id}"`)) {
     throw new Error(`${c.file}: its first <section> needs id="${c.id}" (found ${first || "no section"}).`);
+  }
+  const extra = rest.find((s) => / id="/.test(s));
+  if (extra) {
+    throw new Error(`${c.file}: only its first <section> may carry an id; found ${extra}.`);
   }
 }
 for (const [, target] of chapters.flatMap((c) => [...c.body.matchAll(/href="#([^"]+)"/g)])) {
