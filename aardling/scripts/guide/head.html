@@ -456,4 +456,15 @@ a.contents-row { color: inherit; text-decoration: none; }
 .icon-standalones { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); margin: var(--space-1) 0; }
 .icon-standalone { display: flex; align-items: center; gap: var(--space-1); font-size: var(--font-size-small); font-weight: var(--font-weight-medium); }
 .icon-standalone svg { height: var(--icon-lg); width: auto; flex: none; }
+
+/* The whole set, grouped. The build splits the groups into three columns; each reads top to
+   bottom. --icon-md: a specimen set at the size a mark takes beside body copy — at --icon-lg
+   the page does not fit the sheet. */
+.icon-index { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: var(--space-3); margin-top: var(--space-1); align-items: start; }
+.icon-column { display: flex; flex-direction: column; gap: var(--space-3); }
+.icon-group { display: flex; flex-direction: column; gap: var(--space-1); }
+.icon-group .eyebrow { text-wrap: balance; }
+.icon-cell { display: flex; align-items: center; gap: var(--space-2); font-size: var(--font-size-small); line-height: 1.4; }
+.icon-cell svg { flex: none; height: var(--icon-md); width: auto; }
+.icon-cell span { font-weight: var(--font-weight-medium); white-space: nowrap; }
 </style>

@@ -82,6 +82,7 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
 | `assets/logos/lockups/`    | 22 flattened mark-on-ground files, generated from the two masters.                                                 |
 | `assets/icons/`            | Interface marks, SVG, `currentColor`, all but three generated.                                                     |
+| `assets/icons/groups.json` | Every mark in one group, named for what it does, in the order the guide prints them.                               |
 | `assets/favicons/`         | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
 | `assets/fonts/`            | Variable General Sans and Voyage as `woff2`, plus `fonts.css`.                                                     |
 | `assets/images/`           | Four SVG gradients, and three illustrations as WebP with PNG beside.                                               |

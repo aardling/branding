@@ -118,13 +118,86 @@ const totalPages = folio - 1;
 // {{TEXT:path}}        the file's contents verbatim (CSS, SVG markup to inline)
 // {{DATA:path}}        the file as a data: URI
 // {{FOLIO:id}}         the page a chapter starts on
+// {{ICONS}}            every mark in assets/icons/, under the groups in groups.json
 //
 // Every referenced file is recorded, so a stale chapter can say which asset moved
 // rather than only that something did.
 
+// --- The icon set ---------------------------------------------------------------------
+//
+// assets/icons/groups.json names every mark once, under a group, in the order the guide
+// prints them. It is checked on every run — --status and --check included — so a mark
+// nobody has placed cannot reach the package: prepublishOnly runs --check.
+
+const ICONS = join(root, "assets/icons");
+const GROUPS = "assets/icons/groups.json";
+const SKILL = "skills/aardling-brand/SKILL.md";
+
+const groups = JSON.parse(readFileSync(join(root, GROUPS), "utf8"));
+{
+  const onDisk = readdirSync(ICONS).filter((f) => f.endsWith(".svg")).map((f) => f.slice(0, -4));
+  const placed = new Map();
+  for (const [group, marks] of Object.entries(groups)) {
+    for (const mark of marks) {
+      if (placed.has(mark)) {
+        throw new Error(`${GROUPS} puts "${mark}" in both ${placed.get(mark)} and ${group}.`);
+      }
+      placed.set(mark, group);
+      if (!onDisk.includes(mark)) {
+        throw new Error(`${GROUPS} names "${mark}", and assets/icons/${mark}.svg does not exist.`);
+      }
+    }
+  }
+  for (const mark of onDisk) {
+    if (!placed.has(mark)) {
+      throw new Error(`assets/icons/${mark}.svg is in no group. Add it to ${GROUPS}.`);
+    }
+  }
+  // The brand skill lists the set by name so agents know what exists. It stays prose, and it
+  // may name a family by its prefix — `chevron-*` — but it may not fall behind the directory.
+  const skill = readFileSync(join(root, SKILL), "utf8");
+  const section = skill.slice(skill.indexOf("\n## Icons"), skill.indexOf("\n## ", skill.indexOf("\n## Icons") + 1));
+  const named = new Set([...section.matchAll(/`([a-z-]+\*?)`/g)].map((m) => m[1]));
+  for (const mark of onDisk) {
+    const family = mark.replace(/-[a-z]+$/, "-*");
+    if (!named.has(mark) && !named.has(family)) {
+      throw new Error(`assets/icons/${mark}.svg is not named in ${SKILL}'s Icons section. Add it there.`);
+    }
+  }
+}
+
+// Groups keep their order and are split into three contiguous columns — the split whose
+// tallest column is shortest — so the page reads down each column in group order and no
+// column runs long while another stops short. A group label is about 1.6 rows tall.
+const iconIndex = (deps) => {
+  const entries = Object.entries(groups);
+  const height = (run) => run.reduce((t, [, marks]) => t + marks.length + 1.6, 0);
+  let best = null;
+  for (let i = 1; i < entries.length - 1; i++) {
+    for (let j = i + 1; j < entries.length; j++) {
+      const columns = [entries.slice(0, i), entries.slice(i, j), entries.slice(j)];
+      const tallest = Math.max(...columns.map(height));
+      if (!best || tallest < best.tallest) best = { columns, tallest };
+    }
+  }
+  if (deps) deps[GROUPS] = sha(readFileSync(join(root, GROUPS)));
+  const cell = (mark) => {
+    const path = `assets/icons/${mark}.svg`;
+    const bytes = readFileSync(join(root, path));
+    if (deps) deps[path] = sha(bytes);
+    return `<div class="icon-cell">${bytes.toString("utf8").trim()}<span>${mark}</span></div>`;
+  };
+  return `<div class="icon-index">${best.columns
+    .map((column) => `<div class="icon-column">${column
+      .map(([name, marks]) => `<div class="icon-group"><p class="eyebrow">${name}</p>${marks.map(cell).join("")}</div>`)
+      .join("")}</div>`)
+    .join("")}</div>`;
+};
+
 const expand = (text, deps) =>
-  text.replace(/\{\{(VERSION|TEXT|DATA|FOLIO)(?::([^}]+))?\}\}/g, (_, kind, ref) => {
+  text.replace(/\{\{(VERSION|TEXT|DATA|FOLIO|ICONS)(?::([^}]+))?\}\}/g, (_, kind, ref) => {
     if (kind === "VERSION") return version;
+    if (kind === "ICONS") return iconIndex(deps);
     if (kind === "FOLIO") {
       if (!(ref in folios)) throw new Error(`{{FOLIO:${ref}}} names no chapter`);
       return String(folios[ref]);

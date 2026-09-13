@@ -263,13 +263,14 @@ no gear, target, handshake or puzzle piece. If asked for one, say why not and of
 the set, or plain text.
 
 One family, and it is an interface set. There is no ornamental mark in it, so do not reach for
-one. Every mark is 16×16 at stroke 1.25, butt caps, no fill: chevrons and arrows, `close`,
+one. Every mark is 16×16 at stroke 1.25, butt caps, no fill: `arrow-*` and `chevron-*`, `close`,
 `menu`, `search`, `home`, `external-link`, `more-horizontal` and `more-vertical`, `filter`,
 `settings-gear`, `settings-sliders`, `refresh`, `plus`, `check`, `edit`, `trash`, `copy`,
 `share`, `upload`, `download`, `info`, `warning`, `error`, `spinner`, `user`, `bag`, `heart`,
 `star-outline`, `bookmark`, `calendar`, `clock`, `mail`, `phone`, `location`, `quote`, `file`,
 `image`, `lock`, `link`, `eye` and `eye-off`, `zoom-in` and `zoom-out`, `play`, `pause`,
-`stop`, `fast-forward`, `rewind`, `skip-next`, `skip-previous`.
+`stop`, `fast-forward`, `rewind`, `skip-next`, `skip-previous`. `../../assets/icons/groups.json`
+groups them by what they do, and is the place to look for a mark by purpose.
 
 **back** and **forward** have no files: they are `arrow-left` and `arrow-right` under other
 names. Rotate `arrow-right` for up and down.

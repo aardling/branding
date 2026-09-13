@@ -1,0 +1,75 @@
+{
+  "Direction": [
+    "arrow-left",
+    "arrow-right",
+    "arrow-up",
+    "arrow-down",
+    "chevron-left",
+    "chevron-right",
+    "chevron-up",
+    "chevron-down"
+  ],
+  "Navigation": [
+    "home",
+    "menu",
+    "close",
+    "search",
+    "more-horizontal",
+    "more-vertical",
+    "external-link"
+  ],
+  "Actions": [
+    "plus",
+    "edit",
+    "trash",
+    "copy",
+    "link",
+    "share",
+    "upload",
+    "download",
+    "refresh",
+    "filter",
+    "zoom-in",
+    "zoom-out"
+  ],
+  "Marking": [
+    "check",
+    "bookmark",
+    "heart",
+    "star-outline"
+  ],
+  "Settings and access": [
+    "settings-sliders",
+    "settings-gear",
+    "lock",
+    "eye",
+    "eye-off"
+  ],
+  "Status": [
+    "info",
+    "warning",
+    "error",
+    "spinner"
+  ],
+  "Playback": [
+    "skip-previous",
+    "rewind",
+    "play",
+    "pause",
+    "stop",
+    "fast-forward",
+    "skip-next"
+  ],
+  "Things": [
+    "user",
+    "mail",
+    "phone",
+    "location",
+    "calendar",
+    "clock",
+    "file",
+    "image",
+    "bag",
+    "quote"
+  ]
+}
