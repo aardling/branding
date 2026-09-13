@@ -107,7 +107,7 @@ always the client's world, not ours.
 
 ### What disqualifies a photo
 
-Same instinct as `web.md`'s "no cliché metaphors" rule for icons: a handshake for
+Same instinct as `icons.md`'s "no cliché metaphors" rule for icons: a handshake for
 partnership, a lightbulb for an idea, a laptop keyboard close-up for "software", a meeting
 room of people pointing at a whiteboard. These are stock, posed and interchangeable — they
 picture the idea of work rather than the work itself. A real port, shot documentary-style,
