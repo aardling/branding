@@ -80,7 +80,7 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `guidelines/forms.md`      | Field anatomy, help text, validation timing, fieldsets, and the newsletter signup.                                 |
 | `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
 | `assets/logos/lockups/`    | 22 flattened mark-on-ground files, generated from the two masters.                                                 |
-| `assets/icons/`            | 54 interface marks, SVG, `currentColor`, all but three generated.                                                  |
+| `assets/icons/`            | Interface marks, SVG, `currentColor`, all but three generated.                                                     |
 | `assets/favicons/`         | The icon logo knocked out of a rounded Bloom tile. `favicon.svg` is the source; the rasters are generated from it. |
 | `assets/fonts/`            | Variable General Sans and Voyage as `woff2`, plus `fonts.css`.                                                     |
 | `assets/images/`           | Four SVG gradients, and three illustrations as WebP with PNG beside.                                               |
@@ -156,12 +156,11 @@ See `guidelines/logos.md`.
 
 ## Icons
 
-`assets/icons/` holds 54 interface marks, all `currentColor` — set `color` on a parent to
+`assets/icons/` holds the interface marks, all `currentColor` — set `color` on a parent to
 recolour them, and never edit a file or add a `fill`. They are 16×16 at stroke 1.25, butt caps,
-no fill: chevrons and arrows, and the forty-odd glyphs a product interface needs.
+no fill: chevrons and arrows, and the glyphs a product interface needs.
 
-A second, decorative family — sparkles, stars, spheres, orbits, ovals at drawing scale — was
-withdrawn and will not return. There is no ornamental mark in this brand.
+There is no ornamental mark in this brand.
 
 The marks are generated, not drawn:
 
