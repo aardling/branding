@@ -70,7 +70,7 @@ phrase, not a paragraph, and 1.5 leaves it loose in the pill.
 
 Square: 44, 52 or 60 on a side, which `--radius-pill` renders as a circle. The icon is
 `--icon-lg`, or `--icon-sm` at the small size, set on the height with the width left to
-follow. An icon-only button always carries an accessible name — `web.md` holds that rule and
+follow. An icon-only button always carries an accessible name — `icons.md` holds that rule and
 the short list of marks whose meaning survives losing their label.
 
 ### Groups

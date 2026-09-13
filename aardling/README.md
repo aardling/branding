@@ -75,7 +75,8 @@ import tokens from "@aardling/brand-aardling/tokens/tokens.json" with { type: "j
 | `guidelines/logos.md`      | Masters and lockups, clear space, which pairs carry a mark, minimum sizes.                                         |
 | `guidelines/naming.md`     | How the brand name and the company names are written.                                                              |
 | `guidelines/voice.md`      | Register, person, and do/don't examples.                                                                           |
-| `guidelines/web.md`        | Breakpoints, states, dark mode, motion, elevation, loading, and how the icons are drawn.                           |
+| `guidelines/web.md`        | Breakpoints, states, dark mode, motion, elevation, loading and navigation.                                         |
+| `guidelines/icons.md`      | The one family and its one curve, the sizes, and when a mark may stand without a label.                            |
 | `guidelines/components.md` | The hero, the card, the callout and the footer.                                                                    |
 | `guidelines/forms.md`      | Field anatomy, help text, validation timing, fieldsets, and the newsletter signup.                                 |
 | `assets/logos/`            | The logotype and the icon logo, both SVG, both `currentColor`.                                                     |
@@ -112,7 +113,7 @@ It is generated, not maintained by hand:
 npm run build:guide --workspace @aardling/brand-aardling
 ```
 
-The source is fourteen chapter fragments in `scripts/guide/`, plus `head.html` for the shared
+The source is the chapter fragments in `scripts/guide/`, plus `head.html` for the shared
 type and layout. `scripts/build-brand-guide.mjs` fills each with the version from
 `package.json`, inlines every asset as a data URI, prints it with headless Chrome, and merges
 the chapters into one document. A chapter is only re-rendered when the HTML it would produce
@@ -176,7 +177,7 @@ deterministic: the same inputs give byte-identical output, so re-running is safe
 after a run means an input changed. Redraw there, not in a file.
 
 Three marks are drawn by hand rather than generated: `download.svg`, which predates the
-script and is left as it ships, and `zoom-in.svg` and `zoom-out.svg`. See `guidelines/web.md`.
+script and is left as it ships, and `zoom-in.svg` and `zoom-out.svg`. See `guidelines/icons.md`.
 
 ## Imagery
 
