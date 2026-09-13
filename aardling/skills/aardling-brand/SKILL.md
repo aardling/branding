@@ -256,7 +256,7 @@ blotch at that size. `favicon.svg` is the source; the rasters come from it. Rule
 
 ## Icons
 
-`../../assets/icons/` holds 57 marks, all `currentColor`, all from the brand's own set. Use
+`../../assets/icons/` holds the marks, all `currentColor`, all from the brand's own set. Use
 them; do not substitute an off-the-shelf icon library, and never use emoji as icons. Marks are
 functional, never a metaphor for a concept: no lightbulb for strategy, no rocket for a launch,
 no gear, target, handshake or puzzle piece. If asked for one, say why not and offer a mark from

@@ -175,8 +175,8 @@ of it at the corners, a chevron two of it meeting at a point. Like `build-lockup
 deterministic: the same inputs give byte-identical output, so re-running is safe and a diff
 after a run means an input changed. Redraw there, not in a file.
 
-One mark predates the script and is not generated: `download.svg`, left as it ships. See
-`guidelines/web.md`.
+Three marks are drawn by hand rather than generated: `download.svg`, which predates the
+script and is left as it ships, and `zoom-in.svg` and `zoom-out.svg`. See `guidelines/web.md`.
 
 ## Imagery
 
