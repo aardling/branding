@@ -38,7 +38,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join, resolve, basename } from "node:path";
 import { tmpdir } from "node:os";
 import { createHash } from "node:crypto";
-import { PDFDocument } from "pdf-lib";
+import { PDFDocument, PDFName, PDFDict } from "pdf-lib";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const root = resolve(here, "..");
@@ -318,14 +318,26 @@ const render = async (html, pdf, label, expectedPages) => {
 
   // A PDF only parses once its trailer and xref are written, so this is a real
   // completion test rather than a guess about timing.
+  // A parseable file with the wrong page count, unchanged for two seconds, is not still
+  // being written: Chrome has finished and the source does not print the pages it declares.
+  // Say so now rather than after the 120s timeout.
+  let wrong = null;
   const complete = async () => {
     if (!existsSync(pdf)) return false;
+    let count;
     try {
-      const doc = await PDFDocument.load(readFileSync(pdf), { updateMetadata: false });
-      return doc.getPageCount() === expectedPages;
+      const bytes = readFileSync(pdf);
+      count = (await PDFDocument.load(bytes, { updateMetadata: false })).getPageCount();
+      if (count === expectedPages) return true;
+      const seen = `${count}:${bytes.length}`;
+      if (wrong?.seen !== seen) wrong = { seen, since: Date.now() };
     } catch {
       return false; // Still being written.
     }
+    if (Date.now() - wrong.since > 2000) {
+      throw new PageCountError(label, count, expectedPages, pdf);
+    }
+    return false;
   };
 
   try {
@@ -353,9 +365,46 @@ const render = async (html, pdf, label, expectedPages) => {
   console.log(`  ${label.padEnd(12)} ${seconds}s`);
 };
 
+class PageCountError extends Error {
+  constructor(label, count, expected, pdf) {
+    super(`${label} printed ${count} pages; the fragments declare ${expected}.`);
+    Object.assign(this, { count, expected, pdf });
+  }
+}
+
+// Which chapter went wrong. Every chapter's first page is a link target, so Chrome writes
+// a named destination for each id; the first chapter that starts somewhere other than its
+// declared folio sits right after the one that printed too many or too few pages.
+const culprit = async (pdf) => {
+  const doc = await PDFDocument.load(readFileSync(pdf), { updateMetadata: false });
+  const pages = doc.getPages().map((p) => p.ref.toString());
+  const dests = doc.catalog.lookup(PDFName.of("Dests"));
+  const starts = {};
+  for (const [name, dest] of dests?.entries() ?? []) {
+    const d = doc.context.lookup(dest);
+    const target = (d instanceof PDFDict ? doc.context.lookup(d.get(PDFName.of("D"))) : d)?.get?.(0);
+    if (target) starts[name.decodeText()] = pages.indexOf(target.toString()) + 1;
+  }
+  for (let i = 1; i < chapters.length; i++) {
+    const c = chapters[i];
+    if (c.id in starts && starts[c.id] !== c.folio) {
+      const before = chapters[i - 1];
+      return `${before.file} declares ${before.pages} page(s), but ${c.id} starts on page ${starts[c.id]} instead of ${c.folio}. A <section class="page"> in ${before.file} is not printing as one page.`;
+    }
+  }
+  return null;
+};
+
 console.log(`Rendering ${totalPages} pages in one pass…`);
 if (problems.length) for (const p of problems) console.log(`  ${p}`);
-await render(html, pdfPath, "whole guide", totalPages);
+try {
+  await render(html, pdfPath, "The guide", totalPages);
+} catch (e) {
+  if (!(e instanceof PageCountError)) throw e;
+  const where = await culprit(e.pdf).catch(() => null);
+  rmSync(e.pdf, { force: true });
+  throw new Error(where ? `${e.message} ${where}` : e.message);
+}
 
 // Metadata is set on Chrome's own file. Loading and saving one document keeps its link
 // annotations; copying its pages into a new document would drop them.
