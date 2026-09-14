@@ -98,6 +98,18 @@ body {
   border-bottom: 1px solid var(--colour-hairline-grey);
 }
 
+/* The page where a section opens — the only page that carries an id, which the build
+   enforces. Its section name steps up from a grey label to Night Blue at h5, over a 3px
+   Night Blue rule, so a reader scrolling the PDF sees the section change without reading
+   the head. It is 11px taller than a continuation page's head, which leaves the tightest
+   opening page, The name, 2px spare: something added to that page moves to the next one. */
+.page[id] .page-head { border-bottom: 3px solid var(--colour-night-blue); }
+.page[id] .page-head .eyebrow:first-child {
+  font-size: var(--font-size-h5);
+  color: var(--colour-night-blue);
+  letter-spacing: 0.08em;
+}
+
 .page-body {
   flex: 1;
   min-height: 0;
