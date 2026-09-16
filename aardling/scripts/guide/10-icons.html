@@ -5,22 +5,20 @@
     <span class="eyebrow eyebrow-path">guidelines/icons.md</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Three icon sizes</h2>
+    <h2 class="title">Sizes</h2>
     <table>
       <tbody>
-        <tr><td style="width: 110px"><span class="token">--icon-sm</span></td><td style="width: 60px">16px</td><td>Inline with small text, and inside dense controls.</td></tr>
+        <tr><td style="width: 110px"><span class="token">--icon-sm</span></td><td style="width: 60px">16px</td><td>Inline with small text; dense controls.</td></tr>
         <tr><td><span class="token">--icon-md</span></td><td>20px</td><td>Inline with body copy. The default.</td></tr>
-        <tr><td><span class="token">--icon-lg</span></td><td>24px</td><td>Buttons, navigation items, list bullets. The largest step there is.</td></tr>
+        <tr><td><span class="token">--icon-lg</span></td><td>24px</td><td>Buttons, navigation items, list bullets.</td></tr>
       </tbody>
     </table>
-    <p class="meta"><strong>Set the height and let the width follow.</strong> Not every mark is
-      square, so constraining the width distorts it or crops the container. Set
-      <span class="token">height</span> and leave <span class="token">width: auto</span>.</p>
-    <p class="meta"><strong>One mark needs adjusting by eye.</strong> The set is drawn on one
-      16&times;16 grid at stroke 1.25. <span class="token">download</span> predates the generator
-      and carries its own 14&times;14 box, so at the same pixel height it will not have the same
-      apparent weight as its neighbours. Put it beside the text it belongs to and match it by
-      eye; the sizes above are its starting point, not its answer.</p>
+    <ol class="small">
+      <li>No size above 24px.</li>
+      <li>Set <span class="token">height</span> and leave <span class="token">width: auto</span>. Not every mark is square.</li>
+      <li>The set is drawn on one 16&times;16 grid at stroke 1.25.</li>
+      <li><span class="token">download</span> carries its own 14&times;14 box. At the same pixel height it looks lighter than its neighbours: start from the sizes above, place it beside its text and adjust by eye.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Icons</span><span class="folio"></span>
@@ -31,17 +29,17 @@
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Icons</span>
-    <span class="eyebrow">A mark is not a label, and not a metaphor</span>
+    <span class="eyebrow">Labels and metaphors</span>
   </div>
   <div class="page-body">
-    <h2 class="title">What a mark may not do</h2>
+    <h2 class="title">Not allowed</h2>
 
-    <p class="meta"><strong>A mark is never the only label.</strong> A control carrying an icon and
-      no visible text needs an accessible name — and if the meaning is not obvious to someone
-      outside our field, it needs visible text as well. A tooltip does not rescue it: a thumb
-      cannot hover.</p>
-
-    <p class="small">In practice that leaves a short list that may stand alone on a control.</p>
+    <ol class="small">
+      <li>An icon is never the only label. An icon-only control needs an accessible name.</li>
+      <li>If the meaning is not obvious to someone outside our field, add visible text as well.</li>
+      <li>A tooltip does not replace a label: a thumb cannot hover.</li>
+      <li>Only these marks may stand alone on a control. Everything else takes a visible label.</li>
+    </ol>
     <div class="icon-standalones">
       <span class="icon-standalone">{{TEXT:assets/icons/close.svg}}<span>close</span></span>
       <span class="icon-standalone">{{TEXT:assets/icons/menu.svg}}<span>menu</span></span>
@@ -57,22 +55,14 @@
       <span class="icon-standalone">{{TEXT:assets/icons/download.svg}}<span>download</span></span>
       <span class="icon-standalone">{{TEXT:assets/icons/upload.svg}}<span>upload</span></span>
     </div>
-    <p class="meta">Everything else takes a visible label.</p>
 
     <hr class="rule">
 
-    <p class="meta"><strong>No emoji as icons.</strong> An emoji is not part of the set. It will
-      not take <span class="token">currentColor</span>, it will not match the stroke weight of the
-      marks beside it, and it renders differently on every platform. Where a mark is needed and
-      the set has none, use text.</p>
-
-    <p class="meta"><strong>No cliché metaphors.</strong> Functional marks are what the set is for
-      — an arrow that means back, a download that means download. What we do not draw is a picture
-      standing in for an abstract concept: a lightbulb for an idea, a rocket for a launch, a gear
-      for engineering, a target for a goal, a handshake for a partnership, a puzzle piece for fit,
-      a compass for strategy. They are stock, and they carry no meaning the sentence beside them is
-      not already carrying. Every mark in this set names an action or a thing — back, download,
-      search, a file, a clock — so the concept stays in the words and the mark stays a mark.</p>
+    <ol class="small">
+      <li>No emoji as icons. An emoji does not take <span class="token">currentColor</span>, does not match the stroke weight, and renders differently per platform. Where the set has no mark, use text.</li>
+      <li>No cliché metaphors. Draw functional marks only — an action or a thing: back, download, search, a file, a clock.</li>
+      <li>Never a picture standing in for an abstract concept: a lightbulb for an idea, a rocket for a launch, a gear for engineering, a target for a goal, a handshake for a partnership, a puzzle piece for fit, a compass for strategy. The concept stays in the words.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Icons</span><span class="folio"></span>
@@ -87,11 +77,11 @@
     <span class="eyebrow">The set</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Every mark, by what it does</h2>
-    <p class="meta">This page is generated from <span class="token">assets/icons/</span>, so a mark
-      missing from it is missing from the set. <strong>back</strong>, <strong>forward</strong> and
-      <strong>next</strong> are not listed: they are <span class="token">arrow-left</span> and
-      <span class="token">arrow-right</span> under other names.</p>
+    <h2 class="title">Set</h2>
+    <ol class="small">
+      <li>Generated from <span class="token">assets/icons/</span>. A mark missing here is missing from the set.</li>
+      <li><strong>back</strong>, <strong>forward</strong> and <strong>next</strong> are <span class="token">arrow-left</span> and <span class="token">arrow-right</span> under other names.</li>
+    </ol>
     {{ICONS}}
   </div>
   <div class="page-foot">

@@ -5,40 +5,41 @@
     <span class="eyebrow eyebrow-path">guidelines/typography.md</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Two faces, used in very unequal measure</h2>
+    <h2 class="title">Typography</h2>
 
     <div class="card">
       <p class="eyebrow">Display</p>
       <p class="specimen-voyage">Voyage</p>
-      <p class="meta gap-top"><span class="token">--font-display</span>: Voyage, Georgia, "Times New Roman", serif. Regular only — no italic, no
-        variable axis, one weight. Below about 24px it loses its detail and reads as a generic
-        serif, so it never sets anything small.</p>
+      <p class="meta gap-top"><span class="token">--font-display</span>: Voyage, Georgia, "Times New Roman", serif. Static Regular only: no italic, no variable axis.</p>
     </div>
 
     <div class="card">
       <p class="eyebrow">Body</p>
       <p class="specimen-sans">General Sans</p>
-      <p class="meta gap-top"><span class="token">--font-body</span>: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif. A
-        variable font: one file per style spanning weight 200 to 700, upright and italic.</p>
+      <p class="meta gap-top"><span class="token">--font-body</span>: "General Sans", "Helvetica Neue", Helvetica, Arial, sans-serif. Variable: one file per style, weight 200 to 700.</p>
     </div>
 
-    <p class="meta">Both faces ship in the package as woff2 and are self-hosted. Never a link or an
-      import to Google Fonts, Fontshare or any other third-party host: Aardling's typography does
-      not depend on a network it does not control.</p>
+    <p class="subhead">Files</p>
+    <ol class="small">
+      <li>Both faces are self-hosted woff2 files in the package.</li>
+      <li>Never load a face from Google Fonts, Fontshare or any other third-party host.</li>
+    </ol>
 
     <div class="cols gap-top">
       <div>
         <p class="subhead">Letter-spacing</p>
-        <p class="small gap-top">None, at any size, in either face, with one exception: uppercase
-          labels take 0.12em to 0.14em, because capitals set at their default fit are too tight to
-          read. The eyebrow at the top of this page is one.</p>
+        <ol class="small gap-top">
+          <li>None, at any size, in either face.</li>
+          <li>Exception: uppercase labels take 0.12em to 0.14em.</li>
+        </ol>
       </div>
       <div>
         <p class="subhead">Wrapping</p>
-        <p class="small gap-top">Headings, taglines, pull quotes, buttons and captions are balanced
-          across their lines rather than left with a single orphaned word. Body copy is set to
-          avoid orphans. Protected terms never break — see the Layout section, from
-          page {{FOLIO:layout}}.</p>
+        <ol class="small gap-top">
+          <li>Headings, taglines, pull quotes, buttons, captions: balanced.</li>
+          <li>Body copy: no orphans.</li>
+          <li>Protected terms never break. See page {{FOLIO:layout}}.</li>
+        </ol>
       </div>
     </div>
   </div>
@@ -54,9 +55,7 @@
     <span class="eyebrow">Weights</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Six weights, upright and italic</h2>
-    <p class="small">General Sans covers 200 to 700 in one variable file per style, so every weight
-      below is available without loading a file per cut. Voyage is Regular only.</p>
+    <h2 class="title">Weights</h2>
 
     <div class="stack-tight">
       <div class="weight-row"><span class="small"><span class="token">200</span> Extralight</span><span class="sample" style="font-weight:200">Very large display settings only</span></div>
@@ -67,10 +66,10 @@
       <div class="weight-row"><span class="small"><span class="token">700</span> Bold</span><span class="sample" style="font-weight:700">Rare — only where 600 fails to separate</span></div>
     </div>
 
-    <p class="small gap-top">Headings are <strong>500</strong>. Use <span class="token">--font-weight-heading</span>
-      rather than the literal, so the decision lives in one place. The website's stylesheet has
-      asked for 500 since it was built and silently rendered 400, because only two cuts were
-      loaded; the Medium cut is in the package now and the original intent stands.</p>
+    <ol class="small gap-top">
+      <li>Headings are 500. Use <span class="token">--font-weight-heading</span>, not the literal.</li>
+      <li>Voyage is Regular only.</li>
+    </ol>
 
     <p class="subhead gap-top">Italics</p>
     <div class="stack-tight">
@@ -79,8 +78,10 @@
       <div class="weight-row"><span class="small"><span class="token">600</span> Semibold italic</span><span class="sample" style="font-weight:600;font-style:italic">A genuine aside</span></div>
     </div>
 
-    <p class="meta gap-top">Italics exist at every weight. Use them for what italics are for. Not for
-      emphasis; that is what 600 is for.</p>
+    <ol class="small gap-top">
+      <li>Italics exist at every weight.</li>
+      <li>Never use italics for emphasis. Use 600.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Typography</span><span class="folio"></span>
@@ -94,10 +95,11 @@
     <span class="eyebrow">The scale</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Eight steps, and the base is the phone</h2>
-    <p class="small">The sizes declared in <span class="token">:root</span> are what a 360px screen gets,
-      shown here at size. Every larger step is a <span class="token">min-width</span> query layered on
-      top — the direction is set out in the Web section, from page {{FOLIO:web}}.</p>
+    <h2 class="title">Scale</h2>
+    <ol class="small">
+      <li>The phone sizes, shown here at size, are the base in <span class="token">:root</span>.</li>
+      <li>Larger steps are <span class="token">min-width</span> queries. See page {{FOLIO:web}}.</li>
+    </ol>
 
     <div class="scale-list">
       <div class="scale-row"><span class="label">h1 &nbsp; 36 / 1.2</span><span class="sample" style="font-size:36px">Aardling</span></div>
@@ -122,7 +124,7 @@
     <span class="eyebrow">The scale, at every breakpoint</span>
   </div>
   <div class="page-body">
-    <h2 class="title">The scale moves at four breakpoints</h2>
+    <h2 class="title">Scale, per breakpoint</h2>
     <table>
       <thead>
         <tr><th>Step</th><th class="num">Phone</th><th class="num">From 540</th><th class="num">From 960</th><th class="num">From 1728</th><th class="num">From 1920</th></tr>
@@ -139,10 +141,11 @@
       </tbody>
     </table>
 
-    <p class="meta">The 540px step moves h1 to h4 and nothing else: further down, the phone sizes are
-      already right, and dropping h6 below 18 would push it under the body size it has to outrank.
-      There is no multiplier — the columns were set by eye, not by scaling the one beside them.
-      This page is set at the 540 column, because an A4 sheet at 96dpi is 794px wide.</p>
+    <ol class="small">
+      <li>The 540px step changes h1 to h4 only.</li>
+      <li>There is no multiplier. Choose a new size by eye.</li>
+      <li>This guide is set at the 540 column.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Typography</span><span class="folio"></span>
@@ -156,32 +159,16 @@
     <span class="eyebrow">Which face, where</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Voyage holds a phrase, not a paragraph</h2>
+    <h2 class="title">Which face, where</h2>
 
-    <p>Voyage is used sparingly — typically once on a page, on one short title. Normally that is
-      the h1: the page hero, or the one heading a reader is meant to carry away. A second Voyage
-      setting on the same page is an exception and needs a reason.</p>
-
-    <p>Everything else is General Sans, including headings that look like they want the display
-      face: h2 and h3, card titles, call-to-action headings, pull quotes, form section labels,
-      table captions, sidebar headers. A page set almost entirely in General Sans is the normal
-      case, not a compromise.</p>
-
-    <p>Keep the Voyage title short — one line, a handful of words. The face has one weight, no
-      italic and no variable axis. Below about 24px it never sets anything at all: if a title
-      needs to be smaller than that, it is not the Voyage title on that page.</p>
-
-    <div class="card card-violet gap-top">
-      <p class="subhead">Voyage never sets a heading on artwork</p>
-      <p class="small gap-top">A heading placed on a gradient is General Sans at the heading weight,
-        whatever its size. Voyage's hairlines and its thick-to-thin contrast are exactly what the
-        gradients' grain interferes with. It is the same interference that sets the marks'
-        minimum sizes on a gradient. See the Imagery section, from page {{FOLIO:imagery}}.</p>
-    </div>
-
-    <p class="meta gap-top">Every Voyage setting in this document is a page title, one per page —
-      the single exception being the specimen on page {{FOLIO:typography}}, which is the face shown as itself. The
-      subheads, the tables and this paragraph are all General Sans.</p>
+    <ol>
+      <li>Use Voyage once per page, on one short title — normally the h1.</li>
+      <li>A second Voyage setting on a page needs a reason.</li>
+      <li>Keep the Voyage title to one line of a few words.</li>
+      <li>Never set Voyage below 24px. A smaller title is General Sans.</li>
+      <li>Never set Voyage on a gradient. A heading on a gradient is General Sans at the heading weight. See page {{FOLIO:imagery}}.</li>
+      <li>Set everything else in General Sans: h2, h3, card titles, call-to-action headings, pull quotes, form section labels, table captions, sidebar headers.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Typography</span><span class="folio"></span>

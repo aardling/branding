@@ -1,58 +1,47 @@
 # Forms
 
-Every form on an Aardling surface — the newsletter, the contact form, a workshop enquiry —
-is built from this file. It adds no colour, no size, no spacing step and no radius: everything
-below is a token the brand already publishes, used for a job it already describes. The colours
-of a control are in `colour.md`, the spacing ladder and the radii in `layout.md`, the focus
-ring and the state behaviour in `web.md`. This file says how a form is assembled from them.
+1. Every form on an Aardling surface — newsletter, contact form, workshop enquiry — is built
+   from this file.
+2. Forms add no colour, size, spacing step or radius. Control colours are in `colour.md`;
+   spacing and radii in `layout.md`; focus ring and states in `web.md`.
 
 ## Anatomy
 
-A field is four things, stacked, always in this order:
+A field is four parts, stacked in this order:
 
 1. the label
 2. the help text
 3. the control
 4. the error message
 
-Stacked, never side by side. A reader meets the question, then the guidance, then the box —
-which is the order they need them in, and the order a screen reader announces them in.
-
 | Part | Treatment |
 | --- | --- |
 | Label | `--font-size-body`, `--font-weight-medium`, `--text-primary`. Always visible. |
 | Help text | `--font-size-small`, `--text-secondary`, `--space-1` below the label. Wired with `aria-describedby`. |
-| Control | `--space-2` below whatever precedes it. 1px `--border-control`, `--radius-sm`, ground `--surface-raised`, padding 12px vertical and `--space-2` horizontal, never under 44px high. |
-| Error message | `--font-size-small`, `--text-error`, `--space-1` below the control. The border doubles to 2px at the same time, so the state is not carried by colour alone. |
+| Control | `--space-2` below whatever precedes it. 1px `--border-control`, `--radius-sm`, ground `--surface-raised`, padding 12px vertical and `--space-2` horizontal, at least 44px high. |
+| Error message | `--font-size-small`, `--text-error`, `--space-1` below the control. The border doubles to 2px at the same time. |
 
-The label is set at `--font-weight-medium` because it is the heading of its field. 600 is
-reserved for emphasis inside running text and for table headers, and a stacked label is
-neither.
-
-**12px vertical padding is a literal, not a token.** It is the same figure a button takes in
-`layout.md`, so a field and a button set beside each other agree on their height. This file
-does not invent a tenth step of the spacing ladder to hold it.
-
-**No placeholder text.** It disappears the moment somebody types, it is the first thing a
-reader in a hurry loses, and it fails contrast the instant anyone lightens it to distinguish
-it from a real value. Anything a placeholder would have said belongs in the help text. A
-placeholder is never a label.
-
-**A field is as wide as its answer deserves.** An email address takes the column; a postcode
-takes about twelve characters. The form column itself never exceeds `--container-sm` (516px),
-which keeps every label directly above the box it belongs to.
-
-**Two fields never sit side by side below 720px** — and above it, only when they are genuinely
-one answer, such as a first and a last name.
-
-**Every control carries its `autocomplete`** — `email`, `name`, `organization`, `tel`. A
-reader should be able to fill in an Aardling form without typing.
+1. Never place the parts side by side.
+2. The label is `--font-weight-medium`, not 600. 600 is for emphasis in running text and table
+   headers.
+3. The 12px vertical padding is a literal, not a token. It matches the button padding in
+   `layout.md`, so a field and a button agree on height.
+4. No placeholder text. A placeholder is never a label. Put its content in the help text.
+5. Size a field to its answer: an email address takes the column; a postcode about twelve
+   characters.
+6. The form column never exceeds `--container-sm` (516px).
+7. Below 720px, never put two fields side by side. Above it, only when they are one answer,
+   such as first and last name.
+8. Every control carries its `autocomplete`: `email`, `name`, `organization`, `tel`.
 
 ## Help text
 
-Help text earns its place by preventing a specific mistake, or by answering the question a
-reader would otherwise stop and ask. Text that restates the label is filler, and `voice.md`
-deletes filler.
+1. Help text prevents a specific mistake or answers the question a reader would otherwise ask.
+2. Never restate the label. See `voice.md`.
+3. Place it above the control, never below.
+4. Never in a tooltip or behind an icon.
+5. One or two lines. Anything longer goes above the fieldset.
+6. Say why, not only what: "Include the country code, so we can call you back."
 
 > Yes: We reply from a person, not a ticketing system.
 >
@@ -66,79 +55,48 @@ deletes filler.
 >
 > No: We take your privacy very seriously.
 
-**Above the control, never below it.** Guidance that arrives after the box is guidance the
-reader has already failed to use.
-
-**Never a tooltip, and never behind an icon.** A hover state is unreachable on a touchscreen —
-`web.md` — and help text is information, so it cannot live in one. If it matters enough to
-write, it matters enough to show.
-
-**One or two lines.** Longer than that and it is not help text; it is the paragraph that should
-have gone above the fieldset.
-
-**It says why, not only what.** "Include the country code" is an instruction. "So we can call
-you back" is the reason somebody follows it.
-
 ## Required and optional
 
-**Mark what is optional, in words, in the label.** Aardling's forms are short and nearly
-everything on them is needed, so an asterisk on every field but one is noise.
+1. Mark what is optional, in words, in the label.
+2. The word is `--text-secondary` at `--font-weight-regular`, inside the label.
+3. Never a bare asterisk.
+4. If most of a form is optional, mark the required fields instead, in words.
+5. Prefer deleting a field whose answers nobody reads.
 
 ```html
 <label for="company">Company <span class="optional">(optional)</span></label>
 ```
 
-The word is `--text-secondary` at `--font-weight-regular`, inside the label.
-
-Never a bare asterisk: a symbol with a legend at the top of the form is a symbol whose legend
-has scrolled out of sight. If most of a form is optional, invert it and mark the required ones
-the same way, in words.
-
-The best fix is usually deletion. A field whose answers nobody reads is not optional; it is
-gone.
-
 ## Validation timing
 
-**Reward early, punish late.** Tell somebody they are wrong as late as honestly possible, and
-tell them they are right again as early as possible. Everything else follows from that.
+Report an error as late as honestly possible; clear it as early as possible.
 
-| Moment | What happens | Why |
-| --- | --- | --- |
-| Typing, no error yet | Nothing at all. No message, no border change, no tick. | Half an email address is not a wrong email address. |
-| Leaving a field that is empty | Nothing. | A reader tabbing through to see what is being asked has done nothing wrong. Empties are caught on submit. |
-| Leaving a field that is filled in but wrong | The error appears. | They have finished their answer and it will not work. This is the last honest moment to say so. |
-| Typing in a field that is already in error | Re-checked on every keystroke; the error goes the instant the value is right. | The reward half. Nobody should have to leave a field to find out they have fixed it. |
-| Checkboxes, radios and selects | Judged on submit only. | Blur fires as a reader moves between the options of the group they are still answering. |
-| Submit | Everything is checked. Focus moves to the summary, or to the first field in error where there is no summary. | The reader pressed a button and has to be told what it did. |
-| The server rejects it | Rendered on the same field, in the same place, in the same words. | A reader cannot tell which side of the wire refused them, and should not have to. |
+| Moment | What happens |
+| --- | --- |
+| Typing, no error yet | Nothing. No message, no border change, no tick. |
+| Leaving an empty field | Nothing. Empties are caught on submit. |
+| Leaving a filled-in field that is wrong | The error appears. |
+| Typing in a field already in error | Re-checked on every keystroke; the error goes the instant the value is right. |
+| Checkboxes, radios and selects | Judged on submit only. |
+| Submit | Everything is checked. Focus moves to the summary, or to the first field in error where there is no summary. |
+| The server rejects it | Rendered on the same field, in the same place, in the same words. |
 
-**Never disable the submit button.** A button that does nothing and does not say why leaves a
-reader with nowhere to go. Let them press it, and tell them what is wrong. `colour.md` already
-says that a disabled control which needs explaining should be explained in text instead.
-
-**Never validate on a timer while somebody types.** Debounced live validation interrupts a
-reader halfway through an address.
-
-**Never the browser's own bubbles.** Put `novalidate` on the form and do the messaging here.
-The native bubbles are unstyled, they time out on their own, they are not announced
-consistently, and they are not in this brand's voice. Keep `type="email"`, `inputmode` and the
-rest for the keyboard and the semantics.
-
-**Nothing animates.** The error is there or it is not. Only the border colour transitions, at
-`--duration-fast`.
-
-**Never an asynchronous check per keystroke.** "Is this address already subscribed" runs on
-blur or on submit, and never blocks typing.
-
-**The reflow is accepted, not reserved against.** Inserting a message pushes the fields below
-it down, and no space is held empty in advance for one. That is safe because of *when* errors
-appear: on blur, focus has already left the field; on submit, focus moves deliberately. An
-error never opens under a pointer that is halfway through a click.
+1. Never disable the submit button. Let the reader press it and say what is wrong. See
+   `colour.md`.
+2. Never validate on a timer while somebody types.
+3. Never use the browser's validation bubbles. Put `novalidate` on the form. Keep `type="email"`,
+   `inputmode` and the rest for keyboard and semantics.
+4. Nothing animates. Only the border colour transitions, at `--duration-fast`.
+5. Never run an asynchronous check per keystroke. Checks such as "already subscribed" run on
+   blur or submit and never block typing.
+6. Reserve no space for errors. An inserted message pushes the fields below it down.
 
 ## Error messages
 
-An error message is the one piece of copy on the site written to somebody who is already
-annoyed. It starts with a verb, it names the field, and it never uses the machine's vocabulary.
+1. Start with a verb, name the field, and never use the machine's vocabulary.
+2. Sentence case, a full stop, no exclamation mark. British English.
+3. The message stands alone: it is repeated verbatim in the error summary.
+4. Never blame the reader. Not "you entered an invalid value".
 
 | Not this | This |
 | --- | --- |
@@ -148,73 +106,45 @@ annoyed. It starts with a verb, it names the field, and it never uses the machin
 | Please enter a valid date! | Enter the date as DD/MM/YYYY — 14/03/2026, for example. |
 | You must accept the terms. | Tick the box to confirm you would like the workshop dates. |
 
-Sentence case, a full stop, and no exclamation mark. British English, like everything else.
-
-**It has to stand alone**, because it is repeated verbatim in the summary at the top of the
-form. "Enter your email address" works there; "This field is required" does not.
-
-**Never blame the reader.** Not "you entered an invalid value" — the field was unclear, or the
-message was.
-
 ## The error summary
 
-On a failed submit, a form with **more than one field** puts a single list of what is wrong
-directly above its first field, after the form's heading. Not at the top of the page, where a
-long form scrolls it out of sight.
-
-- The container takes a 2px `--text-error` border and `--radius-md`, with `--space-3` of
-  padding. Only its heading is `--text-error`; everything inside it is `--text-primary`.
-- `role="alert"` and `tabindex="-1"`. Focus moves to it, so a screen reader hears the whole
-  list and a sighted reader sees the ring.
-- Every item is a link to its field's `id`, carrying the same words as the message on the
-  field. The links are links: `--text-primary`, underlined in `--link-underline`, hover
-  bringing it to full strength, exactly as `colour.md` sets out.
-- The heading counts: "Two things need fixing before this can be sent."
-
-**A one-field form gets no summary.** It would repeat the only message on screen, eight pixels
-above itself.
+1. On a failed submit, a form with more than one field shows one list of errors directly above
+   its first field, after the form's heading. Not at the top of the page.
+2. Container: 2px `--text-error` border, `--radius-md`, `--space-3` padding.
+3. Only the heading is `--text-error`; everything else is `--text-primary`.
+4. `role="alert"` and `tabindex="-1"`. Focus moves to it.
+5. Every item links to its field's `id` and carries the same words as the field's message.
+6. Links are `--text-primary`, underlined in `--link-underline`, full strength on hover. See
+   `colour.md`.
+7. The heading counts: "Two things need fixing before this can be sent."
+8. A one-field form gets no summary.
 
 ## Fieldsets
 
-Use `<fieldset>` and `<legend>` when a group of controls answers **one question**: a radio
-group, a set of related checkboxes, a date split across three inputs, a name split in two.
-That is the whole of it.
-
-Company, role and team size are three questions, not one. They take a heading and `--space-6`
-of air, not a legend and a border. A fieldset around them tells a screen reader that its legend
-applies to all three, which is untrue.
-
-- **The legend is the question** — "Which day suits you?" — not a category noun like "Day".
-- **No border and no background.** The browser's default frame is switched off; the grouping is
-  carried by the legend and by the space around it.
-- General Sans at `--font-weight-heading` and `--font-size-h6`. Never Voyage: `typography.md`
-  puts form section labels in the body face.
-- One legend per fieldset, and **never a nested fieldset**. A form that seems to need one needs
-  two sections, or two pages.
-- A group's error message sits under the legend's help text, not under the last option. The
-  group is what failed, not the third radio button.
+1. Use `<fieldset>` and `<legend>` only when a group of controls answers one question: a radio
+   group, related checkboxes, a date split across three inputs, a name split in two.
+2. Separate questions (company, role, team size) take a heading and `--space-6`, not a fieldset.
+3. The legend is the question — "Which day suits you?" — not a category noun like "Day".
+4. No border and no background. Switch off the browser's default frame.
+5. Legend: General Sans at `--font-weight-heading` and `--font-size-h6`. Never Voyage. See
+   `typography.md`.
+6. One legend per fieldset. Never nest fieldsets; split into two sections or two pages.
+7. A group's error message sits under the legend's help text, not under the last option.
 
 ## The controls
 
-**Checkbox and radio** are a 24px box — `--icon-lg` — inside a row that is at least 44px tall,
-and the whole row is the target. The box is 1px `--border-control` at rest on `--surface-raised`;
-checked, it fills with `--text-primary` and the tick or the dot is drawn in `--surface-raised`.
-The gap between the box and its text is `--space-2`.
-
-The radio is **the one exception to the brand's three radii**. It is a circle, because round has
-meant "one of these" since long before this brand existed, and a rounded square that is nearly a
-circle only looks like a mistake.
-
-**Select** is the native control, with `appearance: none` and the brand's own `arrow-down` mark
-at `--icon-sm` set as a background image at the right, cleared by `--space-6` of padding. Never
-a hand-built listbox: the native control gets the platform's own picker on a phone, and nothing
-we write will beat it.
-
-**Textarea** starts at five lines and resizes vertically only. Sideways resizing breaks the
-column.
-
-**A disabled control** is `--text-secondary` on `--surface-page` and carries `disabled` or
-`aria-disabled`, as `colour.md` sets out. It is not dimmed further.
+1. Checkbox and radio: a 24px box (`--icon-lg`) in a row at least 44px tall. The whole row is
+   the target.
+2. At rest: 1px `--border-control` on `--surface-raised`.
+3. Checked: filled with `--text-primary`; tick or dot drawn in `--surface-raised`.
+4. Gap between box and text: `--space-2`.
+5. The radio is a circle: the one exception to the brand's three radii.
+6. Select: the native control with `appearance: none`, the brand's `arrow-down` mark at
+   `--icon-sm` as a background image at the right, cleared by `--space-6` of padding. Never a
+   hand-built listbox.
+7. Textarea: starts at five lines, resizes vertically only.
+8. Disabled: `--text-secondary` on `--surface-page`, with `disabled` or `aria-disabled`. See
+   `colour.md`. Not dimmed further.
 
 ## Spacing
 
@@ -229,12 +159,9 @@ column.
 | One fieldset or section and the next | `--space-6` | 48px |
 | The width of the form column | `--container-sm` | 516px |
 
-Lay the fields out with flex or grid and `gap`, not margins on the children — `layout.md`.
+1. Lay out fields with flex or grid and `gap`, not margins on the children. See `layout.md`.
 
 ## The newsletter
-
-One field. The reader gives an email address, and a confirmation email — a double opt-in —
-does the rest.
 
 ```html
 <section data-surface="light" class="newsletter">
@@ -251,19 +178,24 @@ does the rest.
 </section>
 ```
 
-The band sits on `--colour-violet` and carries `data-surface="light"`, which `web.md` requires
-of any pastel that may end up on a dark page: without it the focus ring inside inherits Snow
-White and measures 1.69 against the Violet. The button is the primary button — Night Blue on
-Lime Green — unchanged in either theme.
-
-The help text says what arrives, how often, and how to stop it. **The cadence is a fact and has
-to be true**: write the frequency the list actually sends at, or do not state one. `voice.md`
-does not allow a number without something behind it.
-
-**On submit the form is replaced, where it stood, by the confirmation.** Not a new page, not a
-modal, and not a line of text under a form that is still sitting there. The confirmation carries
-`role="status"`, focus moves to it, and it names the address it sent to so a typo is visible
-without leaving the page:
+1. One field: the email address. A confirmation email (double opt-in) does the rest.
+2. The band sits on `--colour-violet` and carries `data-surface="light"`. Without it the focus
+   ring inherits Snow White and measures 1.69 against the Violet. See `web.md`.
+3. The button is the primary button — Night Blue on Lime Green — in either theme.
+4. The help text says what arrives, how often, and how to stop it.
+5. State the cadence the list actually sends at, or none. See `voice.md`.
+6. On submit, the confirmation replaces the form where it stood. Not a new page, not a modal,
+   not a line under the form.
+7. The confirmation carries `role="status"`, takes focus, and names the address it sent to.
+8. No separate consent tick: the purpose is stated above the button, submitting is an
+   affirmative act, and the confirmation email is the audit record. If that legal position is
+   reversed, the tick goes between field and
+   button as an ordinary checkbox row, judged on submit only, never pre-ticked, and never with
+   the privacy notice in the same sentence as the consent.
+9. No name field.
+10. Nothing is pre-ticked, on this or any other form.
+11. No modal, no scroll-triggered pop-up, no exit-intent overlay.
+12. No shamed decline link.
 
 > **Check your inbox**
 >
@@ -273,42 +205,17 @@ without leaving the page:
 > Not there? It may be in your spam folder. Otherwise, try again — you can use a different
 > address.
 
-**No separate consent tick.** The purpose is stated immediately above the button, submitting is
-an affirmative act, and the confirmation email is a second one that produces the audit record. A
-tick that merely blocks a submit is doing less work than the confirmation link already does.
-This is a legal position as much as a design one; if it is reversed, the tick goes between the
-field and the button as an ordinary checkbox row, judged on submit only, never pre-ticked, and
-never with the privacy notice folded into the same sentence as the consent.
+## Success
 
-**No name field.** Every extra field costs subscribers, and a first name is not used for
-anything.
-
-**Nothing is pre-ticked**, on this or any other form.
-
-**No modal, no scroll-triggered pop-up, no exit-intent overlay.** The band sits in the page and
-waits.
-
-**No shamed decline.** No "no thanks, I don't care about architecture" link. A reader who is not
-interested scrolls past.
-
-## The success colour never carries the message
-
-Success is carried by **words, and by the thing that was wrong disappearing** — never by a tick,
-a green border, or a colour change on a field that has just become correct. When a field is
-fixed, its error simply goes; that is the whole of the feedback, and it is enough.
-
-The palette does now have a counterpart to the error red. `--text-success` was approved after
-this section was written, and it changed nothing here: the words stay, and the colour only ever
-accompanies them. `colour.md` says where it is allowed and what it must not do — a green border
-with no message is not a confirmation.
+1. Success is carried by words, and by the error disappearing.
+2. Never a tick, a green border, or a colour change on a field that has become correct.
+3. `--text-success` may accompany words, never replace them. See `colour.md`.
 
 ## Both themes
 
-A form is the same markup and the same roles in either theme. There is no dark variant: the
-boundary is `--border-control`, which is `--colour-muted-grey` on a light ground and
-`--colour-dark-muted-grey` on a dark one, and the error is `--text-error`, which re-points the
-same way. A form inside `[data-surface="dark"]` — the footer, an inverted band — is correct
-without a line of its own CSS.
-
-Check a form in both themes before calling it finished, by switching the operating system
-setting rather than a devtools override. `web.md` says why.
+1. A form uses the same markup and roles in either theme. There is no dark variant.
+2. `--border-control` is `--colour-muted-grey` on a light ground and `--colour-dark-muted-grey`
+   on a dark one. `--text-error` re-points the same way.
+3. A form inside `[data-surface="dark"]` needs no CSS of its own.
+4. Check every form in both themes by switching the operating system setting, not a devtools
+   override. See `web.md`.

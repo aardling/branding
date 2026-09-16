@@ -1,57 +1,34 @@
 # Imagery
 
-Aardling has two kinds of picture, and they follow different rules.
-
 ## Gradients
-
-Four, in `assets/images/`. They are **SVG** — a few kilobytes each, and sharp at any size.
-
-**Bloom and Harvest carry grain**, drawn as an SVG filter rather than a baked-in texture.
-**Vesper and Understory do not**, and the reason is measured rather than aesthetic: the
-filter's bright excursions are the worst pixels in a dark field, so they land exactly where
-white has least room. With grain, white on Vesper falls from 5.20:1 at worst instead of
-6.57:1, and white on Understory falls to 4.60:1 — under the 5.07:1 floor the dark gradients
-are held to. The light gradients have the opposite problem and keep their grain: there the
-worst pixel is the darkest, and the filter does not make one.
 
 | File | What it is | Use for |
 | --- | --- | --- |
-| `gradient-vesper.svg` | Near-black to a deep violet, a Pink glow low left, Ocean Blue holding the far corner. | The quiet dark one. Behind a slide of content, or a section band that must not compete. |
-| `gradient-understory.svg` | The darkest field in the brand: Ocean Blue at one corner, Lime Green at the other, near-black between them. | The dark one that is meant to be looked at. A cover, a full-bleed ground under a lot of white text. It competes, deliberately — do not put it behind something else that matters. |
-| `gradient-bloom.svg` | Snow White into Violet, with Lime Green and Pink blooms. | The light option, and the only one that takes Night Blue text-adjacent panels well. |
-| `gradient-harvest.svg` | Snow White into Yellow, with a second Yellow bloom low, Pink opposite, and a Lime Green highlight. | The warm option. Social cards, event artwork, a title slide. |
+| `gradient-vesper.svg` | Near-black to deep violet, a Pink glow low left, Ocean Blue in the far corner. | Quiet dark ground: behind a slide of content, a section band that must not compete. |
+| `gradient-understory.svg` | The darkest field: Ocean Blue at one corner, Lime Green at the other, near-black between. | Dark ground meant to be looked at: a cover, a full-bleed ground under a lot of white text. Never behind something else that matters. |
+| `gradient-bloom.svg` | Snow White into Violet, with Lime Green and Pink blooms. | Light ground. The only one that takes Night Blue text-adjacent panels well. |
+| `gradient-harvest.svg` | Snow White into Yellow, a second Yellow bloom low, Pink opposite, a Lime Green highlight. | Warm ground: social cards, event artwork, a title slide. |
 
-**Each one sits at one end of the luminance range, and stays there.** Vesper and Understory
-are dark throughout; Bloom and Harvest are light throughout. That is what lets a single
-knocked-out colour separate cleanly from the whole field rather than only from part of it. A
-gradient whose ramp spans the range takes no mark at all: the warm gradient that preceded
-Harvest ran from Pink to deep indigo and was withdrawn for exactly that reason. A new
-colourway holds the same discipline or it does not ship.
+1. All four are SVG, in `assets/images/`.
+2. Each is authored at 1600×1000 with `preserveAspectRatio="xMidYMid slice"`. Give it a
+   container with a real aspect ratio and let it crop.
+3. Bloom and Harvest carry grain, drawn as an SVG filter, not a baked-in texture.
+4. Vesper and Understory carry no grain. With grain, white on Vesper falls from 6.57:1 to
+   5.20:1 at worst, and on Understory to 4.60:1 — under the 5.07:1 floor for dark gradients.
+5. Vesper and Understory are dark throughout; Bloom and Harvest are light throughout.
+6. A gradient whose ramp spans the luminance range takes no mark. A new colourway stays at one
+   end of the range or does not ship.
+7. Gradients are artwork, not colour. Never sample a pixel into the palette; the palette is in
+   `colour.md`.
+8. Never recolour a gradient ad hoc. A new colourway is drawn and added here.
 
-They are **artwork, not colour**. Do not sample a pixel out of one and add it to the palette;
-the palette is in `colour.md` and is defined in text. Do not recolour them ad hoc either — if
-a new colourway is needed, it gets drawn and added here.
+### Measurement
 
-Each is authored at 1600×1000 with `preserveAspectRatio="xMidYMid slice"`, so it fills any
-box without distorting. Give it a container with a real aspect ratio and let it crop.
-
-### How the numbers here were arrived at
-
-Every ratio on this page comes from one method: the SVG rendered at 1600×1000, sRGB
-linearised, WCAG relative luminance per pixel, contrast taken against the knockout colour.
-The worst pixel is the brightest one where white knocks out and the darkest one where Night
-Blue does.
-
-Bloom's and Harvest's figures were re-measured with that method when Vesper and Understory
-were added. They moved: the mark on Bloom was recorded as 9.42:1 and measures 8.08:1, and on
-Harvest 12.02:1 against 10.33:1. The artwork did not change — the earlier figures came from a
-method that is not reproducible from anything in this repository. The lower numbers are the
-ones to trust, and all four rows are now comparable to each other.
+1. Every ratio in this file: the SVG rendered at 1600×1000, sRGB linearised, WCAG relative
+   luminance per pixel, contrast against the knockout colour.
+2. The worst pixel is the brightest where white knocks out, the darkest where Night Blue does.
 
 ## Illustrations
-
-Three, in `assets/images/`, as `webp` with a `png` beside each for anything that cannot read
-WebP.
 
 | File | Subject |
 | --- | --- |
@@ -59,38 +36,26 @@ WebP.
 | `illustration-coaching` | One-to-one coaching. |
 | `illustration-event` | A conference or event. |
 
-These are painterly and stay raster — they are the exception the SVG rule exists for. They are
-shipped at 1600px, which is enough for a full-width web block or a slide. The full-resolution
-masters (5000×5000, plus CMYK TIFFs for print) live in Aardling's Google Drive brand folder;
-take them from there for anything printed.
+1. In `assets/images/`, as `webp` with a `png` beside each.
+2. They are painterly and stay raster.
+3. Shipped at 1600px: enough for a full-width web block or a slide.
+4. For print, use the full-resolution masters (5000×5000, plus CMYK TIFFs) from the Google Drive
+   brand folder.
 
 ## Photographs
 
-Where gradients and illustrations are drawn, a photograph is found. It earns a place only
-when an article has a concrete, real subject: the port in a piece about logistics, a trading
-floor for a finance client, a ward for a healthcare domain model. A photograph pictures a
-place; a gradient or an illustration pictures a mood — and that licence is only worth
-spending when the article actually has a place to picture.
+1. Use a photograph only when the article has a concrete, real subject: a specific domain such
+   as logistics, healthcare, finance, retail, manufacturing or agriculture.
+2. Photograph the domain the software models, never the software.
+3. A general engineering or process topic (testing strategy, team structure, an internal
+   retrospective) gets an illustration, a gradient, or no image.
+4. Test: could the photograph run under a different headline, about a different company, in the
+   same domain, and still be correct? If yes, it is stock and does not belong.
+5. The photograph is always the client's world, never Aardling's own.
 
-### When a photograph is the right call
+### Subjects
 
-Ask what the article is actually about. A specific real-world domain — logistics, healthcare,
-finance, retail, manufacturing, agriculture — is a photograph's job: show the domain, not the
-software. A general engineering or process topic — testing strategy, team structure, an
-internal retrospective — has no real subject to photograph; reach for an illustration or a
-gradient instead, or run with no image at all. Adding a photo doesn't make an abstract topic
-more concrete — the wrong photo just makes it generic instead.
-
-If unsure, one question decides it: could this photograph run under a different headline,
-about a different company, in the same domain, and still be correct? If yes — a generic
-office, a generic server room, a generic handshake — it is stock, not evidence, and it does
-not belong.
-
-### Ideas, so choosing one isn't the hard part
-
-A short list of domains Aardling's articles keep returning to. It isn't exhaustive — the same
-test applies to any domain not listed: photograph the world the software is modelling, never
-the software itself.
+The list is not exhaustive; the same test applies to any other domain.
 
 | Article is about… | Photograph |
 | --- | --- |
@@ -102,133 +67,85 @@ the software itself.
 | Retail, e-commerce | A distribution centre, a shop floor, a fulfilment line. |
 | Energy, utilities | A grid substation, a control room, a wind farm. |
 
-None of these is Aardling's own subject — Aardling writes about the domain, so the photo is
-always the client's world, not ours.
+### Disqualifiers
 
-### What disqualifies a photo
+1. No cliché metaphors (as in `icons.md`): a handshake for partnership, a lightbulb for an idea,
+   a laptop keyboard close-up for "software", people pointing at a whiteboard.
+2. No stock, posed or interchangeable shots. A real scene shot documentary-style wins, even at
+   lower production value.
 
-Same instinct as `icons.md`'s "no cliché metaphors" rule for icons: a handshake for
-partnership, a lightbulb for an idea, a laptop keyboard close-up for "software", a meeting
-room of people pointing at a whiteboard. These are stock, posed and interchangeable — they
-picture the idea of work rather than the work itself. A real port, shot documentary-style,
-beats a posed one every time, even at lower production value.
+### Selection and treatment
 
-### Selecting and treating one
-
-- **Documentary over staged.** A candid, working shot beats a posed, lit one — even a
-  lower-resolution one.
-- **Real colour.** No brand-colour tint, no duotone, no filter forcing it toward the palette.
-  A photograph earns its place by being real; forcing it into the brand's colours undoes that.
-- **Landscape, and croppable to 3:2.** The framing below assumes a wide source; a square or
-  portrait source fights every container this brand puts a photo in.
-- **Licensed for the use.** Editorial and commercial licences are not interchangeable — check
-  before publishing, not after.
+1. Documentary over staged, even at lower resolution.
+2. Real colour. No brand-colour tint, no duotone, no filter.
+3. Landscape, croppable to 3:2.
+4. Licensed for the use. Editorial and commercial licences are not interchangeable; check before
+   publishing.
 
 ### Framing
 
-The same container language as the rest of imagery, so a photograph slots into a hero, a card
-or an article body without a bespoke rule.
-
 | Setting | Value |
 | --- | --- |
-| Aspect ratio | 3:2, `object-fit: cover` — the ratio card media already uses. |
-| Corners | `--radius-md`, or square where it's already full-bleed to a card's edge. |
-| Border | 1px `--border-hairline` when the photo sits directly on the page or a raised surface — a straight photo edge disappears against Snow White without one. Skipped inside a card, where the card's own edge already does that job. |
-| Caption | Optional for an aside; required, and numbered, for a content-critical image — see "Two ways to use an image in an article" below. `--font-size-small`, `--text-secondary`, `--space-1` below the image. |
+| Aspect ratio | 3:2, `object-fit: cover`. |
+| Corners | `--radius-md`, or square where full-bleed to a card's edge. |
+| Border | 1px `--border-hairline` directly on the page or a raised surface. None inside a card. |
+| Caption | Optional for an aside; required and numbered for a content-critical image. `--font-size-small`, `--text-secondary`, `--space-1` below the image. |
 
-A photograph follows every rule already in this file and in `layout.md`: never text on top of
-it, not even a caption overlaid on the frame — the caption sits below, on the page ground. And
-like an illustration, it takes no heading or mark knocked out of it; that licence is for
-gradients only.
+1. Never text on top of a photograph, including a caption. The caption sits below, on the page
+   ground.
+2. A photograph takes no heading or mark knocked out of it.
 
-### Where they live
+### Files
 
-`assets/images/`, alongside the illustrations — full size for web, `webp` with a `png`
-fallback. There's no photograph in the package yet; the first one ships when an article needs
-it, sized and licensed for that use, not stockpiled ahead of need.
+1. `assets/images/`, full size for web, `webp` with a `png` fallback.
+2. The package holds no photograph yet. Add one when an article needs it, sized and licensed for
+   that use.
 
-## When there is no image
+## No image
 
-Some content simply doesn't have one yet — a case study before the client's assets arrive, an
-internal retrospective, a short update. The easy fix is a flat background with the title set as
-text. **Don't.** That isn't an image, it's a placeholder that shipped, and it reads as
-unfinished next to everything around it.
+1. Never ship a flat background with the title set as text.
+2. Find a real image first. A case study usually has one on the client's site or press kit.
+   Propose a candidate.
+3. When no suitable photograph exists, fall back in this order, plainest first:
+   1. **No image.** A content page renders correctly without one.
+   2. **A brand illustration.** Whichever of the three reads closest to the content.
+   3. **A generated cover.** The card's media is a Cover: the content's own title as a heading
+      on a gradient, under every constraint in "Headings on a gradient". No subtitle, eyebrow or
+      metadata on the gradient; those stay on the card, below the media.
+4. A card whose media is a Cover drops its own title line. Eyebrow and metadata stay.
+5. Use the generated cover only when the title needs to carry the piece.
 
-**Find a real one first.** A case study almost always has one waiting on the client's own site
-or press kit, and that beats anything drawn here. Look there before reaching for any of the
-fallbacks below — and propose a candidate rather than leaving the search to whoever's writing.
-
-When no suitable photograph exists — not a stock one, see "What disqualifies a photo" above —
-fall back to one of these, tried in this order:
-
-1. **No image.** A content page renders correctly without one. Losing the media slot costs
-   nothing a reader needs.
-2. **A brand illustration.** A card may carry one of the three illustrations above instead of a
-   photograph, whichever reads closest to the content.
-3. **A generated cover.** A card's media may be a Cover — the gradient-plus-heading pattern
-   licensed below in "A heading may go on a gradient" — carrying the content's own title. It is
-   the title stamped on a gradient, not on a flat ground: the gradient does the work a
-   placeholder can't. The heading follows every constraint that section already sets, with
-   nothing added for this use — body face, `--font-size-h3` or larger, at most half the width,
-   on the gradient's own steady side, nothing else on top. No subtitle, no eyebrow, no metadata
-   knocked out alongside it — those stay on the card, below the media, same as any other card.
-
-   **The card drops its own title text when its media is a Cover.** The heading on the gradient
-   already is the title; setting it a second time below repeats the same words back to the
-   reader. Eyebrow and metadata are unaffected and stay, since they carry information the cover
-   doesn't — only the title line goes.
-
-This is also the priority order: reach for the plainer option first, and use the generated
-cover only when the title genuinely needs to carry the piece. The more a fallback does, the
-more there is to get wrong.
-
-## Two ways to use an image in an article
-
-Long-form text wants the occasional image, and there are two different jobs one can do.
-Confusing them is why an image in an article ends up either too small to read or so large it
-breaks the argument's pace.
+## Images in articles
 
 ### Illustrative aside
 
-Breaks up a long run of text. Adds nothing the words don't already say — if removing it would
-lose information, it's the content-critical pattern below, not this one.
+Breaks up long text and adds no information. If removing it loses information, it is
+content-critical.
 
 | Setting | Value |
 | --- | --- |
 | Width | About a third of the text column, never more than half. |
-| Placement | Floats left or right; text wraps beside it. Alternate sides rather than stacking two in a row on the same one. |
-| Below `--breakpoint-sm` | The float drops. Full width, above or below the paragraph it illustrates. |
-| Caption | Optional, unnumbered. Skip it, or spend it on a credit — a photographer, a source, who's pictured — not on describing the obvious. |
+| Placement | Floats left or right; text wraps beside it. Alternate sides; never two in a row on the same side. |
+| Below `--breakpoint-sm` | No float. Full width, above or below its paragraph. |
+| Caption | Optional, unnumbered. Omit it, or use it for a credit (photographer, source, who is pictured), not a description. |
 
-This is text flowing *beside* an image in the document flow, not the overlay the "never text
-on top of an image" rule in `layout.md` forbids. That rule is about type set into the image
-itself; a float is two things side by side.
+1. A float is text beside an image, not text on it. `layout.md`'s rule is not broken.
 
 ### Content-critical
 
-Carries information the text doesn't restate — a diagram, a chart, a screenshot the argument
-depends on.
+Carries information the text does not restate: a diagram, a chart, a screenshot.
 
 | Setting | Value |
 | --- | --- |
-| Width | Sized to what's legible, not to the column. A simple diagram stays small and centred; a dense one fills the column, or breaks out wider still. Never floated, never stretched past what it needs. |
-| Aspect ratio | Its own — never cropped to 3:2 like a photograph. |
-| Caption | Required, short, prefixed "Fig. N" — numbered in order through the article, and named at least once in the body text ("see Fig. 1"). |
-| Web | Click to enlarge: a real button with an accessible name ("Enlarge: …"), opens the image full-screen over a dark scrim, pannable and zoomable, closes on Escape or a click outside it, and returns focus to the trigger on close. |
-| Print | May take a full page — turned to landscape where that fits the content better — when the content needs more room than the page's text width gives it. |
+| Width | Sized to legibility. A simple diagram small and centred; a dense one fills the column or breaks out wider. Never floated, never stretched. |
+| Aspect ratio | Its own. Never cropped to 3:2. |
+| Caption | Required, short, prefixed "Fig. N", numbered in order, named at least once in the body ("see Fig. 1"). |
+| Web | Click to enlarge: a real button with an accessible name ("Enlarge: …"). Opens full-screen over a dark scrim, pannable and zoomable, closes on Escape or a click outside, returns focus to the trigger. |
+| Print | May take a full page, turned to landscape where that fits better, when it needs more than the text width. |
 
-The print exception never reaches the illustrative aside above: it's small by definition and
-never needs the room.
+1. The full-page print exception never applies to an illustrative aside.
 
-## What may sit on a gradient
-
-Either mark, knocked out: the logotype or the icon logo. White on Vesper and Understory, Night
-Blue on Bloom and Harvest. Both are the brand's own lettering rather than running text, so the
-same licence covers the social avatar and a title card carrying the full name.
-
-The knockout colours are measured under each mark's own ink rather than against the field's
-average. Both marks are measured, and the worse of the two is the number below — in all four
-cases that is the logotype, whose hairlines reach further across the field than the icon's.
+## Marks on a gradient
 
 | Gradient | Knockout | Field | Under the mark's ink |
 | --- | --- | --- | --- |
@@ -237,46 +154,35 @@ cases that is the logotype, whose hairlines reach further across the field than 
 | `gradient-bloom.svg` | Night Blue | 7.35:1 – 15.29:1 | 8.08:1 |
 | `gradient-harvest.svg` | Night Blue | 9.62:1 – 15.00:1 | 10.33:1 |
 
-Holding one end of the luminance range is exactly what buys that: a single colour separates
-from the whole field, not merely from part of it.
+1. Either mark may be knocked out of a gradient: the logotype or the icon logo.
+2. White on Vesper and Understory; Night Blue on Bloom and Harvest.
+3. The same licence covers the social avatar and a title card carrying the full name.
+4. "Under the mark's ink" is the worse of the two marks, in all four cases the logotype.
+5. Minimum sizes, on all four gradients:
 
-**The minimum size depends on which mark.** The limit is legibility, not contrast, which stays
-well clear on all four. On Bloom and Harvest, the grain starts competing with the mark's
-hairlines under it and the letterform dissolves; on Vesper and Understory, which have no
-grain, the limit is simply the hairlines themselves falling below a pixel. The floors are the
-same for both cases, so one number covers all four.
+   | Mark | Not below |
+   | --- | --- |
+   | Logotype | 380px wide |
+   | Icon logo | 64px wide |
 
-| Mark | Not below |
-| --- | --- |
-| Logotype | 380px wide |
-| Icon logo | 64px wide |
+6. Below those widths, use a flat approved ground. The favicon is the one exception.
+7. Ready-made lockups of both marks on all four gradients: `assets/logos/lockups/`. See
+   `logos.md`.
 
-The logotype needs the larger floor because its cap height is a small fraction of its width;
-the icon logo is the same lettering at a far coarser scale and survives much smaller. If the
-space is under those widths, use a flat approved ground instead of a gradient. The favicon is
-the one exception, and it is a generated derivative with its own rules below.
+## Headings on a gradient
 
-Ready-made lockups of both marks on all four gradients are in `assets/logos/lockups/`. See
-`logos.md`.
-
-## A heading may go on a gradient
-
-One heading, and nothing else. It takes the same colour the knocked-out mark takes on that
-ground — white on Vesper and Understory, Night Blue on Bloom and Harvest — so a gradient never
-carries two lettering colours.
-
-Four constraints, and each one exists because of something measured:
-
-| Constraint | Why |
-| --- | --- |
-| The body face, never Voyage. | Voyage's thick-to-thin contrast and hairline serifs lose to the grain. It is the same interference that sets the marks' minimum sizes. |
-| `--font-size-h3` (35px) or larger. | Comfortably past the large-text threshold, with margin for the grain. |
-| At most half the width, **and on the side the table below names**. | The field's luminance changes across it. Full width across the middle, a heading runs 6.65:1 to 16.25:1 on Vesper and 5.87:1 to 17.33:1 on Understory — swings of nine and eleven points, which read as the line changing weight along its length. Confined to the region below, the same heading swings 2.91 and 3.88. Half the width alone does not do it: Understory's right half still swings 10.41, because its bright corner is on that side. |
-| Two or three lines, balanced. | A heading is a phrase held inside one region of the artwork, not a line crossing it. |
-
-**Where the heading goes.** Each gradient has one region where the field is steadiest. It was
-found by scoring every 660×400 box in the artwork by how far contrast swings across it and
-taking the lowest. The origins are given in the artwork's own 1600×1000 coordinates.
+1. One heading, nothing else.
+2. The heading takes the knockout colour of that gradient: white on Vesper and Understory, Night
+   Blue on Bloom and Harvest.
+3. The body face, never Voyage. Voyage's hairline serifs lose to the grain.
+4. `--font-size-h3` (35px) or larger.
+5. At most half the width, and inside the gradient's region in the table below.
+6. Two or three lines, balanced.
+7. A gradient carries a mark or a heading, never both.
+8. Nothing else on top: no body copy, captions, labels, lists or buttons.
+9. No scrim or blur anywhere, on anything.
+10. Illustrations take no text at all: no heading, no caption. Put text beside an illustration or
+    on a solid panel next to it.
 
 | Gradient | Region | Origin | Contrast across it |
 | --- | --- | --- | --- |
@@ -285,58 +191,38 @@ taking the lowest. The origins are given in the artwork's own 1600×1000 coordin
 | `gradient-bloom.svg` | Right, vertically centred | 840, 360 | 7.65:1 – 11.54:1 |
 | `gradient-harvest.svg` | Lower right | 840, 480 | 10.20:1 – 13.75:1 |
 
-A swing measured high up the scale costs less than the same swing near the floor — the four
-points across Understory's region, all of it above 14:1, are not visible, where four points
-starting at 4.5:1 would be. Read the pair of numbers, not the difference alone.
+1. Each region is the 660×400 box with the smallest contrast swing. Origins are in the artwork's
+   1600×1000 coordinates.
+2. Full width across the middle, a heading runs 6.65:1 to 16.25:1 on Vesper and 5.87:1 to
+   17.33:1 on Understory. Inside the region it swings 2.91 and 3.88.
+3. Half the width alone is not enough: Understory's right half still swings 10.41.
+4. Read the pair of numbers, not the difference: a swing high up the scale costs less than the
+   same swing near 4.5:1.
 
-**A gradient carries a mark or a heading, never both.** The knocked-out logotype is already a
-title treatment. Two lettering treatments on one piece of artwork is the failure this rule
-exists to prevent.
-
-**Nothing else goes on top.** No body copy, no captions, no labels, no lists, no buttons —
-and no scrim or blur anywhere, on anything. Body copy is small and long and would cross the
-field the way a full-width heading does; it is never set on artwork.
-
-**Illustrations take no text at all.** Not a heading, not a caption. The licence above is for
-gradients only, because a gradient is a controlled field with a measured luminance band and
-an illustration is not. Text goes beside an illustration, or on a solid panel next to it.
-
-## The favicon
-
-The favicon is the icon logo knocked out at small size: the mark in Night Blue on a rounded
-tile cut from `gradient-bloom.svg`. `assets/favicons/favicon.svg` is the source; every raster in
-`assets/favicons/` is generated from it.
-
-Four things are fixed about the drawing, and each was decided against rendered output rather than
-by eye at full size.
+## Favicon
 
 | Decision | Value | Why |
 | --- | --- | --- |
-| Crop | The gradient's own `xMidYMid slice` centre square | No bespoke framing. A tighter crop into Bloom's lightest corner raises contrast but lands in the Lime Green bloom, and the tile goes mint. |
-| Corner radius | 22% of the tile | The `--radius-*` tokens are absolute and do not transfer to a drawing rendered anywhere from 16 to 512px. 22% is what iOS, Android and macOS round app tiles to. |
-| Mark size | 82% of the tile width | At 74% the hairlines fall below one pixel at 16px and drop out. |
-| Mark stroke | 0.8 units, in the mark's own colour | Optical compensation. It thickens the hairlines symmetrically without redrawing the letterform. |
+| Crop | The gradient's own `xMidYMid slice` centre square | A tighter crop into Bloom's lightest corner lands in the Lime Green bloom and turns the tile mint. |
+| Corner radius | 22% of the tile | `--radius-*` tokens are absolute. 22% matches iOS, Android and macOS app tiles. |
+| Mark size | 82% of the tile width | At 74% the hairlines drop out at 16px. |
+| Mark stroke | 0.8 units, in the mark's own colour | Thickens the hairlines without redrawing the letterform. |
 
-The mark measures 9.66:1 against the tile at its thinnest strokes, well over the 3:1 a non-text
-graphic needs. The tile itself is only 1.37:1 against light browser chrome, so on a light tab strip
-the silhouette thins out and the mark carries; on dark chrome it is 10.59:1.
+1. The icon logo in Night Blue on a rounded tile cut from `gradient-bloom.svg`.
+2. `assets/favicons/favicon.svg` is the source; every raster in `assets/favicons/` is generated
+   from it.
+3. The mark measures 9.66:1 against the tile at its thinnest strokes (3:1 required).
+4. The tile measures 1.37:1 against light browser chrome and 10.59:1 against dark.
+5. The favicon has no grain. Below about 64px the filter renders as coloured blotch.
+6. This exception is for the favicon only. Anything that reproduces Bloom or Harvest keeps the
+   grain.
+7. The 16 and 32 bitmaps in `favicon.ico` use a heavier cut: mark at 86%, stroke 1.5. Browsers
+   that support SVG favicons use `favicon.svg` instead.
+8. `apple-touch-icon.png` is full-bleed and square, without rounded corners. iOS applies its own
+   mask.
 
-**The favicon drops the grain.** Bloom carries grain and the favicon cut from it does not.
-Below about 64px the filter is sampled far under its own frequency and lands as coloured blotch
-fighting the mark, and it renders at a different apparent size depending on how large the icon is
-rasterised. That licence is narrow: the favicon is a generated derivative at fixed small sizes, not
-a reproduction of the gradient. Bloom and Harvest keep their grain wherever they are shown as
-themselves, and nowhere that reproduces one of them may drop it. Vesper and Understory are a
-separate case — they have no grain to drop.
+## Masters
 
-Two sizes are drawn from a heavier cut — 86% and a 1.5 stroke — embedded as the 16 and 32 bitmaps
-inside `favicon.ico`. Browsers that support SVG favicons use `favicon.svg` and rasterise it
-themselves, so that heavier cut reaches Windows shortcuts, bookmark exports and older browsers only.
-`apple-touch-icon.png` is generated full-bleed and square, without the rounded corners: iOS applies
-its own mask and composites on black, so a rounded source would show black corners.
-
-## Where the masters are
-
-Vector logo masters, the icon set in six colourways, the illustration masters and the print
-files are in the **Aardling - Brand** shared Google Drive. This package carries the versions
-meant for building things; Drive carries the originals.
+1. Vector logo masters, the icon set in six colourways, illustration masters and print files are
+   in the **Aardling - Brand** shared Google Drive.
+2. The package carries the versions for building things.

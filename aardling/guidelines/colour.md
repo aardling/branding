@@ -1,21 +1,15 @@
 # Colour
 
-Aardling's palette is seven brand colours and five functional ones, plus five more functional
-colours that exist only on the dark ground. The brand colours come from Hartstikke's original
-brand guide; the functional colours were in the website's CSS without ever having been
-approved, and are kept here because each does a job the brand colours cannot.
+1. The palette is seven brand colours plus `--colour-white`, five functional colours, and five
+   functional colours for the dark ground only.
+2. Colours are approved in pairs. A pair not in the tables below is not approved.
+3. Ratios are WCAG 2.x contrast, computed from the two values.
 
-Colours are approved **in pairs**. A pair that is not in the tables below is not an approved
-combination of this brand. Ratios are WCAG 2.x contrast, computed from the two values.
+## Roles
 
-## Two tiers
-
-The palette names colours. A second, smaller set names **jobs** and points at the palette:
-`--surface-page`, `--text-primary`, `--border-control` and seven more. Components reference the
-job, never the colour, and a theme re-points the jobs without the palette moving at all.
-
-`--colour-snow-white` is always Snow White, in every theme. `--text-primary` is Night Blue on
-a light ground and Snow White on a dark one. In a stylesheet, write `var(--text-primary)`.
+1. Components reference a role, never a palette colour. Write `var(--text-primary)`.
+2. A theme re-points the roles; the palette does not move. `--colour-snow-white` is Snow White in
+   every theme.
 
 | Role | Light | Dark |
 | --- | --- | --- |
@@ -30,18 +24,13 @@ a light ground and Snow White on a dark one. In a stylesheet, write `var(--text-
 | `--focus-ring` | `--colour-night-blue` | `--colour-snow-white` |
 | `--link-underline` | `rgba(24, 28, 47, 0.5)` | `rgba(246, 246, 246, 0.5)` |
 
-Ten roles, and no more without a reason. An eleventh role is a request to add a colour, and
-goes through the same approval as one.
-
-`--text-success` was the ninth, added with the two greens below. It went through exactly that
-approval: the palette could say a thing failed and had no approved way to say it passed.
-
-`--link-underline` is the tenth, and the one role that is not a palette colour: `--text-primary`
-at 50% opacity, the rest-state link underline the Links section below measures. It is a
-translucent value rather than a flattened grey so that it sits at half strength on a raised
-surface as well as on the page ground, and it exists so that no consumer has to derive the
-tint for itself — every derivation is a different colour. Hover and focus are `--text-primary`
-and need no role of their own.
+1. Ten roles. An eleventh role is a request to add a colour and needs the same approval.
+2. `--link-underline` is the one role that is not a palette colour: `--text-primary` at 50%
+   opacity, the link underline at rest. See Links.
+3. `--link-underline` is translucent, not a flattened grey, so it sits at half strength on a
+   raised surface too.
+4. Use `--link-underline`; never derive the tint yourself.
+5. Hover and focus use `--text-primary`. They have no role of their own.
 
 ## Brand colours
 
@@ -56,63 +45,57 @@ and need no role of their own.
 | `--colour-yellow` | `#F8E181` | Yellow |
 | `--colour-pink` | `#F3B0B0` | Pink |
 
-`--colour-white` is not in the brand guide. It is listed because cards and panels sit on it,
-and a ground that carries text has to be an approved half of a pair.
+1. `--colour-white` is not in the brand guide. It is approved as the ground for cards and panels.
 
 ## Functional colours
 
-| Token | Hex | What it is for |
+| Token | Hex | Use for |
 | --- | --- | --- |
-| `--colour-hover-green` | `#98DE7E` | The hover and focus state of the primary button. |
-| `--colour-muted-grey` | `#6B6B6B` | Secondary text — dates, captions, metadata — and the boundary of a form control. |
-| `--colour-hairline-grey` | `#D7D7D7` | Hairline rules. Never a control boundary; it does not measure. |
+| `--colour-hover-green` | `#98DE7E` | Primary button, hover and focus. |
+| `--colour-muted-grey` | `#6B6B6B` | Secondary text (dates, captions, metadata); form control boundary. |
+| `--colour-hairline-grey` | `#D7D7D7` | Hairline rules. Never a control boundary. |
 | `--colour-error-red` | `#CF1322` | Form error messages. |
 | `--colour-success-green` | `#38761E` | Confirmation messages. |
 
-`--colour-muted-grey` is set where it clears 4.5:1 on both white and Snow White. A lighter
-grey does not, however good it looks.
-
-`--colour-success-green` sits at hue 102, between Lime Green at 101.7 and Hover Green at
-103.8. It is the brand's own green darkened until it reads as text, not a signal green
-borrowed from elsewhere, and it was set to land on the red's numbers rather than merely to
-pass: 5.56 against Error Red's 5.57 on white, 5.14 against 5.16 on Snow White. A confirmation
-and a rejection then carry the same weight on the page, and neither shouts over the other.
-Lime Green and Hover Green are grounds — Night Blue sits on them, they never sit on
-anything — so neither could do this job.
+1. `--colour-muted-grey` clears 4.5:1 on both White and Snow White. Never use a lighter grey.
+2. `--colour-success-green` is the brand green darkened to text strength: hue 102, between Lime
+   Green at 101.7 and Hover Green at 103.8.
+3. `--colour-success-green` matches Error Red's weight: 5.56 against 5.57 on White, 5.14 against
+   5.16 on Snow White.
+4. Lime Green and Hover Green are grounds only. Night Blue sits on them; they sit on nothing.
 
 ## Accepted combinations
 
 | Foreground | Background | Ratio | Use for |
 | --- | --- | --- | --- |
-| `--colour-night-blue` | `--colour-snow-white` | 15.60 | The default. Page ground and all long-form reading. |
-| `--colour-night-blue` | `--colour-white` | 16.85 | Cards and panels lifted off the page ground. |
-| `--colour-snow-white` | `--colour-night-blue` | 15.60 | Inverted sections, the footer, dark buttons. |
-| `--colour-night-blue` | `--colour-lime-green` | 13.05 | The primary button. |
-| `--colour-night-blue` | `--colour-hover-green` | 10.50 | The primary button, hover and focus. |
-| `--colour-night-blue` | `--colour-yellow` | 12.90 | Section grounds and cards. Also a table row's hover and focus wash — `tables.md`. |
-| `--colour-night-blue` | `--colour-pink` | 9.35 | Section grounds and cards. |
-| `--colour-night-blue` | `--colour-violet` | 9.21 | Section grounds and callouts. |
-| `--colour-muted-grey` | `--colour-white` | 5.33 | Secondary text on a card, and the border of a control on one. |
+| `--colour-night-blue` | `--colour-snow-white` | 15.60 | Default. Page ground, long-form reading. |
+| `--colour-night-blue` | `--colour-white` | 16.85 | Cards and panels. |
+| `--colour-snow-white` | `--colour-night-blue` | 15.60 | Inverted sections, footer, dark buttons. |
+| `--colour-night-blue` | `--colour-lime-green` | 13.05 | Primary button. |
+| `--colour-night-blue` | `--colour-hover-green` | 10.50 | Primary button, hover and focus. |
+| `--colour-night-blue` | `--colour-yellow` | 12.90 | Section grounds, cards. Table row hover and focus wash — `tables.md`. |
+| `--colour-night-blue` | `--colour-pink` | 9.35 | Section grounds, cards. |
+| `--colour-night-blue` | `--colour-violet` | 9.21 | Section grounds, callouts. |
+| `--colour-muted-grey` | `--colour-white` | 5.33 | Secondary text and control border, on a card. |
 | `--colour-muted-grey` | `--colour-snow-white` | 4.93 | The same, on the page ground. |
-| `--colour-error-red` | `--colour-white` | 5.57 | Form error messages on a card. |
-| `--colour-error-red` | `--colour-snow-white` | 5.16 | Form error messages on the page ground. |
-| `--colour-success-green` | `--colour-white` | 5.56 | Confirmation messages on a card. |
-| `--colour-success-green` | `--colour-snow-white` | 5.14 | Confirmation messages on the page ground. |
-| `--colour-ocean-blue` | `--colour-white` | 4.27 | Large display text at 24px and above, icons, and rules — including the navigation accent rule. Never body text. |
+| `--colour-error-red` | `--colour-white` | 5.57 | Form errors, on a card. |
+| `--colour-error-red` | `--colour-snow-white` | 5.16 | Form errors, on the page ground. |
+| `--colour-success-green` | `--colour-white` | 5.56 | Confirmations, on a card. |
+| `--colour-success-green` | `--colour-snow-white` | 5.14 | Confirmations, on the page ground. |
+| `--colour-ocean-blue` | `--colour-white` | 4.27 | Display text at 24px and above, icons, rules (including the navigation accent rule). Never body text. |
 | `--colour-ocean-blue` | `--colour-snow-white` | 3.95 | The same, on the page ground. |
-| `--colour-hairline-grey` | `--colour-white` | 1.44 | Hairline rules only. Never text, and never the only cue for a boundary that matters. |
+| `--colour-hairline-grey` | `--colour-white` | 1.44 | Hairline rules only. Never text; never the only cue for a boundary that matters. |
 | `--colour-hairline-grey` | `--colour-snow-white` | 1.33 | The same, on the page ground. |
 
-## The focus ring
+## Focus ring
 
-**Every focusable thing has a visible ring, and it is the same ring everywhere.** Three pixels
-solid in `--focus-ring`, offset two pixels, on `:focus-visible` — so it appears for a keyboard
-and not under a mouse click. Never `outline: none` without a replacement in the same rule.
-
-`--focus-ring` is Night Blue on every light ground and Snow White on every dark one. Night
-Blue is the only palette colour that clears 3:1 against all eight approved grounds; Ocean Blue
-was the brand-flavoured candidate and fails on Violet at 2.33, Pink at 2.37 and Hover Green at
-2.66. These are WCAG 1.4.11 non-text ratios — the ring is a boundary, not a letterform.
+1. Every focusable element has a visible ring, the same everywhere.
+2. The ring is 3px solid `--focus-ring`, offset 2px, on `:focus-visible`.
+3. Never `outline: none` without a replacement in the same rule.
+4. `--focus-ring` is Night Blue on every light ground and Snow White on every dark one.
+5. Night Blue is the only palette colour that clears 3:1 on all eight approved grounds. Ocean Blue
+   fails on Violet (2.33), Pink (2.37) and Hover Green (2.66).
+6. Ratios are WCAG 1.4.11 non-text contrast.
 
 | Ring | Ground | Ratio |
 | --- | --- | --- |
@@ -126,55 +109,44 @@ was the brand-flavoured candidate and fails on Violet at 2.33, Pink at 2.37 and 
 | `--colour-snow-white` | `--colour-night-blue` | 15.60 |
 | `--colour-snow-white` | `--colour-dark-surface` | 13.21 |
 
-The two-pixel offset matters on the primary button: the ring sits outside the pill rather than
-on it, so the button's own colour is not what the ring has to contrast against.
+7. On the primary button the offset puts the ring outside the pill. It contrasts with the ground,
+   not the button.
 
 ## Links
 
-A link in running text is `--text-primary` — the same colour as the words around it — and
-**always underlined**. There is no approved second text colour on the page ground, so the
-underline is not decoration; it is the only thing distinguishing a link, and removing it
-removes the link.
+1. A link in running text is `--text-primary` and always underlined.
+2. The underline is the only thing that marks a link. Never remove it.
 
 | State | Treatment |
 | --- | --- |
-| Rest | `--text-primary` text, underline 1px, `text-underline-offset: 0.18em`, in `--link-underline` — `--text-primary` at 50% opacity. 3.22 against Snow White, 3.27 against White, 4.84 against Night Blue, 4.49 against Dark Surface. |
-| Hover | Text unchanged; underline goes to full `--text-primary`, same 1px, same offset. |
+| Rest | `--text-primary` text. Underline 1px, `text-underline-offset: 0.18em`, in `--link-underline`: 3.22 on Snow White, 3.27 on White, 4.84 on Night Blue, 4.49 on Dark Surface. |
+| Hover | Text unchanged. Underline in full `--text-primary`, same 1px, same offset. |
 | Focus | The focus ring, plus the hover underline. |
 | Visited | Not distinguished. |
 
-Text colour never changes on hover, at any size. The website hovers links to Ocean Blue at
-18px, which measures 3.95 against the page ground and fails; that is why the state change is
-carried by the underline instead — by its opacity, not its thickness, so it reads as a colour
-change like every other state in the brand.
-
-In a stylesheet, write `text-decoration-color: var(--link-underline)` at rest and
-`var(--text-primary)` on hover and focus. Not `opacity` on the element, which fades the text
-with it, and not a flattened grey: 50% Night Blue on Snow White and 50% Snow White on Night
-Blue both flatten to about `#878993`, and that hex on a card no longer sits at half of its
-ground, so the ratios above stop describing what is drawn.
-
-Visited links are not styled. There is no approved pair for a third text colour, and on a site
-of this kind the distinction tells a reader nothing they need.
-
-A link that is a button — a call to action — is a button, and takes the button rules in
-`layout.md`. The underline rule is for links inside prose.
-
-**A navigation item is neither.** Not prose, so it is not underlined at rest; not a button, so
-it takes no pill. Its states are a rule in `--colour-ocean-blue` drawn under the label — 1px
-on hover and focus, 3px on the current section, and no change of weight. `web.md` specifies
-them, with the measurements that rule out every other colour: the marker has to clear 3:1 on
-both the light bar and the dark one, and Ocean Blue is the only colour in this palette that
-does.
+3. Text colour never changes on hover, at any size. Ocean Blue at 18px measures 3.95 on the page
+   ground and fails.
+4. Hover changes the underline's opacity, not its thickness.
+5. CSS: `text-decoration-color: var(--link-underline)` at rest, `var(--text-primary)` on hover
+   and focus.
+6. Never `opacity` on the element: it fades the text.
+7. Never a flattened grey such as `#878993`: on a card it no longer sits at half strength, and the
+   ratios above no longer apply.
+8. Never style visited links. There is no approved pair for a third text colour.
+9. A link that is a call to action is a button. See `layout.md`.
+10. A navigation item is neither link nor button: no underline at rest, no pill.
+11. Navigation states are a rule in `--colour-ocean-blue` under the label: 1px on hover and focus,
+    3px on the current section, no change of weight. See `web.md`.
+12. The navigation marker must clear 3:1 on both the light and the dark bar. Ocean Blue is the
+    only palette colour that does.
 
 ## Buttons
 
-Three tiers, and no fourth. Geometry and sizes are in `layout.md`; the colours are here.
-
-**Hover always promotes.** A ghost button hovered looks like a secondary at rest; a secondary
-hovered becomes the dark button this file has always approved. Nothing moves, grows or lifts —
-every state change is a colour change at `--duration-fast`, and **the pressed state is the
-hover state**, as `web.md` says.
+1. Three tiers: primary, secondary, ghost. No fourth. Geometry and sizes: `layout.md`.
+2. Hover promotes. A hovered ghost looks like a resting secondary; a hovered secondary becomes the
+   dark button.
+3. Every state change is a colour change at `--duration-fast`. Nothing moves, grows or lifts.
+4. The pressed state is the hover state. See `web.md`.
 
 | Tier and state | Foreground | Background | Light | Dark |
 | --- | --- | --- | --- | --- |
@@ -186,49 +158,38 @@ hover state**, as `web.md` says.
 | Ghost, rest and hover | `--text-primary` | `--surface-page` | 15.60 | 15.60 |
 | Disabled, label and border | `--text-secondary` | transparent | 4.93 | 6.57 |
 
-The secondary hover takes `--surface-page` for its label and not `--surface-raised`: Snow White
-on Night Blue is an approved pair, plain White on Night Blue is not, so a secondary button on a
-card would otherwise hover into a combination this file does not list.
-
-The ghost button's border exists at rest as `1px solid transparent`, so revealing it changes a
-colour and not a box.
-
-**The primary is the one component that names palette colours instead of roles.** That is
-deliberate and it is the only exception: the pastels do not move between themes, and neither
-does this button.
-
-**There is no tertiary tier.** A quieter label would be `--text-secondary`, which is exactly
-the disabled appearance defined below — not a near miss, the same rule. A quieter border would
-be `--border-control`, which is exactly a form field. Emphasis below ghost is carried by size:
-a small ghost button is quieter than a medium one and collides with nothing.
+5. A hovered secondary labels in `--surface-page`, never `--surface-raised`: White on Night Blue
+   is not an approved pair.
+6. The ghost border exists at rest as `1px solid transparent`. Hover changes its colour, not the
+   box.
+7. The primary is the only component that names palette colours instead of roles. It does not
+   change between themes.
+8. There is no tertiary tier. A quieter label (`--text-secondary`) is the disabled state; a
+   quieter border (`--border-control`) is a form field.
+9. Carry emphasis below ghost with size: a small ghost button.
 
 ### On a pastel ground
 
-**A pastel section takes the Night Blue primary, not the Lime Green one.** As a shape against
-its ground, Lime Green measures 1.01 on Yellow, 1.42 on Violet and 1.40 on Pink. The label
-still passes at 13.05, but the button has no edge and does not read as a button. On the page
-ground and on the dark ground Lime Green measures 1.20 and 13.05, and stays the primary there.
+1. A pastel section takes the Night Blue primary, not the Lime Green one.
+2. As a shape, Lime Green measures 1.01 on Yellow, 1.42 on Violet and 1.40 on Pink: no edge. The
+   label still passes at 13.05.
+3. On the page ground (1.20) and the dark ground (13.05), Lime Green stays the primary.
 
 | On a pastel | Foreground | Background | Ratio |
 | --- | --- | --- | --- |
 | Primary, rest | `--colour-snow-white` | `--colour-night-blue` | 15.60 |
 | Primary, hover and pressed | `--colour-night-blue` | `--colour-lime-green` | 13.05 |
 
-**A pastel section carries one button.** A second action there is a ghost — bare Night Blue
-label, hovering to a Night Blue outline — and never a secondary, whose rest and hover states
-would both collide with the primary's. If a callout seems to need two equal actions, it has one
-too many.
+4. A pastel section carries one button.
+5. A second action there is a ghost: bare Night Blue label, hovering to a Night Blue outline.
+6. Never a secondary on a pastel: its rest and hover states collide with the primary's.
+7. A callout that seems to need two equal actions has one too many.
 
 ## Controls and forms
 
-**A control boundary is `--border-control`, one pixel.** That is `--colour-muted-grey` on a
-light ground: 5.33 on white, 4.93 on Snow White. WCAG 1.4.11 holds a user-interface component
-boundary to 3:1, and `--colour-hairline-grey` measures 1.44 and 1.33 — it never borders a
-control. It rules a section off, and that is all it does.
-
-This corrects an earlier version of this file, which gave hairline grey the job of bordering
-an unchecked control while also warning that it must never be the only cue for a boundary that
-matters. The warning was right and the job contradicted it.
+1. A control boundary is `--border-control`, 1px: Muted Grey, 5.33 on White, 4.93 on Snow White.
+   WCAG 1.4.11 requires 3:1.
+2. `--colour-hairline-grey` (1.44, 1.33) never borders a control. It only rules sections off.
 
 | Part | Colour |
 | --- | --- |
@@ -240,147 +201,106 @@ matters. The warning was right and the job contradicted it.
 | Confirmation message and border | `--text-success`. |
 | Focus | The focus ring, outside the field. |
 
-**An error is never signalled by colour alone.** A red border with no message is not an error
-state; write what went wrong and how to fix it, in `--text-error`, next to the field. The
-border also doubles to 2px, so the state survives without colour at all.
+3. Never signal an error by colour alone. Write what went wrong and how to fix it, in
+   `--text-error`, next to the field.
+4. An error border doubles to 2px.
+5. Never signal a success by colour alone. Write what passed, in `--text-success`, next to the
+   field.
+6. Confirm only what the reader could not already see: a value checked against something, an
+   action that completed. Never confirm a field for being well-formed.
+7. There are no placeholders, so there is no placeholder colour. Use help text. See `forms.md`.
+8. A disabled control has no fill: transparent ground, `--border-control` at 1px, label in
+   `--text-secondary` — 4.93 on the page ground, 5.33 on a card, 6.57 on the dark ground.
+9. A disabled control carries `aria-disabled` or `disabled`.
+10. Never give a disabled control `--surface-page` as its ground: on a card it reads as a stray
+    surface.
+11. Never dim a disabled control to a lighter grey. If it needs explaining, explain it in text.
+12. Prefer not to disable. Let the form submit, and answer with validation that names the field
+    and the fix.
 
-**Nor is a success.** A green border with no message is not a confirmation; say what passed, in
-`--text-success`, next to the field. Confirm only what the reader could not already see — a
-value that was checked against something, an action that completed. Repeating a field back
-because it is well-formed is noise, and a form that congratulates every entry teaches the
-reader to stop looking at the green.
+## Dark ground
 
-**There is no placeholder row above,** because there are no placeholders. An earlier version of
-this file gave placeholder text `--text-secondary`; `forms.md` removed the placeholder itself,
-and what it would have said is help text now.
+1. Night Blue is the dark page ground. Snow White is its text.
+2. No light functional colour crosses over. `--colour-muted-grey` is 3.16 on Night Blue (too
+   faint), `--colour-hairline-grey` 11.71 (too loud), `--colour-error-red` and
+   `--colour-success-green` both 3.03 (below 4.5).
 
-**A disabled control has no fill.** Its ground is transparent, its boundary is
-`--border-control` at 1px, and its label is `--text-secondary` — 4.93 on the page ground, 5.33
-on a card, 6.57 on the dark one. It carries `aria-disabled` or `disabled`.
-
-An earlier version of this file gave the disabled ground as `--surface-page`. That is wrong on
-a card: a Snow White box inside a White panel reads as a stray surface rather than a dead
-control. Transparent lets the border do the work, and the border already measures.
-
-It is not a lighter grey: a control a reader cannot read is worse than one they cannot press.
-If a disabled control needs explaining, explain it in text rather than dimming it further.
-
-**Prefer not to disable at all.** A submit button disabled until a form is complete tells the
-reader nothing about what is missing. Let it submit, and answer with validation that names the
-field and the fix.
-
-## The dark ground
-
-Night Blue is the dark page ground, and Snow White on it is a pair this brand has always had.
-Five more colours exist so the rest of the interface has somewhere to go. Nothing in the light
-palette crosses over: `--colour-muted-grey` measures 3.16 on Night Blue and is too faint to
-read, and `--colour-hairline-grey` measures 11.71, which is far too loud for a hairline.
-
-| Token | Hex | What it is for |
+| Token | Hex | Use for |
 | --- | --- | --- |
-| `--colour-dark-surface` | `#242942` | Cards and panels lifted off the dark ground. |
-| `--colour-dark-muted-grey` | `#9BA1B8` | Secondary text, and the boundary of a form control. |
+| `--colour-dark-surface` | `#242942` | Cards and panels on the dark ground. |
+| `--colour-dark-muted-grey` | `#9BA1B8` | Secondary text; form control boundary. |
 | `--colour-dark-hairline-grey` | `#3A4059` | Hairline rules. Never a control boundary. |
 | `--colour-dark-error-red` | `#EF7A7A` | Form error messages. |
 | `--colour-dark-success-green` | `#5AB234` | Confirmation messages. |
-
-Neither `--colour-error-red` nor `--colour-success-green` is among them. Both measure 3.03 on
-Night Blue — the same number by coincidence — below the 4.5 a message has to clear, so the dark
-ground needs its own red and its own green.
 
 ### Accepted combinations on the dark ground
 
 | Foreground | Background | Ratio | Use for |
 | --- | --- | --- | --- |
-| `--colour-snow-white` | `--colour-night-blue` | 15.60 | The dark page ground. All long-form reading. |
-| `--colour-snow-white` | `--colour-dark-surface` | 13.21 | Cards and panels lifted off the dark ground. |
-| `--colour-dark-muted-grey` | `--colour-night-blue` | 6.57 | Secondary text, and control boundaries. |
+| `--colour-snow-white` | `--colour-night-blue` | 15.60 | Dark page ground, long-form reading. |
+| `--colour-snow-white` | `--colour-dark-surface` | 13.21 | Cards and panels. |
+| `--colour-dark-muted-grey` | `--colour-night-blue` | 6.57 | Secondary text, control boundaries. |
 | `--colour-dark-muted-grey` | `--colour-dark-surface` | 5.56 | The same, on a card. |
-| `--colour-dark-error-red` | `--colour-night-blue` | 6.21 | Form error messages. |
+| `--colour-dark-error-red` | `--colour-night-blue` | 6.21 | Form errors. |
 | `--colour-dark-error-red` | `--colour-dark-surface` | 5.26 | The same, on a card. |
-| `--colour-dark-success-green` | `--colour-night-blue` | 6.30 | Confirmation messages. |
+| `--colour-dark-success-green` | `--colour-night-blue` | 6.30 | Confirmations. |
 | `--colour-dark-success-green` | `--colour-dark-surface` | 5.34 | The same, on a card. |
 | `--colour-dark-hairline-grey` | `--colour-night-blue` | 1.65 | Hairline rules only. Never text, never a control boundary. |
 | `--colour-dark-hairline-grey` | `--colour-dark-surface` | 1.40 | The same, on a card. |
-| `--colour-ocean-blue` | `--colour-night-blue` | 3.95 | Large display text at 24px and above, icons, and rules — including the navigation accent rule. Never body text. |
+| `--colour-ocean-blue` | `--colour-night-blue` | 3.95 | Display text at 24px and above, icons, rules (including the navigation accent rule). Never body text. |
 
-`--colour-dark-surface` on `--colour-night-blue` is 1.18. That is a surface against a surface,
-not a text pair, and 1.18 is enough to separate two grounds when a radius separates them too.
-It is not enough to be the only cue that a card exists; give the card padding as well.
+1. `--colour-dark-surface` on `--colour-night-blue` is 1.18: a surface pair, not a text pair.
+2. 1.18 separates two grounds only together with a radius. Give a dark card padding as well.
 
-### The pastels do not change
+### Pastels on the dark ground
 
-Violet, Lime Green, Yellow and Pink are grounds, and the only foreground approved on any of
-them is Night Blue. That pair measures the same on a dark page as on a light one — 9.21 to
-13.05 — so **a pastel section is identical in both themes**, and so is the primary button.
-They are light panels on a dark page, and that is correct rather than a compromise.
+1. Violet, Lime Green, Yellow and Pink are grounds. Night Blue is the only foreground on them, in
+   both themes.
+2. That pair measures the same in both themes, 9.21 to 13.05. A pastel section and the primary
+   button are identical in both themes.
+3. A focus ring inside a pastel section is Night Blue, not Snow White. Snow White on Violet is
+   1.69.
+4. A pastel section on a dark page carries `data-surface="light"`, which returns all ten roles to
+   their light values.
+5. This is the one place a container declares its own surface. See `web.md`.
 
-A focus ring inside a pastel section is Night Blue, not Snow White — the ring contrasts
-against the ground it sits on, which there is the pastel. Snow White on Violet is 1.69 and
-would be invisible. The roles do not work this out on their own: a pastel section on a dark
-page carries `data-surface="light"`, which puts all ten roles back to their light values.
-That is the one place a container has to declare its own surface, and `web.md` says when.
+## Not approved
 
-## What is not approved
-
-**`--colour-ocean-blue` as body text.** It measures 4.27:1 on white, 3.95:1 on Snow White and
-3.95:1 on Night Blue. It is a details colour: large display text, icons and rules, in either
-theme.
-
-**`--colour-ocean-blue` as a background.** Night Blue on it is 3.95:1 and Snow White on it is
-3.95:1 — there is no readable text colour for that ground, so it is never a ground.
-
-**Snow White or White text on Violet, explicitly forbidden.** Violet is the pastel most
-likely to be mistaken for light enough to carry light text. It is not: Snow White on Violet
-measures 1.69:1 and White measures barely more — both fail even the 3:1 floor for large
-text, let alone the 4.5:1 floor for body copy. Night Blue is the only approved foreground on
-Violet, in any theme.
-
-**The four pastels as text.** Violet, Lime Green, Yellow and Pink are grounds and details.
-Night Blue is the only foreground approved on any of them, in either theme. Pink is close
-enough to a light red to be tempting as the dark error colour, and it is still not text; Lime
-Green is close enough to a light green to tempt the same way as the success colour, and it is
-still not text either.
-
-**Either green on the wrong ground.** `--colour-success-green` measures 3.03 on Night Blue and
-2.57 on Dark Surface; `--colour-dark-success-green` measures 2.67 on white and 2.47 on Snow
-White. Use `--text-success` and the theme picks.
-
-**Either green on a pastel.** `--colour-success-green` is 4.30 on Lime Green and 4.26 on
-Yellow. Close is not approved, and a green message on a green ground would be poor signalling
-even if it measured.
-
-**Either green as a background.** They are message colours, like the reds. A confirmation sits
-on the surface it is already on.
-
-**Any grey on the wrong ground.** `--colour-muted-grey` and `--colour-hairline-grey` are light
-only; `--colour-dark-muted-grey` and `--colour-dark-hairline-grey` are dark only. Use
-`--text-secondary` and `--border-hairline` and the theme picks.
-
-**Any pair not in the tables above.** Including pastel on pastel, and any of the greys on a
-pastel.
+1. `--colour-ocean-blue` as body text: 4.27 on White, 3.95 on Snow White, 3.95 on Night Blue. It is
+   for large display text, icons and rules, in either theme.
+2. `--colour-ocean-blue` as a background: Night Blue and Snow White both measure 3.95 on it.
+3. Snow White or White text on Violet — explicitly forbidden. Snow White measures 1.69, White
+   barely more; both fail even the 3:1 large-text floor. Night Blue is the only foreground on
+   Violet, in any theme.
+4. The four pastels as text, in either theme. Pink is not the dark error colour; Lime Green is not
+   the success colour.
+5. Either green on the wrong ground: `--colour-success-green` is 3.03 on Night Blue and 2.57 on
+   Dark Surface; `--colour-dark-success-green` is 2.67 on White and 2.47 on Snow White. Use
+   `--text-success`.
+6. Either green on a pastel: `--colour-success-green` is 4.30 on Lime Green and 4.26 on Yellow.
+7. Either green as a background. Like the reds, they are message colours: a confirmation sits on
+   the surface it is already on.
+8. Any grey on the wrong ground. `--colour-muted-grey` and `--colour-hairline-grey` are light only;
+   `--colour-dark-muted-grey` and `--colour-dark-hairline-grey` are dark only. Use
+   `--text-secondary` and `--border-hairline`.
+9. Any pair not in the tables above, including pastel on pastel and any grey on a pastel.
 
 ## Which pairs carry a mark
 
-Nine of the light pairs above are also approved for the logotype and the icon logo. The rest
-are not: a pair approved for secondary text, form errors, confirmations or hairline rules is
-approved for that, and a mark is none of those things. `logos.md` lists the nine and says which mark each
-takes — `--colour-ocean-blue` is the logotype only, and not below 141px.
+1. Nine of the light pairs are approved for the logotype and the icon logo. `logos.md` lists them
+   and which mark each takes.
+2. A pair approved for secondary text, form errors, confirmations or hairline rules never carries
+   a mark.
+3. `--colour-ocean-blue` carries the logotype only, never below 141px.
+4. No mark on `--colour-dark-surface`. A mark on a dark card uses the Night Blue lockup.
 
-No mark is approved on `--colour-dark-surface`. A mark on a dark card takes the Night Blue
-ground it already has a lockup for.
+## Source
 
-## Notes on the source
-
-The brand guide holds two colour tables that overlap and disagree with each other. Ocean Blue
-is tagged *Details* in one and *Backgrounds, Details* in the other; this file resolves that as
-details only, on the contrast evidence.
-
-The guide also instructs "Dark Mode: use Grey for titles & body text" while defining no colour
-called Grey. That instruction is still not carried over — there was no value in it to carry.
-The dark ground here is Night Blue with Snow White text, and its four supporting colours were
-measured for this file rather than taken from the guide.
-
-The guide states CMYK values alongside each colour. They do not match a standard conversion
-from the same hex and name no profile, so they are not reproduced here. Get CMYK from your
-printer against a named profile, not from the guide.
+1. The brand colours come from Hartstikke's original brand guide.
+2. The guide tags Ocean Blue *Details* in one table and *Backgrounds, Details* in another. This
+   file resolves it as details only, on contrast.
+3. The guide's "Dark Mode: use Grey for titles & body text" is not carried over: it defines no
+   Grey.
+4. The dark ground's supporting colours were measured for this file, not taken from the guide.
+5. The guide's CMYK values are not reproduced: they match no standard conversion and name no
+   profile. Get CMYK from your printer against a named profile.

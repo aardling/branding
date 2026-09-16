@@ -5,63 +5,60 @@
     <span class="eyebrow eyebrow-path">guidelines/web.md</span>
   </div>
   <div class="page-body">
-    <h2 class="title">The base value is the phone</h2>
-    <p class="small">Everything <span class="token">tokens.css</span> declares in <span class="token">:root</span> —
-      type sizes, spacing, containers, the page margin — is what a 360px screen gets. Every media
-      query in this brand is <span class="token">min-width</span>, and each one restates only what
-      actually changes at that width.</p>
-
-    <p class="meta">This is a reversal. Until version 0.8.0 <span class="token">:root</span> held the
-      desktop sizes and a <span class="token">max-width</span> query shrank them, which described the
-      phone as a subtraction from a screen nobody was designing on. The values did not change; the
-      direction did.</p>
+    <h2 class="title">Mobile first</h2>
+    <ol class="small">
+      <li>Everything <span class="token">tokens.css</span> declares in <span class="token">:root</span> — type sizes, spacing, containers, the page margin — is the value for a 360px screen.</li>
+      <li>Every media query is <span class="token">min-width</span>, and restates only what changes at that width.</li>
+    </ol>
 
     <hr class="rule gap-top">
 
-    <p class="subhead">Six breakpoints, each with a reason</p>
+    <p class="subhead">Breakpoints</p>
     <table>
       <thead><tr><th style="width: 150px">Token</th><th class="num" style="width: 62px">Value</th><th>What changes there</th></tr></thead>
       <tbody>
-        <tr><td><span class="token">--breakpoint-sm</span></td><td class="num">540px</td><td>h1 to h4 step up from the phone column. The page margin gives way to the container.</td></tr>
-        <tr><td><span class="token">--breakpoint-md</span></td><td class="num">720px</td><td>Vertical section padding goes from <span class="token">--space-6</span> to <span class="token">--space-10</span>.</td></tr>
-        <tr><td><span class="token">--breakpoint-lg</span></td><td class="num">960px</td><td>The full desktop type scale. Section padding to <span class="token">--space-12</span>.</td></tr>
-        <tr><td><span class="token">--breakpoint-xxl</span></td><td class="num">1400px</td><td>Grid gutter goes from <span class="token">--space-3</span> to <span class="token">--space-4</span>.</td></tr>
-        <tr><td><span class="token">--breakpoint-xxxl</span></td><td class="num">1728px</td><td>Display step. The type scale rises, body to 20px. No layout change.</td></tr>
-        <tr><td><span class="token">--breakpoint-mega</span></td><td class="num">1920px</td><td>Display step. Type rises again, body to 22px. No layout change.</td></tr>
+        <tr><td><span class="token">--breakpoint-sm</span></td><td class="num">540px</td><td>h1 to h4 step up. The page margin gives way to the container.</td></tr>
+        <tr><td><span class="token">--breakpoint-md</span></td><td class="num">720px</td><td>Section padding <span class="token">--space-6</span> to <span class="token">--space-10</span>.</td></tr>
+        <tr><td><span class="token">--breakpoint-lg</span></td><td class="num">960px</td><td>Full desktop type scale. Section padding <span class="token">--space-12</span>.</td></tr>
+        <tr><td><span class="token">--breakpoint-xxl</span></td><td class="num">1400px</td><td>Grid gutter <span class="token">--space-3</span> to <span class="token">--space-4</span>.</td></tr>
+        <tr><td><span class="token">--breakpoint-xxxl</span></td><td class="num">1728px</td><td>Display step. Type scale rises, body 20px. No layout change.</td></tr>
+        <tr><td><span class="token">--breakpoint-mega</span></td><td class="num">1920px</td><td>Display step. Type rises again, body 22px. No layout change.</td></tr>
       </tbody>
     </table>
 
-    <p class="small">The last two are <strong>display steps</strong>: they exist so a 27-inch monitor
-      does not set 18px body copy across a wide column. They move type and nothing else.
-      <span class="token">1140px</span> was declared and never used by anything; it and its container
-      are retired.</p>
+    <ol class="small">
+      <li>The display steps move type only. Never hang a layout change on them.</li>
+      <li>1140px and its container are retired.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
   </div>
 </section>
 
-<!-- ======================= 24b. Web: two rules of thumb ======================= -->
+<!-- ======================= 24b. Web: mobile first, in practice ======================= -->
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Web</span>
     <span class="eyebrow">Mobile first, continued</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Two rules that follow from it</h2>
+    <h2 class="title">Mobile first, in practice</h2>
     <div class="cols">
       <div class="card">
-        <p class="subhead">Design at 360px first</p>
-        <p class="small gap-top">Not 375, not 390. 360px is the narrowest width in common use, and a
-          layout that survives it survives the rest. Check the hero, the navigation and any table
-          at that width before opening a desktop viewport.</p>
+        <p class="subhead">360px first</p>
+        <ol class="small gap-top">
+          <li>Design at 360px first. Not 375, not 390.</li>
+          <li>Check the hero, the navigation and any table at 360px before a desktop viewport.</li>
+        </ol>
       </div>
       <div class="card card-pink">
-        <p class="subhead">A custom property cannot be read in a media query</p>
-        <p class="small gap-top"><span class="token">@media (min-width: var(--breakpoint-lg))</span> does not
-          work in any browser, and fails silently. The breakpoint tokens exist to be read from
-          JavaScript and to keep the two token files in step — not to be used in a query. In a
-          query, write the literal.</p>
+        <p class="subhead">No custom property in a media query</p>
+        <ol class="small gap-top">
+          <li><span class="token">@media (min-width: var(--breakpoint-lg))</span> fails silently in every browser.</li>
+          <li>The breakpoint tokens are for JavaScript and for keeping the two token files in step.</li>
+          <li>In a query, write the literal.</li>
+        </ol>
       </div>
     </div>
   </div>
@@ -77,34 +74,36 @@
     <span class="eyebrow">Focus, links, controls</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Focus is a requirement; hover is a courtesy</h2>
-    <p class="small">Anything that reacts to a pointer reacts to the keyboard the same way. Hover is
-      the one state a touchscreen cannot produce at all, so no information, no control and no
-      navigation may live in a hover state alone.</p>
+    <h2 class="title">Focus and links</h2>
+    <ol class="small">
+      <li>Anything that reacts to a pointer reacts to the keyboard the same way.</li>
+      <li>No information, control or navigation exists only in a hover state.</li>
+    </ol>
 
-    <p class="subhead gap-top">The ring is the same everywhere</p>
+    <p class="subhead gap-top">Focus ring</p>
     <div style="display: flex; gap: var(--space-3); align-items: center; margin-top: var(--space-2); flex-wrap: wrap">
       <span class="btn" style="outline: 3px solid #181C2F; outline-offset: 2px">Book a call</span>
       <span style="display: inline-flex; align-items: center; padding: 12px 24px; border-radius: var(--radius-pill); background: #B9BBF4; color: #181C2F; outline: 3px solid #181C2F; outline-offset: 2px">On Violet</span>
       <span style="display: inline-flex; align-items: center; padding: 12px 24px; border-radius: var(--radius-pill); background: #181C2F; color: #F6F6F6; outline: 3px solid #F6F6F6; outline-offset: 2px">On Night Blue</span>
     </div>
-    <p class="small">Three pixels solid, offset two, on <span class="token">:focus-visible</span> — so it
-      appears for a keyboard and not under a mouse click. Night Blue on every light ground, Snow
-      White on every dark one. Night Blue is the only palette colour that clears 3:1 against all
-      eight approved grounds; Ocean Blue fails on Violet at 2.33, Pink at 2.37 and Hover Green at
-      2.66. Never <span class="token">outline: none</span> without a replacement in the same rule.</p>
+    <ol class="small">
+      <li>3px solid, offset 2px, on <span class="token">:focus-visible</span>.</li>
+      <li>Night Blue on every light ground, Snow White on every dark one.</li>
+      <li>Night Blue is the only palette colour that clears 3:1 on all eight approved grounds. Ocean Blue fails on Violet (2.33), Pink (2.37) and Hover Green (2.66).</li>
+      <li>Never <span class="token">outline: none</span> without a replacement in the same rule.</li>
+    </ol>
 
     <hr class="rule gap-top">
 
-    <p class="subhead">A link is underlined, always</p>
-    <p class="small gap-top">There is no approved second text colour on the page ground, so the
-      underline is not decoration — it is the only thing distinguishing a link, and removing it
-      removes the link. Colour never changes on hover, at any size; the underline stays 1px and
-      brightens from <span class="token">--link-underline</span>, a 50% tint, to full colour.</p>
+    <p class="subhead">Links</p>
+    <ol class="small gap-top">
+      <li>A link is always underlined. The underline is the only thing that marks it.</li>
+      <li>Link colour never changes on hover, at any size.</li>
+      <li>The underline stays 1px and goes from <span class="token">--link-underline</span>, a 50% tint, to full colour on hover.</li>
+    </ol>
     <p style="margin-top: var(--space-2)">We ran a <span style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: var(--link-underline)">three-day modelling workshop</span>
       with their platform team, and it <span style="text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.18em; text-decoration-color: #181C2F">brightens on hover</span>.</p>
-    <p class="meta">Visited links are not styled: there is no approved pair for a third text colour,
-      and on a site of this kind the distinction tells a reader nothing they need.</p>
+    <p class="meta">Visited links are not styled: there is no approved pair for a third text colour.</p>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
@@ -118,7 +117,7 @@
     <span class="eyebrow">Focus, links, controls, continued</span>
   </div>
   <div class="page-body">
-    <h2 class="title">A control boundary has to be visible</h2>
+    <h2 class="title">Control boundaries</h2>
     <div class="cols">
       <div class="card card-pink">
         <p class="eyebrow">No — Hairline Grey, 1.44</p>
@@ -129,9 +128,11 @@
         <div style="margin-top: var(--space-2); padding: 12px 16px; border: 1px solid #6B6B6B; border-radius: var(--radius-sm); background: #FFFFFF; color: #6B6B6B">you@company.com</div>
       </div>
     </div>
-    <p class="small">WCAG 1.4.11 holds a user-interface component boundary to 3:1. Hairline Grey
-      measures 1.44 on White and 1.33 on Snow White: it rules a section off, and never borders a
-      control. An error always carries a message saying what went wrong — never colour alone.</p>
+    <ol class="small">
+      <li>A control boundary clears 3:1 (WCAG 1.4.11).</li>
+      <li>Hairline Grey measures 1.44 on White and 1.33 on Snow White. It rules sections off and never borders a control.</li>
+      <li>An error always carries a message saying what went wrong. Never colour alone.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
@@ -145,21 +146,22 @@
     <span class="eyebrow">Motion, elevation</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Two durations, two shadows</h2>
+    <h2 class="title">Motion and elevation</h2>
 
     <p class="subhead">Motion</p>
     <table>
       <tbody>
-        <tr><td style="width: 150px"><span class="token">--duration-fast</span></td><td style="width: 76px">120ms</td><td>Colour changes: hover, focus, active. Anything that does not move.</td></tr>
-        <tr><td><span class="token">--duration-base</span></td><td>240ms</td><td>Anything that moves, resizes or fades — a disclosure, a drawer, a menu.</td></tr>
+        <tr><td style="width: 150px"><span class="token">--duration-fast</span></td><td style="width: 76px">120ms</td><td>Colour changes: hover, focus, active.</td></tr>
+        <tr><td><span class="token">--duration-base</span></td><td>240ms</td><td>Anything that moves, resizes or fades: disclosure, drawer, menu.</td></tr>
         <tr><td><span class="token">--ease-standard</span></td><td colspan="2">cubic-bezier(0.2, 0, 0, 1) — every transition, both durations.</td></tr>
       </tbody>
     </table>
-    <p class="small">One easing curve everywhere is what makes unrelated components feel like one
-      site. The tokens collapse to 1ms under <span class="token">prefers-reduced-motion</span>, so a
-      transition written against them already complies; anything animating <em>without</em> them
-      must be stopped by hand. Nothing animates on load — the page arrives at rest. Animate
-      <span class="token">transform</span> and <span class="token">opacity</span>, nothing else.</p>
+    <ol class="small">
+      <li>One easing curve for every transition.</li>
+      <li>The tokens collapse to 1ms under <span class="token">prefers-reduced-motion</span>. Anything animating <em>without</em> them is stopped by hand.</li>
+      <li>Nothing animates on load. The page arrives at rest.</li>
+      <li>Animate <span class="token">transform</span> and <span class="token">opacity</span> only.</li>
+    </ol>
 
     <hr class="rule gap-top">
 
@@ -172,11 +174,11 @@
         <span class="token">--shadow-overlay</span><br><span class="small">A menu, a dialog, a sticky bar.</span>
       </div>
     </div>
-    <p class="small">Both are cast in Night Blue rather than black — a neutral black shadow over a
-      warm ground reads as dirt rather than depth. Two steps and no more: a third is a request for
-      a hierarchy the page does not have. On the dark ground
-      <span class="token">--shadow-raised</span> is <span class="token">none</span>, because a shadow under a
-      dark card on a dark page is invisible and the surface colour does that job instead.</p>
+    <ol class="small">
+      <li>Shadows are cast in Night Blue, never black.</li>
+      <li>Two steps, no third.</li>
+      <li>On the dark ground <span class="token">--shadow-raised</span> is <span class="token">none</span>; the surface colour lifts the card.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
@@ -189,21 +191,19 @@
     <span class="eyebrow">Dark mode</span>
   </div>
   <div class="page-body">
-    <h2 class="title">The reader's operating system decides</h2>
-    <p class="small">One <span class="token">prefers-color-scheme: dark</span> block re-points the eight
-      roles, and that is the whole mechanism. There is no toggle in the header, nothing to
-      remember between visits, and no third state to test.</p>
-
-    <p class="meta">The palette does not move. <span class="token">--colour-snow-white</span> is Snow White
-      in both themes; it is <span class="token">--text-primary</span> that resolves differently. A
-      component written against roles is already correct in dark mode and needs no dark-mode CSS
-      of its own. A component written against palette colours is the bug.</p>
+    <h2 class="title">Dark mode</h2>
+    <ol class="small">
+      <li>The operating system decides. One <span class="token">prefers-color-scheme: dark</span> block re-points the ten roles.</li>
+      <li>No theme toggle, nothing remembered between visits.</li>
+      <li>The palette does not change between themes; <span class="token">--text-primary</span> and the other roles resolve differently.</li>
+      <li>Components reference roles, never palette colours. A component that needs its own dark-mode CSS is a bug.</li>
+    </ol>
 
     <div class="card card-night gap-top">
       <p class="subhead">Domain Modelling</p>
       <p class="small gap-top">Untangle complex business domains and make your architecture work for
-        you. Secondary text sits at 6.57, a hairline at 1.65, and a card lifts to
-        <span class="token">#242942</span> rather than casting a shadow.</p>
+        you. Secondary text 6.57, hairline 1.65. A card lifts to
+        <span class="token">#242942</span>, with no shadow.</p>
       <div style="display: flex; gap: var(--space-2); align-items: center; margin-top: var(--space-3); flex-wrap: wrap">
         <span class="btn">Book a call</span>
         <span style="display: inline-flex; align-items: center; padding: 12px 24px; border-radius: var(--radius-pill); background: #242942; color: #F6F6F6; outline: 3px solid #F6F6F6; outline-offset: 2px">Focused</span>
@@ -224,27 +224,26 @@
   <div class="page-body">
     <div class="cols">
       <div class="card">
-        <p class="subhead">The pastels do not change</p>
-        <p class="small gap-top">Violet, Lime Green, Yellow and Pink are grounds whose only approved
-          foreground is Night Blue, and that pair measures the same on a dark page as a light one.
-          A pastel section is identical in both themes, and so is the primary button. They are
-          light panels on a dark page, and that is correct rather than a compromise.</p>
+        <p class="subhead">Pastels</p>
+        <ol class="small gap-top">
+          <li>Violet, Lime Green, Yellow and Pink take only Night Blue, and measure the same in both themes.</li>
+          <li>A pastel section and the primary button are identical in both themes.</li>
+        </ol>
       </div>
       <div class="card card-violet">
-        <p class="subhead">A light island says so</p>
-        <p class="small gap-top">A pastel section on a dark page carries
-          <span class="token">data-surface="light"</span>, which puts all ten roles back. Without it a
-          focus ring inside this callout would inherit Snow White and measure 1.69 against the
-          Violet — invisible. An inverted section is the mirror of it:
-          <span class="token">data-surface="dark"</span>, which is what the footer uses.</p>
+        <p class="subhead">Surface attribute</p>
+        <ol class="small gap-top">
+          <li>A pastel section on a dark page carries <span class="token">data-surface="light"</span>. Without it a focus ring here inherits Snow White and measures 1.69.</li>
+          <li>An inverted section, such as the footer, carries <span class="token">data-surface="dark"</span>.</li>
+        </ol>
       </div>
     </div>
 
-    <p class="meta gap-top"><span class="token">light</span> and <span class="token">dark</span> are the only two
-      values, and <span class="token">data-surface</span> is the only attribute this brand styles. Artwork
-      has no dark variant: the four gradients and the illustrations are the same files in both
-      themes. Check both before calling anything finished, by switching the operating system
-      setting — a browser devtools override misses the scoped case entirely.</p>
+    <ol class="small gap-top">
+      <li><span class="token">light</span> and <span class="token">dark</span> are the only values. <span class="token">data-surface</span> is the only attribute this brand styles.</li>
+      <li>Artwork has no dark variant: the four gradients and the illustrations are the same files in both themes.</li>
+      <li>Check both themes before calling anything finished, by switching the operating system setting. A devtools override misses the scoped case.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Web</span><span class="folio"></span>
