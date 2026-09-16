@@ -83,6 +83,22 @@ This mirrors the workflow used in the `aardling-eu-website2` repo (its ADR-009 a
 
 `tokens.json` and `tokens.css` are two views of one truth — change them together.
 
+## Writing guidelines
+
+Every brand's guidelines — `guidelines/*.md`, and any printed guide generated from them —
+are written compact and factual.
+
+1. Headings are plain nouns naming the topic: "Spacing", not "Spacing is specified, never
+   implied".
+2. Rules are numbered lists, one rule per item. No paragraphs of prose.
+3. State the rule. No rationale, unless the rule is incomprehensible without it or it records
+   a legal or licence position. No history of how a value came about.
+4. Tables stay tables; code a consumer copies stays code.
+5. A shorter rule never drops a value, token, measurement or exception.
+
+This governs guidelines. The general rules in this file, and each brand's `README.md`, are
+not bound by it.
+
 ## Colour palettes
 
 Every brand's palette obeys these rules.

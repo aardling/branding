@@ -32,7 +32,7 @@ Produce something the user can *look at*, matched to what is changing:
 | Favicons | The whole set rendered at real size — 16, 32, 180 — on light and dark grounds. |
 | Images | The images themselves, at usable size. |
 | Layout / spacing | A real component or page section at real size with margins and padding visible, plus a heading rendered at two narrow widths showing balanced wrapping and protected terms staying whole. |
-| Guidelines / voice | The prose rendered, with before/after examples where it changes existing wording. |
+| Guidelines / voice | The rules rendered, with before/after examples where it changes existing wording. |
 | Structure only | A file tree diff — no artifact needed. |
 
 For anything visual, publish an HTML **Artifact** (load the `artifact-design` skill first),
@@ -103,6 +103,10 @@ A **layout** change is only finished when:
    each one whole on a single line — one `white-space: nowrap` span around the entire term
    in markup, covering its spaces and hyphens alike; U+00A0 and U+2011 in plain text.
 
+A **guideline** change is only finished when it is written as `CLAUDE.md` "Writing
+guidelines" requires: plain noun headings, numbered rules one per item, no rationale or
+history beyond what the rule needs, every value kept.
+
 A **voice** change is only finished when `guidelines/voice.md` exists, sits inside the
 repository's general voice rules rather than against them, and carries the brand's own
 do/don't examples in its own register.
@@ -135,3 +139,5 @@ needed for a render; `prepublishOnly` is what refuses a stale guide at publish t
   space, not at a hyphen. If it does not fit, the line changes, not the term.
 - No brand voice that contradicts the general voice rules, and no copy shipped with
   filler, hype or unbacked claims.
+- No guideline written as paragraphs of prose, under an editorial heading, or padded with
+  rationale and history.
