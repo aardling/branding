@@ -2,55 +2,40 @@
 
 ## Aardling
 
-The brand name is **Aardling**. Capital A, the rest lower case, one word. In headlines, in
-body copy, in navigation, in email, in decks, in social posts, and in a sentence that begins
-with it. There is no second accepted form.
+1. The brand name is **Aardling**: capital A, the rest lower case, one word.
+2. There is no second accepted form.
+3. This applies everywhere: headlines, body copy, navigation, email, decks, social posts, and a
+   sentence that begins with it.
+4. In prose, never `aardling`, never `AARDLING`, never `AardLing`.
+5. Exception: machine identifiers stay lower case. The rule governs words a reader sees set as
+   text, not identifiers.
 
-In prose, never `aardling`, never `AARDLING`, never `AardLing`.
+   ```
+   @aardling/brand-aardling   aardling/   aardling-brand   --colour-*   aardling.eu   contact@aardling.eu
+   ```
 
-Two carve-outs, both narrow.
-
-**Machine identifiers stay lower case.** npm does not accept a capital in a scope, and
-mixed-case paths break on case-sensitive filesystems. The spelling rule governs words a
-reader sees set as text; it does not govern identifiers.
-
-```
-@aardling/brand-aardling   aardling/   aardling-brand   --colour-*   aardling.eu   contact@aardling.eu
-```
-
-**The logotype is drawn, not spelled.** The mark sets AARDLING in capitals with the double-A
-ligature. That is lettering. It is not permission to set the name in capitals anywhere else —
-not in a heading, not in a navigation item, not in a slide title.
+6. Exception: the logotype sets AARDLING in capitals with the double-A ligature. That is
+   lettering, not spelling.
+7. The logotype is no permission to set the name in capitals anywhere else: not in a heading, a
+   navigation item or a slide title.
 
 ## Company names
-
-Four legal entities exist:
 
 - Aardling BV
 - Aardling Belgium BV
 - Aardling Netherlands BV
 - Aardling France SAS
 
-Use one only where the law or an accountant needs it: an imprint, a contract, an invoice,
-terms and conditions, a privacy policy, a VAT line. Everywhere else the brand name stands
-alone.
+1. Use an entity name only where the law or an accountant needs it: an imprint, a contract, an
+   invoice, terms and conditions, a privacy policy, a VAT line.
+2. Everywhere else the brand name stands alone.
+3. Never use an entity name in a headline, a deck, a byline or body copy.
 
 > Yes: Aardling ran the modelling workshop.
 >
 > No: Aardling BV ran the modelling workshop.
 
-An entity name never appears in a headline, a deck, a byline or body copy.
-
 ## Addresses
-
-Each entity's registered address. These are canonical: they settle a disagreement between the
-website's contact page and the archived database, and they replace both.
-
-Transcribe the street lines exactly: Tabakvest, Postbus and Rue Michel Servet stay as they
-are. Place names follow the rule in `voice.md` and take their English form where one exists,
-which is why these read "Antwerp" and not "Antwerpen". Hoorn and Lille have no English form and
-are unchanged. Note that Aardling BV and Aardling Belgium BV share a building and differ only by
-bus number.
 
 ```
 Aardling BV
@@ -75,8 +60,13 @@ Aardling France SAS
 France
 ```
 
-An address appears only where an entity name does — an imprint, a contract, an invoice, terms
-and conditions, a privacy policy. Never in a headline, a deck, a byline or body copy.
-
-**Registration and VAT numbers are still not carried here.** The addresses above are settled;
-the numbers are not. Take those from the register or from finance.
+1. These registered addresses are canonical. They replace the website's contact page and the
+   archived database.
+2. Transcribe the street lines exactly: Tabakvest, Postbus and Rue Michel Servet stay as they are.
+3. Place names take their English form where one exists: Antwerp, not Antwerpen. Hoorn and Lille
+   have none. See `voice.md`.
+4. Aardling BV and Aardling Belgium BV share a building and differ only by bus number.
+5. An address appears only where an entity name does: an imprint, a contract, an invoice, terms
+   and conditions, a privacy policy. Never in a headline, a deck, a byline or body copy.
+6. Registration and VAT numbers are not carried here. Take them from the register or from
+   finance.

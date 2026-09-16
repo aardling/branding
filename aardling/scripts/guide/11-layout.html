@@ -5,9 +5,7 @@
     <span class="eyebrow eyebrow-path">guidelines/layout.md</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Spacing is specified, never implied</h2>
-    <p class="small">The scale is 8px steps. Nine are published, every one has a job, and each is shown
-      here at size.</p>
+    <h2 class="title">Spacing</h2>
 
     <div class="stack-tight">
       <div class="spacing-row"><span class="token">--space-1</span><span>8px</span><span class="bar" style="width:8px"></span></div>
@@ -23,21 +21,23 @@
 
     <table>
       <tbody>
-        <tr><td style="width: 96px"><span class="token">--space-1</span></td><td>Gap inside a control: between an icon and its label.</td></tr>
-        <tr><td><span class="token">--space-2</span></td><td>Gap between closely related things: a label and its field, items in a list.</td></tr>
-        <tr><td><span class="token">--space-3</span></td><td>Grid gutter up to 1400px. Paragraph rhythm in running prose.</td></tr>
-        <tr><td><span class="token">--space-4</span></td><td>Grid gutter above 1400px. Padding inside a card.</td></tr>
-        <tr><td><span class="token">--space-6</span></td><td>Vertical padding of a coloured section, below 720px.</td></tr>
-        <tr><td><span class="token">--space-8</span></td><td>Top and bottom of a hero, below 960px.</td></tr>
-        <tr><td><span class="token">--space-10</span></td><td>Vertical padding of a coloured section, from 720px.</td></tr>
-        <tr><td><span class="token">--space-12</span></td><td>Vertical padding of a coloured section, from 960px.</td></tr>
-        <tr><td><span class="token">--space-18</span></td><td>Top of a detail-page hero, from 960px.</td></tr>
+        <tr><td style="width: 96px"><span class="token">--space-1</span></td><td>Gap inside a control: icon to label.</td></tr>
+        <tr><td><span class="token">--space-2</span></td><td>Closely related things: label and field, list items.</td></tr>
+        <tr><td><span class="token">--space-3</span></td><td>Grid gutter up to 1400px. Paragraph rhythm in prose.</td></tr>
+        <tr><td><span class="token">--space-4</span></td><td>Grid gutter above 1400px. Card padding.</td></tr>
+        <tr><td><span class="token">--space-6</span></td><td>Coloured section vertical padding, below 720px.</td></tr>
+        <tr><td><span class="token">--space-8</span></td><td>Hero top and bottom, below 960px.</td></tr>
+        <tr><td><span class="token">--space-10</span></td><td>Coloured section vertical padding, from 720px.</td></tr>
+        <tr><td><span class="token">--space-12</span></td><td>Coloured section vertical padding, from 960px.</td></tr>
+        <tr><td><span class="token">--space-18</span></td><td>Detail-page hero top, from 960px.</td></tr>
       </tbody>
     </table>
 
-    <p class="meta"><strong>Prefer the larger step when two look plausible.</strong> Lay sibling
-      groups out with flex or grid and <span class="token">gap</span> — not margins on children, and not
-      whitespace in the source.</p>
+    <ol class="small gap-top">
+      <li>The scale is 8px steps. Use only these nine.</li>
+      <li>When two steps look plausible, take the larger.</li>
+      <li>Lay sibling groups out with flex or grid and <span class="token">gap</span>. Not margins on children, not whitespace in the source.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Layout</span><span class="folio"></span>
@@ -48,19 +48,22 @@
 <section class="page">
   <div class="page-head">
     <span class="eyebrow">Layout</span>
-    <span class="eyebrow">Radii, controls, containers</span>
+    <span class="eyebrow">Radii and controls</span>
   </div>
   <div class="page-body">
-    <h2 class="title">Three radii, and no more</h2>
+    <h2 class="title">Radii</h2>
 
     <div class="radii">
       <div class="radius-demo" style="border-radius: var(--radius-sm)">8px</div>
       <div class="radius-demo" style="border-radius: var(--radius-md)">24px</div>
       <div class="radius-demo" style="border-radius: var(--radius-pill)">60px</div>
     </div>
-    <p class="small"><span class="token">--radius-sm</span> for tooltips, tags and swatches;
-      <span class="token">--radius-md</span> for cards, panels and image containers; <span class="token">--radius-pill</span>
-      for buttons and pills.</p>
+    <ol class="small">
+      <li>Three radii. No others.</li>
+      <li><span class="token">--radius-sm</span>: tooltips, tags, swatches, form controls.</li>
+      <li><span class="token">--radius-md</span>: cards, panels, section blocks, image containers.</li>
+      <li><span class="token">--radius-pill</span>: buttons and pills.</li>
+    </ol>
 
     <hr class="rule gap-top">
 
@@ -69,9 +72,10 @@
       <span class="btn">Get in touch</span>
       <span class="btn btn-hover">Get in touch</span>
     </div>
-    <p class="small"><span class="token">--space-1</span> gap, 12px vertical and 24px horizontal
-      padding, pill radius, never less than 44px high — a minimum for anything tappable, not a
-      target to design down to.</p>
+    <ol class="small">
+      <li><span class="token">--space-1</span> gap, 12px vertical and 24px horizontal padding, pill radius.</li>
+      <li>Never less than 44px high: a minimum for anything tappable, not a target to design down to.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Layout</span><span class="folio"></span>
@@ -98,12 +102,12 @@
       </tbody>
     </table>
 
-    <p class="meta">Page side margins are <span class="token">--page-margin</span> — 28px — below 540px, and
-      the container above it. 28px is the one published value in this brand that is not on the 8px
-      ladder; it is inherited from the website and kept so that nothing reflows.
-      <span class="token">xl</span> at 1140px was declared and never used by anything, so it and its
-      container are retired. Every query is <span class="token">min-width</span>: the Web section, from
-      page {{FOLIO:web}}, lists the six that remain and says what each one moves.</p>
+    <ol class="small gap-top">
+      <li>Page side margins are <span class="token">--page-margin</span> (28px) below 540px, and the container above it.</li>
+      <li>28px is the one published value off the 8px ladder.</li>
+      <li><span class="token">xl</span> (1140px) and its container are retired.</li>
+      <li>Every query is <span class="token">min-width</span>. What each breakpoint moves: see page {{FOLIO:web}}.</li>
+    </ol>
   </div>
   <div class="page-foot">
     <span>Aardling brand guide</span><span>Layout</span><span class="folio"></span>
@@ -117,9 +121,10 @@
     <span class="eyebrow">Protected terms, and text on images</span>
   </div>
   <div class="page-body">
-    <h2 class="title">A protected term sits on one line</h2>
-    <p class="small">Every break opportunity inside it is suppressed, at spaces and at hyphens
-      alike. "<span class="nowrap">Domain-Driven Design</span>" is one concept and has to look like one.</p>
+    <h2 class="title">Protected terms</h2>
+    <ol class="small">
+      <li>A protected term sits on one line. Suppress every break inside it, at spaces and hyphens.</li>
+    </ol>
 
     <div class="cols">
       <div class="card card-pink">
@@ -141,25 +146,23 @@
       <span class="nowrap">Team Topologies</span> &nbsp;·&nbsp; <span class="nowrap">Data Mesh</span> &nbsp;·&nbsp;
       <span class="nowrap">Aardling</span></p>
 
-    <p class="meta">In markup, wrap the whole term in a single span with
-      <span class="token">white-space: nowrap</span> — one span covers the spaces and the hyphens at once. In
-      plain text, use a non-breaking space between the words <em>and</em> a non-breaking hyphen,
-      but prefer the span wherever markup exists: U+2011 is missing from many fonts, Voyage
-      included. If a term does not fit the line, the line is wrong, not the term.</p>
+    <ol class="small">
+      <li>In markup, wrap the whole term in one span with <span class="token">white-space: nowrap</span>.</li>
+      <li>In plain text, use U+00A0 between the words <em>and</em> U+2011 for the hyphen.</li>
+      <li>Prefer the span wherever markup exists. U+2011 is missing from many fonts, Voyage included.</li>
+      <li>If a term does not fit the line, change the line: reflow, widen the column, or set the type smaller.</li>
+    </ol>
 
     <hr class="rule gap-top">
 
     <div class="card card-pink">
-      <p class="subhead">Never text on top of an image</p>
-      <p class="small gap-top">Not over photographs, not over illustrations, and not with a scrim, a
-        blur or a gradient overlay to rescue it. The alternatives, in order of preference: text
-        beside the image; text on a solid panel adjacent to it; the image reduced to an accent.</p>
-      <p class="small gap-top">The current website breaks this — the default hero sets the h1 over a
-        cover photograph — and so do several mockups in the original brand guide. Those layouts are
-        wrong and change; the rule does not bend for them.</p>
-      <p class="small gap-top">The single exception is the gradient licence in the Imagery section,
-        from page {{FOLIO:imagery}}, and it is narrow: a gradient is a measured field, an
-        illustration is not.</p>
+      <p class="subhead">Text on images</p>
+      <ol class="small gap-top">
+        <li>Never text on a photograph or illustration, even with a scrim, blur or gradient overlay.</li>
+        <li>Alternatives, in order: text beside the image; text on an adjacent solid panel; the image reduced to an accent.</li>
+        <li>The website's default hero and several original guide mockups break this. They change.</li>
+        <li>Only exception: a mark or a single heading on a gradient. See page {{FOLIO:imagery}}.</li>
+      </ol>
     </div>
   </div>
   <div class="page-foot">
